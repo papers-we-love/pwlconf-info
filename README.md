@@ -1,6 +1,6 @@
 # PWLConf 2016
 
-<img src="http://pwlconf.org/images/conf_logo_b.svg" title="PWLConf 2016 logo" align="right" width="300px" height="300px" />
+<img src="https://github.com/papers-we-love/pwlconf2016/blob/master/assets/conf_logo_b.svg" title="PWLConf 2016 logo" align="right" width="300px" height="300px" />
 
 #### September 15, 2016 - St. Louis, MO
 
