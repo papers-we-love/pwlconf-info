@@ -10,12 +10,12 @@ Each talk was recorded and captioned. We've assembled all of the available mater
 
 ### 2016 Speakers / Talks
 
-- [**Dahlia Malki** / Randomized Gossip Methods](https://github.com/papers-we-love/pwlconf2016/blob/master/speakers/dahlia-malkhi.md)
-- [**Nobuko Yoshida** / Multiparty Session Types and their Applications to Concurrent and Distributed Systems](https://github.com/papers-we-love/pwlconf2016/blob/master/speakers/nobuko-yoshida.md)
-- [**Marius Watz** / Abuse of an Algorithm Comes as No Suprise](https://github.com/papers-we-love/pwlconf2016/blob/master/speakers/marius-watz.md)
-- [**Claire Le Goues** / Automatic Patch Generation](https://github.com/papers-we-love/pwlconf2016/blob/master/speakers/claire-legoues.md)
-- [**Justine Sherry** / Design Philosophy in Networked Systems](https://github.com/papers-we-love/pwlconf2016/blob/master/speakers/justine-sherry.md)
-- [**Casey Muratori** / Papers I Have Loved](https://github.com/papers-we-love/pwlconf2016/blob/master/speakers/casey-muratori.md)
+- [**Dahlia Malki** / Randomized Gossip Methods](https://github.com/papers-we-love/pwlconf2016/blob/master/dahlia-malkhi)
+- [**Nobuko Yoshida** / Multiparty Session Types and their Applications to Concurrent and Distributed Systems](https://github.com/papers-we-love/pwlconf2016/blob/master/nobuko-yoshida)
+- [**Marius Watz** / Abuse of an Algorithm Comes as No Suprise](https://github.com/papers-we-love/pwlconf2016/blob/master/marius-watz)
+- [**Claire Le Goues** / Automatic Patch Generation](https://github.com/papers-we-love/pwlconf2016/blob/master/claire-legoues)
+- [**Justine Sherry** / Design Philosophy in Networked Systems](https://github.com/papers-we-love/pwlconf2016/blob/master/justine-sherry)
+- [**Casey Muratori** / Papers I Have Loved](https://github.com/papers-we-love/pwlconf2016/blob/master/casey-muratori)
 
 ### Papers We Love
 
