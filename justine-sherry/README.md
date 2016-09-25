@@ -10,6 +10,8 @@ We will start with some technical themes: How do low-level systems choices impac
 
 We will end with some human themes: How do low-level systems choices reflect moral choices that impact high level societal tussles?
 
+**[VIDEO: Design Philosophy in Networked Systems](https://goo.gl/8arL2G)**
+
 ### Referenced Papers
 
 - [Design Philosophy of the Darpa Internet Protocols](http://ccr.sigcomm.org/archive/1995/jan95/ccr-9501-clark.pdf)

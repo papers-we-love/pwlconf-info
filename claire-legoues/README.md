@@ -6,6 +6,8 @@ Research in automated program patching seeks to improve programs by, e.g., fixin
 
 In this talk I will discuss the progression of the area of automated bug repair in particular. I will especially focus on the key challenge of assuring, measuring, and reasoning about the quality of bug-fixing patches. Most such techniques, whether heuristic or semantic, rely on test cases to validate transformation correctness, in the absence of formal correctness specifications, but otherwise vary in the way they construct candidate patches and traverse the infinite space of possibilities. I will outline recent results on the relationship between test suite quality and origin and output quality, with observations about both semantic and heuristic approaches. I will conclude with a discussion of potentially promising future directions and open questions.
 
+**[VIDEO: Automatic Patch Generation](https://goo.gl/i8Q76L)**
+
 ### Referenced Papers
 
 - [Automatic Program Repair with Evolutionary Computation](https://www.cs.virginia.edu/~weimer/p/p109-weimer.pdf)
