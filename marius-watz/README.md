@@ -10,6 +10,8 @@ An informal survey of current trends, concerns and facepalms, this presentation 
 
 This talk follows up ideas from a controversial 2012 blog post titled "[The Algorithm Thought Police](http://mariuswatz.com/mwatztumblrcom/the-algorithm-thought-police.html)", followed up in at [a talk at the Eyeo Festival](https://vimeo.com/46903693) in Minneapolis the same year.
 
+**[VIDEO: Abuse of an Algorithm Comes as No Surprise](https://goo.gl/zAc2Ql)**
+
 ### Referenced Papers
 
 - [The Algorithm Thought Police](http://mariuswatz.com/mwatztumblrcom/the-algorithm-thought-police.html)

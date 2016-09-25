@@ -13,6 +13,9 @@ The first, Rumor Mongering, spreads gossip in each call. This protocol was inven
 The second, Name Dropper, pushes new neighbors in each call. This protocol was developed at Akamai for network discovery in a partially connected network.
 
 The third, SWIM, pulls a heartbeat in each call. This mechanism was developed at Cornell University in order to implement scalable failure detection.
+
+**[VIDEO: Randomized Gossip Methods](https://goo.gl/7nBhLF)**
+
 ### Referenced Papers
 
 - [Epidemic algorithms for replicated database maintenance](https://www.cis.upenn.edu/~bcpierce/courses/dd/papers/demers-epidemic.pdf)
