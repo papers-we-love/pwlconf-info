@@ -1,6 +1,6 @@
 # PWLConf 2017
 
-<img src="" title="PWLConf 2017 logo" align="right" width="300px" height="300px" />
+<img src="pwlconf-2017@2x.png" title="PWLConf 2017 logo" align="right" width="300px" height="300px" />
 
 
 The second annual PWLConf took place on September 28, 2017 in St. Louis, MO, co-located with []Strange Loop](https://thestrangeloop.com). Each talk was recorded and captioned. We've assembled all of the available materials here as an archive. Each speaker has an entry in the repo which contains the abstract for their talk, the video, and slide decks if available.
