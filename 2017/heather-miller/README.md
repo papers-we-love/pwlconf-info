@@ -8,10 +8,10 @@ Nowadays, most programs we write are in some sense distributed—making HTTP req
 
 ### Referenced Papers
 
-[Programming Models for Distributed Computation](http://heather.miller.am/teaching/cs7680/)
-[Distributed Programming in Argus](Distributed Programming in Argus)
-[Distribution and Abstract Types in Emerald](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.147.3932&rep=rep1&type=pdf)
-[The Linda alternative to message-passing systems](http://heather.miller.am/teaching/cs7680/pdfs/Linda-Alternative-to-Message-Passing.pdf)
-[Scala Actors: Unifying thread-based and event-based programming](https://pdfs.semanticscholar.org/a376/4c0986b0eecab2922c26a0472e83d17d4431.pdf)
-[Towards Haskell in the Cloud](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/07/remote.pdf)
-[Lasp: A Language for Distributed, Coordination-Free Programming](https://www.info.ucl.ac.be/~pvr/ppdp-2015-cr.pdf)
+* [Programming Models for Distributed Computation](http://heather.miller.am/teaching/cs7680/)
+* [Distributed Programming in Argus](Distributed Programming in Argus)
+* [Distribution and Abstract Types in Emerald](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.147.3932&rep=rep1&type=pdf)
+* [The Linda alternative to message-passing systems](http://heather.miller.am/teaching/cs7680/pdfs/Linda-Alternative-to-Message-Passing.pdf)
+* [Scala Actors: Unifying thread-based and event-based programming](https://pdfs.semanticscholar.org/a376/4c0986b0eecab2922c26a0472e83d17d4431.pdf)
+* [Towards Haskell in the Cloud](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/07/remote.pdf)
+* [Lasp: A Language for Distributed, Coordination-Free Programming](https://www.info.ucl.ac.be/~pvr/ppdp-2015-cr.pdf)
