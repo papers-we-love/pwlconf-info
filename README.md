@@ -1,21 +1,19 @@
-# PWLConf 2016
+# PWLConf 2017
 
-<img src="http://images.v25media.com/conf_logo_b.svg" title="PWLConf 2016 logo" align="right" width="300px" height="300px" />
+<img src="" title="PWLConf 2017 logo" align="right" width="300px" height="300px" />
 
-#### September 15, 2016 - St. Louis, MO
 
-The inaugural Papers We Love Conference (PWLConf) took place this year as part of [Strangeloop's pre-conference lineup](http://www.thestrangeloop.com/preconf.html). Capping three years of Papers We Love meetups across the globe, PWLConf was a culmination of all the hard work our chapter organizers and speakers have been putting in since May 2013. With a diverse set of speakers we were able to bring a vibrant program to attendees, showcasing the wide array of ideas at play in the academic research, engineering and creative communities those speakers represent.
+The second annual PWLConf took place on September 28, 2017 in St. Louis, MO, co-located with []Strange Loop](https://thestrangeloop.com). Each talk was recorded and captioned. We've assembled all of the available materials here as an archive. Each speaker has an entry in the repo which contains the abstract for their talk, the video, and slide decks if available.
 
-Each talk was recorded and captioned. We've assembled all of the available materials here as an archive. Each speaker has an entry in the repo which contains the abstract for their talk, the video, and slide decks if available.
+### 2017 Speakers / Talks
 
-### 2016 Speakers / Talks
-
-- [**Dahlia Malki** / Randomized Gossip Methods](https://github.com/papers-we-love/pwlconf2016/blob/master/dahlia-malkhi)
-- [**Nobuko Yoshida** / Multiparty Session Types and their Applications to Concurrent and Distributed Systems](https://github.com/papers-we-love/pwlconf2016/blob/master/nobuko-yoshida)
-- [**Marius Watz** / Abuse of an Algorithm Comes as No Suprise](https://github.com/papers-we-love/pwlconf2016/blob/master/marius-watz)
-- [**Claire Le Goues** / Automatic Patch Generation](https://github.com/papers-we-love/pwlconf2016/blob/master/claire-legoues)
-- [**Justine Sherry** / Design Philosophy in Networked Systems](https://github.com/papers-we-love/pwlconf2016/blob/master/justine-sherry)
-- [**Casey Muratori** / Papers I Have Loved](https://github.com/papers-we-love/pwlconf2016/blob/master/casey-muratori)
+- [**Kenichi Asai** / Delimited Continuations for Everyone](https://github.com/papers-we-love/pwlconf-info/tree/master/2017/kenich-asai)
+- [**Elaine Chew** / Decoding the Sensuality in Music](https://github.com/papers-we-love/pwlconf-info/tree/master/2017/elaine-chew)
+- [**James Long** / My History with Papers](https://github.com/papers-we-love/pwlconf-info/tree/master/2017/james-long)
+- [**Ronald Garcia** / What type of thing is a type?](https://github.com/papers-we-love/pwlconf-info/tree/master/2017/ronald-garcia)
+- [**Chas Emerick** / Programming data for display, the PDF Story](https://github.com/papers-we-love/pwlconf-info/tree/master/2017/chas-emerick)
+- [**Fabienne Serrière** / Knittable Seashells](https://github.com/papers-we-love/pwlconf-info/tree/master/2017/fabienne-serrière)
+- [**Heather Miller** / What happened to distributed programming languages?](https://github.com/papers-we-love/pwlconf-info/tree/master/2017/heather-miller)
 
 ### Papers We Love
 
