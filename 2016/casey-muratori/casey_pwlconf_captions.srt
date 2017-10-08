@@ -1,0 +1,4238 @@
+1
+00:00:05,490 --> 00:00:08,250
+my name is Casey Muratori, I'm a game developer.
+
+2
+00:00:08,250 --> 00:00:12,150
+As I could sort of tell from the last talk
+in the quality of service packets thing is
+
+3
+00:00:12,150 --> 00:00:18,810
+not the common person who's at this conference,
+so just to sort of give you some background
+
+4
+00:00:18,810 --> 00:00:23,670
+on the talk when they asked me to speak here,
+I was like, OK, that sounds cool, but what
+
+5
+00:00:23,670 --> 00:00:25,289
+do you want me to talk about?
+
+6
+00:00:25,289 --> 00:00:33,440
+And they were like, well, we just want to
+know like what do you guys do, have you used
+
+7
+00:00:33,440 --> 00:00:37,250
+research, how do you use it, give us some
+examples of times when you used research and
+
+8
+00:00:37,250 --> 00:00:41,890
+it's inspired you to do something cool, I
+think was the sort of the way that it was
+
+9
+00:00:41,890 --> 00:00:44,530
+phrased and so I was like, OK, I can do that.
+
+10
+00:00:44,530 --> 00:00:49,409
+So what I've done is I've picked three papers
+from way way back in history, well, way way
+
+11
+00:00:49,409 --> 00:00:56,449
+back in my history, for game development that
+are really pretty important, they're used
+
+12
+00:00:56,449 --> 00:00:58,070
+for a lot of things.
+
+13
+00:00:58,070 --> 00:01:00,580
+And which I had sort of a personal relationship
+with.
+
+14
+00:01:00,580 --> 00:01:03,530
+Like I read the papers and really loved them
+and then did some work in the gaming industry
+
+15
+00:01:03,530 --> 00:01:05,970
+that was related to them and I'm going to
+kind of go through those.
+
+16
+00:01:05,970 --> 00:01:12,109
+Now, my assumption is since it's not a gamer-centric
+conference.
+
+17
+00:01:12,109 --> 00:01:16,640
+I apologize for a game developer you're going
+to be like I already know this stuff already,
+
+18
+00:01:16,640 --> 00:01:22,210
+so what can I say in this is actually how
+my slides are looked.
+
+19
+00:01:22,210 --> 00:01:25,570
+This is kind of like you're coming in and
+I don't want you to be scared away but this
+
+20
+00:01:25,570 --> 00:01:31,869
+is actually what my slides are going to look.
+
+21
+00:01:31,869 --> 00:01:34,260
+You don't have to read the slides hardly at
+all.
+
+22
+00:01:34,260 --> 00:01:39,249
+They're usually just there for diagrams.
+
+23
+00:01:39,249 --> 00:01:43,649
+So from here on out I'm going to be very,
+very fast, I'm going to be going on 2X speed
+
+24
+00:01:43,649 --> 00:01:47,680
+on the little YouTube drop-down, because I'm
+assuming you're not going to go home and implement
+
+25
+00:01:47,680 --> 00:01:50,380
+these papers.
+
+26
+00:01:50,380 --> 00:01:55,469
+NORMA: Thank you very much.
+
+27
+00:01:55,469 --> 00:01:56,469
+I love that!
+
+28
+00:01:56,469 --> 00:01:58,969
+>> If you do, that's even better, come up
+and talk to me afterwards.
+
+29
+00:01:58,969 --> 00:02:05,850
+>> Which I'm old, so that's actually, you
+know, that was what, 18, 19, something at
+
+30
+00:02:05,850 --> 00:02:11,850
+the time, so it's actually not that long ago
+in sort of in my mental history but it probably
+
+31
+00:02:11,850 --> 00:02:14,610
+seems long for some of you who weren't even
+born then.
+
+32
+00:02:14,610 --> 00:02:21,590
+So in 1996 this is my first first job.
+
+33
+00:02:21,590 --> 00:02:26,190
+And the reason that I kind of wanted to start
+here is because ironically and for this conference,
+
+34
+00:02:26,190 --> 00:02:30,290
+it actually happened to be a job based entirely
+on a paper.
+
+35
+00:02:30,290 --> 00:02:34,140
+Now, this is not one of the papers I'm actually
+going to be talking about that I have loved.
+
+36
+00:02:34,140 --> 00:02:37,610
+Um aim not saying I don't love it it's just
+not one of the three.
+
+37
+00:02:37,610 --> 00:02:41,830
+If you've ever been to one of the fancy restaurants
+where they say there's going to be three courses
+
+38
+00:02:41,830 --> 00:02:47,860
+but then you order that and but then this
+thing comes out one of the courses this is
+
+39
+00:02:47,860 --> 00:02:58,560
+an amuse bouche, it's cream celery with a
+crouton, or something, I don't know what.
+
+40
+00:02:58,560 --> 00:03:13,900
+This is a paper called evolving virtual creatures
+by Karl Sims.
+
+41
+00:03:13,900 --> 00:03:18,450
+So what they did in this, you know, in this
+paper, I guess I shouldn't say they, because
+
+42
+00:03:18,450 --> 00:03:19,450
+I guess it was just he.
+
+43
+00:03:19,450 --> 00:03:26,360
+He actually made a system that sort of like
+simulates nature, like fer realz.
+
+44
+00:03:26,360 --> 00:03:40,630
+It's a 
+controller sort of graph thing that could
+
+45
+00:03:40,630 --> 00:03:48,550
+make the creature actually move its joints
+and they made a simulation and they could
+
+46
+00:03:48,550 --> 00:03:51,579
+run these virtual creatures through tests,
+right.
+
+47
+00:03:51,579 --> 00:03:54,980
+>> They could kind of give them things to
+do and see what they did.
+
+48
+00:03:54,980 --> 00:03:58,850
+Now the whole point of this thing was to simulate
+nature what they were doing is they would
+
+49
+00:03:58,850 --> 00:04:08,040
+randomly generate some of this DNA and they
+would let whatever creature popped out, just
+
+50
+00:04:08,040 --> 00:04:13,540
+stumble around, but they would then grade
+all of the random creatures on how well they
+
+51
+00:04:13,540 --> 00:04:16,449
+did, so for example, let's say that the creature
+needed to get from one end of the thing and
+
+52
+00:04:16,449 --> 00:04:25,570
+there was an obstacle in the middle right,
+and rank them.
+
+53
+00:04:25,570 --> 00:04:36,389
+They'd take the trees for morphologies and
+their brains and they would do a sexual reproduction
+
+54
+00:04:36,389 --> 00:04:44,430
+thing.
+
+55
+00:04:44,430 --> 00:04:49,819
+And shockingly as I'm saying this, I think
+was in 1993, 94, you should go look at paper
+
+56
+00:04:49,819 --> 00:04:54,130
+if you're interested in this stuff because
+it's a fun read.
+
+57
+00:04:54,130 --> 00:04:58,580
+I highly recommend looking at it if this piques
+your interest at all.
+
+58
+00:04:58,580 --> 00:05:04,190
+You would expect this to fail completely but
+actually it was pretty good, right?
+
+59
+00:05:04,190 --> 00:05:08,949
+The things that come out of it actually really
+neat and they can do a bunch of things like
+
+60
+00:05:08,949 --> 00:05:11,820
+following a light source or getting over an
+obstacle or something like that.
+
+61
+00:05:11,820 --> 00:05:13,349
+So it was actually pretty cool.
+
+62
+00:05:13,349 --> 00:05:20,889
+But what wasn't necessarily pretty cool somebody
+thought that it would be a good idea to make
+
+63
+00:05:20,889 --> 00:05:22,350
+a game based on that concept.
+
+64
+00:05:22,350 --> 00:05:27,050
+Now, in the abstract that's a good idea but
+when you think about the context in which
+
+65
+00:05:27,050 --> 00:05:30,069
+this paper was really implemented it was a
+CM5.
+
+66
+00:05:30,069 --> 00:05:35,500
+It was a supercomputer at that time, 32CPUs
+which is even high for today.
+
+67
+00:05:35,500 --> 00:05:45,379
+Well, it depends on what kind of gamer you
+are, but most of them don't and it took three
+
+68
+00:05:45,379 --> 00:05:49,550
+hours to run one of these things so if you
+think about what you were trying to do in
+
+69
+00:05:49,550 --> 00:06:00,020
+thaterra terms of turning this into a game
+it's a stupid idea and you only had ten seconds
+
+70
+00:06:00,020 --> 00:06:01,199
+or something, probably.
+
+71
+00:06:01,199 --> 00:06:08,330
+How long is a user going to wait?
+
+72
+00:06:08,330 --> 00:06:10,550
+No one's going to want to play that game,
+right?
+
+73
+00:06:10,550 --> 00:06:16,479
+So this was doomed to failure, but fortunately
+for me, that part wasn't my job.
+
+74
+00:06:16,479 --> 00:06:22,280
+My job in this particular context was to create
+the environments in which the creatures would
+
+75
+00:06:22,280 --> 00:06:25,490
+do whatever their thing is that they were
+going to do much and the mandate was sort
+
+76
+00:06:25,490 --> 00:06:30,039
+of that these environments would be organically,
+they would be like let's say we were making
+
+77
+00:06:30,039 --> 00:06:35,400
+viruses or something inside the human body
+so where these would play out would be inside
+
+78
+00:06:35,400 --> 00:06:40,490
+the human body or something that would felt
+if you were watching an episode of old cultural
+
+79
+00:06:40,490 --> 00:06:46,849
+references House, let's say, and they would
+zoom into the bloodstream.
+
+80
+00:06:46,849 --> 00:06:48,979
+It should look kind of like that, all right?
+
+81
+00:06:48,979 --> 00:06:51,830
+So that's what they told me to do and remember,
+I'm very little.
+
+82
+00:06:51,830 --> 00:06:56,720
+I wasn't actually, this is an age and experience
+thing, not a height thing, I didn't get this
+
+83
+00:06:56,720 --> 00:07:02,249
+short when I was 18, that would be weird,
+but point being, basically I didn't know very
+
+84
+00:07:02,249 --> 00:07:04,939
+much about research in any particular way.
+
+85
+00:07:04,939 --> 00:07:09,409
+I had not been to college, I don't really
+know what that means, but at this point they
+
+86
+00:07:09,409 --> 00:07:13,490
+said, well, you know constructive solid geometry
+is a thing that a lot of game engines are
+
+87
+00:07:13,490 --> 00:07:16,240
+using now, it's kind of a new thing.
+
+88
+00:07:16,240 --> 00:07:21,460
+There are games like Quake and Unreal and
+those sorts of things, and they were using
+
+89
+00:07:21,460 --> 00:07:28,580
+constructed solid geometry, but point being
+I was sort of told I was sort of told go look
+
+90
+00:07:28,580 --> 00:07:30,949
+at that because that's generally how levers
+are built.
+
+91
+00:07:30,949 --> 00:07:39,650
+Figure that out: I didn't know how to find
+papers or -- I had no idea and the internet
+
+92
+00:07:39,650 --> 00:07:43,629
+is this kind of like this blossoming flower
+at this point, right, it's kind of a thing
+
+93
+00:07:43,629 --> 00:07:50,360
+that well, you know, we have a 14-4 baud modem
+or whatever it was that at the time, it makes
+
+94
+00:07:50,360 --> 00:07:53,630
+the noise when you connect.
+
+95
+00:07:53,630 --> 00:07:56,249
+That's how you got into onto the internet
+if you weren't at a university or something
+
+96
+00:07:56,249 --> 00:08:00,080
+like that that had a serious connection so
+that's the kind of thing that we were doing.
+
+97
+00:08:00,080 --> 00:08:03,229
+And at that point, sightseer, I think had
+come up.
+
+98
+00:08:03,229 --> 00:08:08,330
+So the idea of going on the internet to find
+papers and thing like that was kind of exciting
+
+99
+00:08:08,330 --> 00:08:15,050
+and interesting.
+
+100
+00:08:15,050 --> 00:08:19,940
+And what happened was just kind of a fortuitous
+reading through papers oh, that looks interesting,
+
+101
+00:08:19,940 --> 00:08:24,289
+I found a paper that talked about something
+called alpha-shapes and I don't even know
+
+102
+00:08:24,289 --> 00:08:25,669
+how to search any more.
+
+103
+00:08:25,669 --> 00:08:33,370
+I tried halfheartedly to see if I could dig
+it up, but I couldn't.
+
+104
+00:08:33,370 --> 00:08:36,789
+Basically they were talking about the concept
+that when I have two shapes and I want to
+
+105
+00:08:36,789 --> 00:08:41,490
+kind of merge them together, couldn't I do
+something that made them kind of blobbily
+
+106
+00:08:41,490 --> 00:08:43,699
+go together instead of rigidly going together?
+
+107
+00:08:43,699 --> 00:08:46,610
+If you look at this drawing.
+
+108
+00:08:46,610 --> 00:08:51,019
+The one on the top is the kind of the blobby
+coming together and you can imagine in your
+
+109
+00:08:51,019 --> 00:08:55,690
+mind the difference between that if you took
+two circles and put them over each other,
+
+110
+00:08:55,690 --> 00:09:01,110
+you get kind of a cusp where they intersect
+and that's not very organic.
+
+111
+00:09:01,110 --> 00:09:06,470
+Unless you're talking about a tusk or something
+like this, usually they kind of blob together
+
+112
+00:09:06,470 --> 00:09:10,520
+and certainly the things we were looking that
+inside the human body, you would expect these
+
+113
+00:09:10,520 --> 00:09:15,600
+smoothness necessary and I'm like, oh, man,
+this could be perfect for what I want to do
+
+114
+00:09:15,600 --> 00:09:24,760
+and for those of you who don't remember what
+anyone Terminator 2 or is that way too far
+
+115
+00:09:24,760 --> 00:09:25,760
+back?
+
+116
+00:09:25,760 --> 00:09:27,570
+OK, a couple of people.
+
+117
+00:09:27,570 --> 00:09:32,300
+So there's this weird cyborg metallic guy
+ready to conform into things.
+
+118
+00:09:32,300 --> 00:09:35,850
+And occasionally he freezes and he shatters.
+
+119
+00:09:35,850 --> 00:09:42,510
+And things turn into the blobs and they get
+closer together and they kind of suck into
+
+120
+00:09:42,510 --> 00:09:46,100
+each other like mercury if you've ever seen
+that happen.
+
+121
+00:09:46,100 --> 00:09:51,470
+So that is what this paper led to me to.
+
+122
+00:09:51,470 --> 00:09:55,899
+Alpha-shapes are guess not that interesting
+or whatever because most of the literature
+
+123
+00:09:55,899 --> 00:10:01,079
+on doing those actual kinds of things with
+surfaces was in the implicit surface literature.
+
+124
+00:10:01,079 --> 00:10:02,450
+That's what it's called.
+
+125
+00:10:02,450 --> 00:10:08,610
+Implicit surfaces will give you an idea of
+what they do now, because if you're not familiar
+
+126
+00:10:08,610 --> 00:10:12,069
+with grames or graphics you've probably never
+heard of them or don't care about them.
+
+127
+00:10:12,069 --> 00:10:18,820
+But instead of modeling with things concretely
+which is kind of what we're more used to do
+
+128
+00:10:18,820 --> 00:10:25,290
+with most software packages would experience,
+if you're in something like Adobe Illustrator
+
+129
+00:10:25,290 --> 00:10:31,130
+or something like that, I'm making solid shapes
+and I'm saying this is exactly the solid shape
+
+130
+00:10:31,130 --> 00:10:33,500
+that I want and then I'm done, right?
+
+131
+00:10:33,500 --> 00:10:46,670
+But implicit shapes are modeling with more
+many energy fields that they give off that's
+
+132
+00:10:46,670 --> 00:10:50,139
+the actual thing I'm modeling with and what
+happens when you move two of these shapes
+
+133
+00:10:50,139 --> 00:10:52,580
+together you get constructive interference.
+
+134
+00:10:52,580 --> 00:11:00,271
+So as their energy fields overlap something
+happens in there -- point being if I want
+
+135
+00:11:00,271 --> 00:11:05,329
+to define a surface, like an actual thing
+that I modeled from this kind of a thing,
+
+136
+00:11:05,329 --> 00:11:11,880
+I can simply say, let's find where the energy
+equals some number, and I can pick out kind
+
+137
+00:11:11,880 --> 00:11:14,029
+of a band as it goes, right?
+
+138
+00:11:14,029 --> 00:11:18,410
+And you can see, you know, where that constructive
+interference was, everything else kind of
+
+139
+00:11:18,410 --> 00:11:22,690
+follows the shapes exactly, but where the
+constructive interferes is, you can see that
+
+140
+00:11:22,690 --> 00:11:27,130
+you get that curvature and the reason is because
+those fields are adding together, they're
+
+141
+00:11:27,130 --> 00:11:34,889
+creating like an additive constructive interference
+that creates the bending.
+
+142
+00:11:34,889 --> 00:11:38,160
+That in my mind I was like, that's where we
+want to go to get that field, right.
+
+143
+00:11:38,160 --> 00:11:43,750
+There's something I want to say that's relevant
+to the rest of this which is that when you
+
+144
+00:11:43,750 --> 00:11:48,060
+have a definition like this, you end up with
+some interesting things that just sort of
+
+145
+00:11:48,060 --> 00:11:49,730
+magically happen.
+
+146
+00:11:49,730 --> 00:11:54,940
+One of the things that is actually very difficult
+to do.
+
+147
+00:11:54,940 --> 00:11:58,720
+One of the things that might be a little bit
+difficult to do if you have a traditional
+
+148
+00:11:58,720 --> 00:12:02,509
+definition of a shape or a surface or something
+like that is to say what is inside the surface
+
+149
+00:12:02,509 --> 00:12:05,490
+and what is outside of the surface and one
+of the reasons is because the surface might
+
+150
+00:12:05,490 --> 00:12:08,780
+not be complete.
+
+151
+00:12:08,780 --> 00:12:12,470
+Even if you know that the surface is completely
+closed, and you want to ask a question like
+
+152
+00:12:12,470 --> 00:12:17,160
+am I inside it, or am I outside it, then you
+have these problems of like, OK, I have to
+
+153
+00:12:17,160 --> 00:12:21,470
+do start doing intersection testing and there's
+robustness problems.
+
+154
+00:12:21,470 --> 00:12:28,149
+And all these other sorts of things, right,
+but with an implicit surface definition it's
+
+155
+00:12:28,149 --> 00:12:32,259
+actually extremely easy to know whether you're
+inside or out, because the whole definition
+
+156
+00:12:32,259 --> 00:12:38,839
+of surface is based on some kind of a field
+like this, so at any point you know, if I'm
+
+157
+00:12:38,839 --> 00:12:44,129
+outside, if I'm inside, or if I'm on the surface,
+because the definition directly gives you
+
+158
+00:12:44,129 --> 00:12:47,800
+that information, so it kind of flips the
+model around.
+
+159
+00:12:47,800 --> 00:12:55,370
+It turns out that it's exactly inverse, with
+an implicit function or an implicit surface,
+
+160
+00:12:55,370 --> 00:12:58,850
+I know whether I'm inside or outside at any
+point in the world.
+
+161
+00:12:58,850 --> 00:13:04,750
+But what is difficult is to define the entire
+surface.
+
+162
+00:13:04,750 --> 00:13:06,350
+Because all I know.
+
+163
+00:13:06,350 --> 00:13:13,670
+I know exactly what the shell is, but I have
+to do real work to figure out whether I'm
+
+164
+00:13:13,670 --> 00:13:18,839
+inside of it or outside of T for those of
+you who like mathy sorts of things.
+
+165
+00:13:18,839 --> 00:13:21,310
+These are not difficult math.
+
+166
+00:13:21,310 --> 00:13:27,310
+The math for implicit surfaces is basically
+trivial.
+
+167
+00:13:27,310 --> 00:13:28,720
+All they are is field ex functions.
+
+168
+00:13:28,720 --> 00:13:36,930
+They sake some point in space and they produce
+some real value, like a scaler out the other
+
+169
+00:13:36,930 --> 00:13:39,990
+end and that scaler is kind of the energy
+that I was referring to, so at any point in
+
+170
+00:13:39,990 --> 00:13:46,329
+space, and it doesn't matter if it's 2D, 3D,
+1D, 9D, it doesn't matter, it's some point
+
+171
+00:13:46,329 --> 00:13:51,730
+where you're inputting at the space that you're
+talking about, and out comes that value, right?
+
+172
+00:13:51,730 --> 00:13:58,879
+Now, oftentimes I should point out the value.
+
+173
+00:13:58,879 --> 00:14:05,170
+We can pick what energy level we use to figure
+out what the surface is that we actually want,
+
+174
+00:14:05,170 --> 00:14:09,769
+and, well, you know, actually if you care
+about the math of it at all that's not really
+
+175
+00:14:09,769 --> 00:14:14,420
+how it works, when you pick that energy level,
+you usually end up kind of making a new function
+
+176
+00:14:14,420 --> 00:14:16,819
+where you subtract that energy level away.
+
+177
+00:14:16,819 --> 00:14:21,690
+Because it's always more convenient to talk
+about 0 as being the solution, right?
+
+178
+00:14:21,690 --> 00:14:26,129
+So you kind of want to talk about 0 as being
+where the surface is, so we end up with convention
+
+179
+00:14:26,129 --> 00:14:33,079
+where when I input something into that function,
+when I get 0 out I am exactly on the surface,
+
+180
+00:14:33,079 --> 00:14:36,160
+greater than 0 inside the surface and less
+than 0, outside.
+
+181
+00:14:36,160 --> 00:14:38,000
+Did I say that right?
+
+182
+00:14:38,000 --> 00:14:41,830
+Hopefully I did, if not, the slide is right.
+
+183
+00:14:41,830 --> 00:14:43,910
+Don't listen to me.
+
+184
+00:14:43,910 --> 00:14:45,769
+Once again those of you who love math.
+
+185
+00:14:45,769 --> 00:14:50,759
+It's so simple.
+
+186
+00:14:50,759 --> 00:14:52,220
+One of the most common ones is metaballs.
+
+187
+00:14:52,220 --> 00:14:55,480
+Which is a point feeling, right?
+
+188
+00:14:55,480 --> 00:15:01,580
+And the way that those are implemented is
+just 1 over the distance.
+
+189
+00:15:01,580 --> 00:15:02,580
+That's it.
+
+190
+00:15:02,580 --> 00:15:05,861
+Like if I want to know a point in space how
+much is it influenced, how much energy does
+
+191
+00:15:05,861 --> 00:15:09,889
+this meta ball contribute it's just one over
+the distance of the borrel, right?
+
+192
+00:15:09,889 --> 00:15:16,300
+Nobody ever uses that so usually you use something
+else that just fitted to that function, but
+
+193
+00:15:16,300 --> 00:15:18,890
+it's basically that.
+
+194
+00:15:18,890 --> 00:15:24,300
+Really, really really simple math for the
+implicit function but for the part that wasn't
+
+195
+00:15:24,300 --> 00:15:28,470
+so simple until this paper, right, is that
+we assume as essentially have three steps
+
+196
+00:15:28,470 --> 00:15:29,470
+to this thing if.
+
+197
+00:15:29,470 --> 00:15:38,600
+If 
+I want to get out the actual surface, right,
+
+198
+00:15:38,600 --> 00:15:39,670
+then I have a problem.
+
+199
+00:15:39,670 --> 00:15:44,860
+In Step 1, I can trivially just take as many
+implicit surfaces as I want so I can add them
+
+200
+00:15:44,860 --> 00:15:48,970
+all together.
+
+201
+00:15:48,970 --> 00:15:52,230
+And they don't have to be meta balls, they
+can be anything, any function you can imagine
+
+202
+00:15:52,230 --> 00:16:00,110
+that goes FXYZ because all I need at the end
+of the day is a scaler, right?
+
+203
+00:16:00,110 --> 00:16:05,759
+And step 3, if we leave out magic Step 2 is
+I have the actual surface.
+
+204
+00:16:05,759 --> 00:16:11,209
+I have something that I could feed into a
+standard open geo.
+
+205
+00:16:11,209 --> 00:16:12,819
+OBJ.
+
+206
+00:16:12,819 --> 00:16:22,019
+I -- something you can output into a PLY file,
+let's say that.
+
+207
+00:16:22,019 --> 00:16:26,620
+OK, so that's where the first paper I've loved
+comes in, it's called marching cubes and it's
+
+208
+00:16:26,620 --> 00:16:33,950
+got a really long subtitle.
+
+209
+00:16:33,950 --> 00:16:36,980
+But this is the paper.
+
+210
+00:16:36,980 --> 00:16:44,779
+It's by Lorensen and Kline.
+
+211
+00:16:44,779 --> 00:16:49,009
+But it's a way of filling in that missing
+Step 2, where all the question marks were,
+
+212
+00:16:49,009 --> 00:16:50,009
+OK?
+
+213
+00:16:50,009 --> 00:16:53,290
+Now, here is how the paper works, OK?
+
+214
+00:16:53,290 --> 00:16:57,089
+I need to figure out some way, something to
+get some traction on this problem.
+
+215
+00:16:57,089 --> 00:17:02,800
+I have an entire world filled of values that
+I can evaluate, but I have no idea where the
+
+216
+00:17:02,800 --> 00:17:07,140
+surface actually is, and furthermore, if you
+think about what happens, assuming that it
+
+217
+00:17:07,140 --> 00:17:14,240
+is just a surface, a 2D surface, right, embedded
+in a 3D space, takes up almost none of the
+
+218
+00:17:14,240 --> 00:17:15,240
+space.
+
+219
+00:17:15,240 --> 00:17:19,159
+That's kind of how 2D -- volume squared is
+always much lower than cubed, no matter what
+
+220
+00:17:19,159 --> 00:17:21,909
+the value that you picked unless you're less
+than 1.
+
+221
+00:17:21,909 --> 00:17:26,079
+So anyway, you kind of have this problem of
+the chances of you randomly finding the surface
+
+222
+00:17:26,079 --> 00:17:32,970
+is none.
+
+223
+00:17:32,970 --> 00:17:35,350
+So usually you're going to get some other
+points.
+
+224
+00:17:35,350 --> 00:17:39,150
+So we kind of need to figure out just to get
+some traction on the problem, how do I even
+
+225
+00:17:39,150 --> 00:17:40,409
+know where a 0 is?
+
+226
+00:17:40,409 --> 00:17:43,409
+Just give me something to work with here,
+right?
+
+227
+00:17:43,409 --> 00:17:49,380
+And so what I can do is pick two random points
+anywhere in the field that I want to.
+
+228
+00:17:49,380 --> 00:17:52,640
+And I could evaluate the surface at those
+two points.
+
+229
+00:17:52,640 --> 00:17:53,640
+That's trivial to do.
+
+230
+00:17:53,640 --> 00:17:55,980
+I said it's easy math.
+
+231
+00:17:55,980 --> 00:17:59,090
+Put in XYZ, out comes the scaler and we're
+done.
+
+232
+00:17:59,090 --> 00:18:04,530
+So there's only three cases that can happen
+when I do that the first case is that they
+
+233
+00:18:04,530 --> 00:18:10,690
+both return positive values, which means they're
+both inside the surface, right the other case
+
+234
+00:18:10,690 --> 00:18:14,840
+is they could be both outside the surface
+and in both of those cases right, they both
+
+235
+00:18:14,840 --> 00:18:21,390
+return less than 0, in both of those cases
+I have learned absolutely nothing about what
+
+236
+00:18:21,390 --> 00:18:25,390
+happens in between these two points and the
+reason I have learned nothing about that is
+
+237
+00:18:25,390 --> 00:18:30,309
+because I don't know if the field kind of
+came in and just touched some of those middle
+
+238
+00:18:30,309 --> 00:18:35,740
+points there, so I could have been both in
+and both out, but missed what happened in
+
+239
+00:18:35,740 --> 00:18:39,059
+the middle, right but the third case is the
+important one.
+
+240
+00:18:39,059 --> 00:18:44,740
+If one of them is less than 0 and the other
+one isn't, then I finally do know something
+
+241
+00:18:44,740 --> 00:18:48,530
+about what happens in between and more importantly
+I know exactly the thing that I wanted to
+
+242
+00:18:48,530 --> 00:18:49,530
+know.
+
+243
+00:18:49,530 --> 00:18:52,039
+I know that the surface is in between, right?
+
+244
+00:18:52,039 --> 00:18:56,529
+Because in order to go from a positive value
+to a negative value along the line between
+
+245
+00:18:56,529 --> 00:19:00,809
+them at some point I had to have crossed 0,
+at some point.
+
+246
+00:19:00,809 --> 00:19:06,179
+Even if the function is discontinous, the
+discontinuity hadn't happened between us so
+
+247
+00:19:06,179 --> 00:19:07,710
+it's going to happen.
+
+248
+00:19:07,710 --> 00:19:09,120
+And that's all I need to know.
+
+249
+00:19:09,120 --> 00:19:12,419
+Once I know that any of you who are familiar
+with numeric computation, this should be easy
+
+250
+00:19:12,419 --> 00:19:19,730
+for you it's basically root finding.
+
+251
+00:19:19,730 --> 00:19:20,780
+What's the result?
+
+252
+00:19:20,780 --> 00:19:23,159
+That will tell me which way to go, right?
+
+253
+00:19:23,159 --> 00:19:26,700
+If the result is the same result as A, then
+I want to go towards B more.
+
+254
+00:19:26,700 --> 00:19:28,960
+If the result is the same as B, I want to
+go towards A more.
+
+255
+00:19:28,960 --> 00:19:31,299
+I want to push away from the one that I got
+the same of.
+
+256
+00:19:31,299 --> 00:19:35,330
+So I'm going to just keep hopping until I
+get to where the surface is.
+
+257
+00:19:35,330 --> 00:19:41,720
+And get to where the surface is kind of an
+ambiguous phrase.
+
+258
+00:19:41,720 --> 00:19:51,600
+So really what I mean is go down to 
+the -- where you actually compute actual results
+
+259
+00:19:51,600 --> 00:19:58,620
+from things but assuming you're computing
+on an actual computer, you only 24 bits really
+
+260
+00:19:58,620 --> 00:20:04,049
+to work with anyway, so 24 steps of bisection
+will get you to the most accurate answer you
+
+261
+00:20:04,049 --> 00:20:11,380
+could get to anyway.
+
+262
+00:20:11,380 --> 00:20:13,130
+So last step to the algorithm.
+
+263
+00:20:13,130 --> 00:20:17,450
+Now we know that if I have two points and
+I see if there's you know, one is positive
+
+264
+00:20:17,450 --> 00:20:21,090
+and one is negative in terms of value in the
+function, I can find where the surface is,
+
+265
+00:20:21,090 --> 00:20:22,090
+right?
+
+266
+00:20:22,090 --> 00:20:25,640
+So now the question is how do I go from that
+to an actual representation of the whole surface
+
+267
+00:20:25,640 --> 00:20:27,510
+that I could use.
+
+268
+00:20:27,510 --> 00:20:34,659
+And this is where the marching cubes thing
+comes in it's really elegant and really simple.
+
+269
+00:20:34,659 --> 00:20:35,990
+You.
+
+270
+00:20:35,990 --> 00:20:45,340
+In the you either take a rectangle or a cube
+and you evaluate the points, all four of them
+
+271
+00:20:45,340 --> 00:20:47,580
+or eight of them depending on which one we're
+talking about.
+
+272
+00:20:47,580 --> 00:20:54,620
+And what you will get is a series of negatives
+and positives, right?
+
+273
+00:20:54,620 --> 00:20:59,990
+What you then can do is take any edge that
+is coming off a positive and going to a negative
+
+274
+00:20:59,990 --> 00:21:02,860
+and do that root-finding step that I just
+talked about.
+
+275
+00:21:02,860 --> 00:21:07,830
+You now know where the surface crosses the
+rectangle or the cube.
+
+276
+00:21:07,830 --> 00:21:08,830
+Right?
+
+277
+00:21:08,830 --> 00:21:11,720
+And all that's left to do is connect them.
+
+278
+00:21:11,720 --> 00:21:17,390
+And now you've got either an outline of your
+surface, or a triangulations of your surface,
+
+279
+00:21:17,390 --> 00:21:22,429
+as long as you just do this to basically the
+entire area that you care about.
+
+280
+00:21:22,429 --> 00:21:26,581
+And you can see that this is a pretty easy
+thing to kind of compartmentalize, if you
+
+281
+00:21:26,581 --> 00:21:30,170
+think about the way positives and negatives
+can actually work on these things, if you
+
+282
+00:21:30,170 --> 00:21:36,919
+have a rectangle there's 4 points, there can
+only be 2 to the 4th combinations of positives
+
+283
+00:21:36,919 --> 00:21:41,640
+and negatives in this thing so you only have
+to implement 16 cases and by the way, those
+
+284
+00:21:41,640 --> 00:21:44,870
+16 cases really aren't 16 cases because they're
+highly symmetric.
+
+285
+00:21:44,870 --> 00:21:48,430
+If only one point is positive and the other
+three are negative.
+
+286
+00:21:48,430 --> 00:21:52,789
+Well, it's the same case just rotated, right,
+to a couple different ways.
+
+287
+00:21:52,789 --> 00:21:56,200
+So you really only have to implement a few
+cases and figure out which one you're looking
+
+288
+00:21:56,200 --> 00:21:59,919
+at.
+
+289
+00:21:59,919 --> 00:22:01,070
+Same is true for the cube.
+
+290
+00:22:01,070 --> 00:22:07,419
+Worst case is if you typed in 256 things,
+but most of them are not close to that.
+
+291
+00:22:07,419 --> 00:22:12,650
+And then like I said, you just apply this
+to your entire plane, area that you want to
+
+292
+00:22:12,650 --> 00:22:14,900
+figure out what the surface looks like there
+or the volume.
+
+293
+00:22:14,900 --> 00:22:23,620
+And I didn't draw the volume because oh, my
+God, my drawing skills are not up to that.
+
+294
+00:22:23,620 --> 00:22:28,649
+You will just get a mesh that occupies that
+volume and is exactly where the surface is,
+
+295
+00:22:28,649 --> 00:22:30,740
+am I going too fast?
+
+296
+00:22:30,740 --> 00:22:32,909
+Because I know I'm going fast, but are we
+good?
+
+297
+00:22:32,909 --> 00:22:33,909
+We're totally good.
+
+298
+00:22:33,909 --> 00:22:35,510
+Awesome, that's what we need to know.
+
+299
+00:22:35,510 --> 00:22:39,490
+Brief moment of silence, little tiny tiny
+moment of silence, there was going to be a
+
+300
+00:22:39,490 --> 00:22:47,990
+brain teaser in here, it got it cut for time.
+
+301
+00:22:47,990 --> 00:22:55,149
+OK, 1999, we are going three years forward
+here.
+
+302
+00:22:55,149 --> 00:22:58,730
+And this I was working on a character animation
+system.
+
+303
+00:22:58,730 --> 00:22:59,940
+This was not a crazy project.
+
+304
+00:22:59,940 --> 00:23:02,510
+This was actually a good project.
+
+305
+00:23:02,510 --> 00:23:03,510
+This was reasonable.
+
+306
+00:23:03,510 --> 00:23:08,140
+This was not something a sort of conjured
+up by people who have ludicrous ideas of what's
+
+307
+00:23:08,140 --> 00:23:10,920
+possible.
+
+308
+00:23:10,920 --> 00:23:14,890
+And one of the things that's true about animation
+in general, if you've ever worked with it,
+
+309
+00:23:14,890 --> 00:23:20,370
+is that rotations are really, really big deal
+in terms of what you're going to have to deal
+
+310
+00:23:20,370 --> 00:23:21,370
+with.
+
+311
+00:23:21,370 --> 00:23:24,620
+And the reason that I say that is because
+anything that might have been hard in position
+
+312
+00:23:24,620 --> 00:23:28,960
+space is much much harder in rotation space,
+now if you've never worked with 3D graphs
+
+313
+00:23:28,960 --> 00:23:32,510
+and that sort of thing you'll be like I don't
+know what he's talking about and that's true,
+
+314
+00:23:32,510 --> 00:23:35,110
+neither did I until I started working on these
+things.
+
+315
+00:23:35,110 --> 00:23:41,380
+The problem with rotations is they don't obey
+the same kind of laws in 3 dimensions as we
+
+316
+00:23:41,380 --> 00:23:46,320
+normally would like things to obey when we
+want to work with them.
+
+317
+00:23:46,320 --> 00:23:50,980
+So for example, if you think about positions,
+and you think about the kind of laws they
+
+318
+00:23:50,980 --> 00:23:54,600
+obey, they're really, really nice from a mathematical
+standpoint.
+
+319
+00:23:54,600 --> 00:23:58,540
+Like you don't have to sit down and like,
+go, OK, here's all the weird things that are
+
+320
+00:23:58,540 --> 00:24:01,500
+going to happen with positions while you're
+working with them.
+
+321
+00:24:01,500 --> 00:24:04,570
+No, they're just vectors, they're fine, you
+can move them around.
+
+322
+00:24:04,570 --> 00:24:08,720
+Everything that you think intuitively will
+work will just work but rotations are not
+
+323
+00:24:08,720 --> 00:24:09,720
+that way.
+
+324
+00:24:09,720 --> 00:24:17,990
+And the I don't pretend to know remotely even
+enough abstract math to tell you philosophically
+
+325
+00:24:17,990 --> 00:24:24,669
+why this is true, I can simply tell you practically.
+
+326
+00:24:24,669 --> 00:24:30,600
+If I do two rotations A and B, I will not
+necessarily get the same rotation if I switch
+
+327
+00:24:30,600 --> 00:24:31,780
+the order.
+
+328
+00:24:31,780 --> 00:24:32,780
+Right right?
+
+329
+00:24:32,780 --> 00:24:34,720
+With movement and positions, that sort of
+stuff doesn't happen.
+
+330
+00:24:34,720 --> 00:24:39,740
+You can rearrange the order.Ites all the math
+things you want, but rotation is absolutely
+
+331
+00:24:39,740 --> 00:24:41,090
+not that way.
+
+332
+00:24:41,090 --> 00:24:50,530
+So at the time in 1999, my first incarnation
+-- sometimes you just want a slide when you're
+
+333
+00:24:50,530 --> 00:24:52,770
+talking, you want it is.
+
+334
+00:24:52,770 --> 00:24:58,490
+You've got some numbers, they've got some
+subscripts on them, it's great.
+
+335
+00:24:58,490 --> 00:25:05,310
+Rotation indices are inefficient for representation
+rotation because they're massively over degree
+
+336
+00:25:05,310 --> 00:25:06,720
+of freedommed, if you will.
+
+337
+00:25:06,720 --> 00:25:13,000
+A 3 by 3 matrix can do all sorts of things
+to your data, it can skew it, it can rotate
+
+338
+00:25:13,000 --> 00:25:18,500
+it, it can do all sorts of stuff except move
+it.
+
+339
+00:25:18,500 --> 00:25:21,500
+So it's really not a good representation for
+representation, because you've got way more
+
+340
+00:25:21,500 --> 00:25:22,960
+orientation there than you need.
+
+341
+00:25:22,960 --> 00:25:28,350
+In the game industry we care a lot about efficiency
+in these sorts of things.
+
+342
+00:25:28,350 --> 00:25:32,450
+So typically when you are using more data
+than you need, it ends up costing you in terms
+
+343
+00:25:32,450 --> 00:25:38,470
+of efficiency and not just in terms of storage
+of the if all of those values have to be correct
+
+344
+00:25:38,470 --> 00:25:42,150
+in order for my program to work, that means
+I had to do work to get them there.
+
+345
+00:25:42,150 --> 00:25:47,080
+So if the thing that I'm trying to represent
+only needed 3 or 4 numbers and I'm using 9,
+
+346
+00:25:47,080 --> 00:25:49,659
+that means I'm 3 times worse than I should
+be.
+
+347
+00:25:49,659 --> 00:25:51,529
+End of story.
+
+348
+00:25:51,529 --> 00:26:01,820
+The next paper that I wanted to talk about
+is quaternions, and I picked it very specifically
+
+349
+00:26:01,820 --> 00:26:07,019
+because it is the kind of paper because it
+doesn't tell you anything new literally.
+
+350
+00:26:07,019 --> 00:26:12,750
+As far as I know this has nothing in it that
+wasn't known by people many, many years before
+
+351
+00:26:12,750 --> 00:26:18,929
+anyone even had a personal computer.
+
+352
+00:26:18,929 --> 00:26:25,720
+So it's all old news, but it was the first
+paper that really made quaternions, which
+
+353
+00:26:25,720 --> 00:26:29,630
+I will tell you in a second as a rotation
+representation accessible to people who didn't
+
+354
+00:26:29,630 --> 00:26:32,909
+want to spend a ton of time sifting through
+the math literature.
+
+355
+00:26:32,909 --> 00:26:35,490
+And believe me this is a real practical concern.
+
+356
+00:26:35,490 --> 00:26:38,510
+It doesn't have anything to do with whether
+or not you're good at math or whether you
+
+357
+00:26:38,510 --> 00:26:39,660
+could be good at math.
+
+358
+00:26:39,660 --> 00:26:45,020
+The bottom line is it takes a lot of time
+to work through common math stuff.
+
+359
+00:26:45,020 --> 00:26:52,309
+Nits very different if you have a paper that
+go here.
+
+360
+00:26:52,309 --> 00:26:57,440
+That clicks really quickly and for people
+who are programming hon a budget, on a timeline,
+
+361
+00:26:57,440 --> 00:26:58,440
+right?
+
+362
+00:26:58,440 --> 00:26:59,840
+That makes a big difference.
+
+363
+00:26:59,840 --> 00:27:04,110
+So I wanted to pick this one because of sort
+of that interesting aspect of it and I'll
+
+364
+00:27:04,110 --> 00:27:07,400
+tell you why I think that's important kind
+of at the end of this segment.
+
+365
+00:27:07,400 --> 00:27:08,740
+How we doing on time, by the way?
+
+366
+00:27:08,740 --> 00:27:09,740
+Good?
+
+367
+00:27:09,740 --> 00:27:10,740
+Thumbs up?
+
+368
+00:27:10,740 --> 00:27:12,580
+All right, so quaternions are very odd things.
+
+369
+00:27:12,580 --> 00:27:15,070
+I'm not going to try to explain them in this
+talk because I would need at least an hour
+
+370
+00:27:15,070 --> 00:27:20,289
+to do that, but what a quaternion is basically
+an extension of numbers.
+
+371
+00:27:20,289 --> 00:27:23,080
+I'm not ha math person.
+
+372
+00:27:23,080 --> 00:27:24,330
+Who knows.
+
+373
+00:27:24,330 --> 00:27:38,940
+Well, a quaternion, you can think of it a
+lot like that, it's a very similar concept
+
+374
+00:27:38,940 --> 00:27:44,130
+in that you have the sort of additional bases
+that stack up after your comfortable real
+
+375
+00:27:44,130 --> 00:27:46,110
+number, right?
+
+376
+00:27:46,110 --> 00:27:47,150
+It's a comfort thing, right?
+
+377
+00:27:47,150 --> 00:27:52,889
+It's like I'm really comfortable with the
+A and the BI it's like oh, man, I didn't study
+
+378
+00:27:52,889 --> 00:27:57,919
+as hard that part of the math so I'm a little
+nervous, well quaternions are adding two more
+
+379
+00:27:57,919 --> 00:28:04,000
+of those bad numbers that you didn't study
+at the end, OK?
+
+380
+00:28:04,000 --> 00:28:11,049
+Quaternions are a doubly complex number or
+maybe a three times complex number if you
+
+381
+00:28:11,049 --> 00:28:12,049
+want.
+
+382
+00:28:12,049 --> 00:28:17,470
+When you write you just write the actual coefficients
+obviously the same way if you're talking about
+
+383
+00:28:17,470 --> 00:28:20,289
+a complex number you don't bother writing
+the i all the time.
+
+384
+00:28:20,289 --> 00:28:30,279
+You end up vectorizing so typicaIly quaternions
+are just seen as foreign numbers.
+
+385
+00:28:30,279 --> 00:28:34,230
+You kind of just know at some point that's
+what they are.
+
+386
+00:28:34,230 --> 00:28:41,350
+So at some level they're 4 dimensional vectors.
+
+387
+00:28:41,350 --> 00:28:47,010
+So what do they do, what they do at a high
+level is they encode orientation and they
+
+388
+00:28:47,010 --> 00:28:49,440
+encode orientation by their direction.
+
+389
+00:28:49,440 --> 00:28:51,490
+Now, this is not how it is normally introduced.
+
+390
+00:28:51,490 --> 00:28:52,490
+Not even in that paper.
+
+391
+00:28:52,490 --> 00:28:55,669
+I can just say that that's sort of how it
+works.
+
+392
+00:28:55,669 --> 00:29:05,970
+What happens is the length of quaternion in
+4 dimensions, so if you imagine taking any
+
+393
+00:29:05,970 --> 00:29:14,889
+quaternion that you had, you'd have the same
+information as far as what we care about in
+
+394
+00:29:14,889 --> 00:29:16,240
+computer graphics, right?
+
+395
+00:29:16,240 --> 00:29:19,789
+Now, that's not making a statement about quaternions
+in general because there's probably plenty
+
+396
+00:29:19,789 --> 00:29:23,519
+of times when you do care about that but as
+far as encoding rotations in the way that
+
+397
+00:29:23,519 --> 00:29:27,529
+we do, that's all that matters.
+
+398
+00:29:27,529 --> 00:29:34,510
+So on the right 2D, in 4D, I can't draw that
+I can't even really think in 4D.
+
+399
+00:29:34,510 --> 00:29:40,570
+I usually have to use analogies when I'm working
+with quaternions in my head.
+
+400
+00:29:40,570 --> 00:29:45,980
+So the A and the B are the same rotation,
+because one of them is just the longer vector
+
+401
+00:29:45,980 --> 00:29:51,450
+than the other one but they're both pointing
+in the same direction.
+
+402
+00:29:51,450 --> 00:29:56,550
+The C on the other hand is a different orientation,
+because it's pointing in a different direction,
+
+403
+00:29:56,550 --> 00:29:57,929
+even though it's roughly the same length as.
+
+404
+00:29:57,929 --> 00:30:02,090
+A, right so length is irrelevant, but direction
+is crucial.
+
+405
+00:30:02,090 --> 00:30:06,931
+So imagine that in 4TD.
+
+406
+00:30:06,931 --> 00:30:08,649
+There's probably people who can see in 4D.
+
+407
+00:30:08,649 --> 00:30:09,669
+I'm not one of them.
+
+408
+00:30:09,669 --> 00:30:14,250
+If you can, that's awesome, now the reason
+that these were created and the reason they
+
+409
+00:30:14,250 --> 00:30:24,710
+have that weird structure is because a guy
+named William Hamilton -- where like computer
+
+410
+00:30:24,710 --> 00:30:28,820
+games and graphics went and took some math
+that was for something else and used it for
+
+411
+00:30:28,820 --> 00:30:32,410
+games or anything like this, this is actually
+what they were trying to do, they were trying
+
+412
+00:30:32,410 --> 00:30:39,130
+to study mechanics problems and they wanted
+ways of capturing so this guy named William
+
+413
+00:30:39,130 --> 00:30:40,130
+Hamilton.
+
+414
+00:30:40,130 --> 00:30:45,389
+This is not Alexander Hamilton, the guy that
+the musical is about.
+
+415
+00:30:45,389 --> 00:30:53,289
+So yeah, like I mentioned before, rotations
+don't commute, they're weird and what Hamilton
+
+416
+00:30:53,289 --> 00:30:58,340
+was trying to capture when he came up with
+this structure is that lack of commutation
+
+417
+00:30:58,340 --> 00:31:08,169
+so he wanted to have it so if you wanted A
+then B, you'd get C. That's how it works in
+
+418
+00:31:08,169 --> 00:31:12,029
+the real world, and they wanted the math to
+work that way.
+
+419
+00:31:12,029 --> 00:31:13,029
+Right?
+
+420
+00:31:13,029 --> 00:31:14,320
+And he did it, right?
+
+421
+00:31:14,320 --> 00:31:18,750
+That's why he's famous, well, math famous,
+not -- he doesn't have a musical yet, but
+
+422
+00:31:18,750 --> 00:31:21,650
+maybe someday he will, when math is more important
+to society.
+
+423
+00:31:21,650 --> 00:31:32,720
+So 3D rotations if you were to say the words
+A then B. In matrices, because matrices, as
+
+424
+00:31:32,720 --> 00:31:41,789
+well, I'm not enough much a math philosopher
+to tell you, matrix multiplication also obeys
+
+425
+00:31:41,789 --> 00:31:44,590
+this property.
+
+426
+00:31:44,590 --> 00:31:51,330
+So if you encode rotations as matrices, you
+will get this property.
+
+427
+00:31:51,330 --> 00:31:54,960
+So you can do it in matrices, like I said,
+though, not very efficient.
+
+428
+00:31:54,960 --> 00:31:56,380
+Quaternions have the exact same thing.
+
+429
+00:31:56,380 --> 00:32:12,500
+So the multiplication both obey that ... ...
+But there's a didn't like them in 199 is because
+
+430
+00:32:12,500 --> 00:32:13,500
+of that.
+
+431
+00:32:13,500 --> 00:32:16,880
+I know that's an ironic thing to say.
+
+432
+00:32:16,880 --> 00:32:18,630
+You always want it both ways.
+
+433
+00:32:18,630 --> 00:32:22,600
+The best possible thing you can have in representation
+is everything that you want, not just one
+
+434
+00:32:22,600 --> 00:32:26,159
+of the things that you want and one of the
+things that you often do want when you're
+
+435
+00:32:26,159 --> 00:32:31,649
+dealing with these things is nonorder dependence,
+right so I love the fact that he when I'm
+
+436
+00:32:31,649 --> 00:32:37,049
+trying to capture the order dependence of
+rotations that I can do it but I don't love
+
+437
+00:32:37,049 --> 00:32:40,250
+the fact that in those parts of the code where
+I really don't want to care about the order,
+
+438
+00:32:40,250 --> 00:32:42,350
+I have to care, right?
+
+439
+00:32:42,350 --> 00:32:44,639
+And I'll motivate that a little bit more in
+a second here.
+
+440
+00:32:44,639 --> 00:32:53,490
+So if I wanted to make an order for quaternions
+where I did A op P and B op A. We didn't know
+
+441
+00:32:53,490 --> 00:32:58,059
+how to do it and the math didn't know, either.
+
+442
+00:32:58,059 --> 00:32:59,059
+Nobody knew.
+
+443
+00:32:59,059 --> 00:33:00,059
+It was just not known.
+
+444
+00:33:00,059 --> 00:33:02,289
+OK, so why do we care.
+
+445
+00:33:02,289 --> 00:33:04,539
+I'll tell you the reason in a second.
+
+446
+00:33:04,539 --> 00:33:12,529
+But typically when we're working with animation,
+in a lot of other cases is a lot of times
+
+447
+00:33:12,529 --> 00:33:16,340
+we have human input, and I'm on two ends of
+the scale.
+
+448
+00:33:16,340 --> 00:33:19,690
+So I should say we have a lots of human input
+on both ends.
+
+449
+00:33:19,690 --> 00:33:28,511
+We have artists who need to make assets and
+then we have players and they've got a game
+
+450
+00:33:28,511 --> 00:33:31,540
+pad in their hand or a mouse and a keyboard
+or whatever and they're doing lots of inputs
+
+451
+00:33:31,540 --> 00:33:35,929
+to control the characters on the screen.
+
+452
+00:33:35,929 --> 00:33:43,890
+So two things need to synch up but we don't
+know.
+
+453
+00:33:43,890 --> 00:33:52,120
+Who knows what they're going to do, right
+so we fundamentally in the game industry and
+
+454
+00:33:52,120 --> 00:33:55,139
+like the film industry it's efficient to have
+these things, but in the game industry it's
+
+455
+00:33:55,139 --> 00:33:56,240
+a must.
+
+456
+00:33:56,240 --> 00:34:05,690
+We need ways of ordering content where we
+don't know exactly what it is.
+
+457
+00:34:05,690 --> 00:34:10,990
+So typically what has to happen is we produce
+a bunch of possible asset cases and then we
+
+458
+00:34:10,990 --> 00:34:18,190
+need to get to a specific, like, nobody ever
+authored it, a specific asset case at end
+
+459
+00:34:18,190 --> 00:34:22,409
+and to give that a little more concrete flooring
+there, imagine I had enough money to make
+
+460
+00:34:22,409 --> 00:34:27,520
+art for the guy with his hand kind of waving
+at the top there and another one where he's
+
+461
+00:34:27,520 --> 00:34:34,140
+kind of sad and I don't know what the player
+wants to set for how happy their character
+
+462
+00:34:34,140 --> 00:34:35,140
+is.
+
+463
+00:34:35,140 --> 00:34:38,570
+I want a whole range of happinesses but I
+only had budget for two happiness ranges.
+
+464
+00:34:38,570 --> 00:34:49,899
+But that's what
+
+465
+00:34:49,899 --> 00:34:51,320
+we want.
+
+466
+00:34:51,320 --> 00:34:52,669
+Right?
+
+467
+00:34:52,669 --> 00:34:58,990
+So in that context, we start to get into cases
+where we don't want to care about the order
+
+468
+00:34:58,990 --> 00:35:00,210
+in which we're doing things.
+
+469
+00:35:00,210 --> 00:35:02,290
+Because this starts to multiply out.
+
+470
+00:35:02,290 --> 00:35:05,849
+Let's say that I have more sort of axes on
+which I would like to do.
+
+471
+00:35:05,849 --> 00:35:13,910
+I want percent happy, I also want percent
+something else hand size, percent coordination,
+
+472
+00:35:13,910 --> 00:35:15,160
+does he not know what he's doing?
+
+473
+00:35:15,160 --> 00:35:20,710
+So I might have some sort of multidirectional
+grid of samples and I'm trying to get what
+
+474
+00:35:20,710 --> 00:35:25,650
+it looks like in some specific area inside
+that thing, right?
+
+475
+00:35:25,650 --> 00:35:29,040
+So at that point, I can't start really talking
+about order.
+
+476
+00:35:29,040 --> 00:35:32,980
+There's just samples and I'm weighting them
+or trying to grab all of the algorithms I
+
+477
+00:35:32,980 --> 00:35:34,950
+might think about there, they don't have order
+involved.
+
+478
+00:35:34,950 --> 00:35:36,930
+They're not doing this, then this then that.
+
+479
+00:35:36,930 --> 00:35:38,440
+I'm combining a set of things.
+
+480
+00:35:38,440 --> 00:35:43,060
+And combining doesn't work that way.
+
+481
+00:35:43,060 --> 00:35:51,160
+I get all these fields, I add them together
+and I get something out, right?
+
+482
+00:35:51,160 --> 00:36:02,230
+So we had something it's called spherical
+linear interpolation.
+
+483
+00:36:02,230 --> 00:36:16,839
+Really, really simple it's just saying I have
+one thing and I want to linearly go between
+
+484
+00:36:16,839 --> 00:36:18,270
+them using some percentage, right?
+
+485
+00:36:18,270 --> 00:36:21,760
+So I want to get the things in the middle
+use willing some percentage, right?
+
+486
+00:36:21,760 --> 00:36:28,880
+Well, spherical linear interpolation is the
+opposite of that when instead of talking about
+
+487
+00:36:28,880 --> 00:36:36,380
+linear motion through space I'm actually talking
+about an arc, right that's where the spherical
+
+488
+00:36:36,380 --> 00:36:39,520
+in spherical interpolation is, it's talking
+about an arc.
+
+489
+00:36:39,520 --> 00:36:50,500
+If you think about what I said before, it's
+because quaternions encode things by their
+
+490
+00:36:50,500 --> 00:36:55,270
+direction, not their length so when we talk
+about interpollating between them.
+
+491
+00:36:55,270 --> 00:37:01,140
+What we're trying to do is talk about their
+directions.
+
+492
+00:37:01,140 --> 00:37:05,710
+So in order to move smoopghtly between two
+things and not have speed discontinuities
+
+493
+00:37:05,710 --> 00:37:11,220
+there, we need to take into account the fact
+that we move in an arc and not a line, right?
+
+494
+00:37:11,220 --> 00:37:13,829
+I know it's a little complicated to think
+about.
+
+495
+00:37:13,829 --> 00:37:17,140
+It's 4 dimensions, what do you want?
+
+496
+00:37:17,140 --> 00:37:21,089
+It's crazy.
+
+497
+00:37:21,089 --> 00:37:25,500
+[laughter]
+We had this SLERP.
+
+498
+00:37:25,500 --> 00:37:30,960
+Thing, but it starts to get really inefficient
+if you do that and then what if you accidentally
+
+499
+00:37:30,960 --> 00:37:36,580
+switch the order somewhere, the code has to
+remember all the orders wrong, you get a different
+
+500
+00:37:36,580 --> 00:37:37,580
+result and all.
+
+501
+00:37:37,580 --> 00:37:38,760
+A sudden your thing would change.
+
+502
+00:37:38,760 --> 00:37:44,520
+There's all kinds of problems with it, right?
+
+503
+00:37:44,520 --> 00:37:50,760
+So could we do something where we just fed
+everything in there and have that work, right?
+
+504
+00:37:50,760 --> 00:37:57,190
+So fast forward to 2001, the spoiler warning
+for the 19989, 2000, 2001 years I didn't solve
+
+505
+00:37:57,190 --> 00:37:58,190
+the problem.
+
+506
+00:37:58,190 --> 00:38:03,170
+So the problem is still unknown.
+
+507
+00:38:03,170 --> 00:38:06,760
+And to the extent to which -- yeah, I thought
+I had a slide here for this.
+
+508
+00:38:06,760 --> 00:38:10,099
+The extent to which we did did not understand
+how to do this cannot be overstated.
+
+509
+00:38:10,099 --> 00:38:15,770
+I'm not talking about us sitting around going,
+yeah, gosh, that's a hard problem, all right,
+
+510
+00:38:15,770 --> 00:38:17,190
+let's go to lunch.
+
+511
+00:38:17,190 --> 00:38:23,990
+I'm talking about people wrote dozens of papers
+on how to solve it that sucked.
+
+512
+00:38:23,990 --> 00:38:24,990
+These papers were awful.
+
+513
+00:38:24,990 --> 00:38:31,240
+They had to write optimization things, crazy
+things that we would never do at runtime in
+
+514
+00:38:31,240 --> 00:38:32,910
+a game, right?
+
+515
+00:38:32,910 --> 00:38:34,500
+So it was really, really mysterious.
+
+516
+00:38:34,500 --> 00:38:38,530
+So here's the how we solved the problem.
+
+517
+00:38:38,530 --> 00:38:43,700
+So the way we ended up solving the problem
+is, you know, we don't really understand it
+
+518
+00:38:43,700 --> 00:38:44,700
+that way.
+
+519
+00:38:44,700 --> 00:38:51,810
+We're using the SLERP thing, we're using this
+math, but did we ever really look at how they
+
+520
+00:38:51,810 --> 00:38:53,760
+actually work in practice?
+
+521
+00:38:53,760 --> 00:38:54,760
+Right?
+
+522
+00:38:54,760 --> 00:39:02,839
+And so what we did is we wrote a program that
+could visualize how the SLERP was actually
+
+523
+00:39:02,839 --> 00:39:04,420
+working in practice.
+
+524
+00:39:04,420 --> 00:39:08,710
+And the way that it worked was you could put
+in two rotations and it would draw coordinate
+
+525
+00:39:08,710 --> 00:39:09,710
+frames for them.
+
+526
+00:39:09,710 --> 00:39:12,900
+So again if you're not familiar with graphs
+this is going to be a little hard to relate
+
+527
+00:39:12,900 --> 00:39:13,900
+to.
+
+528
+00:39:13,900 --> 00:39:19,200
+But if you could imagine XYZ axes that you
+might draw in math class.
+
+529
+00:39:19,200 --> 00:39:23,980
+You could set two of those wand you could
+look at what the interpolation was going to
+
+530
+00:39:23,980 --> 00:39:29,110
+do between them.
+
+531
+00:39:29,110 --> 00:39:34,120
+So when the X axis would rotate to the other
+X axis, it would show the arc between those
+
+532
+00:39:34,120 --> 00:39:43,370
+and on the arc it would mark notches to show
+where the interpolator was if it was at 0%,
+
+533
+00:39:43,370 --> 00:39:49,840
+20%, 30%, 40%, right.
+
+534
+00:39:49,840 --> 00:39:59,579
+This was the first step that was going to
+be taken to try to solve this problem.
+
+535
+00:39:59,579 --> 00:40:04,220
+It mapped I'm just going to say in that program
+we mapped four things.
+
+536
+00:40:04,220 --> 00:40:08,099
+Matrices, the exponential map which I'm skipping.
+
+537
+00:40:08,099 --> 00:40:13,840
+It was another way of doing interpolation,
+SLERP and just for the heck of it, LERP, which
+
+538
+00:40:13,840 --> 00:40:22,630
+is linear interpolation.
+
+539
+00:40:22,630 --> 00:40:25,920
+So we don't even care, we throw opt the fact
+that they're quaternions entirely and we would
+
+540
+00:40:25,920 --> 00:40:32,490
+run them through the same old code that we
+would run for anything else and to our surprise
+
+541
+00:40:32,490 --> 00:40:38,330
+what we found when we looked at the actual
+results of this is that LERP and SLERP are
+
+542
+00:40:38,330 --> 00:40:43,930
+almost identical for all of the angle distances
+that we ever cared about, right?
+
+543
+00:40:43,930 --> 00:40:46,220
+So I've drawn two sets of notches here.
+
+544
+00:40:46,220 --> 00:40:58,210
+The top one is LERP, the bottom one SLERP.
+
+545
+00:40:58,210 --> 00:41:03,920
+In between there, LERP on the sides is going
+to be a little bit -- it's going to have just
+
+546
+00:41:03,920 --> 00:41:07,240
+a little bit of a speed variance as it gets
+towards 0 and 100%.
+
+547
+00:41:07,240 --> 00:41:12,260
+But they're really, really close together
+and this was completely unexpected because
+
+548
+00:41:12,260 --> 00:41:15,910
+we had always been thinking, oh, LERP, you
+can't use that.
+
+549
+00:41:15,910 --> 00:41:21,099
+No one ever tried it, no one ever even thought
+about it but it turns out it's actually almost
+
+550
+00:41:21,099 --> 00:41:23,710
+the same for everything we cared about, right?
+
+551
+00:41:23,710 --> 00:41:28,470
+So that four hours which was supposed to be
+the start of things was supposed to be the
+
+552
+00:41:28,470 --> 00:41:30,160
+end of it.
+
+553
+00:41:30,160 --> 00:41:33,550
+That was the answer.
+
+554
+00:41:33,550 --> 00:41:38,020
+Then it was trivial for us to do all the rest
+of our algorithms using this information,
+
+555
+00:41:38,020 --> 00:41:39,020
+right?
+
+556
+00:41:39,020 --> 00:41:40,869
+We could use n-way blending now.
+
+557
+00:41:40,869 --> 00:41:50,470
+We can do faster 2-way blending, because there
+was stuff in SLERP that you don't want to
+
+558
+00:41:50,470 --> 00:41:53,119
+do implementation-wise that makes it slow.
+
+559
+00:41:53,119 --> 00:42:01,619
+You can do sblines, and it was awesome beings
+it was a panacea, it was so good.
+
+560
+00:42:01,619 --> 00:42:06,680
+And if you worked backwards from that which
+is always easier, hindsight is always 2020,
+
+561
+00:42:06,680 --> 00:42:13,990
+it's actually obvious why this might be true.
+
+562
+00:42:13,990 --> 00:42:17,480
+But the reason that it's true is that if you
+think about what happens just in any space,
+
+563
+00:42:17,480 --> 00:42:23,290
+forget 4 dimensions, just think about 2 dimensions,
+if you have two endpoints.
+
+564
+00:42:23,290 --> 00:42:30,599
+Well, if all I care about is the resulting
+direction, then it's just the projection of
+
+565
+00:42:30,599 --> 00:42:34,890
+those -- of that line onto the arc and we
+all know what happens when you project a line
+
+566
+00:42:34,890 --> 00:42:38,530
+onto an arc, you get a little bit of bowing
+on the edges, it's correct in the middle and
+
+567
+00:42:38,530 --> 00:42:39,530
+the two sides, right?
+
+568
+00:42:39,530 --> 00:42:44,510
+It's exactly what we should have expected
+but we never thought about it, so it wasn't
+
+569
+00:42:44,510 --> 00:42:50,369
+ever really done, right and by the way as
+an aside for those of you who might be math
+
+570
+00:42:50,369 --> 00:42:54,400
+people and who care about this a little bit
+more, I'll point out that that there's a reason
+
+571
+00:42:54,400 --> 00:43:02,510
+why quaternions LERP and matrices don't LERP
+as well.
+
+572
+00:43:02,510 --> 00:43:05,580
+If you care about that talk to me after and
+I can give you more information.
+
+573
+00:43:05,580 --> 00:43:09,579
+It's really neat, but it would take another
+30 minutes to get there.
+
+574
+00:43:09,579 --> 00:43:13,960
+In this case, dumb was really good.
+
+575
+00:43:13,960 --> 00:43:24,059
+It turned out the simplest solution was the
+best solution.
+
+576
+00:43:24,059 --> 00:43:28,180
+One of the reasons I want to kind of plug
+this sort of paper is because if you think
+
+577
+00:43:28,180 --> 00:43:33,010
+about what it took to get to this answer,
+it did not really take any math.
+
+578
+00:43:33,010 --> 00:43:37,140
+There wasn't really any insight or mathematical
+or algebraic insight that let to this.
+
+579
+00:43:37,140 --> 00:43:41,720
+What it took was someone sitting down and
+bothering to write a bunch of code and typically
+
+580
+00:43:41,720 --> 00:43:46,559
+often, many, many times, the people who sit
+down and write things like visualizers aren't
+
+581
+00:43:46,559 --> 00:43:55,920
+mathematicians, trade programmers do code
+all day and they are very, very fast and they
+
+582
+00:43:55,920 --> 00:44:01,250
+can do something like that really, really
+easily but they may not have the algebra knowledge
+
+583
+00:44:01,250 --> 00:44:05,750
+or whatever the math knowledge is necessary
+to understand quaternions from whole cloth
+
+584
+00:44:05,750 --> 00:44:08,610
+or even know that they exist, right?
+
+585
+00:44:08,610 --> 00:44:12,630
+There's so much mathematics out there, how
+do you even know it exists, right so one of
+
+586
+00:44:12,630 --> 00:44:20,940
+the reasons papers like this are so valuable
+is when you give people whose expertise is
+
+587
+00:44:20,940 --> 00:44:27,730
+just making stuff access to the domain and
+so this is one example of how that paper did
+
+588
+00:44:27,730 --> 00:44:32,190
+that but I bet there's lots of other examples,
+too, because I know lots of people in our
+
+589
+00:44:32,190 --> 00:44:36,190
+industry and probably lots of our industries,
+never would have learned about quaternions
+
+590
+00:44:36,190 --> 00:44:40,680
+if there wasn't that paper and possibly since
+there have been other ones, but who knows
+
+591
+00:44:40,680 --> 00:44:45,860
+whether any of that would have happened for
+a long time if he hadn't written that paper.
+
+592
+00:44:45,860 --> 00:44:47,650
+How am I doing on time?
+
+593
+00:44:47,650 --> 00:44:49,390
+Thumbs up.
+
+594
+00:44:49,390 --> 00:44:51,720
+Now we go to 2003, and this is the last paper.
+
+595
+00:44:51,720 --> 00:45:00,809
+I've talked about two types of papers I've
+loved basically.
+
+596
+00:45:00,809 --> 00:45:05,210
+The other one is I didn't come up with anything
+but here is this cool thing in math and I
+
+597
+00:45:05,210 --> 00:45:09,020
+came up with a good way to explain it and
+in some sense in my mind coming up with the
+
+598
+00:45:09,020 --> 00:45:12,900
+explanation is almost the invention itself.
+
+599
+00:45:12,900 --> 00:45:17,579
+Because there's sometimes people who do all
+kinds of math and work with it but they don't
+
+600
+00:45:17,579 --> 00:45:26,760
+understand it not at the deep enough level
+to really communicate with a it.
+
+601
+00:45:26,760 --> 00:45:31,869
+It's the coming up with how you explain something
+is real work and that's a great paper, too.
+
+602
+00:45:31,869 --> 00:45:36,819
+And now I'm going to talk about a third type
+of paper and that is a paper that has a great
+
+603
+00:45:36,819 --> 00:45:43,240
+contribution in terms of new ideas, new insights,
+mind blowingly awesome.
+
+604
+00:45:43,240 --> 00:45:51,140
+But written by someone who has no idea how
+to communicate that to anyone ever.
+
+605
+00:45:51,140 --> 00:45:56,490
+It might as well be encrypted with because
+no one is ever getting at the information
+
+606
+00:45:56,490 --> 00:45:58,480
+in this paper, OK.
+
+607
+00:45:58,480 --> 00:46:03,150
+All right, so this is the paper it's called
+a fast procedure of computing distance between
+
+608
+00:46:03,150 --> 00:46:04,880
+complex objects in three dimensional space.
+
+609
+00:46:04,880 --> 00:46:10,470
+It's by three guys, they're from robotics
+and I'm not going to try to explain it the
+
+610
+00:46:10,470 --> 00:46:16,500
+way they explain it, because it's nuts.
+
+611
+00:46:16,500 --> 00:46:19,710
+The paper is full banana cakes.
+
+612
+00:46:19,710 --> 00:46:21,589
+I'm boring that phrase.
+
+613
+00:46:21,589 --> 00:46:24,000
+It's a great phrase.
+
+614
+00:46:24,000 --> 00:46:28,550
+You read through it, it's got tons of notation
+to it, tons of lemmas, tons of all these sorts
+
+615
+00:46:28,550 --> 00:46:30,390
+of things if you look back at section 4.321.
+
+616
+00:46:30,390 --> 00:46:36,280
+And you're like I don't even remember that
+being mentioned, I don't even remember what
+
+617
+00:46:36,280 --> 00:46:37,510
+section you're talking about.
+
+618
+00:46:37,510 --> 00:46:42,260
+Theaps the kind of paper it is, all right?
+
+619
+00:46:42,260 --> 00:46:47,010
+But trust me, this is what the paper actually
+does in terms of what you care about.
+
+620
+00:46:47,010 --> 00:46:50,400
+Let's say I've got two shapes.
+
+621
+00:46:50,400 --> 00:46:53,069
+They're conveniently here square and triangle.
+
+622
+00:46:53,069 --> 00:46:59,190
+It's just a given, I won't try to justify
+it.
+
+623
+00:46:59,190 --> 00:47:03,470
+Let's say that these two shapes are intersecting
+so I move A and B and I move them in such
+
+624
+00:47:03,470 --> 00:47:05,410
+a way that they are colliding in some way.
+
+625
+00:47:05,410 --> 00:47:08,359
+They are taking up the same space.
+
+626
+00:47:08,359 --> 00:47:11,810
+This paper is about figuring out whether that
+happened.
+
+627
+00:47:11,810 --> 00:47:17,550
+Here I want to get the answer, no, they aren't
+colliding and here yes, they are colliding
+
+628
+00:47:17,550 --> 00:47:26,430
+and maybe other things, too, how far are they
+colliding, this paper I'm not kidding when
+
+629
+00:47:26,430 --> 00:47:27,430
+I say it's brilliant.
+
+630
+00:47:27,430 --> 00:47:32,300
+It's one of those papers that I looked at
+it and wow, this is crazy how smart you have
+
+631
+00:47:32,300 --> 00:47:34,670
+to be to make these leaps.
+
+632
+00:47:34,670 --> 00:47:38,980
+The first thing that's really cool is it starts
+from a really interesting basic algebraic
+
+633
+00:47:38,980 --> 00:47:42,980
+principle which is rarely what you start with
+when you're dealing with something as concrete
+
+634
+00:47:42,980 --> 00:47:54,299
+as collision of shapes defined by their boundaries,
+which is a very discrete kind of thing, right?
+
+635
+00:47:54,299 --> 00:48:01,549
+I can't have two things that collide that
+don't share any points.
+
+636
+00:48:01,549 --> 00:48:02,770
+It doesn't make any sense.
+
+637
+00:48:02,770 --> 00:48:07,079
+They have to share some of their interior,
+otherwise be, we wouldn't consider them colliding
+
+638
+00:48:07,079 --> 00:48:10,130
+and it turns out we can write this in a mathematical
+way.
+
+639
+00:48:10,130 --> 00:48:12,230
+We can say what that is.
+
+640
+00:48:12,230 --> 00:48:13,900
+And what that means is if they have.
+
+641
+00:48:13,900 --> 00:48:19,079
+A and they have B and they intersect then
+I should be able to find at least one point
+
+642
+00:48:19,079 --> 00:48:25,270
+on A and one point on B that are the same
+point.
+
+643
+00:48:25,270 --> 00:48:28,849
+Because otherwise, if I couldn't find any
+points that have that be true, then obviously
+
+644
+00:48:28,849 --> 00:48:31,670
+these things don't intersect.
+
+645
+00:48:31,670 --> 00:48:36,930
+And with trivial subtraction, I can say equivalently
+that somewhere there are two points which
+
+646
+00:48:36,930 --> 00:48:40,680
+when I subtract one from the other I am get
+0.
+
+647
+00:48:40,680 --> 00:48:43,200
+There is no separation between these points.
+
+648
+00:48:43,200 --> 00:48:48,940
+I have to be able to find just one pair and
+if I can find only one pair they intersect.
+
+649
+00:48:48,940 --> 00:48:52,599
+Maybe only at one point, but they intersect
+somewhere.
+
+650
+00:48:52,599 --> 00:48:55,640
+Now, second crazy leap.
+
+651
+00:48:55,640 --> 00:48:58,119
+Because that's kind of smart to begin with.
+
+652
+00:48:58,119 --> 00:49:00,540
+Maybe it doesn't sound smart to you.
+
+653
+00:49:00,540 --> 00:49:07,470
+So they were thinking about it from these
+interesting first principles of calculation,
+
+654
+00:49:07,470 --> 00:49:10,920
+like molecules in the world occupying the
+same space or something, it was kind of cool.
+
+655
+00:49:10,920 --> 00:49:14,960
+Next thing is OK, what good does that do me?
+
+656
+00:49:14,960 --> 00:49:17,740
+What am I going to do iterate through all
+the points?
+
+657
+00:49:17,740 --> 00:49:23,300
+Not only is it an n squared problem, but all
+the ns are infinite.
+
+658
+00:49:23,300 --> 00:49:30,980
+There's 
+way too many of them.
+
+659
+00:49:30,980 --> 00:49:35,700
+But they borrowed something called the Minkowski
+sum which is an algebraic thing which allows
+
+660
+00:49:35,700 --> 00:49:47,170
+you to add 
+shapes together for real mathematically.
+
+661
+00:49:47,170 --> 00:49:52,339
+Okay, and what this is if you imagine I take
+a rectangle and I add a circle I get a rounded
+
+662
+00:49:52,339 --> 00:49:57,230
+rectangle, right it's like I'm adding these
+two shapes together and they both are represented.
+
+663
+00:49:57,230 --> 00:49:58,960
+Now, how do you form this?
+
+664
+00:49:58,960 --> 00:50:05,400
+You imagine taking one of the shapes and you
+put the other shape in that shape, everywhere
+
+665
+00:50:05,400 --> 00:50:10,920
+it can go.
+
+666
+00:50:10,920 --> 00:50:13,580
+If I my circle and my square you can see the
+origins of them.
+
+667
+00:50:13,580 --> 00:50:26,150
+If I put it inside the square and I move it
+all around everywhere it can possibly go and
+
+668
+00:50:26,150 --> 00:50:30,930
+I take the resulting shape everywhere I ever
+filled when I did that and I get the result,
+
+669
+00:50:30,930 --> 00:50:31,930
+right?
+
+670
+00:50:31,930 --> 00:50:37,150
+So it's very rigorously mathematically defined.
+
+671
+00:50:37,150 --> 00:50:47,090
+So on the other side I did like a weird quadrilateral
+and a triangle.
+
+672
+00:50:47,090 --> 00:50:48,319
+You can do it with everything.
+
+673
+00:50:48,319 --> 00:50:53,740
+You can do it in any dimensions, you want
+it's just a true thing about filling volumes,
+
+674
+00:50:53,740 --> 00:50:54,740
+OK?
+
+675
+00:50:54,740 --> 00:51:00,260
+Now this is math, not art, right, although
+math is kind of an art sometimes.
+
+676
+00:51:00,260 --> 00:51:01,881
+I don't want to bias you in a way of thinking
+about it.
+
+677
+00:51:01,881 --> 00:51:03,900
+But the point being, it's rigorous.
+
+678
+00:51:03,900 --> 00:51:11,380
+Because art could be rigorous if it wanted
+to be.
+
+679
+00:51:11,380 --> 00:51:16,630
+They are actually a set of points for reals,
+with an origin and values.
+
+680
+00:51:16,630 --> 00:51:26,309
+What that means is if my shape is offset from
+its origin, that displacement actually occurs
+
+681
+00:51:26,309 --> 00:51:27,599
+when I do that sweep.
+
+682
+00:51:27,599 --> 00:51:32,660
+Remember I said you put the origin everywhere
+inside the first shape, right, not the shape
+
+683
+00:51:32,660 --> 00:51:33,660
+itself.
+
+684
+00:51:33,660 --> 00:51:35,520
+The origin goes everywhere and then I get
+the result.
+
+685
+00:51:35,520 --> 00:51:40,260
+So if theres a net displacement in one of
+the shapes, that net displacement will occur
+
+686
+00:51:40,260 --> 00:51:41,809
+in the result.
+
+687
+00:51:41,809 --> 00:51:43,540
+That's really important.
+
+688
+00:51:43,540 --> 00:51:45,410
+I'm not just saying that because I think it's
+cool.
+
+689
+00:51:45,410 --> 00:51:47,819
+It's really important to the result.
+
+690
+00:51:47,819 --> 00:51:53,309
+And what you can kind of see here is I wanted
+to illustrate that a little further, but if
+
+691
+00:51:53,309 --> 00:51:57,550
+you go back to what I said in the first sort
+of slide about this, when I put up that algebra,
+
+692
+00:51:57,550 --> 00:52:01,760
+I said I should be able to point 1 Point A,
+and 1 Point B where if I subtract them I want
+
+693
+00:52:01,760 --> 00:52:04,849
+to get 0.
+
+694
+00:52:04,849 --> 00:52:11,900
+If you think about what happens when I start
+transforming the problem into this Minkowski
+
+695
+00:52:11,900 --> 00:52:14,540
+sum space, right?
+
+696
+00:52:14,540 --> 00:52:20,450
+I want to be able to find whether there were
+any points where if I subtracted the two of
+
+697
+00:52:20,450 --> 00:52:27,290
+them I would have gotten 0 and 0 in that equation,
+right, 0 is the origin in the Minkowski sum
+
+698
+00:52:27,290 --> 00:52:31,890
+sum, right because if I took one shape and
+I subtracted the other shape, if they had
+
+699
+00:52:31,890 --> 00:52:37,110
+any points in common, the origin would lie
+in the resulting shape, right?
+
+700
+00:52:37,110 --> 00:52:52,660
+Because at some two points subtracted would
+come out to 0, right?
+
+701
+00:52:52,660 --> 00:52:55,770
+Little to hard to understand.
+
+702
+00:52:55,770 --> 00:52:57,880
+I'm sorry if that's a little rough.
+
+703
+00:52:57,880 --> 00:53:01,720
+Everything else easy.
+
+704
+00:53:01,720 --> 00:53:06,260
+If you take a look at what happens here, I
+said A-B, right?
+
+705
+00:53:06,260 --> 00:53:10,190
+I said I wanted to take some point on A and
+some point on B and subtract them.
+
+706
+00:53:10,190 --> 00:53:17,099
+But the only thing is that I wanted to do
+is summing the two reactions together, right?
+
+707
+00:53:17,099 --> 00:53:24,609
+But it's trivial to turn a plus B but so on
+the top, I have an example of square minus
+
+708
+00:53:24,609 --> 00:53:28,770
+circle, on the bottom all I've done is negate
+the circle and turned it into a sum.
+
+709
+00:53:28,770 --> 00:53:33,300
+So even though Minkowski doesn't technically
+define a difference, it doesn't matter it's
+
+710
+00:53:33,300 --> 00:53:42,250
+just a sum without a negative, OK?
+
+711
+00:53:42,250 --> 00:53:48,300
+Let's say I have those two shapes now I want
+to know, does the circle and the square, do
+
+712
+00:53:48,300 --> 00:53:52,520
+they collide, or don't they?
+
+713
+00:53:52,520 --> 00:53:55,040
+I do the subtraction, I see where the origin
+is.
+
+714
+00:53:55,040 --> 00:53:58,220
+The origin is outside the shape and hey, that's
+the right result.
+
+715
+00:53:58,220 --> 00:54:03,920
+These two shapes aren't intersecting or the
+origin isn't side the resulting shape.
+
+716
+00:54:03,920 --> 00:54:05,200
+OK.
+
+717
+00:54:05,200 --> 00:54:08,000
+How bad is that?
+
+718
+00:54:08,000 --> 00:54:10,540
+Anyone really feeling no, I don't get it.
+
+719
+00:54:10,540 --> 00:54:11,540
+I don't get it.
+
+720
+00:54:11,540 --> 00:54:16,099
+it's OK, I'm sure I didn't get it the first
+time, either, so you're actually a kindred
+
+721
+00:54:16,099 --> 00:54:17,900
+spirit if you didn't.
+
+722
+00:54:17,900 --> 00:54:21,620
+OK, so here as the next insight.
+
+723
+00:54:21,620 --> 00:54:27,510
+The next insight is OK, for concave shapes
+if I were to perform the Minkowski sum, I
+
+724
+00:54:27,510 --> 00:54:30,670
+would get a concave shape.
+
+725
+00:54:30,670 --> 00:54:38,059
+The reason it will probably be concave is
+because when you do the sum usually the features
+
+726
+00:54:38,059 --> 00:54:39,619
+of both shapes come through.
+
+727
+00:54:39,619 --> 00:54:43,339
+So if one of the shapes is concave and I add
+it to the other shape, well, I'm probably
+
+728
+00:54:43,339 --> 00:54:50,640
+going to get a concave shape on the outside.
+
+729
+00:54:50,640 --> 00:54:53,280
+That's certainly not a guarantee and you can't
+base an algorithm on it.
+
+730
+00:54:53,280 --> 00:54:58,109
+However, if they are convection, then when
+I add them together, I will always get a convection
+
+731
+00:54:58,109 --> 00:55:00,060
+shape, and why?
+
+732
+00:55:00,060 --> 00:55:03,090
+Because there is no place for the concavity
+to come from, right?
+
+733
+00:55:03,090 --> 00:55:07,869
+I'm only adding solids together, so all they
+can do is inflate each other, they can never
+
+734
+00:55:07,869 --> 00:55:14,720
+create sort of a crenulation, because I never
+had any to start with, and remember, all the
+
+735
+00:55:14,720 --> 00:55:18,590
+definition of all this is all the points plus
+all the other points, right?
+
+736
+00:55:18,590 --> 00:55:24,430
+OK, so reason I call that an insight and not
+an observation is because you had to figure
+
+737
+00:55:24,430 --> 00:55:28,079
+out that you even cared about that, but you
+do care about that, and the reason that you
+
+738
+00:55:28,079 --> 00:55:34,180
+care about that is the next insight in this
+paper.
+
+739
+00:55:34,180 --> 00:55:41,569
+For every point on the convection shape there
+is some direction that I can pick where it
+
+740
+00:55:41,569 --> 00:55:43,290
+is the furthest.
+
+741
+00:55:43,290 --> 00:55:49,080
+I can never, ever, ever pick a point where
+some other point is always going to be further
+
+742
+00:55:49,080 --> 00:55:53,270
+along any direction I might pick, right so
+take a look on the left, you can see all of
+
+743
+00:55:53,270 --> 00:55:56,119
+the points have some direction I could pick
+where they're the furthest.
+
+744
+00:55:56,119 --> 00:55:58,880
+There is no other point that supersedes them.
+
+745
+00:55:58,880 --> 00:56:01,390
+But on the right you can see that that is
+not true.
+
+746
+00:56:01,390 --> 00:56:07,520
+There is a concave shape and that point in
+the middle, no matter what direction I pick,
+
+747
+00:56:07,520 --> 00:56:11,910
+I can pick any direction I want, there is
+always some other point that's further along
+
+748
+00:56:11,910 --> 00:56:12,910
+that direction.
+
+749
+00:56:12,910 --> 00:56:13,910
+Right?
+
+750
+00:56:13,910 --> 00:56:14,910
+Always some other point.
+
+751
+00:56:14,910 --> 00:56:17,940
+I challenge you to do T you if can do it,
+come up after and tell me you've broken mathematics.
+
+752
+00:56:17,940 --> 00:56:22,270
+But this turns out to be incredibly important.
+
+753
+00:56:22,270 --> 00:56:23,390
+Why?
+
+754
+00:56:23,390 --> 00:56:24,510
+Right.
+
+755
+00:56:24,510 --> 00:56:27,799
+This is why I calls these insights, because
+even recounting them with the knowledge that's
+
+756
+00:56:27,799 --> 00:56:33,380
+true I have to keep explaining to you why
+these are important.
+
+757
+00:56:33,380 --> 00:56:36,020
+The reason is because let's suppose, five
+minutes?
+
+758
+00:56:36,020 --> 00:56:37,731
+Is that what that is?
+
+759
+00:56:37,731 --> 00:56:38,731
+OK, we're almost done.
+
+760
+00:56:38,731 --> 00:56:42,599
+That's actually not that bad, I'll speed back
+up.
+
+761
+00:56:42,599 --> 00:56:47,230
+[laughter]
+So let's suppose that we have one of these
+
+762
+00:56:47,230 --> 00:56:54,609
+Minkowski sums, right?
+
+763
+00:56:54,609 --> 00:56:57,810
+It's abstract mathematics, right but if you
+think about what actually has to happen if
+
+764
+00:56:57,810 --> 00:57:02,980
+I wanted to start commuting with them I'm
+in a lot of trouble, right?
+
+765
+00:57:02,980 --> 00:57:11,780
+Even just the thing that I said was an easy
+way to visualize subtracting all
+
+766
+00:57:11,780 --> 00:57:20,440
+the and tessellate the geometry and starts
+to be a real problem, right?
+
+767
+00:57:20,440 --> 00:57:31,589
+So I need some way of doing computations with
+these Minkowski sums.
+
+768
+00:57:31,589 --> 00:57:34,280
+So I need some shortcut.
+
+769
+00:57:34,280 --> 00:57:41,780
+And here it is.
+
+770
+00:57:41,780 --> 00:57:51,800
+But I can pick random direction, right, and
+I can find the points that are furthest along.
+
+771
+00:57:51,800 --> 00:57:56,329
+And if I do that in several directions I will
+eventually form a volume or a solid or an
+
+772
+00:57:56,329 --> 00:57:58,980
+area in 2D, right?
+
+773
+00:57:58,980 --> 00:58:04,790
+And that area is guaranteed to be part of
+the resulting shape.
+
+774
+00:58:04,790 --> 00:58:06,510
+It's completely contained inside it.
+
+775
+00:58:06,510 --> 00:58:10,750
+There is nothing in there that isn't also
+inside the Minkowski sum.
+
+776
+00:58:10,750 --> 00:58:11,750
+That's really important.
+
+777
+00:58:11,750 --> 00:58:13,140
+Because now we can work with it.
+
+778
+00:58:13,140 --> 00:58:17,210
+If this was a concave shape, you can imagine
+if the bottom was just poking up, that wouldn't
+
+779
+00:58:17,210 --> 00:58:18,400
+be true anymore.
+
+780
+00:58:18,400 --> 00:58:24,430
+Not everything inside my triangle would be
+inside the Minkowski sum.
+
+781
+00:58:24,430 --> 00:58:30,549
+I can find points on the Minkowski sum on
+their boundary, and I do it, but you're saying,
+
+782
+00:58:30,549 --> 00:58:34,640
+OK, Casey, maybe I sort of see what you're
+saying there a little bit, but OK, in order
+
+783
+00:58:34,640 --> 00:58:39,520
+to find the points that are furthest away,
+I'd have to build the Minkowski sum and I
+
+784
+00:58:39,520 --> 00:58:41,200
+didn't want to do that you're contradicting
+yourself.
+
+785
+00:58:41,200 --> 00:58:44,770
+There's got to be another insight, right?
+
+786
+00:58:44,770 --> 00:58:52,079
+And that insight is that when I build the
+Minkowski sum, because it is a sum, if I just
+
+787
+00:58:52,079 --> 00:58:59,960
+do that operation on the individual shapes
+I'm summing first, I can add the results,
+
+788
+00:58:59,960 --> 00:59:03,570
+so what that means is I can just take the
+two shapes that I was inputting, find the
+
+789
+00:59:03,570 --> 00:59:07,750
+furthest point on those, and add the result
+together, and that's trivial.
+
+790
+00:59:07,750 --> 00:59:11,789
+We can also easily figure out for any shape,
+right, for any mesh we actually have we want
+
+791
+00:59:11,789 --> 00:59:15,170
+to input or any shape you want to do, we can
+easily find the point that's that far on the
+
+792
+00:59:15,170 --> 00:59:18,520
+projection.
+
+793
+00:59:18,520 --> 00:59:22,080
+We've never constructed the Minkowski sum
+on those shapes, but we've found a point on
+
+794
+00:59:22,080 --> 00:59:26,010
+the surface, without even making it, right?
+
+795
+00:59:26,010 --> 00:59:35,930
+It's So let's go ahead and give credit to
+the part here that I'm about to say.
+
+796
+00:59:35,930 --> 00:59:41,220
+So I was talking about how this had to be
+a talk about papers that led us to do something
+
+797
+00:59:41,220 --> 00:59:46,930
+cool, well, the sel cool here was to figure
+out how to implement this grim efficiently
+
+798
+00:59:46,930 --> 00:59:54,270
+and I'm going to explain it the way that we
+implement it which is really efficient, but
+
+799
+00:59:54,270 --> 01:00:00,400
+the actual paper itself was so obtuse that
+they actually, I think, maybe missed what
+
+800
+01:00:00,400 --> 01:00:01,990
+was actually going on in the algorithm.
+
+801
+01:00:01,990 --> 01:00:06,010
+They kind of used a bunch of math to get to
+the result, but it was a very expensive set
+
+802
+01:00:06,010 --> 01:00:10,250
+of steps that they used and it turns out that
+if you think about the problem more intuitively,
+
+803
+01:00:10,250 --> 01:00:14,140
+you can do it in a much more efficient way
+so I want to give credit to Jay Stelly for
+
+804
+01:00:14,140 --> 01:00:15,619
+that.
+
+805
+01:00:15,619 --> 01:00:25,079
+I'll skip what he actually said because we're
+low on time.
+
+806
+01:00:25,079 --> 01:00:30,560
+Just to recap we have a function and I didn't
+say it was on the title slide before, but
+
+807
+01:00:30,560 --> 01:00:31,670
+it's called the support direction.
+
+808
+01:00:31,670 --> 01:00:34,180
+The thing that tells you the point.
+
+809
+01:00:34,180 --> 01:00:37,809
+You tell me the point on the Minkowski sum
+that's the furthest one in that direction,
+
+810
+01:00:37,809 --> 01:00:38,809
+right?
+
+811
+01:00:38,809 --> 01:00:41,520
+We have that, we want to do our actual intersection
+test.
+
+812
+01:00:41,520 --> 01:00:43,660
+OK, so here's how it goes.
+
+813
+01:00:43,660 --> 01:00:47,150
+What he say what's the point.
+
+814
+01:00:47,150 --> 01:00:48,470
+It's the point down the lower left corner.
+
+815
+01:00:48,470 --> 01:00:52,980
+We know what the origin is.
+
+816
+01:00:52,980 --> 01:00:58,071
+Then we say OK, in the direction of the origin,
+that's the next support function call, so
+
+817
+01:00:58,071 --> 01:01:02,460
+give me the point that's as far in that direction
+as it possibly can be, and already, just for
+
+818
+01:01:02,460 --> 01:01:07,640
+those two steps, which hopefully are very
+easy to understand, we can know whether these
+
+819
+01:01:07,640 --> 01:01:08,640
+two shapes intersect or not.
+
+820
+01:01:08,640 --> 01:01:13,349
+We have our first clue, if the point is not
+on the other side of the origin when viewed
+
+821
+01:01:13,349 --> 01:01:16,940
+from the perspective of that direction we're
+going, then the shapes can intersect.
+
+822
+01:01:16,940 --> 01:01:24,270
+Because if that's the furthest point in that
+direction, how would I ever enclose the origin?
+
+823
+01:01:24,270 --> 01:01:25,791
+The resulting shape could never enclose the
+origin.
+
+824
+01:01:25,791 --> 01:01:27,710
+There's nothing beyond that line.
+
+825
+01:01:27,710 --> 01:01:28,849
+There's no way to ever enclose that origin.
+
+826
+01:01:28,849 --> 01:01:31,040
+It's on the other side of it.
+
+827
+01:01:31,040 --> 01:01:36,630
+So if I couldn't get past the origin, the
+Minkowski sum that I'm looking at must never
+
+828
+01:01:36,630 --> 01:01:41,369
+have enclosed it.
+
+829
+01:01:41,369 --> 01:01:43,770
+But let's say I got back the opposite result.
+
+830
+01:01:43,770 --> 01:01:47,840
+I did get a point on the Minkowski sum boundary
+that's on the other side of it, right?
+
+831
+01:01:47,840 --> 01:01:49,260
+Now all I do is I continue.
+
+832
+01:01:49,260 --> 01:01:55,700
+I say take that edge, go in a perpendicular
+direction of it and give me the next side
+
+833
+01:01:55,700 --> 01:01:57,340
+of it.
+
+834
+01:01:57,340 --> 01:02:01,880
+Now I have a triangle.
+
+835
+01:02:01,880 --> 01:02:05,560
+If the origin is inside the triangle, remember,
+this is the triangle that is in the Minkowski
+
+836
+01:02:05,560 --> 01:02:10,349
+sum, it's inside that shape, right, if that
+contains it, we're done, the shapes intersect,
+
+837
+01:02:10,349 --> 01:02:21,630
+because 0 is in there so you must be able
+to find two points in the object that could
+
+838
+01:02:21,630 --> 01:02:26,150
+surround it.
+
+839
+01:02:26,150 --> 01:02:31,260
+If let's say the origin was inside the triangle
+instead it was in the A space or the B space,
+
+840
+01:02:31,260 --> 01:02:41,820
+all I do is pick the edge that's closest to
+the edge and go back to the edge step with
+
+841
+01:02:41,820 --> 01:02:43,369
+that new edge.
+
+842
+01:02:43,369 --> 01:02:46,640
+All you do is iterate that until you get one
+of those two conditions, either the failure
+
+843
+01:02:46,640 --> 01:02:49,750
+case where you can't enclose the origin or
+the case of the triangle.
+
+844
+01:02:49,750 --> 01:02:52,810
+The answer the entire algorithm.
+
+845
+01:02:52,810 --> 01:02:54,520
+It's trivial to implement.
+
+846
+01:02:54,520 --> 01:02:55,740
+It takes no time at all.
+
+847
+01:02:55,740 --> 01:03:02,551
+All you have to do is implement that little
+bit of math that I've put there and right
+
+848
+01:03:02,551 --> 01:03:05,900
+there you've got something that can do almost
+anything.
+
+849
+01:03:05,900 --> 01:03:07,579
+It's crazy what this thing can do.
+
+850
+01:03:07,579 --> 01:03:11,859
+Because the Minkowski sums are actually generalized,
+right, that support function distributes over
+
+851
+01:03:11,859 --> 01:03:15,190
+any number of operators, which means that
+the two things that I collide when I pass
+
+852
+01:03:15,190 --> 01:03:19,099
+to t I could do sum objects that are surrounded.
+
+853
+01:03:19,099 --> 01:03:27,180
+So I could actually do the Minkowski sum of
+those first, then do the subtract, and so
+
+854
+01:03:27,180 --> 01:03:31,720
+I could collide shapes that I can't really
+find the result of, right?
+
+855
+01:03:31,720 --> 01:03:38,569
+Which is even awesomer.
+
+856
+01:03:38,569 --> 01:03:48,050
+So now we're at the end of the talk which
+hopefully I'm not too far over time.
+
+857
+01:03:48,050 --> 01:03:52,290
+I told them I was going to be over time so
+I feel like that's OK.
+
+858
+01:03:52,290 --> 01:03:53,470
+Is that true?
+
+859
+01:03:53,470 --> 01:03:56,170
+How bad am I?
+
+860
+01:03:56,170 --> 01:03:57,170
+OK.
+
+861
+01:03:57,170 --> 01:04:00,579
+I said at the beginning of the talk that OK,
+these were things that led to something cool.
+
+862
+01:04:00,579 --> 01:04:07,560
+If you remember the marching cubes thing,
+I never said it led to anything cool.
+
+863
+01:04:07,560 --> 01:04:12,000
+Well, it turns out that this is one of those
+like in the movies where like the bad guy
+
+864
+01:04:12,000 --> 01:04:16,670
+is dead and he's burned and he's lying in
+a ditch or whatever and the very last frame
+
+865
+01:04:16,670 --> 01:04:19,760
+of the movie his hand comes up and's not dead.
+
+866
+01:04:19,760 --> 01:04:30,559
+It turns out 
+this is 20 years after, right, this is 20
+
+867
+01:04:30,559 --> 01:04:36,870
+years after I first read the marching cubes
+paper around we were trying to do a walk system
+
+868
+01:04:36,870 --> 01:04:40,290
+that had some really interesting constraints,
+we wanted all these robustness constraints
+
+869
+01:04:40,290 --> 01:04:45,819
+and things like that and it turned out that
+the way I ended up solving the problem is
+
+870
+01:04:45,819 --> 01:04:56,660
+largely built off that original marching cubes
+stuff that I read 20 years earlier.
+
+871
+01:04:56,660 --> 01:05:01,440
+So yeah, there's my contact info and sorry
+I went so fast but like I said, there's a
+
+872
+01:05:01,440 --> 01:05:13,279
+lot of stuff in there I wanted to not miss
+any of it.
+
+873
+01:05:13,279 --> 01:05:14,730
+So thank you very much.
+
+874
+01:05:14,730 --> 01:05:17,910
+[applause]
+ZEESHAN: Take a couple of questions.
+
+875
+01:05:17,910 --> 01:05:19,440
+>> Do we have time for questions?
+
+876
+01:05:19,440 --> 01:05:21,710
+>>
+>> Hi, just a question regarding a LERP and
+
+877
+01:05:21,710 --> 01:05:23,890
+SLERP.
+
+878
+01:05:23,890 --> 01:05:30,230
+It seems that you can get like with LERP you
+can get the exact midpoint and if you get
+
+879
+01:05:30,230 --> 01:05:34,329
+the exact midpoint, you can get the exact
+SLERP.
+
+880
+01:05:34,329 --> 01:05:36,170
+>> yes, you you can.
+
+881
+01:05:36,170 --> 01:05:41,721
+But remember what we're trying to do is do
+it as fast as possible, so if you have to
+
+882
+01:05:41,721 --> 01:05:46,670
+keep going those computations it's way too
+costly.
+
+883
+01:05:46,670 --> 01:06:00,109
+Because if you want to implement SLERP it's
+an inverse transcendental.
+
+884
+01:06:00,109 --> 01:06:05,910
+But it doesn't actually help in that particular
+case if that makes sense.
+
+885
+01:06:05,910 --> 01:06:13,420
+For LERP and SLERP -- when you were doing
+SLERP, you talked about doing a rotational
+
+886
+01:06:13,420 --> 01:06:21,260
+pass and therefore length of the WXYZ vector
+doesn't matter, but when you're doing LERP,
+
+887
+01:06:21,260 --> 01:06:25,829
+I assume length does matter because you're
+going to have to take the equal points for
+
+888
+01:06:25,829 --> 01:06:28,749
+distance so do you normalize the vector for
+length before you do that --
+
+889
+01:06:28,749 --> 01:06:36,380
+>> Got it so the answer to that question is
+definitely and I cut out a ton of stuff, right,
+
+890
+01:06:36,380 --> 01:06:38,920
+because it was just kind of give the basics.
+
+891
+01:06:38,920 --> 01:06:42,910
+In actuality there's a lot of things you care
+about, all of which are fairly easy to manage
+
+892
+01:06:42,910 --> 01:06:44,569
+but which you do need to know.
+
+893
+01:06:44,569 --> 01:06:50,270
+Some of them are, yes, once you switch from
+SLERP to LERP and I think potentially even
+
+894
+01:06:50,270 --> 01:07:05,410
+in SLERP, I really don't remember, you do
+have times when you want to keep those together.
+
+895
+01:07:05,410 --> 01:07:08,589
+Actually it doesn't encode only the rotations
+that we think about in the real world but
+
+896
+01:07:08,589 --> 01:07:13,470
+actually an additional set of rotations, it's
+actually double-covered is what it's called
+
+897
+01:07:13,470 --> 01:07:18,421
+where you can actually represent a 360-degree
+rotations and then another 360 degrees that
+
+898
+01:07:18,421 --> 01:07:22,270
+aren't the same and I know this sounds really
+weird but if you're into their the et cal
+
+899
+01:07:22,270 --> 01:07:25,849
+physics or whatever, go up and look up double-cover
+rotations.
+
+900
+01:07:25,849 --> 01:07:30,500
+And you also have this other thing called
+neighborhooding that you have to do.
+
+901
+01:07:30,500 --> 01:07:39,700
+You have to understand it all and when you
+do the pipeline it's easy to set it up so
+
+902
+01:07:39,700 --> 01:07:43,119
+that it all works properly but you do have
+to know all the things that you're talking
+
+903
+01:07:43,119 --> 01:07:45,050
+about and a couple that I didn't mention.
+
+904
+01:07:45,050 --> 01:07:48,349
+So I don't want people to get the wrong idea
+that that's all you need to do.
+
+905
+01:07:48,349 --> 01:07:50,750
+There is actually a lot more to it, but in
+terms of the actual computation
+
+906
+01:07:52,500 --> 01:07:54,360
+ZEESHAN: Maybe one more question if anyone
+has one
+
+907
+01:07:56,520 --> 01:07:58,520
+ZEESHAN: O'right, Thank you Casey!
+

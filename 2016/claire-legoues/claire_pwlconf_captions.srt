@@ -1,0 +1,3667 @@
+1
+00:00:05,580 --> 00:00:07,370
+My last name is pronounced la-gwes.
+
+2
+00:00:07,370 --> 00:00:09,420
+I don't expect you to remember that.
+
+3
+00:00:09,420 --> 00:00:13,520
+I do love either the brackets or the non breaking
+space in bibtech.
+
+4
+00:00:13,520 --> 00:00:18,460
+I get cited as goues,cl a lot, which makes
+my poor, late grandfather roll over in his
+
+5
+00:00:18,460 --> 00:00:20,890
+grave, just too bad.
+
+6
+00:00:20,890 --> 00:00:25,930
+As intimated, my research is in software engineering,
+I'm a professor, and I noticed, trolling through
+
+7
+00:00:25,930 --> 00:00:31,080
+the archives of Papers We Love, that there
+is sort of a tragic underrepresentation of
+
+8
+00:00:31,080 --> 00:00:32,090
+software engineering research.
+
+9
+00:00:32,090 --> 00:00:37,840
+And I don't know if that's because of, or
+in spite of, kind of the overlap between academia
+
+10
+00:00:37,840 --> 00:00:43,220
+and industry that this kind of gathering represents,
+but hopefully we can rectify it a little bit.
+
+11
+00:00:43,220 --> 00:00:48,360
+In particular, I care about software quality,
+so how can we build and maintain and improve
+
+12
+00:00:48,360 --> 00:00:53,980
+and assure real software, the software that
+we use and that we're all writing every day.
+
+13
+00:00:53,980 --> 00:00:55,729
+And I actually do work in this area.
+
+14
+00:00:55,729 --> 00:01:02,650
+I know that is counter a little bit of the
+ethos of the event to talk about my work and
+
+15
+00:01:02,650 --> 00:01:08,120
+I'm sorry about that, the talk I gave that
+caused the invitation to happen was actually
+
+16
+00:01:08,120 --> 00:01:13,460
+sort about similar stuff and I thought I could
+make it up to you by having a bit more insight
+
+17
+00:01:13,460 --> 00:01:17,110
+of the progression of the field and maybe
+some stories that never made it to print and
+
+18
+00:01:17,110 --> 00:01:21,140
+so that you will forgive me.
+
+19
+00:01:21,140 --> 00:01:25,990
+Before I get to particular approaches, I want
+to start by laying out the problem domain,
+
+20
+00:01:25,990 --> 00:01:28,310
+so what is it that all of these approaches
+are targeting?
+
+21
+00:01:28,310 --> 00:01:30,670
+Note that I started with three papers.
+
+22
+00:01:30,670 --> 00:01:31,670
+We'll see if we get to three.
+
+23
+00:01:31,670 --> 00:01:36,300
+We'll definitely get to two, but the third
+I'll speed up or something but I'm going to
+
+24
+00:01:36,300 --> 00:01:40,820
+set up the problem domain of telling you a
+story and it is in fact a true story of why
+
+25
+00:01:40,820 --> 00:01:43,040
+I went to grad school.
+
+26
+00:01:43,040 --> 00:01:46,320
+So once upon a time, I was young.
+
+27
+00:01:46,320 --> 00:01:47,370
+This is me young.
+
+28
+00:01:47,370 --> 00:01:53,430
+Young Claire I graduated from college and
+I got a job as a software engineer.
+
+29
+00:01:53,430 --> 00:01:57,980
+I. I worked in a company that had an existing
+product.
+
+30
+00:01:57,980 --> 00:02:06,220
+And that means that it did a lot of stuff.
+
+31
+00:02:06,220 --> 00:02:07,220
+Right it had features.
+
+32
+00:02:07,220 --> 00:02:08,220
+We sold it to people.
+
+33
+00:02:08,220 --> 00:02:09,220
+They used it.
+
+34
+00:02:09,220 --> 00:02:12,140
+It had a regression test suite that ran overnight.
+
+35
+00:02:12,140 --> 00:02:14,390
+It's a piece of software, right?
+
+36
+00:02:14,390 --> 00:02:22,720
+In this organization every developer had to
+go on bug duty every six weeks.
+
+37
+00:02:22,720 --> 00:02:27,220
+There was at least one input, one regression
+test, one bug report from a customer or developer
+
+38
+00:02:27,220 --> 00:02:31,910
+that was causing the software to do something
+weird and it was our job to film it.
+
+39
+00:02:31,910 --> 00:02:35,910
+So the bug that sent me back to grad school
+was from a customer.
+
+40
+00:02:35,910 --> 00:02:45,750
+[laughter]
+And a Ukrainian customer which is important,
+
+41
+00:02:45,750 --> 00:02:51,290
+a Ukrainian customer has a lot of data in
+Ukrainian which is written in Cyrillic character
+
+42
+00:02:51,290 --> 00:02:53,150
+set.
+
+43
+00:02:53,150 --> 00:03:07,210
+And something went weird in our handling of
+64-bit Ukrainian unicode.
+
+44
+00:03:07,210 --> 00:03:10,840
+So if there's one nice thing that can be said
+about this bug is it's actually pretty easy
+
+45
+00:03:10,840 --> 00:03:15,069
+to describe at a high enough level that you
+can understand the story and also easy to
+
+46
+00:03:15,069 --> 00:03:21,630
+produce because all you had to do was give
+the appliance the data and watch the fire
+
+47
+00:03:21,630 --> 00:03:27,920
+garbage out, right.
+
+48
+00:03:27,920 --> 00:03:34,520
+You know, actually just describing it and
+reproducing it was pretty simple.
+
+49
+00:03:34,520 --> 00:03:38,910
+This was the fundamental problem in source-level
+automatic defect repair or patch generation,
+
+50
+00:03:38,910 --> 00:03:41,629
+we have a program and it's doing some stuff
+correctly.
+
+51
+00:03:41,629 --> 00:03:47,690
+It's real world program that somebody is working
+on right now, it's PowerPoint or whatever.
+
+52
+00:03:47,690 --> 00:03:49,490
+It has to be doing at least one thing incorrectly.
+
+53
+00:03:49,490 --> 00:03:50,690
+This is true true of all software.
+
+54
+00:03:50,690 --> 00:03:52,709
+Bugs are an enormous problem.
+
+55
+00:03:52,709 --> 00:04:01,690
+In the wild we might find a bug in any number
+of ways but in research practice in this area
+
+56
+00:04:01,690 --> 00:04:06,069
+we're using test cases right now to witness
+correct versus incorrect behavior so when
+
+57
+00:04:06,069 --> 00:04:09,880
+I say it's doing something wrong I mean there's
+a test case that it was failing but we could
+
+58
+00:04:09,880 --> 00:04:12,190
+tell if it was passing.
+
+59
+00:04:12,190 --> 00:04:17,410
+My job as an engineer was to take that input,
+learn something about the program and create
+
+60
+00:04:17,410 --> 00:04:21,281
+a small number of changes, that when applied
+to the input program produced something very,
+
+61
+00:04:21,281 --> 00:04:26,590
+very similar that did all the same things,
+but with that bug corrected.
+
+62
+00:04:26,590 --> 00:04:31,689
+So in the goal in automatic program repair
+is to develop techniques that can produce
+
+63
+00:04:31,689 --> 00:04:37,889
+those patches automatically, and freeing developers
+like me from the burden of three days of Ukrainian
+
+64
+00:04:37,889 --> 00:04:39,669
+unicode.
+
+65
+00:04:39,669 --> 00:04:46,120
+I'm telling you this story, because I think
+that there's a slightly different perspective
+
+66
+00:04:46,120 --> 00:04:52,520
+that we're taking in this kind of work than
+you might have encountered if you're.
+
+67
+00:04:52,520 --> 00:04:59,800
+They're doing really cool and important stuff
+in addressing whole classes of defects, right?
+
+68
+00:04:59,800 --> 00:05:07,559
+Can we make it so that we never have a buffer
+overflow again, can we prevent hijacking attacks
+
+69
+00:05:07,559 --> 00:05:10,850
+it's not at all the kind of approach that
+we're taking in the software engineering community
+
+70
+00:05:10,850 --> 00:05:13,080
+when this comes to fixing bugs automatically.
+
+71
+00:05:13,080 --> 00:05:19,789
+There is a bug, it is bad, and I want it fixed.
+
+72
+00:05:19,789 --> 00:05:24,699
+I couldn't tell my boss, I'm sorry, I only
+fix buffer overflows and this doesn't look
+
+73
+00:05:24,699 --> 00:05:25,699
+like one, right?
+
+74
+00:05:25,699 --> 00:05:29,479
+I said I've got a bug report and I want it
+fixed.
+
+75
+00:05:29,479 --> 00:05:33,360
+So this area of research has had quite a bit
+of attention in the last five to ten years
+
+76
+00:05:33,360 --> 00:05:38,729
+especially and there's a wide variety between
+the different approaches that have been proposed,
+
+77
+00:05:38,729 --> 00:05:41,639
+but from 30,000 feet they are all basically
+the same.
+
+78
+00:05:41,639 --> 00:05:45,900
+They follow all the same three steps to try
+and patch a bug and in fact they're very similar
+
+79
+00:05:45,900 --> 00:05:55,520
+to the steps that a human developer takes,
+as well, so step one is localize the bug,
+
+80
+00:05:55,520 --> 00:05:58,659
+and you might do a little bit of analysis
+at that point, either static or dynamic to
+
+81
+00:05:58,659 --> 00:06:03,719
+understand the bug, right, to come up with
+a way to fix it, then any technique will have
+
+82
+00:06:03,719 --> 00:06:09,039
+some set of strategies that it takes to create
+fixed possibilities, right?
+
+83
+00:06:09,039 --> 00:06:16,270
+Templates or edits templates or something
+like that, that they will recombine or instantiate
+
+84
+00:06:16,270 --> 00:06:21,129
+which they will then try to validate to find
+one that does the trick.
+
+85
+00:06:21,129 --> 00:06:29,649
+I said from 30,000 feet everything is the
+same.
+
+86
+00:06:29,649 --> 00:06:34,020
+Step 3, validating candidate patches, right
+now I'm I'm hoping this is making the people
+
+87
+00:06:34,020 --> 00:06:36,669
+who develop testing in the audience uncomfortable,
+because it should be.
+
+88
+00:06:36,669 --> 00:06:39,259
+We're going to come back to this.
+
+89
+00:06:39,259 --> 00:06:45,830
+The first step is very, very similar between
+all techniques that try and fix patches automatically.
+
+90
+00:06:45,830 --> 00:06:50,979
+Bug localization or fault localization is
+an area of research analysis in its own right.
+
+91
+00:06:50,979 --> 00:06:56,280
+So it punts to the existing literature on
+this and reuses techniques that have been
+
+92
+00:06:56,280 --> 00:06:57,280
+proposed by others.
+
+93
+00:06:57,280 --> 00:07:01,589
+If you have not been exposed to this kind
+of work before it's not that important that
+
+94
+00:07:01,589 --> 00:07:02,740
+you understand the particulars.
+
+95
+00:07:02,740 --> 00:07:10,119
+I can give up the intuition by calling back
+to those of us who fix bugs.
+
+96
+00:07:10,119 --> 00:07:14,270
+When I faced down that Ukrainian bug I'm going
+to have an honesty moment with you as the
+
+97
+00:07:14,270 --> 00:07:18,770
+audience and tell you what's the first thing
+that I did.
+
+98
+00:07:18,770 --> 00:07:23,430
+I applied that first analysis that any of
+us ever learned, right?
+
+99
+00:07:23,430 --> 00:07:42,099
+I put in a bunch of printfs.
+
+100
+00:07:42,099 --> 00:07:45,929
+This is more or less what spectrum based fault
+localization techniques are doing, except
+
+101
+00:07:45,929 --> 00:07:50,259
+automatically and significantly better math.
+
+102
+00:07:50,259 --> 00:07:55,690
+They see what's execute and then they do some
+computation to figure out which pieces of
+
+103
+00:07:55,690 --> 00:07:59,479
+the program are most likely to be associated
+with the bug.
+
+104
+00:07:59,479 --> 00:08:03,569
+So it's nice because it gives you pieces of
+prax and like a numerical ranking or score
+
+105
+00:08:03,569 --> 00:08:06,819
+indicating bugginess and we just do that.
+
+106
+00:08:06,819 --> 00:08:09,710
+Because we can only solve one problem at a
+time and they are working on it.
+
+107
+00:08:09,710 --> 00:08:11,719
+Which is good.
+
+108
+00:08:11,719 --> 00:08:16,249
+So the real variation here is actually in
+the second bullet where we come up with different
+
+109
+00:08:16,249 --> 00:08:19,189
+ways to try and change the program.
+
+110
+00:08:19,189 --> 00:08:22,340
+From 10,000 feet, I said at from 30,000 feet
+they're all the same.
+
+111
+00:08:22,340 --> 00:08:28,050
+From 10,000 feet the techniques in this space
+split into two conceptual threats and the
+
+112
+00:08:28,050 --> 00:08:35,039
+first two papers I listed are a prototypical
+approach to each of those threats which is
+
+113
+00:08:35,039 --> 00:08:37,159
+why I picked them.
+
+114
+00:08:37,159 --> 00:08:41,240
+The first set of techniques are what we call
+heuristic.
+
+115
+00:08:41,240 --> 00:08:48,500
+We've got some kind of typically syntactic
+templates that will generate a program, we'll
+
+116
+00:08:48,500 --> 00:08:51,970
+generate a whole bunch of possibilities and
+see if they work.
+
+117
+00:08:51,970 --> 00:08:58,760
+Some of these are randomized but they can
+be deterministic, point is they don't use
+
+118
+00:08:58,760 --> 00:09:01,450
+any kind of symbolic reasoning.
+
+119
+00:09:01,450 --> 00:09:14,770
+The symbolic reasoning is what's done in the
+second sept set of techniques.
+
+120
+00:09:14,770 --> 00:09:17,650
+>> So that I picked the first two papers.
+
+121
+00:09:17,650 --> 00:09:21,570
+This has been kind of the thread for the last
+five to ten years, these two, never the two
+
+122
+00:09:21,570 --> 00:09:27,050
+shall meet, right, this vast divide, but lately
+and I confirmed this intuition, I've had this
+
+123
+00:09:27,050 --> 00:09:30,530
+intuition that they're coming back together,
+that we're getting a little bit of the best
+
+124
+00:09:30,530 --> 00:09:34,550
+of both worlds, I'm confirmed that in both
+the semantic and heuristic communities that
+
+125
+00:09:34,550 --> 00:09:41,650
+I'm not insane on that observation, so the
+third paper, which we may or may not get to,
+
+126
+00:09:41,650 --> 00:09:43,940
+is beginning to bring those two threads together.
+
+127
+00:09:43,940 --> 00:09:49,980
+But let's start with the heuristic and semantic
+techniques I want to tell you about.
+
+128
+00:09:49,980 --> 00:09:58,120
+So the first technique is called GenProg.
+
+129
+00:09:58,120 --> 00:10:01,860
+We continue to debate what the name that we
+came up with means.
+
+130
+00:10:01,860 --> 00:10:03,740
+One of these days it will be settled.
+
+131
+00:10:03,740 --> 00:10:08,370
+It uses evolutionary computation to fix bugs,
+so the one-sentence summary is that it's conducting
+
+132
+00:10:08,370 --> 00:10:14,450
+a biased random search for edits at a sin
+text level of a program to fix a bug without
+
+133
+00:10:14,450 --> 00:10:16,870
+breaking anything else.
+
+134
+00:10:16,870 --> 00:10:19,100
+So it's using randomness, right?
+
+135
+00:10:19,100 --> 00:10:24,840
+Now, the search space of possible patches
+for a particular bug is infinite.
+
+136
+00:10:24,840 --> 00:10:30,700
+So the real goal here is to manage that search
+space and traverse it in a way that's tractable,
+
+137
+00:10:30,700 --> 00:10:31,700
+right?
+
+138
+00:10:31,700 --> 00:10:38,410
+And random search can be good for that kind
+of problem.
+
+139
+00:10:38,410 --> 00:10:48,390
+Now, if you want to search for something randomly,
+you actually have a whole bunch of tolts available
+
+140
+00:10:48,390 --> 00:10:51,150
+to ut.
+
+141
+00:10:51,150 --> 00:10:59,500
+That's just the application of evolutionary
+algorithms to program source code.
+
+142
+00:10:59,500 --> 00:11:03,500
+This is one of those algorithms that people
+get really religious about.
+
+143
+00:11:03,500 --> 00:11:05,330
+You either love it or you hate it.
+
+144
+00:11:05,330 --> 00:11:07,640
+I've had people yell at me in public.
+
+145
+00:11:07,640 --> 00:11:12,560
+It really upsets people.
+
+146
+00:11:12,560 --> 00:11:17,840
+But the thing about genetic programming is
+it's just a kind of a reasonable strategy
+
+147
+00:11:17,840 --> 00:11:23,180
+to take in this problem because we treat programs
+as tree, and the literature on genetic programming
+
+148
+00:11:23,180 --> 00:11:28,550
+has a lot of understanding of how to manipulate
+programs as trees and tree-based mutation
+
+149
+00:11:28,550 --> 00:11:29,550
+and so on.
+
+150
+00:11:29,550 --> 00:11:32,970
+So it's imperfect for a number of reasons
+and I might highlight those later but we're
+
+151
+00:11:32,970 --> 00:11:36,340
+just using it because its assumptions fit
+the problem domain.
+
+152
+00:11:36,340 --> 00:11:38,730
+Not because I'm religious on this one way
+or another.
+
+153
+00:11:38,730 --> 00:11:45,600
+So you can yell at me if you want but it's
+going to have no impact on my behavior.
+
+154
+00:11:45,600 --> 00:11:49,740
+Hasn't yet.
+
+155
+00:11:49,740 --> 00:11:55,340
+Program test cases, we need the passing test
+cases because we want to make sure we don't
+
+156
+00:11:55,340 --> 00:11:56,340
+break anything.
+
+157
+00:11:56,340 --> 00:12:00,250
+Evolutionary computation is a population based
+approach so that means it generates a number
+
+158
+00:12:00,250 --> 00:12:06,560
+of solutions to the problem at hand and then
+it iteratively refines and improves that population
+
+159
+00:12:06,560 --> 00:12:10,400
+looking for a variant that actually solves
+the problem.
+
+160
+00:12:10,400 --> 00:12:16,120
+So each candidate is evaluated for its fitness,
+to see how suitable it is, how likely it is
+
+161
+00:12:16,120 --> 00:12:23,680
+to reproduce and make it to the next generation,
+in this context again, how many tests does
+
+162
+00:12:23,680 --> 00:12:29,090
+the patch program pass, the good ones are
+maintained for continued evolution in recombination.
+
+163
+00:12:29,090 --> 00:12:33,730
+The really bad ones, like the ones that move
+variable out of scope for example, that don't
+
+164
+00:12:33,730 --> 00:12:38,470
+compile, are discarded.
+
+165
+00:12:38,470 --> 00:12:44,340
+The nice thing about manipulating a program
+at this level is you'll see that we never
+
+166
+00:12:44,340 --> 00:12:51,480
+make a program that doesn't compile for syntax
+reasons but we may move a label to a place
+
+167
+00:12:51,480 --> 00:12:55,270
+where it has a redundant label for example,
+at which point -- there are actually ways
+
+168
+00:12:55,270 --> 00:13:08,740
+to make GCC complain that aren't just syntax,
+you preclude most of them.
+
+169
+00:13:08,740 --> 00:13:19,940
+So the particulars as they fit in this framework
+are that GenProg is manipulating and
+
+170
+00:13:19,940 --> 00:13:24,100
+uses that genetic programming to traverse
+the space of statement-level edits that reuse
+
+171
+00:13:24,100 --> 00:13:27,030
+code from within the same program to try and
+fix the bug.
+
+172
+00:13:27,030 --> 00:13:30,390
+So to spare you more text I'll just show you
+what I mean.
+
+173
+00:13:30,390 --> 00:13:31,390
+Here's a program.
+
+174
+00:13:31,390 --> 00:13:32,820
+It's not the same program as was in the paper.
+
+175
+00:13:32,820 --> 00:13:35,710
+It happens to be shorter and fits bare on
+a slide.
+
+176
+00:13:35,710 --> 00:13:41,730
+It is an implement of spoiler alert, it has
+a bug.
+
+177
+00:13:41,730 --> 00:13:50,370
+In particular, if you give it A being 0, it
+will forever and we can show you.
+
+178
+00:13:50,370 --> 00:13:55,970
+And when you get bigger numbers, but if we
+give it that first number being zero, it will
+
+179
+00:13:55,970 --> 00:14:00,550
+print out the right answer and then it will
+loop forever and the reason it's looping forever
+
+180
+00:14:00,550 --> 00:14:05,160
+is because if you subtract 0 from 3 forever,
+B will never change.
+
+181
+00:14:05,160 --> 00:14:09,180
+This is easy to fix, right?
+
+182
+00:14:09,180 --> 00:14:11,660
+It's helpful to illustrate what we're trying
+to do with GenProg.
+
+183
+00:14:11,660 --> 00:14:13,410
+So I'll show you what I mean.
+
+184
+00:14:13,410 --> 00:14:27,660
+It's actually the first bug we ever fixed
+with GenProg, also.
+
+185
+00:14:27,660 --> 00:14:43,700
+I might have a quality requirement on my computation
+of greatest deviser now you may think
+
+186
+00:14:43,700 --> 00:14:49,040
+I'm nuts for this, but I will point out that
+the original implementation of make node computed
+
+187
+00:14:49,040 --> 00:14:57,970
+the greatest common divisor between two numbers
+to figure out the -- Katz did, as well, so
+
+188
+00:14:57,970 --> 00:15:04,740
+I'm not completely bonkers, but really the
+reason I use this is because it fits better
+
+189
+00:15:04,740 --> 00:15:06,550
+on the slide.
+
+190
+00:15:06,550 --> 00:15:09,090
+So the program internally looks something
+like this.
+
+191
+00:15:09,090 --> 00:15:18,760
+In the granularity level at which.
+
+192
+00:15:18,760 --> 00:15:24,010
+It won't try and modify individual variables,
+but it will be moving statements around at
+
+193
+00:15:24,010 --> 00:15:26,050
+roughly this level of granularity.
+
+194
+00:15:26,050 --> 00:15:30,870
+And we do that because it reduces the number
+of possible edits, making that search space
+
+195
+00:15:30,870 --> 00:15:32,820
+a little bit more tractable while still be
+expressive.
+
+196
+00:15:32,820 --> 00:15:40,060
+We use local fault generation.
+
+197
+00:15:40,060 --> 00:15:44,029
+This further reduces the search space and
+biases it towards the code that's most likely
+
+198
+00:15:44,029 --> 00:15:45,029
+to be buggy.
+
+199
+00:15:45,029 --> 00:15:49,080
+So I've colored the red blocks here.
+
+200
+00:15:49,080 --> 00:15:51,690
+The green ones we're never going and try and
+change because the failing test case never
+
+201
+00:15:51,690 --> 00:15:54,630
+executes them, so why bother.
+
+202
+00:15:54,630 --> 00:16:01,260
+So I had some drama with myself when preparing
+this talk because a key consideration when
+
+203
+00:16:01,260 --> 00:16:06,550
+you're applying search to a new domain like
+this is how you represent candidate solutions.
+
+204
+00:16:06,550 --> 00:16:10,580
+What is the thing in this box?
+
+205
+00:16:10,580 --> 00:16:14,950
+In the paper that I gave you, which I picked
+because I think it tells a nice complete story
+
+206
+00:16:14,950 --> 00:16:21,270
+and it's kind of accessible to a broader technical
+audience, each one of these individuals was
+
+207
+00:16:21,270 --> 00:16:23,520
+a modified version of the input program.
+
+208
+00:16:23,520 --> 00:16:28,670
+So we were evolving a buggy version of a program
+into a fixed version of itself which is sort
+
+209
+00:16:28,670 --> 00:16:34,250
+of evocative and poetic and it fits the analogy
+and it totally doesn't scale.
+
+210
+00:16:34,250 --> 00:16:38,290
+Because you're keeping around something like
+50 copies of the PHP interpreter, which is
+
+211
+00:16:38,290 --> 00:16:40,660
+sort of a silly thing to do.
+
+212
+00:16:40,660 --> 00:16:44,940
+So I thought I'd just tell you how we're doing
+it now, because a lot of the underlying assumptions
+
+213
+00:16:44,940 --> 00:16:47,340
+are still the same and then I'm not lying
+to you.
+
+214
+00:16:47,340 --> 00:16:50,440
+If it sounds different from what we said in
+the paper, it's because it is.
+
+215
+00:16:50,440 --> 00:16:53,501
+In the intervening years we've changed this
+representation is what I'm trying to tell
+
+216
+00:16:53,501 --> 00:17:01,180
+you such that the it has roughly the same
+expressive power, it happens to be more efficient
+
+217
+00:17:01,180 --> 00:17:05,049
+than have every individual be an evolved program.
+
+218
+00:17:05,049 --> 00:17:07,620
+But everything else is it more or less the
+same.
+
+219
+00:17:07,620 --> 00:17:12,350
+A patch is just a series of statement-level
+edits, so we can delete a statement, swap
+
+220
+00:17:12,350 --> 00:17:16,069
+it with something else, or we can append.
+
+221
+00:17:16,069 --> 00:17:20,399
+If we're replacing code or inserting new code
+we're taking that code from somewhere else
+
+222
+00:17:20,399 --> 00:17:22,290
+in the same program.
+
+223
+00:17:22,290 --> 00:17:25,970
+This leverages the fact that's been observed
+in empirical practice that although developers
+
+224
+00:17:25,970 --> 00:17:30,799
+do make mistakes, otherwise there would be
+no point in this talk, for the most part they
+
+225
+00:17:30,799 --> 00:17:31,799
+do things correctly.
+
+226
+00:17:31,799 --> 00:17:36,409
+There is so if I forgot a null check I probably
+didn't do it everywhere just maybe in that
+
+227
+00:17:36,409 --> 00:17:37,779
+one little node.
+
+228
+00:17:37,779 --> 00:17:49,929
+So
+
+229
+00:17:49,929 --> 00:17:53,630
+to mutate individual or just make a new one,
+you just add enough random edits to a given
+
+230
+00:17:53,630 --> 00:18:00,269
+patch and to combine them you take edits from
+one packet and combine them together.
+
+231
+00:18:00,269 --> 00:18:08,850
+So we want to start by picking a random location
+guided by the fault localization, so if we
+
+232
+00:18:08,850 --> 00:18:18,620
+get really lucky, let's say we picked this
+printf.
+
+233
+00:18:18,620 --> 00:18:20,150
+We just need some code now to insert.
+
+234
+00:18:20,150 --> 00:18:25,600
+I took away the colors because the fault localization
+weights may not be usefully informative on
+
+235
+00:18:25,600 --> 00:18:31,050
+picking correct code, right, just the incorrect
+code and this is a problem that's sort of
+
+236
+00:18:31,050 --> 00:18:35,120
+started calling fixed localization, it's totally
+100% unsolved.
+
+237
+00:18:35,120 --> 00:18:38,679
+In GenProg right now we basically pick it
+at random, uniformly.
+
+238
+00:18:38,679 --> 00:18:43,850
+I don't think anyone has a definitive solution,
+but if we imagine we get super lucky and pick
+
+239
+00:18:43,850 --> 00:18:51,049
+that return statement, the individual variant
+now is just one edit, insert return off printf
+
+240
+00:18:51,049 --> 00:18:56,710
+on line 3 and to evaluate it we apply that
+patch to the original program.
+
+241
+00:18:56,710 --> 00:19:01,809
+We get a great abstract syntax tree.
+
+242
+00:19:01,809 --> 00:19:05,169
+We can compile it out and run it on the test
+case.
+
+243
+00:19:05,169 --> 00:19:13,499
+And see if it works, which it does, because
+I got lucky and it's my talk and that's how
+
+244
+00:19:13,499 --> 00:19:19,440
+we do that.
+
+245
+00:19:19,440 --> 00:19:23,900
+I will get into results into a minute, because
+it's a nice story, but I need to show you
+
+246
+00:19:23,900 --> 00:19:25,480
+that we can patch things.
+
+247
+00:19:25,480 --> 00:19:29,840
+Before I do that, I actually want to introduce
+the second technique that I really want to
+
+248
+00:19:29,840 --> 00:19:34,470
+talk about in some detail so you can appreciate
+the contrast between semantic and heuristic
+
+249
+00:19:34,470 --> 00:19:39,210
+approaches.
+
+250
+00:19:39,210 --> 00:19:46,659
+The second paper is about about a technique
+called Angelix it's an iteration in the semantic
+
+251
+00:19:46,659 --> 00:19:48,850
+body of work on program repair.
+
+252
+00:19:48,850 --> 00:19:51,039
+I totally fan girl this work.
+
+253
+00:19:51,039 --> 00:19:58,490
+I'm a little bit embarrassing about it.
+
+254
+00:19:58,490 --> 00:20:01,419
+Hopefully I will be able to tell you why,
+so have if you haven't read it I'm sure you
+
+255
+00:20:01,419 --> 00:20:06,149
+all did, you can read it or you can read it
+again and appreciate it.
+
+256
+00:20:06,149 --> 00:20:14,480
+So within this same framework we're doing
+the same thing, Angelix is also the most important
+
+257
+00:20:14,480 --> 00:20:19,320
+thing is Angelix is local identifying the
+bug.
+
+258
+00:20:19,320 --> 00:20:26,860
+And just the right-hand side of assignments
+and conditions I'll show you what I mean but
+
+259
+00:20:26,860 --> 00:20:31,120
+first I want to shout out to Abhik.
+
+260
+00:20:31,120 --> 00:20:35,419
+He's the main PI in this work.
+
+261
+00:20:35,419 --> 00:20:42,179
+This made my life really easier because animating
+in many slides is really frankly tedious so
+
+262
+00:20:42,179 --> 00:20:46,809
+in addition to being a really awesome scientist
+he's also a really nice guy who made my life
+
+263
+00:20:46,809 --> 00:20:49,759
+easier so cheers to him.
+
+264
+00:20:49,759 --> 00:20:53,619
+That said, this is some source code that I
+don't want you to understand because it doesn't
+
+265
+00:20:53,619 --> 00:20:55,619
+matter.
+
+266
+00:20:55,619 --> 00:21:02,350
+What matters is line 4 is wrong.
+
+267
+00:21:02,350 --> 00:21:13,870
+Angelix is 
+so we can use test cases, we have some test
+
+268
+00:21:13,870 --> 00:21:18,539
+cases to localize to particular expressions
+that are most likely associated with the fault
+
+269
+00:21:18,539 --> 00:21:26,539
+and in particular, the existing work can identify
+this line as faulty pretty easily.
+
+270
+00:21:26,539 --> 00:21:30,679
+so that's the line that we want to try and
+fix.
+
+271
+00:21:30,679 --> 00:21:34,200
+There are two major things that Angelix does
+to fix that.
+
+272
+00:21:34,200 --> 00:21:40,620
+It's going to say, whatever bias it's being
+assigned to is wrong.
+
+273
+00:21:40,620 --> 00:22:03,700
+So let's figure out what it should be instead:
+So the name Angelix comes from the idea of
+
+274
+00:22:03,700 --> 00:22:05,480
+this Angelix value.
+
+275
+00:22:05,480 --> 00:22:10,190
+The value that would make a given test case
+pass if the expression had that value when
+
+276
+00:22:10,190 --> 00:22:12,049
+it was executed.
+
+277
+00:22:12,049 --> 00:22:13,240
+This value was set arbitrarily.
+
+278
+00:22:13,240 --> 00:22:19,570
+That's the word that is often used in the
+literature, and we just mean symbolically.
+
+279
+00:22:19,570 --> 00:22:25,460
+So you can solve for symbolic value, right,
+if you say, OK, instead of bias gets down,
+
+280
+00:22:25,460 --> 00:22:26,509
+bias gets X.
+
+281
+00:22:26,509 --> 00:22:33,450
+Let's solve for X and that's basically what
+they do.
+
+282
+00:22:33,450 --> 00:22:40,720
+A set of conditions that controlled a particular
+execution, in terms of that symbolic value.
+
+283
+00:22:40,720 --> 00:22:44,850
+So you start by executing the test concretely
+and at the point that the execution depends
+
+284
+00:22:44,850 --> 00:22:57,230
+on the symbolic value, you can collect the
+...
+
+285
+00:22:57,230 --> 00:23:00,980
+I'll show you the intuition on a single expression
+and a single test case.
+
+286
+00:23:00,980 --> 00:23:05,289
+One thing that makes Angelix awesome is it
+can reason over multiple things at the same
+
+287
+00:23:05,289 --> 00:23:06,360
+time.
+
+288
+00:23:06,360 --> 00:23:11,159
+I'll just show you one because it's easier.
+
+289
+00:23:11,159 --> 00:23:15,880
+So if we set bias to let's say alpha and we
+worry about one test case, which we're doing
+
+290
+00:23:15,880 --> 00:23:21,559
+here, we're going to start executing the code
+on this test case, so for the first three
+
+291
+00:23:21,559 --> 00:23:26,429
+lines nothing changes from the concrete execution,
+because it can just be executed concretely
+
+292
+00:23:26,429 --> 00:23:28,110
+because everything has a concrete value.
+
+293
+00:23:28,110 --> 00:23:33,730
+But when we get to line 4, now all of a sudden
+we've entered the symbolic world.
+
+294
+00:23:33,730 --> 00:23:34,980
+Bias doesn't have a concrete value.
+
+295
+00:23:34,980 --> 00:23:41,490
+It has an arbitrary value.
+
+296
+00:23:41,490 --> 00:23:44,529
+The condition on line 3 concretely evaluated
+to true.
+
+297
+00:23:44,529 --> 00:23:49,789
+So now we keep executing but now we're in
+a symbolic world and so when we get to line
+
+298
+00:23:49,789 --> 00:23:53,409
+6, bias doesn't have a concrete value right
+now, right?
+
+299
+00:23:53,409 --> 00:23:54,409
+Bias is just alpha.
+
+300
+00:23:54,409 --> 00:23:55,429
+We don't know what alpha is.
+
+301
+00:23:55,429 --> 00:23:59,409
+We don't have any constraints on alpha that
+tells us that it's greater than other equal
+
+302
+00:23:59,409 --> 00:24:01,730
+to or less than down.
+
+303
+00:24:01,730 --> 00:24:06,299
+So this could be true and on line 7.
+
+304
+00:24:06,299 --> 00:24:07,299
+We return 1.
+
+305
+00:24:07,299 --> 00:24:11,620
+And if we return 1 on line 7 it's because
+bias is equal to arbitrary value.
+
+306
+00:24:11,620 --> 00:24:18,950
+It hasn't been changed.
+
+307
+00:24:18,950 --> 00:24:24,759
+Moreover, because we know what the expected
+output should be, we know that this corresponds
+
+308
+00:24:24,759 --> 00:24:27,490
+to a passing execution.
+
+309
+00:24:27,490 --> 00:24:30,350
+And that's useful because we can remember
+it.
+
+310
+00:24:30,350 --> 00:24:34,529
+But again, we don't know if that evaluation
+on line 6 was going to evaluate to true.
+
+311
+00:24:34,529 --> 00:24:35,799
+So what if it department?
+
+312
+00:24:35,799 --> 00:24:37,929
+That means that we're actually advancing to
+line 8 instead.
+
+313
+00:24:37,929 --> 00:24:43,429
+There's this other fork that execution could
+take and in that case we know bias has to
+
+314
+00:24:43,429 --> 00:24:45,109
+be equal or less than 110.
+
+315
+00:24:45,109 --> 00:24:48,940
+But we also know that returning 1 here is
+wrong.
+
+316
+00:24:48,940 --> 00:24:51,909
+So this execution is incorrect.
+
+317
+00:24:51,909 --> 00:24:55,590
+If you ever read any paper that uses symbolic
+execution for anything, it probably has this
+
+318
+00:24:55,590 --> 00:24:58,230
+tree in it.
+
+319
+00:24:58,230 --> 00:25:02,110
+There's always this tree of execution, and
+that's what symbolic execution is computing
+
+320
+00:25:02,110 --> 00:25:05,520
+that full set of paths that could happen.
+
+321
+00:25:05,520 --> 00:25:11,039
+Loops are a different story that you can ask
+me about at the break.
+
+322
+00:25:11,039 --> 00:25:12,519
+So why do we do that?
+
+323
+00:25:12,519 --> 00:25:17,220
+We did that because instead of bias just being
+a number, a symbolic value or a number, right
+
+324
+00:25:17,220 --> 00:25:33,269
+if we could set to a mathematical function,
+let's call it F and that has access to all
+
+325
+00:25:33,269 --> 00:25:40,970
+the variables, like inhibit, up_sep and down_sep,.
+
+326
+00:25:40,970 --> 00:25:47,080
+We can collect all of the constraints over
+that function and concatenate them together.
+
+327
+00:25:47,080 --> 00:25:51,019
+Now all we need is a function that satisfies
+those constraints.
+
+328
+00:25:51,019 --> 00:25:52,019
+So where are we going to get it?
+
+329
+00:25:52,019 --> 00:25:53,230
+That's kind of the next question.
+
+330
+00:25:53,230 --> 00:25:56,230
+We use that guided symbolic execution to get
+the constraints.
+
+331
+00:25:56,230 --> 00:25:58,830
+Now Step 2 is to solve those constraints.
+
+332
+00:25:58,830 --> 00:26:07,000
+We want to concatenate so that we don't just
+pass one, we pass all of them.
+
+333
+00:26:07,000 --> 00:26:10,899
+You have a bunch of options.
+
+334
+00:26:10,899 --> 00:26:17,200
+They happened to use something called oracle
+guided component based program to size.
+
+335
+00:26:17,200 --> 00:26:24,590
+It takes me about an hour lecture in my grad
+school so I'm not going to do it in detail.
+
+336
+00:26:24,590 --> 00:26:28,950
+I will just give you the intuition, so the
+idea is that we have a fixed set of functions
+
+337
+00:26:28,950 --> 00:26:32,279
+or operators, so maybe plus-minus-multiply.
+
+338
+00:26:32,279 --> 00:26:38,950
+Maybe we have a couple more shall, but we
+just have a fixed set of operators and those
+
+339
+00:26:38,950 --> 00:26:43,289
+are the components and we're going to synthesize
+code, we're going to construct our query to
+
+340
+00:26:43,289 --> 00:26:49,940
+an SMT solver in a very particular way that
+is a loud to use those operators and it needs
+
+341
+00:26:49,940 --> 00:26:54,570
+to combine them in a way that satisfies the
+constraints imposed by the test cases that's
+
+342
+00:26:54,570 --> 00:26:57,259
+the oracle-guided part.
+
+343
+00:26:57,259 --> 00:27:00,649
+So in this example this kind of synthesis
+can totally happen it.
+
+344
+00:27:00,649 --> 00:27:08,169
+We return a function that looks like this.
+
+345
+00:27:08,169 --> 00:27:14,049
+It turns out that that is the correct answer,
+which is cool.
+
+346
+00:27:14,049 --> 00:27:25,390
+The way that we encode that synthesis problem
+is is you should read the paper two years
+
+347
+00:27:25,390 --> 00:27:28,200
+before it because it explains it super-duper
+well.
+
+348
+00:27:28,200 --> 00:27:35,460
+Now, Claire, you might be wondering why did
+they talk a lot about forests.
+
+349
+00:27:35,460 --> 00:27:39,700
+You have not used the word forests, nor have
+you.
+
+350
+00:27:39,700 --> 00:27:45,429
+Remember in our example, I said I was going
+to focus on a single expression and a single
+
+351
+00:27:45,429 --> 00:27:46,429
+test case.
+
+352
+00:27:46,429 --> 00:27:52,059
+We can actually do this for multiple expressions.
+
+353
+00:27:52,059 --> 00:27:56,559
+And then we're just collecting paths that
+such different expressions with symbolic values.
+
+354
+00:27:56,559 --> 00:27:58,080
+So here's one angelic path, right?
+
+355
+00:27:58,080 --> 00:28:05,539
+And we know that that path is the test case.
+
+356
+00:28:05,539 --> 00:28:11,419
+But if we go to your left, we just go through
+E1, E2, that won't pass the test case so we
+
+357
+00:28:11,419 --> 00:28:13,929
+don't have to worry about it, etc.
+
+358
+00:28:13,929 --> 00:28:17,389
+You get the point.
+
+359
+00:28:17,389 --> 00:28:21,789
+The point of the whole forest thing is that
+we can collect these paths and combine them
+
+360
+00:28:21,789 --> 00:28:28,769
+all into one forest of angelic paths and then
+combine all of them for the purposes of synthesis.
+
+361
+00:28:28,769 --> 00:28:33,590
+The neat part is that the size of this forest
+is independent of the size of the program.
+
+362
+00:28:33,590 --> 00:28:38,720
+It's only related to the number of expressions
+that you're considering as symbolic at a time.
+
+363
+00:28:38,720 --> 00:28:43,850
+So this is an instance in which we've modified
+reasoning, so that it's only reasoning about
+
+364
+00:28:43,850 --> 00:28:45,809
+the increment that we're working on.
+
+365
+00:28:45,809 --> 00:28:52,489
+We only care about the change in the behavior,
+and not the behavior of the entire program,
+
+366
+00:28:52,489 --> 00:28:56,340
+which means that we've taken synthesis something
+that historically can only apply to very small
+
+367
+00:28:56,340 --> 00:29:01,309
+programs and made it be useful in the context
+of a very large program and this idea about
+
+368
+00:29:01,309 --> 00:29:05,080
+reasoning about just the size of the increment
+and not the entire program is one of the key
+
+369
+00:29:05,080 --> 00:29:09,729
+things that has allowed this technique, as
+well as heuristic techniques to scale to programs
+
+370
+00:29:09,729 --> 00:29:11,679
+of nontrivial size.
+
+371
+00:29:11,679 --> 00:29:16,570
+It appears basically in all kinds of places
+in program repair and this may seem kind of
+
+372
+00:29:16,570 --> 00:29:18,110
+intuitive now.
+
+373
+00:29:18,110 --> 00:29:22,590
+But it's one of those innovations that just
+seems really obvious I think in retrospect
+
+374
+00:29:22,590 --> 00:29:24,399
+that the time wasn't.
+
+375
+00:29:24,399 --> 00:29:32,201
+Angelix very slightly different goals but
+very similar underlying mechanics, except
+
+376
+00:29:32,201 --> 00:29:38,049
+that the constraints it had to solve basically
+had to do the whole function which is why
+
+377
+00:29:38,049 --> 00:29:48,389
+it totally didn't scale and this one does,
+which is why I think it's so awesome.
+
+378
+00:29:48,389 --> 00:29:57,429
+There are many more besides the two that I've
+told you but I can give you a flavor for the
+
+379
+00:29:57,429 --> 00:30:01,470
+kinds of problems that we're concerned with
+and how we evaluate them and show you some
+
+380
+00:30:01,470 --> 00:30:02,470
+comparison.
+
+381
+00:30:02,470 --> 00:30:07,250
+There are three major issues in program repair,
+three major problems we're trying to solve.
+
+382
+00:30:07,250 --> 00:30:12,279
+The first is scalability, I've kind of hinted
+at this.
+
+383
+00:30:12,279 --> 00:30:15,730
+The second is output quality, which is that
+we want to make patches that are good.
+
+384
+00:30:15,730 --> 00:30:19,049
+This is a major problem, I will come back
+to it because it has no suitable definition
+
+385
+00:30:19,049 --> 00:30:23,710
+yet and the third is we want to make a whole
+bunch of different kinds of patches for different
+
+386
+00:30:23,710 --> 00:30:26,159
+kinds of bugs and different kinds of programs.
+
+387
+00:30:26,159 --> 00:30:30,649
+Like I hinted at at the beginning, I couldn't
+tell my boss, I only fix buffer overflows,
+
+388
+00:30:30,649 --> 00:30:32,549
+I had to fix every kind of bug that came my
+way.
+
+389
+00:30:32,549 --> 00:30:41,399
+And this is the first place where I think
+you can imagine the differences between what
+
+390
+00:30:41,399 --> 00:30:43,370
+the techniques can do.
+
+391
+00:30:43,370 --> 00:30:50,580
+Something like GenProg operating at the state
+level as compared to Angelix.
+
+392
+00:30:50,580 --> 00:30:59,710
+Now, there is overlaps in the types of bugs
+they can fix, but you can still, I think just
+
+393
+00:30:59,710 --> 00:31:03,009
+even looking at the level of representation
+tells you that there has to be some kind of
+
+394
+00:31:03,009 --> 00:31:06,720
+difference in expressive power.
+
+395
+00:31:06,720 --> 00:31:10,879
+Semantic techniques also tend to be limited
+in the power of their underlying symbolic
+
+396
+00:31:10,879 --> 00:31:16,450
+reasoning p eng nines, so if a symbolic execution
+engine can't handle it, semantic techniques
+
+397
+00:31:16,450 --> 00:31:17,950
+can't either.
+
+398
+00:31:17,950 --> 00:31:27,549
+So 
+as those techniques get better, the repair
+
+399
+00:31:27,549 --> 00:31:29,690
+techniques built on them also get better.
+
+400
+00:31:29,690 --> 00:31:35,951
+OK, so the first evaluations of program repair
+focused on both of these two issues: Scalability
+
+401
+00:31:35,951 --> 00:31:38,629
+and expressive power.
+
+402
+00:31:38,629 --> 00:31:40,529
+And I want to stop just for a second on scalability.
+
+403
+00:31:40,529 --> 00:31:42,349
+Because for a long time, this was the problem.
+
+404
+00:31:42,349 --> 00:31:57,570
+As I hinted at with semantic techniques, synthesis
+doesn't work.
+
+405
+00:31:57,570 --> 00:32:02,529
+>> So I think we forgot, in the intervening
+years how hard this was to do it scalably.
+
+406
+00:32:02,529 --> 00:32:06,739
+So scalability was the dominant concern for
+a long time and why we ignored output quality
+
+407
+00:32:06,739 --> 00:32:08,980
+for so long.
+
+408
+00:32:08,980 --> 00:32:11,080
+Spoiler alert.
+
+409
+00:32:11,080 --> 00:32:13,940
+I'm going to show you a table full of bugs
+and programs that I don't want you to try
+
+410
+00:32:13,940 --> 00:32:14,940
+to read.
+
+411
+00:32:14,940 --> 00:32:18,239
+I will tell you what's happening.
+
+412
+00:32:18,239 --> 00:32:19,239
+OK.
+
+413
+00:32:19,239 --> 00:32:23,519
+The first half of this table consists of bugs
+in programs that appeared in the first paper
+
+414
+00:32:23,519 --> 00:32:25,470
+I gave you on GenProg.
+
+415
+00:32:25,470 --> 00:32:30,090
+The back half has a bunch of more programs,
+bigger and better programs than appeared subsequently.
+
+416
+00:32:30,090 --> 00:32:38,010
+The approach here to evaluate places things
+like bug track and bug databases and try to
+
+417
+00:32:38,010 --> 00:32:42,169
+see if GenProg could fix them.
+
+418
+00:32:42,169 --> 00:32:49,789
+The whole point is that GenProg could fix
+them in about under 7 minutes on average which
+
+419
+00:32:49,789 --> 00:32:51,649
+was super cool.
+
+420
+00:32:51,649 --> 00:32:52,829
+We fixed them, yay.
+
+421
+00:32:52,829 --> 00:32:58,809
+>> I'm picking on myself, but I'm picking
+on everyone else, too, because this is what
+
+422
+00:32:58,809 --> 00:33:05,379
+we did for a long time.
+
+423
+00:33:05,379 --> 00:33:07,309
+But it never really satisfied anyone.
+
+424
+00:33:07,309 --> 00:33:12,429
+I give talks like that with tables like that,
+and inevitably after the talk someone from
+
+425
+00:33:12,429 --> 00:33:16,950
+the back of the room would come up to me and
+say something like, OK, that was super-cute.
+
+426
+00:33:16,950 --> 00:33:21,549
+That part was either implied or actually said,
+but you know, what if I actually, I'm a real
+
+427
+00:33:21,549 --> 00:33:25,570
+human who works on real code, what if I gave
+you the last 100 bugs my developers had to
+
+428
+00:33:25,570 --> 00:33:27,820
+deal with, how many could GenProg actually
+fix?
+
+429
+00:33:27,820 --> 00:33:31,729
+Which is a really good question because maybe
+I just showed up the only 18 bugs that GenProg
+
+430
+00:33:31,729 --> 00:33:39,119
+was capable of fixing, right?
+
+431
+00:33:39,119 --> 00:33:53,120
+I don't think I realized how much confession
+I was going to do in this talk.
+
+432
+00:33:53,120 --> 00:33:55,120
+But it's true.
+
+433
+00:33:55,120 --> 00:33:59,100
+I want to tell but the dataset really, really
+quickly, just to give you a more complete
+
+434
+00:33:59,100 --> 00:34:02,950
+picture of the way we've been evaluating this
+and the kinds of numbers that GenProg puts
+
+435
+00:34:02,950 --> 00:34:08,530
+up, but also because subsequent papers in
+this space often use the same scenarios that
+
+436
+00:34:08,530 --> 00:34:12,710
+we constructed in that dataset for the purposes
+of comparative evaluation so if you read the
+
+437
+00:34:12,710 --> 00:34:18,010
+Angelix paper, you'll notice that they relied
+on some unknown dataset that was cited somewhere
+
+438
+00:34:18,010 --> 00:34:25,990
+in the bibliography, which you probably didn't
+read, because why would you, to understand
+
+439
+00:34:25,990 --> 00:34:31,380
+where those bugs came from, you need to understand
+the drama of my life.
+
+440
+00:34:31,380 --> 00:34:36,990
+So we just wanted a real set of important
+bugs that was indicative in some way and we
+
+441
+00:34:36,990 --> 00:34:44,570
+just want to get like the last 100 bugs or
+whatever in a bunch of open source programs.
+
+442
+00:34:44,570 --> 00:34:48,460
+This was actually just pre-GitHub.
+
+443
+00:34:48,460 --> 00:34:52,390
+Which means we were actually trolling source
+boards a lot.
+
+444
+00:34:52,390 --> 00:34:55,460
+And now they look at me like I'm nuts.
+
+445
+00:34:55,460 --> 00:34:59,300
+Most of the projects we studied actually and
+most of the projects you'll see in the next
+
+446
+00:34:59,300 --> 00:35:03,641
+table have moved to GitHub since, but that's
+where we were.
+
+447
+00:35:03,641 --> 00:35:08,890
+We were on source forage and we went back
+in time through source control looking for
+
+448
+00:35:08,890 --> 00:35:15,190
+commits where test case behavior changed and
+that gave us about 105 bugs.
+
+449
+00:35:15,190 --> 00:35:18,760
+It got up to 185 that we tried to fix.
+
+450
+00:35:18,760 --> 00:35:21,030
+We're about to show you another table I don't
+want you to read.
+
+451
+00:35:21,030 --> 00:35:27,360
+These numbers are a little bit old but we
+took this historical approach and we showed
+
+452
+00:35:27,360 --> 00:35:32,560
+that under controlled circumstances, GenProg
+fixes about half the bugs you throw at it
+
+453
+00:35:32,560 --> 00:35:34,070
+and it does in a reasonable period of time.
+
+454
+00:35:34,070 --> 00:35:43,840
+We did that so that we could measure how much
+it actually cost and show that those costs
+
+455
+00:35:43,840 --> 00:35:46,880
+were human competitive.
+
+456
+00:35:46,880 --> 00:35:48,700
+Which was the point of that evaluation.
+
+457
+00:35:48,700 --> 00:35:52,230
+But you should recognize the names of some
+of these programs.
+
+458
+00:35:52,230 --> 00:35:57,790
+Things like the PHP interpreter, which is
+amazingly well tested which I think is funny.
+
+459
+00:35:57,790 --> 00:36:00,660
+Wireshark, right?
+
+460
+00:36:00,660 --> 00:36:01,670
+You've heard of that.
+
+461
+00:36:01,670 --> 00:36:02,670
+Wireshark.
+
+462
+00:36:02,670 --> 00:36:06,730
+It turns out compilers can be easy to test
+so it can be easy to find bugs in.
+
+463
+00:36:06,730 --> 00:36:10,230
+But these are real programs, they have up
+to 7 million lines of code in them manned
+
+464
+00:36:10,230 --> 00:36:13,340
+we showed that we can fix bugs in them.
+
+465
+00:36:13,340 --> 00:36:20,230
+That dataset is what appears in Angelix.
+
+466
+00:36:20,230 --> 00:36:23,710
+This is one of those charts where they're
+comparing Angelix to another technique called
+
+467
+00:36:23,710 --> 00:36:32,380
+SPR and also GenProg and so this graph is
+just showing you what they call repair ability.
+
+468
+00:36:32,380 --> 00:36:36,630
+So how many of the bugs in each program set
+they can fix.
+
+469
+00:36:36,630 --> 00:36:41,490
+I don't really like this graph, because it's
+normalizing the number of defects in each
+
+470
+00:36:41,490 --> 00:36:50,460
+program, so there's way more PHP bugs for
+example than GMP bugs.
+
+471
+00:36:50,460 --> 00:36:54,100
+But you know, what they're telling you is
+that Angelix can fix a whole bunch of bugs
+
+472
+00:36:54,100 --> 00:37:00,040
+better than other techniques can.
+
+473
+00:37:00,040 --> 00:37:02,840
+And that's where those scenarios came from
+and you're like why, Wireshark?
+
+474
+00:37:02,840 --> 00:37:08,250
+The answer is I could find bugs in them and
+did it in 2011.
+
+475
+00:37:08,250 --> 00:37:14,070
+And this is one of the reasons I love this
+paper.
+
+476
+00:37:14,070 --> 00:37:16,430
+They synthesized a patch for Heartbleed.
+
+477
+00:37:16,430 --> 00:37:19,480
+I also love that bugs have logos now, because
+it makes slides easier to make.
+
+478
+00:37:19,480 --> 00:37:26,290
+They're like, hey, we fixed all these bugs,
+the patches are of higher quality and also,
+
+479
+00:37:26,290 --> 00:37:32,120
+let's synthesize a patch for a previously
+unrepaired.
+
+480
+00:37:32,120 --> 00:37:40,960
+If you stared at it for a bit, you can convince
+yourself that it's functionally equivalent.
+
+481
+00:37:40,960 --> 00:37:43,460
+It's really cool.
+
+482
+00:37:43,460 --> 00:37:46,130
+It's really cool.
+
+483
+00:37:46,130 --> 00:37:48,800
+Anyway, moving on.
+
+484
+00:37:48,800 --> 00:37:51,430
+So back to making strong statements.
+
+485
+00:37:51,430 --> 00:37:54,300
+Scalability is basically solved.
+
+486
+00:37:54,300 --> 00:37:59,400
+Heuristic techniques have been will for a
+long time.
+
+487
+00:37:59,400 --> 00:38:03,060
+Other techniques in that space have been able
+to operate them for a long time.
+
+488
+00:38:03,060 --> 00:38:05,910
+Angelix takes semantic techniques up to that
+level.
+
+489
+00:38:05,910 --> 00:38:14,920
+It's not fully automated you have to do some
+work to make it fit nicely with it.
+
+490
+00:38:14,920 --> 00:38:16,740
+And expressive power we're still fixing a
+variety of bugs.
+
+491
+00:38:16,740 --> 00:38:21,330
+I think this is an open challenge we're not
+as worried about it these days.
+
+492
+00:38:21,330 --> 00:38:25,390
+The thing we are worried about is pair quality.
+
+493
+00:38:25,390 --> 00:38:35,830
+This problem isn't unique from all repair.
+
+494
+00:38:35,830 --> 00:38:39,950
+Humans also write garbage we just want to
+know if a patch is good, no matter where it
+
+495
+00:38:39,950 --> 00:38:41,430
+comes from.
+
+496
+00:38:41,430 --> 00:38:45,710
+It's also not a new problem and in fact it's
+something that our concern which goes back
+
+497
+00:38:45,710 --> 00:38:50,770
+to the start of our work in program repair,
+and I have a bunch of really hilarious stories
+
+498
+00:38:50,770 --> 00:38:56,190
+that go wrong when you start randomly changing
+like the Python interpreter.
+
+499
+00:38:56,190 --> 00:38:58,860
+[laughter]
+But something that I think is more informative
+
+500
+00:38:58,860 --> 00:39:02,850
+for this discussion actually goes back to
+the second bug we ever tried to fix with GenProg
+
+501
+00:39:02,850 --> 00:39:05,170
+so I'm going to tell you about it.
+
+502
+00:39:05,170 --> 00:39:11,700
+The second bug was in a 6,000-line very bare
+bones web server.
+
+503
+00:39:11,700 --> 00:39:21,380
+Called noel HTTP D. Somebody forgot to check
+that a user provided input was greater than
+
+504
+00:39:21,380 --> 00:39:22,380
+0.
+
+505
+00:39:22,380 --> 00:39:31,490
+Before calling malic with it.
+
+506
+00:39:31,490 --> 00:39:37,210
+The so now what we need is a bunch of passing
+test cases and we can try out our prototype
+
+507
+00:39:37,210 --> 00:39:38,760
+and see if we can fix our bug.
+
+508
+00:39:38,760 --> 00:39:41,750
+So what does a user do?
+
+509
+00:39:41,750 --> 00:39:44,680
+Feeling pretty good.
+
+510
+00:39:44,680 --> 00:39:47,610
+Audience participation time.
+
+511
+00:39:47,610 --> 00:39:49,560
+What happened?
+
+512
+00:39:49,560 --> 00:39:57,650
+We have a bug in post, we have a bunch of
+get requests, we want to patch some test cases.
+
+513
+00:39:57,650 --> 00:40:01,350
+Of course that's what happened.
+
+514
+00:40:01,350 --> 00:40:04,740
+It actually happened really quickly.
+
+515
+00:40:04,740 --> 00:40:07,870
+[laughter]
+Yeah.
+
+516
+00:40:07,870 --> 00:40:12,160
+So we felt stupid, naturally and we added
+a non-crashing POST test case.
+
+517
+00:40:12,160 --> 00:40:20,230
+Took a little bit longer than just deleting
+POST did, but you know, whatever.
+
+518
+00:40:20,230 --> 00:40:24,100
+But the point -- it illustrates the point
+that when your test case is your objective
+
+519
+00:40:24,100 --> 00:40:29,670
+function, your test rate quality really matters.
+
+520
+00:40:29,670 --> 00:40:33,220
+Now I'm willing to fall on my sword at this
+point and claim that a patch that deletes
+
+521
+00:40:33,220 --> 00:40:38,060
+posts is better than a patch that does nothing,
+because at least I can get static content,
+
+522
+00:40:38,060 --> 00:40:39,060
+right?
+
+523
+00:40:39,060 --> 00:40:43,920
+But I'm not going to lie to you and pretend
+that that's as good as like fixing POST, right?
+
+524
+00:40:43,920 --> 00:40:53,380
+I get into this argument with people all the
+time, right, and all sorts of options are
+
+525
+00:40:53,380 --> 00:40:57,490
+put forward but there's no principled answer
+in the research literature that I know of
+
+526
+00:40:57,490 --> 00:40:58,900
+that actually answers it.
+
+527
+00:40:58,900 --> 00:41:05,230
+So one possibility is that we want our patches
+to be understandable by humans, although I
+
+528
+00:41:05,230 --> 00:41:09,780
+will point out that I had no problem understanding
+the POST-deleting patch, right?
+
+529
+00:41:09,780 --> 00:41:11,630
+That wasn't the issue.
+
+530
+00:41:11,630 --> 00:41:14,280
+One thing that's been put forward and you
+may have seen this in the Angelix paper is
+
+531
+00:41:14,280 --> 00:41:21,960
+we might say a patch that doesn't delete is
+good, and I can't just get past goto fail
+
+532
+00:41:21,960 --> 00:41:24,340
+in this one.
+
+533
+00:41:24,340 --> 00:41:29,040
+That is really bad bug that you fix by deleting
+a line so I don't want to say that a patch
+
+534
+00:41:29,040 --> 00:41:35,010
+can't delete, because deletion is sometimes
+OK.
+
+535
+00:41:35,010 --> 00:41:39,010
+But humans are often wrong and how close does
+it have stob, anyway, I'm totally comfortable
+
+536
+00:41:39,010 --> 00:41:44,480
+with their Heartbleed patch even though it
+wasn't the same.
+
+537
+00:41:44,480 --> 00:41:48,870
+We might say it has to address the cause and
+not the symptom which I think is getting closer,
+
+538
+00:41:48,870 --> 00:41:52,930
+I'm telling you this story because it informs
+actually the evaluation which takes place
+
+539
+00:41:52,930 --> 00:41:57,040
+in the third paper which I may or may not
+get in detail because the idea of how do we
+
+540
+00:41:57,040 --> 00:42:01,120
+actually assess the quality of the patches
+that come out of this is all over the literature
+
+541
+00:42:01,120 --> 00:42:10,510
+as we try to develop patches.
+
+542
+00:42:10,510 --> 00:42:15,630
+One proposal that we've put out is to measure
+quality based on degree to which results generalize
+
+543
+00:42:15,630 --> 00:42:17,600
+to a second set of tests.
+
+544
+00:42:17,600 --> 00:42:23,960
+So in machine learning when you evaluate a
+model, you test it on a separate set of data
+
+545
+00:42:23,960 --> 00:42:26,290
+than you trained it on to assess overfitting.
+
+546
+00:42:26,290 --> 00:42:30,100
+So if you look at program repair this way,
+the tests that are used to build the repair
+
+547
+00:42:30,100 --> 00:42:32,120
+are training tests.
+
+548
+00:42:32,120 --> 00:42:39,770
+And then you can have a second set of tests
+to assess correctness.
+
+549
+00:42:39,770 --> 00:42:43,760
+We could then use data to evaluate the degree
+to evaluate the degree to which one makes
+
+550
+00:42:43,760 --> 00:42:44,760
+patches to the other.
+
+551
+00:42:44,760 --> 00:42:45,760
+Right?
+
+552
+00:42:45,760 --> 00:42:49,060
+It would be super cool if it weren't totally
+impossible.
+
+553
+00:42:49,060 --> 00:42:54,890
+It's totally impossible because it requires
+two patch test suite and we don't even have
+
+554
+00:42:54,890 --> 00:42:57,730
+one.
+
+555
+00:42:57,730 --> 00:42:59,100
+Even for PHP.
+
+556
+00:42:59,100 --> 00:43:04,220
+So it's sort of a problem when it comes to
+evaluation.
+
+557
+00:43:04,220 --> 00:43:07,580
+We did come up with a dataset that sort of
+gets at this.
+
+558
+00:43:07,580 --> 00:43:13,150
+I have a friend who's a professor at UC Davis
+and they have an intro programming class where
+
+559
+00:43:13,150 --> 00:43:18,260
+students can submit multiple responses to
+super programming assignments to a git server
+
+560
+00:43:18,260 --> 00:43:22,750
+where they run the test cases and tell the
+students.
+
+561
+00:43:22,750 --> 00:43:29,140
+So now we have multiple buggy versions of
+multiple programs and because the assignments
+
+562
+00:43:29,140 --> 00:43:34,890
+are small, we can use this actually to assess
+the degree to which one technique makes better
+
+563
+00:43:34,890 --> 00:43:36,530
+patches than the other and we did that.
+
+564
+00:43:36,530 --> 00:43:38,170
+There's a whole paper on that.
+
+565
+00:43:38,170 --> 00:43:39,170
+I'll spare you.
+
+566
+00:43:39,170 --> 00:43:42,620
+The short version is both tools produced patches
+that overfit to the training set.
+
+567
+00:43:42,620 --> 00:43:43,620
+If they didn't.
+
+568
+00:43:43,620 --> 00:43:47,950
+Both of these bars would be all the way to
+100 all the time.
+
+569
+00:43:47,950 --> 00:43:53,090
+It's a little bit synthetic because the programs
+are small, but at least we have a lot of them,
+
+570
+00:43:53,090 --> 00:43:59,750
+I guess and I'm telling you so you can understand
+the evaluation we do in the third paper.
+
+571
+00:43:59,750 --> 00:44:02,910
+Fun fact before we get there, though, the
+tools actually did as well as the freshmen
+
+572
+00:44:02,910 --> 00:44:04,340
+did.
+
+573
+00:44:04,340 --> 00:44:11,640
+But students have brains, so I felt pretty
+good about this.
+
+574
+00:44:11,640 --> 00:44:13,550
+I really did.
+
+575
+00:44:13,550 --> 00:44:15,740
+[laughter]
+I'm an optimist.
+
+576
+00:44:15,740 --> 00:44:19,500
+It's worth mentioning that this is not unique
+to heuristic techniques.
+
+577
+00:44:19,500 --> 00:44:27,260
+We looked at how Angelix does on this dataset
+and the dataset that we call this intro class.
+
+578
+00:44:27,260 --> 00:44:28,880
+They also overfit.
+
+579
+00:44:28,880 --> 00:44:37,470
+Angelix was looking at functionality and deletion
+in their quality assessment.
+
+580
+00:44:37,470 --> 00:44:47,080
+They found that Angelix actually does a much
+better job of this on the patches they looked
+
+581
+00:44:47,080 --> 00:44:48,080
+at.
+
+582
+00:44:48,080 --> 00:44:52,230
+So one more thing worth mentioning on Angelix,
+I actually think part of this problem was
+
+583
+00:44:52,230 --> 00:44:59,290
+easy to fix because one observation we had
+was that what it's doing is synthesizing overly
+
+584
+00:44:59,290 --> 00:45:02,670
+constructed conditions on if checks.
+
+585
+00:45:02,670 --> 00:45:12,000
+So they are never do an e less than or equal:
+That said, this is kind of sad, right?
+
+586
+00:45:12,000 --> 00:45:15,770
+I've just spent 40 minutes telling you hey
+we're going to fix bugs in your programs by
+
+587
+00:45:15,770 --> 00:45:19,300
+using test cases and I told you to be skeptical
+at the test cases thing at the beginning and
+
+588
+00:45:19,300 --> 00:45:24,760
+I assume you were, but like still I was telling
+you a happy story and maybe it's actually
+
+589
+00:45:24,760 --> 00:45:27,970
+really a sad story.
+
+590
+00:45:27,970 --> 00:45:30,050
+But I am an optimist.
+
+591
+00:45:30,050 --> 00:45:34,500
+I think it's not ha sad story in that we have
+a bunch of options, so option one is to develop
+
+592
+00:45:34,500 --> 00:45:38,840
+techniques that are more likely to generalize,
+so now we have this one idea how to assess
+
+593
+00:45:38,840 --> 00:45:40,490
+at least experimentally.
+
+594
+00:45:40,490 --> 00:45:45,020
+We can use it to guide the construction of
+new techniques, so I'm going to give you a
+
+595
+00:45:45,020 --> 00:45:49,340
+35-second summary of what happens in that
+third paper.
+
+596
+00:45:49,340 --> 00:45:53,750
+That third paper starts to combine heuristic
+and semantic techniques with this goal in
+
+597
+00:45:53,750 --> 00:45:57,300
+mind.
+
+598
+00:45:57,300 --> 00:46:00,920
+In general the way we want to try and do this
+is by challenging our assumptions basically.
+
+599
+00:46:00,920 --> 00:46:05,780
+I'm going to pause for a second just as a
+scientist and admit to you again I'm being
+
+600
+00:46:05,780 --> 00:46:08,540
+very confessional, and admit to you that I've
+made a lot of assumptions in my work today
+
+601
+00:46:08,540 --> 00:46:10,970
+and they've all been wrong.
+
+602
+00:46:10,970 --> 00:46:17,260
+One of them is an it's assumption shared by
+many, many techniques and that patches are
+
+603
+00:46:17,260 --> 00:46:21,100
+like kittens and smaller is better.
+
+604
+00:46:21,100 --> 00:46:32,230
+The idea is that patches should be short,
+right, and short patches are more likely to
+
+605
+00:46:32,230 --> 00:46:34,940
+not do bad things.
+
+606
+00:46:34,940 --> 00:46:39,220
+Angelix encodes this explicitly in its encoding
+in the problem space, it wants to make small
+
+607
+00:46:39,220 --> 00:46:40,220
+changes.
+
+608
+00:46:40,220 --> 00:46:42,690
+It's built on a technique that that's all
+it was trying to do.
+
+609
+00:46:42,690 --> 00:46:45,030
+Everyone thinks this is true.
+
+610
+00:46:45,030 --> 00:46:48,390
+The idea that's being pursued in that third
+paper is that what if instead of trying to
+
+611
+00:46:48,390 --> 00:46:58,830
+make small changes, if we replaced a whole
+function that was written by a person we might
+
+612
+00:46:58,830 --> 00:47:05,310
+be able to capture the whole logic.
+
+613
+00:47:05,310 --> 00:47:09,670
+So the principle here is to use human-written
+code to fix bugs at a higher granularity level
+
+614
+00:47:09,670 --> 00:47:12,140
+and that that might lead to better-quality
+repairs.
+
+615
+00:47:12,140 --> 00:47:17,020
+So we're using symbolic reasoning to search
+for code at that higher granularity level.
+
+616
+00:47:17,020 --> 00:47:24,811
+Symbolic reasoning to search to semantic reasoning,
+generate and validate plus semantic and the
+
+617
+00:47:24,811 --> 00:47:25,811
+story comes full circle.
+
+618
+00:47:25,811 --> 00:47:32,420
+I'd tell you more about that but I'm running
+out of time and I'm already going fast.
+
+619
+00:47:32,420 --> 00:47:37,320
+The point is the patches are of much higher
+quality.
+
+620
+00:47:37,320 --> 00:47:38,790
+Win, which is good.
+
+621
+00:47:38,790 --> 00:47:43,560
+The problem is that we're back to having a
+scalability problem, right?
+
+622
+00:47:43,560 --> 00:47:45,660
+This is only on those small programs.
+
+623
+00:47:45,660 --> 00:47:48,700
+So we're going back around in circles.
+
+624
+00:47:48,700 --> 00:47:50,530
+And such is science.
+
+625
+00:47:50,530 --> 00:47:53,250
+Oh, well.
+
+626
+00:47:53,250 --> 00:47:55,700
+So I actually don't think that we are in a
+sad place, right?
+
+627
+00:47:55,700 --> 00:47:56,890
+I think that's not the place we're in.
+
+628
+00:47:56,890 --> 00:47:58,160
+I think we're in a happy place.
+
+629
+00:47:58,160 --> 00:48:03,960
+I also really like this kitten and I wanted
+to show her to you, because she's cute.
+
+630
+00:48:03,960 --> 00:48:07,420
+The other option for how we might address
+this problem is to understand and reason about
+
+631
+00:48:07,420 --> 00:48:10,510
+the circumstances under which perfection is
+not required.
+
+632
+00:48:10,510 --> 00:48:16,340
+I'll tell you a really quick story about some
+more results from 2012 from another paper.
+
+633
+00:48:16,340 --> 00:48:21,870
+Done these case studies on these patches to
+see what effect they had practically speaking.
+
+634
+00:48:21,870 --> 00:48:29,730
+And what we did was took a bunch of servers,
+null HTTP D and light TPD and we took patches
+
+635
+00:48:29,730 --> 00:48:35,700
+to these servers and this patch was bad.
+
+636
+00:48:35,700 --> 00:48:40,080
+We couldn't find a patch that didn't turn
+off functionality automatically.
+
+637
+00:48:40,080 --> 00:48:44,850
+So what we did is we ran these programs with
+indicative workloads taken from a day of requests
+
+638
+00:48:44,850 --> 00:48:51,530
+to an academic department's website, we patched
+them and then we looked at how many of the
+
+639
+00:48:51,530 --> 00:48:57,670
+requests were lost POST patch as an indication
+of how many indicate users would be affected
+
+640
+00:48:57,670 --> 00:48:58,670
+by this patch.
+
+641
+00:48:58,670 --> 00:48:59,840
+And the upshot.
+
+642
+00:48:59,840 --> 00:49:05,710
+Look apartment the last line of the table
+you shouldn't read is that it totally didn't
+
+643
+00:49:05,710 --> 00:49:08,220
+matter.
+
+644
+00:49:08,220 --> 00:49:14,730
+Like we turned off something that PHP previously
+did in string manipulation and nobody noticed
+
+645
+00:49:14,730 --> 00:49:22,770
+and not just because PHP is ridiculous, because
+it is, but because bugs often happen in corner
+
+646
+00:49:22,770 --> 00:49:24,140
+cases.
+
+647
+00:49:24,140 --> 00:49:27,120
+Bugs happen in undertested functionality that
+people don't use as much.
+
+648
+00:49:27,120 --> 00:49:29,960
+Because if people used it, they would have
+noticed the bug sooner and it wouldn't be
+
+649
+00:49:29,960 --> 00:49:31,590
+there.
+
+650
+00:49:31,590 --> 00:49:38,210
+So the reason I think this is sort of a viable
+option is to try and understand sort of the
+
+651
+00:49:38,210 --> 00:49:39,370
+user's needs.
+
+652
+00:49:39,370 --> 00:49:40,760
+The developer intention.
+
+653
+00:49:40,760 --> 00:49:41,810
+The common cases.
+
+654
+00:49:41,810 --> 00:49:44,330
+When is it OK to turn off functionality?
+
+655
+00:49:44,330 --> 00:49:48,500
+I don't want to punt and say deletion is OK,
+but I think deletion is OK sometimes.
+
+656
+00:49:48,500 --> 00:49:53,850
+And it's sort of a good example of why I think
+software engineering is worth studying.
+
+657
+00:49:53,850 --> 00:49:57,530
+Something I felt that was interesting that
+Marius started with in the last talk is saying
+
+658
+00:49:57,530 --> 00:50:04,390
+algorithms and computer systems absent their
+human users can't study them that way.
+
+659
+00:50:04,390 --> 00:50:11,560
+The reason I like software engineering is
+it's got the human involved and thinking about
+
+660
+00:50:11,560 --> 00:50:15,800
+the user context and the developer intention
+can help us understand what we actually need
+
+661
+00:50:15,800 --> 00:50:23,910
+our systems to do for us and when they are
+at an acceptable level of quality.
+
+662
+00:50:23,910 --> 00:50:29,390
+So I will summarize, I told you a story about
+myself in youth and I did that to motivate
+
+663
+00:50:29,390 --> 00:50:30,910
+a high level picture.
+
+664
+00:50:30,910 --> 00:50:35,280
+I told but GenProg, it uses randomness to
+do it.
+
+665
+00:50:35,280 --> 00:50:38,990
+I told you about Angelix, one of my favorite
+papers of all time -- I'm not lying -- which
+
+666
+00:50:38,990 --> 00:50:41,340
+uses symbolic reasoning to do it.
+
+667
+00:50:41,340 --> 00:50:45,710
+These two are indicative of techniques in
+two broad classes of program repair.
+
+668
+00:50:45,710 --> 00:50:48,310
+So if you read papers they probably fall into
+one of these two categories.
+
+669
+00:50:48,310 --> 00:50:54,111
+Told you about a big dataset that we use today
+evaluate all of these techniques and then
+
+670
+00:50:54,111 --> 00:50:57,330
+I told you how tragic the quality problem
+is.
+
+671
+00:50:57,330 --> 00:50:58,730
+And if any of you have an idea of what a good
+patch is.
+
+672
+00:50:58,730 --> 00:51:03,250
+I spend a lot of time asking when I meet software
+engineers, come tell me, because I really
+
+673
+00:51:03,250 --> 00:51:09,540
+want to know and then I put a picture of a
+kitten because I'm a Millennial and I cannot
+
+674
+00:51:09,540 --> 00:51:11,130
+help myself.
+
+675
+00:51:11,130 --> 00:51:14,300
+And also she's cute.
+
+676
+00:51:14,300 --> 00:51:16,290
+So that was a lightning-fast introduction.
+
+677
+00:51:16,290 --> 00:51:21,030
+I many at 49 minutes and 34 seconds and they
+told me 50, so I'm feeling pretty good about
+
+678
+00:51:21,030 --> 00:51:22,030
+myself.
+
+679
+00:51:22,030 --> 00:51:24,170
+And I think we have time for a few questions.
+
+680
+00:51:24,170 --> 00:51:29,720
+So fire away.
+
+681
+00:51:29,720 --> 00:51:43,880
+[applause]
+>> Super-excellent talk, so I think this was
+
+682
+00:51:43,880 --> 00:51:49,820
+really interesting and I was wondering, I
+had a comment on your last question on your
+
+683
+00:51:49,820 --> 00:51:56,130
+is deleting OK, I work at Twitter and I actually
+decided to delete 60,000 lines of code and
+
+684
+00:51:56,130 --> 00:52:01,430
+that was actually a big win he so deleting
+is great and I think it would be actually
+
+685
+00:52:01,430 --> 00:52:07,180
+interesting and I don't know if there's work
+on analyze on what is unused because especially
+
+686
+00:52:07,180 --> 00:52:12,190
+in distributed systems they tend to take down
+the codebase.
+
+687
+00:52:12,190 --> 00:52:15,300
+>> I don't mean to interrupt you, but this
+is a principle that I think is beginning to
+
+688
+00:52:15,300 --> 00:52:18,700
+be explored in the security program: So you're
+making me feel better with your question.
+
+689
+00:52:18,700 --> 00:52:23,650
+>> No, I think it's actually a really difficult
+problem in industry when you get these large
+
+690
+00:52:23,650 --> 00:52:29,970
+codebases and I worked in the game industry
+for a while, too and there was literally this
+
+691
+00:52:29,970 --> 00:52:37,760
+unknown block of code and no one would delete
+it because we were all too scared.
+
+692
+00:52:37,760 --> 00:52:45,160
+But what I also thought was super interesting
+especially in the distributive correctness
+
+693
+00:52:45,160 --> 00:52:51,420
+space, this is all like local single program
+by defining invariants.
+
+694
+00:52:51,420 --> 00:52:54,830
+Is there any work in that?
+
+695
+00:52:54,830 --> 00:53:00,560
+>> So yes, actually and I should have caveated
+the whole talk with there is work in sort
+
+696
+00:53:00,560 --> 00:53:05,440
+of the PSL [inaudible] community.
+
+697
+00:53:05,440 --> 00:53:08,230
+So if we have contracts, for example, let's
+say we're writing a project in a language
+
+698
+00:53:08,230 --> 00:53:16,330
+called Eiffel.
+
+699
+00:53:16,330 --> 00:53:20,030
+So there is I think some promising directions
+we can take in learning invariants and using
+
+700
+00:53:20,030 --> 00:53:27,400
+those 
+to inference.
+
+701
+00:53:27,400 --> 00:53:28,780
+The trick is just getting them.
+
+702
+00:53:28,780 --> 00:53:32,280
+So if I could convince you all to start specifying
+your code, we could make it much better for
+
+703
+00:53:32,280 --> 00:53:33,280
+you.
+
+704
+00:53:33,280 --> 00:53:36,210
+You just like need to do it.
+
+705
+00:53:36,210 --> 00:53:37,780
+So yeah, I think there are some promising
+approach.
+
+706
+00:53:37,780 --> 00:53:44,120
+People are more likely to specify their code
+than they were H and there have been advances
+
+707
+00:53:44,120 --> 00:53:49,470
+in invariant learning and an inference to
+try and learn those invariants to and I think
+
+708
+00:53:49,470 --> 00:53:53,780
+that's another important step because you
+can inform all kinds of reasoning then to
+
+709
+00:53:53,780 --> 00:53:54,850
+fix bugs.
+
+710
+00:53:54,850 --> 00:53:57,930
+>> I have a question.
+
+711
+00:53:57,930 --> 00:54:02,820
+Are there semantics that you like existing
+or not that are amenable to program repair
+
+712
+00:54:02,820 --> 00:54:08,130
+or systems to avoid or designs to avoid.
+
+713
+00:54:08,130 --> 00:54:13,470
+>> So that's a really good question.
+
+714
+00:54:13,470 --> 00:54:20,220
+And my opinion on this has changed within
+the last six months, which makes it tricky
+
+715
+00:54:20,220 --> 00:54:21,220
+to answer.
+
+716
+00:54:21,220 --> 00:54:26,350
+My answer used to be that I don't have a strong
+reason to believe that one language is any
+
+717
+00:54:26,350 --> 00:54:27,350
+better than the other.
+
+718
+00:54:27,350 --> 00:54:31,210
+We have actually tried GenProg at multiple
+levels of abstraction.
+
+719
+00:54:31,210 --> 00:54:35,070
+It works at the assembly level, it works on
+C, but I'm beginning to see as we're trying
+
+720
+00:54:35,070 --> 00:54:40,960
+to apply it to Java for various reasons that
+the modifications that work in C don't work
+
+721
+00:54:40,960 --> 00:54:48,300
+nearly as well in Java, because Java's compiler
+cares basically about what you do and that
+
+722
+00:54:48,300 --> 00:54:55,170
+means it's less mutationally rebust is the
+phrase we would use.
+
+723
+00:54:55,170 --> 00:55:02,150
+If you think about it in Java, if you have
+code after a return statement that's dead,
+
+724
+00:55:02,150 --> 00:55:03,770
+it won't compile.
+
+725
+00:55:03,770 --> 00:55:06,830
+But maybe you randomly inserted that return
+statement because you're trying something
+
+726
+00:55:06,830 --> 00:55:12,010
+and you just had that return statement and
+not the dead code, the fix would be good,
+
+727
+00:55:12,010 --> 00:55:16,390
+so in the framework of evolving changes, right,
+maybe what we want to do is insert the return
+
+728
+00:55:16,390 --> 00:55:21,530
+and delete the dead code, which we know how
+to do all that, right, I'm just saying that
+
+729
+00:55:21,530 --> 00:55:28,640
+the framework of these statement-level modifications
+doesn't necessarily port directly between
+
+730
+00:55:28,640 --> 00:55:32,630
+languages that have stronger semantics.
+
+731
+00:55:32,630 --> 00:55:35,440
+Which I think just means that we need to reason
+about the semantics as we think about the
+
+732
+00:55:35,440 --> 00:55:38,760
+modifications that are legal.
+
+733
+00:55:38,760 --> 00:55:43,610
+In some respect the fact that C's compiler
+lets you get away with murder makes it easier
+
+734
+00:55:43,610 --> 00:55:49,430
+to fix, but I don't want to encourage a universe
+where we're just writing everything in C,
+
+735
+00:55:49,430 --> 00:55:52,290
+because I don't think he is that the solution.
+
+736
+00:55:52,290 --> 00:55:56,790
+I think the solution really is to think about
+the implications that stronger or different
+
+737
+00:55:56,790 --> 00:56:01,040
+semantics have for the kind of modifications
+that are informed on code and use that to
+
+738
+00:56:01,040 --> 00:56:05,560
+inform a system that substantiates.
+
+739
+00:56:05,560 --> 00:56:09,350
+So the answer is no, but I think it matters.
+
+740
+00:56:09,350 --> 00:56:14,570
+I'm kind of language agnostic, actually.
+
+741
+00:56:14,570 --> 00:56:18,510
+Sorry, I should get better at shorter answers.
+
+742
+00:56:18,510 --> 00:56:21,760
+People ask me short questions and I just go
+on forever.
+
+743
+00:56:21,760 --> 00:56:25,170
+So one of the questions I have is it sometimes
+one of the hardest things about dealing with
+
+744
+00:56:25,170 --> 00:56:29,150
+a bug is writing the failing test case that
+isolates it.
+
+745
+00:56:29,150 --> 00:56:30,150
+>> Yes.
+
+746
+00:56:30,150 --> 00:56:40,480
+>> Do you have any hope that you can hold
+out to us on that front?
+
+747
+00:56:40,480 --> 00:56:45,540
+The number of software releases that actually
+have failing tests on them is going to go
+
+748
+00:56:45,540 --> 00:56:49,120
+down, so --
+>> Yeah, so I think this is a huge problem
+
+749
+00:56:49,120 --> 00:56:52,160
+and it's a thing that we're definitely punting
+on, like, oh, yeah, you have a test case,
+
+750
+00:56:52,160 --> 00:56:57,660
+right and half the time by the time you get
+to a test case you know what the problem is.
+
+751
+00:56:57,660 --> 00:57:03,200
+So I think you started answering my question,
+which is these automated tested and continuous
+
+752
+00:57:03,200 --> 00:57:07,600
+integration frameworks add a lot of automation
+to the test case.
+
+753
+00:57:07,600 --> 00:57:14,560
+There is a significant work in automatic test
+generation to help find the defects.
+
+754
+00:57:14,560 --> 00:57:20,610
+And any kind of really pyramidal sis that
+looks for bugs and tries to fix them.
+
+755
+00:57:20,610 --> 00:57:31,870
+There's this whole body of work in SE and
+PL and security.
+
+756
+00:57:31,870 --> 00:57:35,170
+Some of that will involve changing these techniques
+to take different kinds of inputs but some
+
+757
+00:57:35,170 --> 00:57:36,520
+of it is just an integration problem.
+
+758
+00:57:36,520 --> 00:57:38,320
+So I think there is hope.
+
+759
+00:57:38,320 --> 00:57:42,460
+I don't think we'll ever get rid of the need
+of developers.
+
+760
+00:57:42,460 --> 00:57:46,130
+That's not the goal.
+
+761
+00:57:46,130 --> 00:57:55,750
+But yeah, I'm thinking a lot of that automated
+tooling can just hook directly into this,
+
+762
+00:57:55,750 --> 00:57:58,070
+and life gets easier.
+
+763
+00:57:58,070 --> 00:58:01,830
+I can give you a patch and a test case for
+a bug that I found automatically, that would
+
+764
+00:58:01,830 --> 00:58:03,760
+be a really good day for everybody.
+
+765
+00:58:03,760 --> 00:58:07,440
+>> One more over here.
+
+766
+00:58:07,440 --> 00:58:08,440
+>> Question?
+
+767
+00:58:08,440 --> 00:58:12,960
+>> Cool work, fantastic presentation, thanks.
+
+768
+00:58:12,960 --> 00:58:18,860
+>> Do you have any papers you love that look
+at these kind of approaches where you don't
+
+769
+00:58:18,860 --> 00:58:20,500
+have reproducible failures?
+
+770
+00:58:20,500 --> 00:58:27,670
+Where you have maybe not even hard to find,
+but still random nondeterminism.
+
+771
+00:58:27,670 --> 00:58:32,120
+>> So the question is asking me about nondeterministic
+bugs and if there are papers I love that look
+
+772
+00:58:32,120 --> 00:58:33,760
+at them.
+
+773
+00:58:33,760 --> 00:58:39,280
+So, yeah, that is an assumption that I should
+have played explicit and I don't know if we
+
+774
+00:58:39,280 --> 00:58:41,230
+did, is that we're assuming deterministic
+failures.
+
+775
+00:58:41,230 --> 00:58:46,680
+There is work in reasoning about concurrency
+errors and in finding them especially.
+
+776
+00:58:46,680 --> 00:58:49,500
+People do a fair amount of model checking.
+
+777
+00:58:49,500 --> 00:59:00,810
+There is a little bit of work in how to resolve
+I think that work is really cool.
+
+778
+00:59:00,810 --> 00:59:04,210
+I don't know if it's, you know, we're not
+quite there yet I think as a community in
+
+779
+00:59:04,210 --> 00:59:05,540
+terms of being ready for prime time.
+
+780
+00:59:05,540 --> 00:59:10,500
+The hardest part about those is reproducing
+them, though, and a lot of times if you reproduce
+
+781
+00:59:10,500 --> 00:59:15,690
+it, you know, it's the exact issue which is
+that as soon as you know how to make it happen,
+
+782
+00:59:15,690 --> 00:59:17,880
+you know how to fix it.
+
+783
+00:59:17,880 --> 00:59:21,200
+I think that's kind of one of the next steps
+here and I'm not sure how we're going to solve
+
+784
+00:59:21,200 --> 00:59:26,890
+it because the real problem there is in the
+testing and in the and not so much necessarily
+
+785
+00:59:26,890 --> 00:59:28,540
+in the fixing of it.
+
+786
+00:59:28,540 --> 00:59:34,780
+There's some work, I don't hate t but I -- it
+doesn't get me as excited.
+
+787
+00:59:35,560 --> 00:59:37,080
+>> Thank you.
+
+788
+00:59:37,200 --> 00:59:38,620
+[applause]
+
