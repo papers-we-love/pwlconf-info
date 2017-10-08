@@ -7,7 +7,7 @@ The second annual PWLConf took place on September 28, 2017 in St. Louis, MO, co-
 
 ### 2017 Speakers / Talks
 
-- [**Kenichi Asai** / Delimited Continuations for Everyone](https://github.com/papers-we-love/pwlconf-info/tree/master/2017/kenich-asai)
+- [**Kenichi Asai** / Delimited Continuations for Everyone](https://github.com/papers-we-love/pwlconf-info/tree/master/2017/kenichi-asai)
 - [**Elaine Chew** / Decoding the Sensuality in Music](https://github.com/papers-we-love/pwlconf-info/tree/master/2017/elaine-chew)
 - [**James Long** / My History with Papers](https://github.com/papers-we-love/pwlconf-info/tree/master/2017/james-long)
 - [**Ronald Garcia** / What type of thing is a type?](https://github.com/papers-we-love/pwlconf-info/tree/master/2017/ronald-garcia)
