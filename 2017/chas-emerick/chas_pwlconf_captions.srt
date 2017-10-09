@@ -1,0 +1,1692 @@
+1
+00:00:05,540 --> 00:00:11,380
+I'm with PDFdata.io, I'm not going to get
+into anything related to what that does, this
+
+2
+00:00:11,380 --> 00:00:18,700
+is not a sales pitch, but while I'm up here
+I feel I must take a minute to recognize how
+
+3
+00:00:18,700 --> 00:00:25,680
+lucky I am to be here, as we all are, and
+maybe take a moment to recognize those outside
+
+4
+00:00:25,680 --> 00:00:31,029
+those four walls that struggle to survive.
+
+5
+00:00:31,029 --> 00:00:38,320
+Thank you.
+
+6
+00:00:38,320 --> 00:00:41,670
+So programming data for display.
+
+7
+00:00:41,670 --> 00:00:44,730
+And what does this mean?
+
+8
+00:00:44,730 --> 00:00:50,130
+To really crudely characterize what we do
+and what we're interested in, we do computation,
+
+9
+00:00:50,130 --> 00:00:51,130
+right?
+
+10
+00:00:51,130 --> 00:00:53,410
+And how might you think about that?
+
+11
+00:00:53,410 --> 00:01:00,710
+You get things coming into our world of computers,
+through all sorts of sensors and human input
+
+12
+00:01:00,710 --> 00:01:06,030
+and machines talking to each other, computation
+and communication of all sorts happen in between
+
+13
+00:01:06,030 --> 00:01:11,220
+and at the other end you have some kind of
+output, some kind of result and the output
+
+14
+00:01:11,220 --> 00:01:16,250
+that I'm talking about right now is display,
+obviously one of the essential mediums with
+
+15
+00:01:16,250 --> 00:01:28,680
+which we have to perceive these sorts of results,
+and we're all very interested and very immediate
+
+16
+00:01:28,680 --> 00:01:34,950
+feedback from the sorts of work that we do
+with our computers, as you might have seen
+
+17
+00:01:34,950 --> 00:01:46,840
+previously with the visualizations of the
+keys with that spirals of tonality display
+
+18
+00:01:46,840 --> 00:01:56,560
+and animated visualization is a special way
+to have the data that we're performing.
+
+19
+00:01:56,560 --> 00:02:02,120
+But it wasn't always like this where we could
+have things twirling around on screen.
+
+20
+00:02:02,120 --> 00:02:08,140
+All through the prior decades of course we
+have had a lot of mediums for displaying the
+
+21
+00:02:08,140 --> 00:02:13,200
+data and information and results of computation
+from telegraphs and teletypes through all
+
+22
+00:02:13,200 --> 00:02:19,969
+sorts of dynamic displays, especially during
+the Cold War motivated a lot of this development,
+
+23
+00:02:19,969 --> 00:02:25,650
+especially through air traffic control and
+simulations research for vector displays and
+
+24
+00:02:25,650 --> 00:02:38,370
+then raster displays, but also printing has
+been around for hundreds of years, and one
+
+25
+00:02:38,370 --> 00:02:42,549
+of the things that so many people throughout
+the computer revolution were concerned about
+
+26
+00:02:42,549 --> 00:02:49,019
+was how to distribute the results of computation
+and put tools into the hands of as many people
+
+27
+00:02:49,019 --> 00:02:58,689
+as possible, so that you could have modern
+equivalents to the movable type press essentially
+
+28
+00:02:58,689 --> 00:03:06,190
+and so fax machines for example were a huge,
+you know, formational input to PDF and all
+
+29
+00:03:06,190 --> 00:03:11,459
+sorts of page description languages that were
+sort of percolating around in the '60s, '70s,
+
+30
+00:03:11,459 --> 00:03:20,299
+and '80 as computation power made it possible
+to relate with information from your computer
+
+31
+00:03:20,299 --> 00:03:24,199
+in ways that were richer than teletype.
+
+32
+00:03:24,199 --> 00:03:33,309
+And there's an interesting story of how CAD
+and CAM systems are a variety of display that
+
+33
+00:03:33,309 --> 00:03:45,859
+happens to manifest itself through -- and
+it has correlation to 3D printing as well.
+
+34
+00:03:45,859 --> 00:03:52,099
+Just to sort of set some ground terms, what
+page description language means is any characterization
+
+35
+00:03:52,099 --> 00:03:57,349
+of a layout of a page that's more efficient
+or expressive than a simple bitmap.
+
+36
+00:03:57,349 --> 00:04:04,859
+So if you're familiar with bitmap graphics
+or rasters, you might have a 1440 by whatever
+
+37
+00:04:04,859 --> 00:04:09,959
+bitmap, and that's sufficient to describe
+what's on my laptop screen, perhaps, but that's
+
+38
+00:04:09,959 --> 00:04:16,790
+obviously not sufficient to describe what
+you can print through a high resolution offset
+
+39
+00:04:16,790 --> 00:04:25,420
+printer, or a vector-based plotter, and so
+there have been progressively more capable
+
+40
+00:04:25,420 --> 00:04:30,810
+page description languages over the past 40
+years, essentially, trying to tackle this
+
+41
+00:04:30,810 --> 00:04:38,390
+problem of how do you describe what some set
+of data as a result of computations or communications
+
+42
+00:04:38,390 --> 00:04:45,350
+should look on a page or a screen or on a
+plotter, and other media, but in a way that
+
+43
+00:04:45,350 --> 00:04:48,450
+is independent of that medium.
+
+44
+00:04:48,450 --> 00:04:55,370
+So there are dozens and dozens of documented
+page description languages, you can go on
+
+45
+00:04:55,370 --> 00:04:58,060
+Wikipedia to find references for a variety
+of them.
+
+46
+00:04:58,060 --> 00:05:04,130
+These are some interesting ones I'll talk
+about a little bit.
+
+47
+00:05:04,130 --> 00:05:10,310
+And all of them are trying to characterize
+a page and something besides draw a pixel
+
+48
+00:05:10,310 --> 00:05:15,690
+here, then draw a pixel here and draw a pixel
+here, etc., etc., obviously not practical,
+
+49
+00:05:15,690 --> 00:05:27,340
+even today, never mind back in 1978.
+
+50
+00:05:27,340 --> 00:05:35,850
+So I'm going to sort of going out an a limb
+a little bit and say that ASCII may have been
+
+51
+00:05:35,850 --> 00:05:42,670
+one of the first page description languages
+and this isn't talked about in any of the
+
+52
+00:05:42,670 --> 00:05:47,110
+Wikipedia page or any of the modern literature
+about page description languages because it
+
+53
+00:05:47,110 --> 00:05:56,430
+is so primitive of a medium, but these first
+32 control characters here make possible the
+
+54
+00:05:56,430 --> 00:06:06,000
+-- make it possible to force an output devices,
+like a teletype to render a set of data in
+
+55
+00:06:06,000 --> 00:06:15,720
+a way that is visually pleasing, practically
+consumable, and so on, so for example, fixed-width
+
+56
+00:06:15,720 --> 00:06:25,390
+tabular data like this was commonplace for
+centuries, essentially, where you had first,
+
+57
+00:06:25,390 --> 00:06:34,340
+you know, lead movable type printing presses
+being used to produce tables like this for
+
+58
+00:06:34,340 --> 00:06:40,420
+newspaper consumption and things like that,
+and then on to, you know, teletype printers
+
+59
+00:06:40,420 --> 00:06:47,560
+that produced displays of tabular data for
+efficient viewing and consumption by humans
+
+60
+00:06:47,560 --> 00:06:50,880
+in a way that we can understand this data.
+
+61
+00:06:50,880 --> 00:06:56,130
+Outside of this kind of visualization, because
+it is a visualization, understanding this
+
+62
+00:06:56,130 --> 00:06:59,540
+data would be extremely laborious, right?
+
+63
+00:06:59,540 --> 00:07:05,190
+And it's only because of the control characters
+that were baked into ASCII, for example, there
+
+64
+00:07:05,190 --> 00:07:15,430
+are plenty of other competitors, but it has
+these control characters that allow the printhead
+
+65
+00:07:15,430 --> 00:07:21,960
+at the time, to move forward a space, move
+back a space, move down, run to the next sheet
+
+66
+00:07:21,960 --> 00:07:23,370
+of paper, etc.
+
+67
+00:07:23,370 --> 00:07:29,870
+Thereby allowing an author of a program to
+fully control the materialized view, so to
+
+68
+00:07:29,870 --> 00:07:33,639
+speak, of a set of data.
+
+69
+00:07:33,639 --> 00:07:43,810
+And so as demands increased over the years
+and various considerations drove development
+
+70
+00:07:43,810 --> 00:07:51,880
+for more time, essentially, we got to the
+use of CRTs and vector displays for both realtime
+
+71
+00:07:51,880 --> 00:07:59,040
+-- this is actually an asteroids game that's
+being implemented on top of an oscilloscope,
+
+72
+00:07:59,040 --> 00:08:08,790
+but exactly the same technology was used originally
+to implement air defense systems, air traffic
+
+73
+00:08:08,790 --> 00:08:16,360
+control systems, and hear video games and
+all sorts of realtime simulations like planetariums
+
+74
+00:08:16,360 --> 00:08:21,860
+back in the 60s, '70s, and '80s.
+
+75
+00:08:21,860 --> 00:08:34,020
+You want to be able
+to include raster images.
+
+76
+00:08:34,020 --> 00:08:42,519
+So you can produce it onto a printer or other
+output device.
+
+77
+00:08:42,519 --> 00:08:48,879
+And then probably the hardest nut to crack,
+so to speak, in the history of page description
+
+78
+00:08:48,879 --> 00:08:53,209
+languages is text and typography.
+
+79
+00:08:53,209 --> 00:09:03,449
+Not just because of -- not just because of
+-- there are so many factors, obviously,
+
+80
+00:09:03,449 --> 00:09:09,100
+[laughter]
+So with both vector graphics and rasters,
+
+81
+00:09:09,100 --> 00:09:13,370
+the domain is very well defined and constrained,
+right?
+
+82
+00:09:13,370 --> 00:09:16,870
+So if you want to draw asteroids, I know what
+you need to do.
+
+83
+00:09:16,870 --> 00:09:21,660
+You need to describe that I want to draw a
+line here and a line here and a line here,
+
+84
+00:09:21,660 --> 00:09:28,759
+etc., etc., to produce the, you know, vector
+representations of your asteroids and spaceship
+
+85
+00:09:28,759 --> 00:09:33,350
+or you know, nuclear missiles or whatever
+you happen to be doing.
+
+86
+00:09:33,350 --> 00:09:38,209
+Likewise, raster images, an artist produces
+these laboriously by hand and they need to
+
+87
+00:09:38,209 --> 00:09:41,820
+be ferried along to whatever is going to be
+doing the document.
+
+88
+00:09:41,820 --> 00:09:49,680
+Text and typography, on the other hand, these
+are an enduring role throughout the construction
+
+89
+00:09:49,680 --> 00:09:52,160
+of a document and throughout the maintenance
+of a document.
+
+90
+00:09:52,160 --> 00:09:58,839
+There is this notion of fonts which honestly
+didn't exist prior to the more sophisticated
+
+91
+00:09:58,839 --> 00:10:06,300
+page description languages likes Postscript
+and as you get no, if you remember the ASCII
+
+92
+00:10:06,300 --> 00:10:15,629
+chart there, there's only 127 code points
+compared to for example, unicode today.
+
+93
+00:10:15,629 --> 00:10:20,930
+So these are a lot of different challenges
+that page description languages have to cope
+
+94
+00:10:20,930 --> 00:10:29,189
+with and the history of the most successful
+one, which happens to be PDF, is sort of littered
+
+95
+00:10:29,189 --> 00:10:35,730
+with the inventors of it learning along the
+way how to cope with these particular challenges.
+
+96
+00:10:35,730 --> 00:10:39,990
+So just a little bit of sort of thumbnail
+history, there was this company called Evans
+
+97
+00:10:39,990 --> 00:10:47,949
+and Sutherland that in 1968, I believe was
+founded to custom produce systems for realtime
+
+98
+00:10:47,949 --> 00:10:55,079
+simulation and CAD/CAM systems, so they built
+the projector systems in planetariums, and
+
+99
+00:10:55,079 --> 00:11:05,569
+also the very high precision mechanical canons
+through computer aided machinery and the way
+
+100
+00:11:05,569 --> 00:11:14,930
+they did that is they used an internally developed
+page description language where the page was
+
+101
+00:11:14,930 --> 00:11:21,980
+the set or the operators over the quote-unquote
+page were a set of motions that a drill head
+
+102
+00:11:21,980 --> 00:11:27,899
+or a router might make on a block of aluminum
+in order to produce a particular artifact.
+
+103
+00:11:27,899 --> 00:11:32,399
+It was all the same set of fundamental technologies
+beings whether they were, you know, joking
+
+104
+00:11:32,399 --> 00:11:38,019
+on the sealing of a planetarium or producing
+a cog for a machine.
+
+105
+00:11:38,019 --> 00:11:45,110
+So a couple of fellows, Chuck Geschke and
+John Warnock worked at Evans and Sutherland
+
+106
+00:11:45,110 --> 00:11:53,689
+for a number of years and went off in the
+mid '70s off to Xerox Park where they helped
+
+107
+00:11:53,689 --> 00:11:59,260
+to develop all kinds of things there including
+interpress.
+
+108
+00:11:59,260 --> 00:12:09,410
+It was essentially bytecode, so if you think
+of the production of a set of vector graphics,
+
+109
+00:12:09,410 --> 00:12:13,980
+like I said, you want to put your pen down
+somewhere and you want to draw a line, 20
+
+110
+00:12:13,980 --> 00:12:21,249
+coordinate points this way and 10 down, and
+then along this way, 10Up and 12 right and
+
+111
+00:12:21,249 --> 00:12:27,300
+an arc of a particular, using a particular
+set of parameters.
+
+112
+00:12:27,300 --> 00:12:33,230
+Those were all encoded using bytecodes that
+were incredibly efficient and very necessary
+
+113
+00:12:33,230 --> 00:12:36,920
+given the space and computational constraints
+at the time.
+
+114
+00:12:36,920 --> 00:12:46,699
+We're again, talking about, you know, 1978
+or so.
+
+115
+00:12:46,699 --> 00:12:56,569
+Lower is that John Warnock
+was upset.
+
+116
+00:12:56,569 --> 00:13:08,000
+In 1970s, dollars it was a billion-dollar
+company, producing printing systems and they
+
+117
+00:13:08,000 --> 00:13:14,459
+were using -- they would build a new page-description
+language for every printer that they produced.
+
+118
+00:13:14,459 --> 00:13:17,249
+Obviously an incredibly laborious thing.
+
+119
+00:13:17,249 --> 00:13:28,379
+And interpress was John and Chuck's attempt
+to make a device-independent output medium.
+
+120
+00:13:28,379 --> 00:13:35,769
+So you could take the same interpress file
+and send it to a plotter, and a bitmap display
+
+121
+00:13:35,769 --> 00:13:45,370
+and a laser printer, which they were experimenting
+with at Xerox, and have reasonable interpretations
+
+122
+00:13:45,370 --> 00:13:50,019
+of that page description to the, you know,
+highest degree of fidelity that each device
+
+123
+00:13:50,019 --> 00:13:52,470
+allowed.
+
+124
+00:13:52,470 --> 00:13:55,869
+So they were frustrated with Xerox might being
+able to commercialize that and so they formed
+
+125
+00:13:55,869 --> 00:14:04,410
+their own company called Adobe where they
+produced Postscript.
+
+126
+00:14:04,410 --> 00:14:11,149
+Postscript ended up being baked into the first
+laser writer that Adobe and Apple essentially
+
+127
+00:14:11,149 --> 00:14:20,290
+coproduced and that's essentially what set
+up desktop publishing and the consumerization
+
+128
+00:14:20,290 --> 00:14:28,300
+of printing around publishing and design and
+all of that and I just described it in about
+
+129
+00:14:28,300 --> 00:14:34,509
+20 seconds, but the set of technical feats
+that were necessary are really astounding,
+
+130
+00:14:34,509 --> 00:14:40,959
+because prior to Postscript and laser writer,
+I was talking about text and typography a
+
+131
+00:14:40,959 --> 00:14:46,860
+second ago, there were, you know, a set of
+6 fonts that each computer happened to come
+
+132
+00:14:46,860 --> 00:14:49,429
+with if you were lucky.
+
+133
+00:14:49,429 --> 00:14:54,509
+I remember I had an Omega as a kids and it
+literally had six fonts.
+
+134
+00:14:54,509 --> 00:14:57,610
+They were hard-coded bitmap fonts.
+
+135
+00:14:57,610 --> 00:15:01,431
+You had what you had available to you and
+there was no such thing as going and getting
+
+136
+00:15:01,431 --> 00:15:06,980
+a new font that would look nice in your community
+flyer or whatever.
+
+137
+00:15:06,980 --> 00:15:14,189
+In the process of developing Postscript they
+developed vector-based fonts and ways to describe
+
+138
+00:15:14,189 --> 00:15:22,329
+those in an output-method-independent way
+and a way to encode those for different computing
+
+139
+00:15:22,329 --> 00:15:29,579
+plat forms, including DOS and Apple IIs and
+the Macintosh eventually, etc.
+
+140
+00:15:29,579 --> 00:15:35,769
+And then as a refinement to Postscript and
+I'll talk a little bit about Postscript again
+
+141
+00:15:35,769 --> 00:15:46,519
+still, they developed PDF at Adobe and the
+first version was developed in 1983, I believe,
+
+142
+00:15:46,519 --> 00:15:56,869
+and has developed over time to really saturate
+the set of use cases that people have for
+
+143
+00:15:56,869 --> 00:16:02,959
+display and printing technology, and describing
+what needs to be displayed on any output device
+
+144
+00:16:02,959 --> 00:16:09,550
+in an independent fashion.
+
+145
+00:16:09,550 --> 00:16:11,860
+So this is Papers We Love.
+
+146
+00:16:11,860 --> 00:16:19,850
+Sadly, as an accident of history, I suppose,
+there aren't a lot of papers that were published
+
+147
+00:16:19,850 --> 00:16:25,920
+and peer reviewed about the development of
+interpress and Postscript and PDF and all
+
+148
+00:16:25,920 --> 00:16:29,259
+the other page description languages back
+in those days.
+
+149
+00:16:29,259 --> 00:16:33,879
+In part because a lot of this development
+was driven by commercial organizations as
+
+150
+00:16:33,879 --> 00:16:39,370
+opposed to academia and so a lot of the information
+that is available about how these languages
+
+151
+00:16:39,370 --> 00:16:46,629
+and technologies came to be is passed along
+as folklore essentially and I'm not sure who
+
+152
+00:16:46,629 --> 00:16:57,480
+Brian Reid is, but there's an extremely comprehensive
+history of Postscript and interpress and a
+
+153
+00:16:57,480 --> 00:17:06,589
+comparison between the two, from 1985 on a
+news group dedicated to laser printers.
+
+154
+00:17:06,589 --> 00:17:13,440
+And probably 20 pages of solid news group
+text talking about the very minute technical
+
+155
+00:17:13,440 --> 00:17:20,930
+differences between those, and how a Postscript
+represented an incremental but essential advance
+
+156
+00:17:20,930 --> 00:17:28,800
+over Interpress, and if I remember, I'll such
+on some of those differences.
+
+157
+00:17:28,800 --> 00:17:38,330
+And then later, in 1991, as Adobe started
+towards developing PDF, it's not a paper.
+
+158
+00:17:38,330 --> 00:17:45,420
+Again, but it was an internal memo, essentially,
+within Adobe, where John Warnock laid out
+
+159
+00:17:45,420 --> 00:17:51,180
+the broad vision of what they were called
+Camelot at the time which turned into page
+
+160
+00:17:51,180 --> 00:17:52,960
+extension.
+
+161
+00:17:52,960 --> 00:18:01,150
+And they were talking about the prevalence
+of fax machines and the problems that the
+
+162
+00:18:01,150 --> 00:18:07,090
+limitations of that technology had for the
+people that were using it so if you were sending
+
+163
+00:18:07,090 --> 00:18:16,070
+an contract or a love letter through a fax
+machine and it comes out on a horribly pixelated
+
+164
+00:18:16,070 --> 00:18:19,610
+thermal mess on paper.
+
+165
+00:18:19,610 --> 00:18:24,540
+That is not the kind of representation of
+intent that you want to have.
+
+166
+00:18:24,540 --> 00:18:29,380
+When you go through the trouble of printing
+this beautiful document, you want to be able
+
+167
+00:18:29,380 --> 00:18:33,520
+to send it to anybody anywhere in the world
+and have the other person on the other side
+
+168
+00:18:33,520 --> 00:18:37,780
+of that communication channel see exactly
+what you intended.
+
+169
+00:18:37,780 --> 00:18:43,571
+And fax machines were being used widely at
+the time, because of, you know, essential
+
+170
+00:18:43,571 --> 00:18:52,230
+business needs, but they didn't capture that
+respect for the original intent of the author,
+
+171
+00:18:52,230 --> 00:19:00,450
+essentially and so that's one of the key considerations
+that sort of drove a lot of feature development
+
+172
+00:19:00,450 --> 00:19:06,750
+in PDF, being able to take this artifact,
+ship it somewhere, again just data, not over
+
+173
+00:19:06,750 --> 00:19:15,450
+phone lines or the fax infrastructure and
+have that be materialized on somebody's machine
+
+174
+00:19:15,450 --> 00:19:24,480
+exactly as you could see it on your side of
+the world.
+
+175
+00:19:24,480 --> 00:19:34,820
+So that's a little bit of the history and
+how sort of from a human sense, how you know,
+
+176
+00:19:34,820 --> 00:19:41,130
+the people involved in the project sort of
+arrived at PDF and I'll talk about a couple
+
+177
+00:19:41,130 --> 00:19:49,130
+of technical characteristics of both Postscript
+and PDF.
+
+178
+00:19:49,130 --> 00:19:52,540
+Their further antecedents are sort of lost
+to memory.
+
+179
+00:19:52,540 --> 00:19:58,440
+I am aware of some interPressers, but I've
+never laid my hands on them.
+
+180
+00:19:58,440 --> 00:20:05,800
+But I have some familiarity with Postscript
+and too much familiarity with PDF.
+
+181
+00:20:05,800 --> 00:20:10,390
+So Postscript is a stack-based interpreted
+language.
+
+182
+00:20:10,390 --> 00:20:18,410
+This is interesting insofar as other page
+interpreting languages are not fully declared
+
+183
+00:20:18,410 --> 00:20:25,160
+programming languages at all.
+
+184
+00:20:25,160 --> 00:20:35,560
+So SVG is an example of the latter where there
+is no stack, there is no higher-order abstraction
+
+185
+00:20:35,560 --> 00:20:41,750
+of facilities within SVG you are strictly
+describing what should be presented on screen
+
+186
+00:20:41,750 --> 00:20:44,930
+or via a printed medium.
+
+187
+00:20:44,930 --> 00:20:51,560
+Postscript on the other hand is, as it says
+a stack-based interpreted language and so
+
+188
+00:20:51,560 --> 00:20:57,610
+what this means is that you have a programming
+language semantics, you can write Postscript
+
+189
+00:20:57,610 --> 00:21:03,782
+programs that can do anything in the course
+of producing out put suitable for a printer
+
+190
+00:21:03,782 --> 00:21:10,810
+or immediate visual display device or other
+things.
+
+191
+00:21:10,810 --> 00:21:15,530
+There's actually a little cottage community
+on GitHub of people using Postscript to do
+
+192
+00:21:15,530 --> 00:21:20,000
+all sorts of non-printing, non-display-oriented
+things.
+
+193
+00:21:20,000 --> 00:21:27,220
+There's tons of little Fibonacci examples
+and people that use things within Postscript
+
+194
+00:21:27,220 --> 00:21:30,860
+that end up printing.
+
+195
+00:21:30,860 --> 00:21:31,860
+That sort of thing.
+
+196
+00:21:31,860 --> 00:21:44,490
+So you can do anything you want within Postscript.
+
+197
+00:21:44,490 --> 00:21:49,890
+And Postscript provided for a lot of essential
+features that its predecessors didn't.
+
+198
+00:21:49,890 --> 00:21:54,900
+For example, you can embed bitmaps within
+Postscript, where as in other page description
+
+199
+00:21:54,900 --> 00:22:01,680
+languages, you would send the page description
+and then along with it, additional assets,
+
+200
+00:22:01,680 --> 00:22:08,940
+images, headers, etc. that needed to be referred
+to using relatively fragile means, like a
+
+201
+00:22:08,940 --> 00:22:11,330
+file name.
+
+202
+00:22:11,330 --> 00:22:17,590
+And so this was -- this was -- ended up being
+problematic for things like fonts which you
+
+203
+00:22:17,590 --> 00:22:24,360
+couldn't bake into Postscript, I don't believe,
+and so a very common thing and we run into
+
+204
+00:22:24,360 --> 00:22:29,450
+this today, as people who are enthusiastic
+about academic papers, if someone happens
+
+205
+00:22:29,450 --> 00:22:35,560
+to publish a Postscript file of a paper or
+that's the only version that happens to be
+
+206
+00:22:35,560 --> 00:22:39,860
+available from 20 years ago, you might download
+it and you don't have the font that it was
+
+207
+00:22:39,860 --> 00:22:46,140
+originally rendered in, and your system will
+automatically and usually unfortunately choose
+
+208
+00:22:46,140 --> 00:22:54,070
+a bad alternative to render it in and it ends
+up being useless so again that goes back to
+
+209
+00:22:54,070 --> 00:23:03,150
+one of the failings of Postscript that Adobe
+addressed within PDF where you could send
+
+210
+00:23:03,150 --> 00:23:09,720
+a single contained blob across a wire and
+not have to worry about whether that person
+
+211
+00:23:09,720 --> 00:23:15,610
+had the bitmaps or that person had the fonts
+that they needed to render that document faithfully.
+
+212
+00:23:15,610 --> 00:23:23,340
+The most interesting thing to me for various
+reasons about Postscript is that it was an
+
+213
+00:23:23,340 --> 00:23:30,840
+interpreted languages, but it wasn't interpreted
+on a -- like a general-purpose computer, necessarily.
+
+214
+00:23:30,840 --> 00:23:37,990
+So you would have your computer attached to
+your laser writer, for example, in 1985, and
+
+215
+00:23:37,990 --> 00:23:41,271
+you would send that Postscript file over to
+the a.m.
+
+216
+00:23:41,271 --> 00:23:49,620
+Apple computer or whatever you happened to
+be using and that printer would evaluate it
+
+217
+00:23:49,620 --> 00:23:57,760
+and render the result on each page and so
+this was an example of edge computing where
+
+218
+00:23:57,760 --> 00:24:04,400
+the edges were these devices, where every
+single Postscript output device had a full-fledged,
+
+219
+00:24:04,400 --> 00:24:14,670
+you know, two-spec Postscript interpreter
+running on its own hardware.
+
+220
+00:24:14,670 --> 00:24:17,360
+Yeah.
+
+221
+00:24:17,360 --> 00:24:22,230
+So like I said, I've been working on this
+for about an hour and a half or so.
+
+222
+00:24:22,230 --> 00:24:23,870
+That's as far as I got with slides.
+
+223
+00:24:23,870 --> 00:24:24,870
+[laughter]
+
+224
+00:24:24,870 --> 00:24:25,870
+[applause]
+
+225
+00:24:25,870 --> 00:24:33,510
+But thank you.
+
+226
+00:24:33,510 --> 00:24:36,240
+But I have things I can show you.
+
+227
+00:24:36,240 --> 00:24:42,030
+And someone's going to have to tell me about
+time, because I have no idea where I am.
+
+228
+00:24:42,030 --> 00:24:46,990
+So if I remember I'm going to bring up -- so
+this is a -- this is the Camelot project.
+
+229
+00:24:46,990 --> 00:24:53,040
+I wonder if it's worth trying to go to full
+screen here.
+
+230
+00:24:53,040 --> 00:25:04,110
+Anyway, this is that Camelot white paper and
+it has some handy and easily digestible chunks
+
+231
+00:25:04,110 --> 00:25:13,400
+of Postscript here so a big part of the Camelot
+paper is motivating the design.
+
+232
+00:25:13,400 --> 00:25:19,540
+And the challenges that it has and one of
+the essential challenges that it -- that they
+
+233
+00:25:19,540 --> 00:25:25,530
+identified was that because each device that
+renders a Postscript file needs to have that
+
+234
+00:25:25,530 --> 00:25:31,640
+full fledged interpreter and because the language
+was a fully Turing-complete language that
+
+235
+00:25:31,640 --> 00:25:40,180
+had all sorts of, even today, very interesting
+and useful features, for example, you could
+
+236
+00:25:40,180 --> 00:25:44,180
+rebind any name at any time anywhere.
+
+237
+00:25:44,180 --> 00:25:49,810
+And so this might remind you of a variety
+of dynamic programming languages that we use
+
+238
+00:25:49,810 --> 00:25:55,930
+today that are difficult to optimize, and
+sometimes hard to use.
+
+239
+00:25:55,930 --> 00:26:03,410
+And at this point in time, people were still
+writing Postscript by hand in order to produce
+
+240
+00:26:03,410 --> 00:26:12,250
+very intricate designs, there were, you know,
+manual Postscript type setters essentially
+
+241
+00:26:12,250 --> 00:26:17,290
+that would write Postscript to get, for example,
+the logo of a company just right and they
+
+242
+00:26:17,290 --> 00:26:23,430
+would have this bit of Postscript that they
+would carry around in their documents around
+
+243
+00:26:23,430 --> 00:26:42,280
+the country and one of their things was to
+simplify the set of operands so that it wasn't
+
+244
+00:26:42,280 --> 00:26:48,220
+as powerful as a Postscript was with regard
+to the flexibility of forwarded to the programmer
+
+245
+00:26:48,220 --> 00:26:50,370
+or the programmer that generated it.
+
+246
+00:26:50,370 --> 00:26:58,980
+And here John Warnock is talking about this
+Postscript file that draws a ten-sided polygon
+
+247
+00:26:58,980 --> 00:27:07,410
+that redefines this ang constant and then
+does a loop.
+
+248
+00:27:07,410 --> 00:27:19,750
+This is -- this is repeat, this repeat operand
+will run this block of Postscript ten times
+
+249
+00:27:19,750 --> 00:27:30,710
+and if you run through it in your head, it's
+producing a 10-sided equilateral polygon.
+
+250
+00:27:30,710 --> 00:27:40,990
+What they wanted to do was get to a language
+where you strictly say what should be drawn
+
+251
+00:27:40,990 --> 00:27:49,220
+on a page or through the output device so
+rather than allowing people to write subroutines,
+
+252
+00:27:49,220 --> 00:27:54,760
+essentially, which is what this poly ends
+up being, that's a subroutine within that
+
+253
+00:27:54,760 --> 00:28:00,870
+particular file, rather than allow people
+in programs to do these sorts of things, they
+
+254
+00:28:00,870 --> 00:28:08,310
+essentially flattened Postscript into a language
+where it's still stack-based and it's still
+
+255
+00:28:08,310 --> 00:28:14,350
+interpreted but you don't have the ability
+to define constants or functions for lack
+
+256
+00:28:14,350 --> 00:28:21,050
+of a better term and you cannot rebind things
+like built-in operators.
+
+257
+00:28:21,050 --> 00:28:28,330
+And so there are, you know, move and draw
+line operations within PDF, they're not called
+
+258
+00:28:28,330 --> 00:28:29,610
+move to and line to.
+
+259
+00:28:29,610 --> 00:28:42,310
+That was before PDF was built, but that's
+just a mock-up essentially.
+
+260
+00:28:42,310 --> 00:28:49,221
+You do need to write out sequentially every
+single line, path, character, etc., that you
+
+261
+00:28:49,221 --> 00:28:56,820
+might want to render within a PDF, which makes
+the interpreter simpler and makes them easier
+
+262
+00:28:56,820 --> 00:29:02,810
+to optimize so that when you send a PDF over
+the wire to a printer that could render that
+
+263
+00:29:02,810 --> 00:29:06,060
+PDF, it didn't need to be nearly as powerful.
+
+264
+00:29:06,060 --> 00:29:13,130
+So they were already looking forward to, you
+know, portable computers and much -- still
+
+265
+00:29:13,130 --> 00:29:19,960
+more constrained environments than what was
+typical in a work station at the time.
+
+266
+00:29:19,960 --> 00:29:23,220
+So I think that's it for Postscript.
+
+267
+00:29:23,220 --> 00:29:24,720
+Postscript is really cool.
+
+268
+00:29:24,720 --> 00:29:29,230
+It's fun to tinker around with if you're slightly
+masochistic.
+
+269
+00:29:29,230 --> 00:29:32,880
+Can people see that?
+
+270
+00:29:32,880 --> 00:29:38,710
+OK, I'll bump it up one.
+
+271
+00:29:38,710 --> 00:29:41,970
+Or a couple.
+
+272
+00:29:41,970 --> 00:29:43,540
+Better?
+
+273
+00:29:43,540 --> 00:29:48,850
+So I figured -- I think I've basically run
+through what I have, so I thought I would
+
+274
+00:29:48,850 --> 00:29:54,360
+give a five-minute tour of what a PDF looks
+like internally.
+
+275
+00:29:54,360 --> 00:30:00,260
+I'm sure you've all opened up PDFs in notepad
+accidentally and seen this garbage but I thought
+
+276
+00:30:00,260 --> 00:30:09,030
+I would go through it and show a couple of
+the highlights.
+
+277
+00:30:09,030 --> 00:30:14,970
+Within each PDF document -- each PDF document
+is organized as an object graph.
+
+278
+00:30:14,970 --> 00:30:21,520
+This is interesting in a couple of different
+ways and actually addresses the same use cases
+
+279
+00:30:21,520 --> 00:30:31,450
+that redefining procedures in Postscript had
+in that language, so you can define -- each
+
+280
+00:30:31,450 --> 00:30:38,570
+object within a PDF can contain a set of operations,
+much like I just showed in the Camelot paper,
+
+281
+00:30:38,570 --> 00:30:44,780
+describing how to draw a particular shape
+or what text to render at a particular point
+
+282
+00:30:44,780 --> 00:30:55,420
+in the page, as well as sets of matrix operations
+that transform the vector space that describes
+
+283
+00:30:55,420 --> 00:30:58,690
+the output device in an abstract way.
+
+284
+00:30:58,690 --> 00:31:05,280
+So this makes it possible, for example, to
+have a single object within a PDF that describes
+
+285
+00:31:05,280 --> 00:31:12,520
+how to draw a header in a document, and then
+throughout that document, each page's description
+
+286
+00:31:12,520 --> 00:31:14,980
+can simply refer to that object.
+
+287
+00:31:14,980 --> 00:31:20,160
+And so you don't repeat all the information
+that's necessary in order to render that header
+
+288
+00:31:20,160 --> 00:31:24,870
+over and over and over for a 500-page document,
+you can describe it once and simply refer
+
+289
+00:31:24,870 --> 00:31:26,470
+to its object.
+
+290
+00:31:26,470 --> 00:31:32,260
+And so each PDF contains this object table.
+
+291
+00:31:32,260 --> 00:31:37,880
+These are all byte offsets that you see and
+there's a lot of offsets in this particular
+
+292
+00:31:37,880 --> 00:31:39,510
+PDF.
+
+293
+00:31:39,510 --> 00:31:44,390
+There we go.
+
+294
+00:31:44,390 --> 00:31:50,809
+Each of these is a byte offset within that
+particular file, that indicates where that
+
+295
+00:31:50,809 --> 00:31:52,800
+object begins.
+
+296
+00:31:52,800 --> 00:32:01,650
+And so
+this is one reason why, for example, you can't
+
+297
+00:32:01,650 --> 00:32:02,650
+just edit a PDF.
+
+298
+00:32:02,650 --> 00:32:04,960
+A lot of people say, why can't I edit a PDF?
+
+299
+00:32:04,960 --> 00:32:11,820
+There's a lot of reasons, but one of them
+is its essential structure is fixed at generation
+
+300
+00:32:11,820 --> 00:32:13,340
+time, to a large extent.
+
+301
+00:32:13,340 --> 00:32:19,800
+There are ways to add objects and mark these
+previously written objects as being overwritten
+
+302
+00:32:19,800 --> 00:32:26,760
+essentially, but relatively few tools support
+that and so that's why PDFs are generally
+
+303
+00:32:26,760 --> 00:32:34,150
+considered to be immutable once they leave
+their point of generation.
+
+304
+00:32:34,150 --> 00:32:36,700
+One of the huge -- oops.
+
+305
+00:32:36,700 --> 00:32:46,370
+Let me just find the -- I'm finding a font
+for you.
+
+306
+00:32:46,370 --> 00:32:49,840
+And I'm following object references if you
+want.
+
+307
+00:32:49,840 --> 00:32:52,900
+If you'd notice -- here we go.
+
+308
+00:32:52,900 --> 00:32:59,010
+So one of the big innovations of PDF documents
+like I was saying was that rather than needing
+
+309
+00:32:59,010 --> 00:33:04,650
+to ship the fonts necessary to render a Postscript
+file, for example, along with that Postscript
+
+310
+00:33:04,650 --> 00:33:13,190
+file, you can embed and usually fonts are
+embedded within each PDF, except for there's
+
+311
+00:33:13,190 --> 00:33:19,240
+a set of 14 fonts that were originally defined
+as part of the Adobe spec that are expected
+
+312
+00:33:19,240 --> 00:33:22,140
+to be at every location.
+
+313
+00:33:22,140 --> 00:33:27,580
+Which is like, you know, Times and Courier,
+and things like that, those basics that were
+
+314
+00:33:27,580 --> 00:33:33,240
+available in 1994 or whatever.
+
+315
+00:33:33,240 --> 00:33:41,750
+So within each PDF document you can embed
+whatever font you like, as well as encodings
+
+316
+00:33:41,750 --> 00:33:49,380
+that map character codes that are used to
+output each character to that slot, essentially,
+
+317
+00:33:49,380 --> 00:33:56,330
+within the font file, and this is where PDF
+documents sometimes run astray, where if you've
+
+318
+00:33:56,330 --> 00:34:01,450
+ever tried to copy and paste text out of a
+PDF document, sometimes that works and sometimes
+
+319
+00:34:01,450 --> 00:34:03,550
+it doesn't.
+
+320
+00:34:03,550 --> 00:34:07,050
+Very often, the reason why it doesn't, unless
+it's just an image-based PDF where it's just
+
+321
+00:34:07,050 --> 00:34:11,790
+a bunch of bitmaps from a scanner or whatever,
+usually why that happens is because as an
+
+322
+00:34:11,790 --> 00:34:19,650
+optimization step, what you can do is take
+a font file that describes 156 or 256 or you
+
+323
+00:34:19,650 --> 00:34:27,600
+know, 4,000 characters and when you output
+the PDF, if you know you only used 36 of them,
+
+324
+00:34:27,600 --> 00:34:34,070
+you can shrink that font file, rewrite it
+so that character position 0 in that font,
+
+325
+00:34:34,070 --> 00:34:43,149
+instead of being null, is the letter A. And
+the mapping between the character codes used
+
+326
+00:34:43,149 --> 00:34:49,919
+within the PDF and the character codes that
+are used within the font are described in
+
+327
+00:34:49,919 --> 00:34:51,149
+these dictionaries here.
+
+328
+00:34:51,149 --> 00:34:56,869
+These are mappings between characters and
+in this case, separate objects that describe
+
+329
+00:34:56,869 --> 00:34:59,800
+how to render each character.
+
+330
+00:34:59,800 --> 00:35:06,320
+So that's one interesting side effect of the
+optimization steps that are available by dint
+
+331
+00:35:06,320 --> 00:35:10,840
+of being able to embed any font file into
+a PDF.
+
+332
+00:35:10,840 --> 00:35:22,250
+I wonder if this has any images.
+
+333
+00:35:22,250 --> 00:35:27,140
+That one doesn't.
+
+334
+00:35:27,140 --> 00:35:38,800
+Another interesting thing about PDFs -- Postscript
+could embed bitmaps, but they always based
+
+335
+00:35:38,800 --> 00:35:46,420
+64 that data, so it could be transmitted over
+ASCII-only conduits.
+
+336
+00:35:46,420 --> 00:35:54,020
+PDF made no such constraint, and so if you
+open a random PDF that contains some images,
+
+337
+00:35:54,020 --> 00:36:02,480
+you often find binary garbage floating around
+in it and so you have, you know, much to the
+
+338
+00:36:02,480 --> 00:36:08,820
+chagrin of people that write PDF tools, you
+have this interleaving of clear text descriptions
+
+339
+00:36:08,820 --> 00:36:14,920
+that relate to the object graph within the
+document, as well as metadata associated with
+
+340
+00:36:14,920 --> 00:36:15,920
+each object.
+
+341
+00:36:15,920 --> 00:36:20,640
+That's where you see this, this is a subtype
+of image, you have a width and height for
+
+342
+00:36:20,640 --> 00:36:28,840
+the image, you know, how many bits per sample
+are found in that image, which color space
+
+343
+00:36:28,840 --> 00:36:35,080
+is used, etc., etc., and then the key right
+here, this filter that uses the zip deflate
+
+344
+00:36:35,080 --> 00:36:43,110
+algorithm, so as a parsing tool, you need
+to run your parser over that plain-text portion
+
+345
+00:36:43,110 --> 00:36:50,100
+and then switch to a binary, you know, slurping
+of that data for however far its length goes
+
+346
+00:36:50,100 --> 00:36:56,880
+in order to obtain the bitmap that you need
+to render on page or on the screen.
+
+347
+00:36:56,880 --> 00:37:00,590
+And honestly I could do this for a long time,
+so I won't
+
+348
+00:37:00,590 --> 00:37:03,380
+[laughter]
+I'm going to stop right there.
+
+349
+00:37:03,380 --> 00:37:08,369
+Depending how time is, I can do more if people
+care.
+
+350
+00:37:08,369 --> 00:37:13,220
+[laughter]
+But: -- so I'll stop.
+
+351
+00:37:13,220 --> 00:37:15,160
+Thank you.
+
+352
+00:37:15,160 --> 00:37:16,140
+[applause]

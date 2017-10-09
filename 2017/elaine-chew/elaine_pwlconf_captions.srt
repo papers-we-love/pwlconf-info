@@ -1,0 +1,1842 @@
+1
+00:00:05,540 --> 00:00:14,170
+So I've decided to speak about decoding the
+sensuality in music, because I work in music
+
+2
+00:00:14,170 --> 00:00:20,590
+information research, and part of the reason
+that we spend so much time thinking about
+
+3
+00:00:20,590 --> 00:00:30,649
+music is because it moves people, and it affects
+us emotionally, and it's part of the reason
+
+4
+00:00:30,649 --> 00:00:35,680
+why we come and listen to music over and over
+again, the same piece of music, being performed
+
+5
+00:00:35,680 --> 00:00:40,050
+by different people or maybe a same recording
+which is the same person playing the same
+
+6
+00:00:40,050 --> 00:00:43,890
+piece in a particular way.
+
+7
+00:00:43,890 --> 00:00:49,850
+And part of the reason that I am one of the
+lucky people who's able to spend all my time
+
+8
+00:00:49,850 --> 00:00:57,260
+thinking about music and how it affects us
+is because of the explosion digital music
+
+9
+00:00:57,260 --> 00:01:05,420
+information, and also because of that, a rise
+in music information research, sometimes called
+
+10
+00:01:05,420 --> 00:01:08,640
+music information retrieval.
+
+11
+00:01:08,640 --> 00:01:16,410
+And just to give you a sense of the figures,
+the global -- this is from the IFPI Report
+
+12
+00:01:16,410 --> 00:01:26,280
+from this year: The global recorded music
+revenue is on the order of 15.7 billion USD.
+
+13
+00:01:26,280 --> 00:01:33,840
+And the share of digital revenues is 50% of
+that.
+
+14
+00:01:33,840 --> 00:01:42,830
+And it's growing at a very fast pace and there's
+numerous industries that make this possible
+
+15
+00:01:42,830 --> 00:01:46,990
+on a very large scale, and I've just listed
+some of them there.
+
+16
+00:01:46,990 --> 00:01:48,700
+None of them are funding me.
+
+17
+00:01:48,700 --> 00:01:49,700
+[laughter]
+
+18
+00:01:49,700 --> 00:01:56,930
+So there's no reason why I'm putting up these
+companies rather than others, but these are
+
+19
+00:01:56,930 --> 00:02:02,920
+just representative companies that work in
+music, digital music, and you can look at
+
+20
+00:02:02,920 --> 00:02:10,349
+the numbers and see that there's huge numbers
+of people interacting with music through these
+
+21
+00:02:10,349 --> 00:02:14,190
+digital interfaces.
+
+22
+00:02:14,190 --> 00:02:20,689
+And for example, shazam, there's been over
+30 billion shazams since they started and
+
+23
+00:02:20,689 --> 00:02:26,319
+it's growing by 20 million per day, so people
+are shazamming every day.
+
+24
+00:02:26,319 --> 00:02:35,779
+Spotify has over 140 million users every month,
+so we're talking about large numbers of people
+
+25
+00:02:35,779 --> 00:02:43,340
+who need to be able to access and care for their digital music collections and
+
+26
+00:02:43,340 --> 00:02:50,000
+therefore we also need to have computer systems that understand how people interact with their music.
+
+27
+00:02:50,000 --> 00:02:56,290
+How human brains, humans minds, process music and we need to
+
+28
+00:02:56,290 --> 00:03:02,050
+also be able to appreciate how humans experience
+music.
+
+29
+00:03:02,050 --> 00:03:05,180
+And in this case, how they engage with their
+music.
+
+30
+00:03:05,180 --> 00:03:11,599
+OK, so with that introduction, I'm going to
+move into today's topic, which is to talk
+
+31
+00:03:11,599 --> 00:03:14,959
+about the experience of music.
+
+32
+00:03:14,959 --> 00:03:20,059
+And we all know that music moves us, which
+is why we listen to music.
+
+33
+00:03:20,059 --> 00:03:29,689
+They evoke strong emotion, such as goose bumps,
+laughter and awe, and part of the reason why
+
+34
+00:03:29,689 --> 00:03:37,720
+it -- music does this to us and because it
+evokes expectations, so we form expectations
+
+35
+00:03:37,720 --> 00:03:44,209
+and we're listening to music and when these
+expectations are fulfilled, we get a rush
+
+36
+00:03:44,209 --> 00:03:52,379
+of adrenaline, or not adrenaline, endorphins
+and we feel a sense of reward for -- having
+
+37
+00:03:52,379 --> 00:03:54,069
+that expectation fulfilled.
+
+38
+00:03:54,069 --> 00:03:58,590
+When that expectation is violated, sometimes
+it's funny.
+
+39
+00:03:58,590 --> 00:04:00,700
+And it causes laughter.
+
+40
+00:04:00,700 --> 00:04:05,529
+And sometimes it's just strange and new and
+interesting.
+
+41
+00:04:05,529 --> 00:04:13,169
+and finally, music causes tension, so that
+modulation of expectation, when there's expectation
+
+42
+00:04:13,169 --> 00:04:18,519
+and that expectation is not fulfilled immediately,
+there is sort of a delayed resolution, and
+
+43
+00:04:18,519 --> 00:04:24,620
+so we feel tension when we listen to music,
+or and that tension modulates over time.
+
+44
+00:04:24,620 --> 00:04:31,430
+And composers and performers make use of this
+property of music to create a musical experience
+
+45
+00:04:31,430 --> 00:04:34,450
+that is moving.
+
+46
+00:04:34,450 --> 00:04:41,560
+So we'll talk about that, and we talk about
+how this is done through sort of one, through
+
+47
+00:04:41,560 --> 00:04:46,060
+the use of prominence, making events more
+prominent than others.
+
+48
+00:04:46,060 --> 00:04:50,460
+The use of contrast, so when things change.
+
+49
+00:04:50,460 --> 00:04:54,750
+And the use of time and timing, and tension.
+
+50
+00:04:54,750 --> 00:04:58,620
+So we'll listen to a bit of music that's a
+bit different from what you've been listening
+
+51
+00:04:58,620 --> 00:05:00,980
+to in the break.
+
+52
+00:05:00,980 --> 00:05:11,120
+This is a Grieg song, one of the most popular
+pieces written by Grieg, and I'm going to
+
+53
+00:05:11,120 --> 00:05:21,280
+have to step out of this to start the recording
+and for those of you who read music, you can
+
+54
+00:05:21,280 --> 00:05:27,260
+follow along and even if you don't, it's like
+a graph so you're able to see when pitches
+
+55
+00:05:27,260 --> 00:05:31,410
+go up and down, has that started?
+
+56
+00:05:31,410 --> 00:05:32,410
+Is the sound coming through?
+
+57
+00:05:32,410 --> 00:05:34,280
+Well, the sound's moving.
+
+58
+00:05:34,360 --> 00:05:35,360
+Can we try that again?
+
+59
+00:05:35,520 --> 00:05:36,860
+No, there's no sound coming through.
+
+60
+00:05:37,040 --> 00:05:38,380
+Thank you.
+
+61
+00:05:38,390 --> 00:05:41,640
+All right, you know what?
+
+62
+00:05:41,640 --> 00:05:49,460
+I'll play it for you.
+
+63
+00:05:49,460 --> 00:05:56,150
+Aha
+[cheers and applause]
+
+64
+00:05:56,150 --> 00:05:59,860
+All right, I'm reading that screen over there.
+
+65
+00:05:59,860 --> 00:06:10,440
+. Oh, where's my pedal?
+
+66
+00:06:10,440 --> 00:06:18,370
+Someone took it.
+
+67
+00:06:18,370 --> 00:06:28,600
+[laughter]
+you know, everything was set up just fine
+
+68
+00:06:28,600 --> 00:06:34,470
+before this session began, and we had to dismantle
+it and so when we reconstituted it, some things
+
+69
+00:06:34,470 --> 00:06:35,990
+didn't get put back.
+
+70
+00:06:35,990 --> 00:06:36,990
+Ah!
+
+71
+00:06:36,990 --> 00:06:38,070
+Here it is, OK.
+
+72
+00:06:38,070 --> 00:06:53,400
+So again, Grieg.
+
+73
+00:06:53,440 --> 00:07:24,000
+(Norma has goosebumps)
+[laughter]
+
+74
+00:08:17,440 --> 00:08:19,680
+>> OK, so that --
+[applause]
+
+75
+00:08:20,480 --> 00:08:21,050
+That is how it works.
+
+76
+00:08:21,050 --> 00:08:26,470
+Thank you.
+
+77
+00:08:26,470 --> 00:08:29,180
+[applause]
+
+78
+00:08:29,180 --> 00:08:38,499
+So, if there's no sound for my computer, I
+would have shown you how a cellist actually
+
+79
+00:08:38,499 --> 00:08:46,710
+has far more control over a note than I do. Once I play a note that it, I've done my deed and it changed
+
+80
+00:08:46,710 --> 00:08:52,500
+But for a string-player, they can actually
+vibrate and make a sound that actually has
+
+81
+00:08:52,500 --> 00:08:59,050
+vibrato, and this is an example with vibrato.
+
+82
+00:08:59,050 --> 00:09:11,779
+And this is with a software called Eva that
+we created last year in my lab and Eva takes the sound signal and it uses pre-existing code
+
+83
+00:09:11,779 --> 00:09:23,309
+that turns the sound signal and finds a fundamental frequency of a sound and then it can automatically extract
+
+84
+00:09:23,309 --> 00:09:31,689
+the moments when there's vibrato, using an
+FDM technique, filter diagonalization method,
+
+85
+00:09:31,689 --> 00:09:35,660
+which again, was borrowed from another field.
+
+86
+00:09:35,660 --> 00:09:41,010
+And so here, every single vibrato you can
+see the pitch is actually modulating very
+
+87
+00:09:41,010 --> 00:09:46,410
+quickly and there's a frequency to how that
+pitch is actually modulating and with this
+
+88
+00:09:46,410 --> 00:09:53,339
+kind of modulation, you actually will then
+get a very expressive tone in the way that
+
+89
+00:09:53,339 --> 00:09:55,339
+the music is conveyed.
+
+90
+00:09:55,339 --> 00:09:57,440
+So thats vibrato
+
+91
+00:09:57,440 --> 00:10:05,879
+Can you hear it?
+
+92
+00:10:05,879 --> 00:10:10,110
+Hm. Hm, I do want to play you this, so let's see
+if maybe I can I can clip my microphone to my computer.
+
+93
+00:10:10,110 --> 00:10:27,009
+Oh, well, excuse me.
+
+94
+00:10:27,009 --> 00:10:28,009
+Is there a reason why my -- it's not allowing
+me to have any sound.
+
+95
+00:10:28,009 --> 00:10:29,009
+>> There we go.
+
+96
+00:10:29,009 --> 00:10:30,009
+Go ahead and try now.
+
+97
+00:10:30,009 --> 00:10:31,009
+Can you hear it?
+
+98
+00:10:31,009 --> 00:10:32,009
+>> OK, for those, did you notice that slide
+that Ian just did?
+
+99
+00:10:32,009 --> 00:10:33,009
+OK.
+
+100
+00:10:33,009 --> 00:10:39,310
+So he did, or the eeeeewww, dad, de-dum, and
+this is a very different way of playing that
+
+101
+00:10:39,310 --> 00:11:02,040
+same thing ... ...
+(Played with more of an upbeat tempo ...)
+
+102
+00:11:02,040 --> 00:11:15,389
+>> So, um, the top one is how Ian did it and
+lower one is how Suzy did it, so we can actually
+
+103
+00:11:15,389 --> 00:11:22,510
+see exactly what they're doing, in that particular
+note to make it very expressive at that moment
+
+104
+00:11:22,510 --> 00:11:26,610
+in time.
+
+105
+00:11:26,610 --> 00:11:29,129
+And we can actually quantify these things.
+
+106
+00:11:29,129 --> 00:11:31,439
+It's one of those things that's highly quantifiable.
+
+107
+00:11:31,439 --> 00:11:37,389
+You can get a slope, you can get a max pitch,
+the top pitch, the bottom pitch and the rate
+
+108
+00:11:37,389 --> 00:11:44,279
+at which it's descending and so we have ways
+of actually describing exactly whats being
+
+109
+00:11:44,279 --> 00:11:47,379
+done in performance.
+
+110
+00:11:47,379 --> 00:11:57,110
+So maybe the audio will work now.
+
+111
+00:11:57,110 --> 00:12:04,040
+Let's try that again ...:
+So it's not only in western music that this
+
+112
+00:12:04,040 --> 00:12:05,040
+is done.
+
+113
+00:12:05,040 --> 00:12:10,269
+This is an example of Chinese music ...
+OK?
+
+114
+00:12:10,269 --> 00:12:20,209
+So you can hear the vibrato.
+
+115
+00:12:20,209 --> 00:12:26,249
+So again, if you put that through Eva, that's
+what you get, you get to see exactly where
+
+116
+00:12:26,249 --> 00:12:32,410
+there's vibrato and you can isolate the moments
+where there's vibrato and examine and analyze
+
+117
+00:12:32,410 --> 00:12:37,689
+every single one of them so if you're interested
+in doing that to voice or flute or any other
+
+118
+00:12:37,689 --> 00:12:43,550
+string instruments, you can download the software
+and play around with it at this address.
+
+119
+00:12:43,550 --> 00:12:48,430
+OK, so next we look at contrast.
+
+120
+00:12:48,430 --> 00:12:55,069
+That is another way in which we derive interest
+or generate interest in music.
+
+121
+00:12:55,069 --> 00:12:57,029
+This is Think of Me.
+
+122
+00:12:57,029 --> 00:13:15,899
+So let's see ... oh, yes, OK, here we go.
+
+123
+00:13:15,899 --> 00:13:38,439
+... ...
+>> Lyrics: Think of me, think of me fondly,
+
+124
+00:13:38,439 --> 00:13:53,819
+when we said goodbye, me,
+>> That phrase is repeated.
+
+125
+00:13:53,819 --> 00:13:55,470
+>> Lyrics: Once in a while.
+
+126
+00:13:55,470 --> 00:13:59,779
+>> There's a bit sadder next ...
+>> Then again you long to take your heart
+
+127
+00:13:59,779 --> 00:14:08,290
+back and be free.
+
+128
+00:14:08,290 --> 00:14:09,290
+>> And we're back to happy moment.
+
+129
+00:14:09,290 --> 00:14:10,290
+>> ...
+>> Lyrics: Spare a hope for me ...:
+
+130
+00:14:10,290 --> 00:14:20,130
+>> And the sun comes out.
+
+131
+00:14:20,130 --> 00:14:22,779
+[laughter]
+
+132
+00:14:22,779 --> 00:14:28,089
+All right.
+
+133
+00:14:28,089 --> 00:14:30,749
+OK.
+
+134
+00:14:30,749 --> 00:14:32,239
+You get the idea.
+
+135
+00:14:32,239 --> 00:14:38,429
+So there are these different moments where
+change occurs, and we take note of these moments,
+
+136
+00:14:38,429 --> 00:14:45,119
+and -- well, there's the orange bit, the orange
+bit, the blue bit, and the bright yellow bit.
+
+137
+00:14:45,119 --> 00:14:50,540
+Okay, and now we're going to take a look at
+how exactly those moments are created.
+
+138
+00:14:50,540 --> 00:14:58,639
+So this is the -- so part of the reason that
+this is -- evokes those kinds of feelings
+
+139
+00:14:58,639 --> 00:15:04,790
+when we listen to it, is that the composer
+here, Andrew Lloyd Weber is playing around
+
+140
+00:15:04,790 --> 00:15:12,749
+with tonality, so major and minor moods and
+where the bright sun comes out that's actually
+
+141
+00:15:12,749 --> 00:15:19,959
+where he takes a shift and takes everything
+out half a step and so that's a very -- it's
+
+142
+00:15:19,959 --> 00:15:23,620
+a kind of a slightly kitschy way of doing
+it
+
+143
+00:15:23,620 --> 00:15:25,229
+[laughter]
+
+144
+00:15:25,229 --> 00:15:27,980
+>> You'll see this done quite a lot and you
+can try it yourself.
+
+145
+00:15:27,980 --> 00:15:32,819
+It's very easy to do, take everything up half
+a step and it just makes it brighter and seems
+
+146
+00:15:32,819 --> 00:15:36,220
+like something really great has happened.
+
+147
+00:15:36,220 --> 00:15:37,589
+[laughter]
+
+148
+00:15:37,589 --> 00:15:44,689
+>> So this is -- this is -- well, this is
+a technique, you could say, and so we can
+
+149
+00:15:44,689 --> 00:15:49,760
+try to track exactly what composers are doing
+when they play around with these kinds of
+
+150
+00:15:49,760 --> 00:15:56,519
+tonality and tonal patterns, and so over here,
+this is a representation of tonality that
+
+151
+00:15:56,519 --> 00:16:01,449
+takes the original sort of -- this is a well
+known way of representing pitches that we
+
+152
+00:16:01,449 --> 00:16:09,730
+hear on -- that we see on a key -- on the
+keyboard ... (Plays the keyboard)
+
+153
+00:16:09,730 --> 00:16:14,170
+So that's basically of I've just played what
+is on a horizontal line.
+
+154
+00:16:14,170 --> 00:16:21,819
+And on the vertical line is: (Plays)
+Yeah?
+
+155
+00:16:21,819 --> 00:16:26,750
+And so you can wrap it up, as you can see,
+the things repeat and you can wrap it up to
+
+156
+00:16:26,750 --> 00:16:31,429
+get the three dimensional structure like this,
+a helical model this is called a spiral array.
+
+157
+00:16:31,429 --> 00:16:37,239
+This is what my Ph.D. thesis was on and you
+can represent things inside that spiral array
+
+158
+00:16:37,239 --> 00:16:44,139
+that represent tonal elements and this is
+how the spiral array works.
+
+159
+00:16:44,139 --> 00:17:01,760
+Video: Calculates what's the closest chord
+and the closest key as music is unfolding
+
+160
+00:17:01,760 --> 00:17:13,800
+so this is Bach's Prelude in C major and I'm
+going to play the first chord.
+
+161
+00:17:13,800 --> 00:17:23,360
+So I've played 3 pitches, the C, E, and G
+and you see the silver blocks -- you know,
+
+162
+00:17:23,360 --> 00:17:26,040
+I'm pausing that here, because I have a keyboard
+and I have the software.
+
+163
+00:17:26,040 --> 00:17:30,960
+I will do that for you.
+
+164
+00:17:30,960 --> 00:17:34,440
+[laughter]
+
+165
+00:17:34,440 --> 00:17:37,930
+[applause]
+
+166
+00:17:37,930 --> 00:17:48,380
+AUDIENCE: Ooh!
+[laughter]
+
+167
+00:17:48,380 --> 00:17:57,580
+>> OK.
+
+168
+00:17:57,580 --> 00:18:02,940
+OK. All right. So ... (Plays)
+
+169
+00:18:02,940 --> 00:18:08,600
+That's the chord of C in the
+key of C.
+
+170
+00:18:08,600 --> 00:18:13,240
+Chord of D minor in the K of C.
+
+171
+00:18:13,240 --> 00:18:17,340
+G chord in the key of C.
+
+172
+00:18:17,340 --> 00:18:20,780
+C cord in the key
+of C.
+
+173
+00:18:20,780 --> 00:18:25,140
+A minor chord in the key of C.
+
+174
+00:18:25,140 --> 00:18:32,930
+D major.
+
+175
+00:18:32,930 --> 00:18:33,930
+And so on.
+
+176
+00:18:33,930 --> 00:18:34,930
+OK?
+
+177
+00:18:34,930 --> 00:18:40,870
+So this is able to trace exactly what's being
+done, and if -- so that was the Prelude, the
+
+178
+00:18:40,870 --> 00:18:46,380
+C-major prelude from the well tempered clavier
+from Bach.
+
+179
+00:18:46,380 --> 00:18:56,370
+Now I'm going to do a parody of this by PDQ
+bach and this is from the short-tempered
+
+180
+00:18:56,370 --> 00:18:59,280
+clavier, right?
+
+181
+00:18:59,280 --> 00:19:05,780
+basically it has those chords again.
+
+182
+00:19:05,780 --> 00:19:30,900
+F, ... .. (playing)
+
+183
+00:19:30,900 --> 00:19:36,540
+That's not supposed to
+be there.
+
+184
+00:19:36,540 --> 00:19:39,740
+OK, right. So --
+[applause]
+
+185
+00:19:39,740 --> 00:19:50,950
+Thank you. You can see
+when PDQ Bach is actually composing like JS
+
+186
+00:19:50,950 --> 00:19:56,710
+Bach, he's doing things that are sort of in
+the same key and in the right moment and
+
+187
+00:19:56,710 --> 00:20:04,640
+when he does things unexpected that veer way out, it makes these
+big arcs outside of that close-knit circle,
+
+188
+00:20:04,640 --> 00:20:12,390
+that trajectory so we're able to see exactly
+when unexpected things happen, and you can
+
+189
+00:20:12,390 --> 00:20:19,410
+also see things like this is again from PDQ
+Bach from the same short-tempered clavier.
+
+190
+00:20:19,410 --> 00:20:23,320
+This is based on Beethoven's 5th.
+
+191
+00:20:23,320 --> 00:20:30,950
+So we know how that motif goes, and later
+on he's going to when the motif comes back
+
+192
+00:20:30,950 --> 00:20:37,150
+he's going to play it wrong and what he does
+is -- ... (Plays)
+
+193
+00:20:37,150 --> 00:20:39,948
+It's supposed to go ... right?
+
+194
+00:20:39,948 --> 00:20:42,280
+He's going to go (plays.)
+
+195
+00:20:42,280 --> 00:20:48,330
+All right, so and when he does that it's going
+to shoot way out there, way up there where
+
+196
+00:20:48,330 --> 00:20:57,930
+it's not supposed to be so I'm going to get
+into that and you will see how that happens.
+
+197
+00:20:57,930 --> 00:21:15,570
+(Plays)
+So you see that yellow line goes all the way
+
+198
+00:21:15,570 --> 00:21:21,190
+up because it's not in the right key, it's
+gone to the wrong region so we're able to
+
+199
+00:21:21,190 --> 00:21:26,160
+track when things are unexpected and when
+things are unexpected is really when the interesting
+
+200
+00:21:26,160 --> 00:21:29,000
+parts of the music takes place.
+
+201
+00:21:29,000 --> 00:21:33,960
+When people get goosebumps, that's because
+there's a change that's kind of -- well, sometimes
+
+202
+00:21:33,960 --> 00:21:39,710
+expected but sometimes unexpected but it's
+not normally there, and so it gives you pleasure
+
+203
+00:21:39,710 --> 00:21:41,240
+when that happens.
+
+204
+00:21:41,240 --> 00:21:46,340
+So changes are very important in music.
+
+205
+00:21:46,340 --> 00:21:57,680
+PDQ Bach, I didn't come up with the idea.
+
+206
+00:21:57,680 --> 00:22:05,000
+I was actually inspired by a book by David
+Huron called sweet anticipation.
+
+207
+00:22:05,000 --> 00:22:10,480
+So he writes about how expectations are formed and how music gives us pleasure
+
+208
+00:22:10,480 --> 00:22:14,630
+This is the score of what the PDQ Bach looks
+like.
+
+209
+00:22:14,630 --> 00:22:20,670
+So by having these surprising moments, we
+get humorous moments in music and that creates
+
+210
+00:22:20,670 --> 00:22:21,700
+laughter.
+
+211
+00:22:21,700 --> 00:22:28,100
+So this is where the PDQ Bach was doing funny
+things in the Preludes in C.
+
+212
+00:22:28,100 --> 00:22:34,230
+This is another view of the Prelude in C, where it veers down at the end where its doing something unexpected.
+
+213
+00:22:34,230 --> 00:22:44,580
+This is that Beethoven 5th parody, and this
+is where it goes instead of going to E flat
+
+214
+00:22:44,580 --> 00:22:51,130
+it goes to E natural, which is not in the
+right key and that's another example from
+
+215
+00:22:51,130 --> 00:22:52,130
+PDQ Bach.
+
+216
+00:22:52,130 --> 00:22:57,280
+OK, so if you're interested in getting your
+own version of the software, and playing around
+
+217
+00:22:57,280 --> 00:22:58,951
+with it you can download it.
+
+218
+00:22:58,951 --> 00:23:00,880
+It's on the App Store.
+
+219
+00:23:00,880 --> 00:23:09,480
+At the moment it only works on a Mac desktop
+or laptop, so if you have one, do feel free
+
+220
+00:23:09,480 --> 00:23:12,100
+to check it out.
+
+221
+00:23:12,100 --> 00:23:13,100
+OK.
+
+222
+00:23:13,100 --> 00:23:18,850
+The theory behind it is -- can be found in
+chapters in this book, that came out in 2014,
+
+223
+00:23:18,850 --> 00:23:26,810
+on the spiral array model and all the applications.
+
+224
+00:23:26,810 --> 00:23:29,640
+OK.
+
+225
+00:23:29,640 --> 00:23:32,470
+Ah!
+
+226
+00:23:32,470 --> 00:23:39,700
+So this is just to bring it -- draw it back
+to the example at the beginning that I played
+
+227
+00:23:39,700 --> 00:23:41,230
+for you.
+
+228
+00:23:41,230 --> 00:23:46,630
+That is an example which is normally if it's
+played by strings with all the shimmery sounds
+
+229
+00:23:46,630 --> 00:23:50,780
+and all of the vibratos, it's a very moving
+piece.
+
+230
+00:23:50,780 --> 00:23:55,990
+It's one of the most moving pieces of music,
+like many pieces that Grieg has written, it
+
+231
+00:23:55,990 --> 00:24:04,130
+has a very pretty melody and lots of people
+listen to it because it has not just the melody,
+
+232
+00:24:04,130 --> 00:24:11,350
+but lots of changes that gives these good
+feelings of expectations being violated or
+
+233
+00:24:11,350 --> 00:24:12,350
+fulfilled.
+
+234
+00:24:12,350 --> 00:24:16,280
+And the kinds of chords that it goes through
+are here.
+
+235
+00:24:16,280 --> 00:24:18,240
+I've just sort of outlined them.
+
+236
+00:24:18,240 --> 00:24:29,910
+This is E major E minor and there's A minor
+and G major and G major again, C major, E minor
+
+237
+00:24:29,910 --> 00:24:34,600
+it could be major or minor here, major and
+minor and E major
+
+238
+00:24:34,600 --> 00:24:43,770
+And in the interest of time I'm not going
+to play you this video or to stop out of this
+
+239
+00:24:43,770 --> 00:24:49,610
+to go into the MuSA.RT app, I could do that
+but you know how MuSA.RT works now and you
+
+240
+00:24:49,610 --> 00:24:54,950
+know how it's going to move around in that
+place and show you the chords that are happening
+
+241
+00:24:54,950 --> 00:24:58,270
+in the piece at those times.
+
+242
+00:24:58,270 --> 00:25:06,350
+OK, so when we think about -- if we go back
+to Think of Me example.
+
+243
+00:25:06,350 --> 00:25:11,640
+This is where a change is taking place. So you can imagine in how one region
+
+244
+00:25:11,640 --> 00:25:18,010
+In the orange bits it's staying in one region
+of the Spiral Array Space and in the blue
+
+245
+00:25:18,010 --> 00:25:22,910
+bits it's going to go to another region that's
+going to go to relative minor and then it's
+
+246
+00:25:22,910 --> 00:25:28,090
+going to come back to the orange bit and everything
+is going to shift up it's a huge change to
+
+247
+00:25:28,090 --> 00:25:31,330
+the half step up where the sun comes up.
+
+248
+00:25:31,330 --> 00:25:38,360
+So if you actually try to measure in the space
+how much distance is traversed whenever these
+
+249
+00:25:38,360 --> 00:25:44,150
+-- whenever these movements occur, so how
+much distance is traversed when we go from
+
+250
+00:25:44,150 --> 00:25:49,990
+one section or one segment of the piece to
+another, you can actually see the amount of
+
+251
+00:25:49,990 --> 00:25:56,470
+change that occurs, and the greatest change
+occurs when the orange bit goes to the yellow
+
+252
+00:25:56,470 --> 00:25:58,720
+bit, so where the sun comes out.
+
+253
+00:25:58,720 --> 00:26:04,700
+And this is -- you get to see this pattern
+no matter what size window you use, this is
+
+254
+00:26:04,700 --> 00:26:09,910
+one where 248th notes window, there's 16 so
+the window gets smaller, but you still see
+
+255
+00:26:09,910 --> 00:26:14,670
+that gigantic peak when that big change occurs.
+
+256
+00:26:14,670 --> 00:26:19,170
+OK, so time.
+
+257
+00:26:19,170 --> 00:26:20,170
+Time is important.
+
+258
+00:26:20,170 --> 00:26:27,240
+So we notice these moments of contrast and
+change, but we're also interested in how we
+
+259
+00:26:27,240 --> 00:26:34,780
+can highlight these changes using time, and
+so we take a look at -- I'm going to play
+
+260
+00:26:34,780 --> 00:26:41,520
+you a bit, and I'm going to stop or rather
+pause where maybe I shouldn't pause, and just
+
+261
+00:26:41,520 --> 00:26:47,590
+a little bit too long, just to keep you on
+your toes, and you're going to see how the
+
+262
+00:26:47,590 --> 00:26:54,550
+use of time actually creates these kinds of
+anticipations and moments of suspense.
+
+263
+00:26:54,550 --> 00:27:04,110
+So this is an excerpt from a trio by Paul
+Schoenfield. This is the second movement of his trio and it has a beginning bit by
+
+264
+00:27:04,110 --> 00:27:13,237
+piano ... (plays)
+
+265
+00:27:13,237 --> 00:27:26,660
+OK, I've waited too long.
+
+266
+00:27:26,660 --> 00:27:27,940
+I I've lost it.
+
+267
+00:27:27,940 --> 00:27:28,940
+[laughter]
+
+268
+00:27:28,940 --> 00:27:33,320
+OK, so these moments, I can hold it very long.
+
+269
+00:27:33,320 --> 00:27:38,180
+I can hold it very long, because you know
+something else is coming and you want resolution
+
+270
+00:27:38,180 --> 00:27:39,640
+to that something else.
+
+271
+00:27:39,640 --> 00:27:41,740
+So let me do that again and I'll actually
+resolve it.
+
+272
+00:27:41,740 --> 00:27:57,840
+(Plays)
+
+273
+00:28:01,200 --> 00:28:02,760
+OK, so much better, yeah?
+
+274
+00:28:02,760 --> 00:28:10,230
+OK, so because the expectation was set up
+and it had to resolve, and because that expectation
+
+275
+00:28:10,230 --> 00:28:14,090
+was set up, you knew something was coming
+and you were waiting for it and because you
+
+276
+00:28:14,090 --> 00:28:18,050
+were waiting for it, I knew I could take more
+time, right?
+
+277
+00:28:18,050 --> 00:28:22,680
+And when I take more time, there is great
+uncertainty -- well, you know what's coming,
+
+278
+00:28:22,680 --> 00:28:25,070
+so there's no uncertainty about that.
+
+279
+00:28:25,070 --> 00:28:30,270
+But the uncertainty comes in when that's going
+to take place, so that's what I'm playing
+
+280
+00:28:30,270 --> 00:28:35,040
+with when I take time.
+
+281
+00:28:35,040 --> 00:28:36,790
+And we have the same thing here.
+
+282
+00:28:36,790 --> 00:28:40,701
+There's a moment in the piece, the Grieg piece
+beings this is the middle of the piece, and
+
+283
+00:28:40,701 --> 00:28:44,700
+I will stick the microphone here and have
+you hear it.
+
+284
+00:28:44,700 --> 00:28:50,680
+This is sung by a soprano, and at the moment
+where she's taking more time than necessary,
+
+285
+00:28:50,680 --> 00:28:55,900
+you will see that in the orange bit.
+
+286
+00:28:55,900 --> 00:29:23,640
+(Elaine is snapping her fingers in time.)
+
+287
+00:29:23,640 --> 00:29:33,780
+All right, anyone tried to beat to this?
+[laughter]
+
+288
+00:29:33,780 --> 00:29:38,470
+>> Well if you did try to beat to it, you'll
+see that the beats are not the same length.
+
+289
+00:29:38,470 --> 00:29:44,430
+They actually vary quite a bit and this is
+where we're going to talk about time and when
+
+290
+00:29:44,430 --> 00:29:49,470
+we talk about time, we're going to look at
+those lengths of the beats and how they get
+
+291
+00:29:49,470 --> 00:29:53,200
+modulated, stretched or compressed.
+
+292
+00:29:53,200 --> 00:29:57,870
+So as to modulate your speculations.
+
+293
+00:29:57,870 --> 00:29:59,600
+And we're going to talk first about tipping
+points.
+
+294
+00:29:59,600 --> 00:30:04,950
+We all know about physical tipping points,
+right, when something's sort of at an edge
+
+295
+00:30:04,950 --> 00:30:09,820
+and the center of gravity is at the point
+where it's balancing on and if you just tip
+
+296
+00:30:09,820 --> 00:30:12,230
+it a little bit it's going to just topple
+over.
+
+297
+00:30:12,230 --> 00:30:16,310
+So the same thing happens in music.
+
+298
+00:30:16,310 --> 00:30:19,300
+Here's an example of tipping points.
+
+299
+00:30:19,300 --> 00:30:27,220
+This is an -- a quick example of Kreisler
+playing his own piece and since I'm not a
+
+300
+00:30:27,220 --> 00:30:34,100
+violinist I'm not going to be able to play
+this for you, but I'll just play the recording.
+
+301
+00:30:34,100 --> 00:30:49,300
+(Violin playing, and Elaine is snapping and
+tapping with the time.)
+
+302
+00:30:49,300 --> 00:30:55,970
+>> OK, so this is how much he's changing the
+lengths of the beats.
+
+303
+00:30:55,970 --> 00:30:59,670
+And this is not at all what is written.
+
+304
+00:30:59,670 --> 00:31:03,650
+What is written would have been a flat line
+if it was played exactly how it's written
+
+305
+00:31:03,650 --> 00:31:06,120
+but instead it's played more like this, yeah?
+
+306
+00:31:06,120 --> 00:31:08,890
+So there's lots of tipping points.
+
+307
+00:31:08,890 --> 00:31:14,440
+He's playing around it this sense of going
+up and down and sort of modulating our expectations,
+
+308
+00:31:14,440 --> 00:31:18,190
+playing around with it.
+
+309
+00:31:18,190 --> 00:31:24,070
+This is another example, it's going to end
+up looking kind of like this and so I'm not
+
+310
+00:31:24,070 --> 00:31:26,422
+going to play from that recording but I'll
+play from the analyzed data here.
+
+311
+00:31:26,422 --> 00:32:39,440
+(Piano playing, and Elaine is snapping fingers
+with time)
+
+312
+00:32:39,440 --> 00:32:41,040
+OK?
+
+313
+00:32:41,200 --> 00:32:44,400
+So she took a lot of time before that last
+bit comes back.
+
+314
+00:32:44,400 --> 00:32:45,850
+OK.
+
+315
+00:32:45,850 --> 00:32:51,620
+So we can do that again for the bit that I
+had played you by Grieg, so what you'd need
+
+316
+00:32:51,620 --> 00:32:57,890
+to do is you need to have software like sonic
+visualizer which you can annotate beats on
+
+317
+00:32:57,890 --> 00:33:03,250
+and once you can annotate beats you can extract
+the data and plot it and analyze it so this
+
+318
+00:33:03,250 --> 00:33:11,170
+is what it looks like what she's saying.
+
+319
+00:33:11,200 --> 00:33:22,240
+This is Edith Oldrup and this is a visualization
+of what she's saying with the data.
+
+320
+00:33:22,560 --> 00:33:54,960
+(Singing)
+OK?
+
+321
+00:33:54,990 --> 00:34:01,170
+So this is exactly what she is singing and
+how she's modulating the time and when the
+
+322
+00:34:01,170 --> 00:34:09,569
+time is modulated, what it may evoke in the
+listener are feelings of tension, because
+
+323
+00:34:09,569 --> 00:34:14,330
+now we're playing around with expectation.
+
+324
+00:34:14,330 --> 00:34:19,580
+And last year, in a paper we proposed a model
+for tonal tension, so as you can see when
+
+325
+00:34:19,580 --> 00:34:23,580
+things were unexpected in that Spiral Array
+Space when PDQ Bach was playing around with
+
+326
+00:34:23,580 --> 00:34:30,940
+the expectations, things were going far, far
+away and when things go far away, it's actually
+
+327
+00:34:30,940 --> 00:34:36,550
+creating a big space, so if we look at the
+diameter of the points that are traced out
+
+328
+00:34:36,550 --> 00:34:45,870
+inside that space, we have a sense of just
+how dissonant or unexpected the music is.
+
+329
+00:34:45,870 --> 00:34:52,510
+So the cloud diameter is a measure of one
+aspect of tonal tension, which is that dissonance.
+
+330
+00:34:52,510 --> 00:34:58,551
+We can also look at Claude momentum, how much
+is shifting around in that space, and that
+
+331
+00:34:58,551 --> 00:35:04,370
+momentum within that space, if that's just
+too high, that can also cause feelings of
+
+332
+00:35:04,370 --> 00:35:09,240
+tension, and tensile strain is when the key,
+the tonal center, the center of gravity is
+
+333
+00:35:09,240 --> 00:35:13,240
+in the region and you stray very far away
+from it.
+
+334
+00:35:13,240 --> 00:35:16,060
+That also causes feelings of tension.
+
+335
+00:35:16,060 --> 00:35:21,700
+So in this here we have the Tristan chord
+which is supposed to be a very tense chord
+
+336
+00:35:21,700 --> 00:35:26,610
+and you can see the three measures on the score for this chord, which goes like this ...
+
+337
+00:35:26,610 --> 00:35:37,520
+(Plays)
+
+338
+00:35:37,520 --> 00:35:41,130
+OK, so this is supposedly where the tension
+
+339
+00:35:41,130 --> 00:35:42,869
+is highest.
+
+340
+00:35:42,869 --> 00:35:50,090
+(Plays)
+Yeah, and it resolves.
+
+341
+00:35:50,090 --> 00:35:52,010
+Yeah?
+
+342
+00:35:52,010 --> 00:35:57,691
+So we can then go back and do the same thing
+to where people chose to take time, and see
+
+343
+00:35:57,691 --> 00:36:05,380
+how that correlates with the different tension
+measures here for the diameter it's the tipping
+
+344
+00:36:05,380 --> 00:36:13,880
+points are happening just before where the
+diameter comes to a low, and over here, if
+
+345
+00:36:13,880 --> 00:36:18,220
+we look at the cloud momentum, the tipping
+points are where there's a lot of movement
+
+346
+00:36:18,220 --> 00:36:24,450
+and if we look at here, the tensile strain,
+the tipping points occur where, again, there's
+
+347
+00:36:24,450 --> 00:36:26,360
+a lot of strain.
+
+348
+00:36:26,360 --> 00:36:31,760
+It's veering quite far away from where the
+center is, and so a lot more time is taken
+
+349
+00:36:31,760 --> 00:36:34,190
+for you to actually experience that.
+
+350
+00:36:34,190 --> 00:36:35,340
+OK.
+
+351
+00:36:35,340 --> 00:36:43,380
+So now that we have a way of quantifying tension,
+an application of this is in music generation,
+
+352
+00:36:43,380 --> 00:36:49,090
+so music generation has become very popular
+recently because Google has this Magenta project
+
+353
+00:36:49,090 --> 00:36:54,610
+and companies such as Duke Deck are interested
+in generating music that are copyright free
+
+354
+00:36:54,610 --> 00:36:58,080
+that you can put on your home videos.
+
+355
+00:36:58,080 --> 00:37:03,690
+There's also interest in music that's generated
+automatically that fit different scenarios
+
+356
+00:37:03,690 --> 00:37:11,490
+in computer games, so it actually molds itself
+according to how the game is being played.
+
+357
+00:37:11,490 --> 00:37:18,230
+And so part of the problem of music that is
+generated by computers is that it often lacks
+
+358
+00:37:18,230 --> 00:37:20,350
+structure.
+
+359
+00:37:20,350 --> 00:37:23,790
+Not only does it lack structure, it doesn't
+know how to transition from one section to
+
+360
+00:37:23,790 --> 00:37:26,560
+another.
+
+361
+00:37:26,560 --> 00:37:35,720
+And so in an effort to try to generate music
+or find a way of creating music that has some
+
+362
+00:37:35,720 --> 00:37:46,280
+form of structure, narrative structure, we
+use the tension model to constrain the movements
+
+363
+00:37:46,280 --> 00:37:49,430
+within tonal space for music that's generated.
+
+364
+00:37:49,430 --> 00:38:01,910
+We also use an existing program by David Meredith,
+SIATECCompres and COSIATEC. To find repeated patterns inside an existing piece of music.
+
+365
+00:38:01,910 --> 00:38:08,940
+It uses existing music as a template and copies
+over all of its rhythms and all of its repeated
+
+366
+00:38:08,940 --> 00:38:16,570
+patterns and so here is an example of repeated
+patterns found in the PDQ Bach
+
+367
+00:38:16,570 --> 00:38:28,640
+piece so if we start with the patterns that
+are found and following the rhythms of the
+
+368
+00:38:28,640 --> 00:38:32,590
+PDQ Bach piece, you end up getting a piece
+that looks like this.
+
+369
+00:38:32,590 --> 00:38:39,710
+If you just randomly populate it with notes
+that just fit the repeated patterns and the
+
+370
+00:38:39,710 --> 00:38:44,510
+rhythmic structure, and it doesn't sound very
+good.
+
+371
+00:38:44,510 --> 00:38:45,860
+[laughter]
+
+372
+00:38:45,860 --> 00:38:49,900
+(Plays discordant music.)
+
+373
+00:38:49,900 --> 00:38:54,480
+OK, not only does it sound not good, it's
+unplayable.
+
+374
+00:38:54,480 --> 00:39:04,650
+OK, so after you constrain it to fit the tension
+profile learned from the PDQ Bach piece, you
+
+375
+00:39:04,650 --> 00:39:14,710
+very quickly get something that's more coherent
+... (plays) and to iterate it once more, and
+
+376
+00:39:14,710 --> 00:39:22,130
+you go, let's go a bit closer to that, and
+hm.
+
+377
+00:39:22,130 --> 00:39:33,020
+>> OK, so you do want to stop around there,
+because if you keep going, you'd end up with
+
+378
+00:39:33,020 --> 00:39:36,520
+the same piece again and it's not very useful.
+
+379
+00:39:36,520 --> 00:39:37,530
+So --
+[laughter]
+
+380
+00:39:37,530 --> 00:39:42,380
+Right, because there's too many constraints
+and if we try to minimize distance to the
+
+381
+00:39:42,380 --> 00:39:46,470
+-- what you found from the original piece,
+you might end up with something too close
+
+382
+00:39:46,470 --> 00:39:48,530
+to the original piece.
+
+383
+00:39:48,530 --> 00:39:51,710
+So this was done to many other pieces.
+
+384
+00:39:51,710 --> 00:40:09,860
+Amongst them, this is March in D by JS Bach.
+
+385
+00:40:09,860 --> 00:40:26,080
+(Plays)
+
+386
+00:40:26,080 --> 00:40:28,450
+OK, but that's the original piece.
+
+387
+00:40:28,450 --> 00:40:29,830
+Untouched.
+
+388
+00:40:29,830 --> 00:40:36,470
+And now I'll play you what MorpheuS, the program,
+generated.
+
+389
+00:40:36,470 --> 00:41:08,580
+(Elaine plays) on keyboard.)
+
+390
+00:41:08,580 --> 00:41:14,609
+OK.
+
+391
+00:41:14,609 --> 00:41:15,609
+[applause]
+
+392
+00:41:15,609 --> 00:41:19,340
+So if you're interested in seeing more of
+MorpheuS pieces, you can go online.
+
+393
+00:41:19,340 --> 00:41:26,350
+MorpheuS has a website and here are some examples
+of other music generation systems.
+
+394
+00:41:26,350 --> 00:41:33,760
+And finally, just to recap: We've looked at
+how prominence is modulated in music performance,
+
+395
+00:41:33,760 --> 00:41:37,260
+how composers create contrast.
+
+396
+00:41:37,260 --> 00:41:45,700
+How performers use time to exaggerate these
+contrasts or shape your expectations, and
+
+397
+00:41:45,700 --> 00:41:49,840
+finally, how tension can be used in music
+generation.
+
+398
+00:41:49,840 --> 00:41:54,020
+And if you're interested in finding out more
+about these projects and others, feel free
+
+399
+00:41:54,020 --> 00:41:57,880
+to browse some of our websites and blogs.
+
+400
+00:41:57,880 --> 00:41:58,880
+Thank you.
+
+401
+00:41:58,880 --> 00:41:59,380
+[applause]
