@@ -1,0 +1,3099 @@
+1
+00:00:05,520 --> 00:00:11,180
+I'm very excited to be here, because Papers
+We Love has always been a really good community
+
+2
+00:00:11,180 --> 00:00:18,180
+to discuss ideas and to do research papers,
+and do it in just a fun way.
+
+3
+00:00:18,180 --> 00:00:20,160
+So I'm very honored to be speaking here.
+
+4
+00:00:20,980 --> 00:00:22,520
+So my name is James Long.
+
+5
+00:00:22,520 --> 00:00:27,640
+I'm a web and iOS contractor under my company ShiftReset LLC
+
+6
+00:00:27,800 --> 00:00:32,020
+I used to work for Mozilla for about six years on developer tools and other projects
+
+7
+00:00:32,180 --> 00:00:35,940
+I consider myself a PL nerd with an attraction to lisps
+
+8
+00:00:35,940 --> 00:00:40,860
+Although more recently i've been interested in the ML family of languages
+
+9
+00:00:40,860 --> 00:00:45,900
+A recent project that I built that was successful was Prettier, which many of you may know
+
+10
+00:00:45,900 --> 00:00:55,880
+its a JavaScript code formatter, sort of similar gofmt, and it's been very widely adopted in the JavaScript
+community which has been pretty cool.
+
+11
+00:00:55,980 --> 00:00:57,020
+Sorry.
+
+12
+00:00:57,420 --> 00:00:59,920
+So yeah, so I'll be honest
+
+13
+00:01:00,040 --> 00:01:04,260
+I'm not really somebody who, you know, prints out a couple research papers at night,
+
+14
+00:01:04,260 --> 00:01:08,100
+grabs a beer and
+sits down and falls asleep with papers all over me.
+
+15
+00:01:08,200 --> 00:01:11,719
+I don't read papers that often.
+
+16
+00:01:11,720 --> 00:01:16,620
+But I still, I still love papers, because
+even so when I look back at moments,
+
+17
+00:01:16,800 --> 00:01:24,080
+in my career where I really grew as a programmer,
+many of them really happened because of papers.
+
+18
+00:01:24,080 --> 00:01:29,799
+I'm also very passionate about taking ideas
+from the deepest parts of research and pulling
+
+19
+00:01:29,799 --> 00:01:33,550
+them up into real applications, it's very
+important to me to be able to at least read
+
+20
+00:01:33,550 --> 00:01:37,840
+papers to have a pulse on what's going on
+in that world.
+
+21
+00:01:37,840 --> 00:01:42,130
+Because I think some of the best things that
+can happen, happen when you can do that and
+
+22
+00:01:42,130 --> 00:01:43,170
+apply those ideas.
+
+23
+00:01:43,170 --> 00:01:47,160
+That's actually what happened with prettier.
+
+24
+00:01:47,160 --> 00:01:49,740
+So I can think of four times when I was stuck on a problem
+
+25
+00:01:49,740 --> 00:01:52,740
+and I discovered a paper to helme through it.
+
+26
+00:01:52,820 --> 00:01:56,660
+Not only did it help me solve a problem, but
+I gained deeper insight about computing and
+
+27
+00:01:56,660 --> 00:02:01,580
+ways to approach these problems so I'm going to try to explain all of those papers in this talk
+
+28
+00:02:01,580 --> 00:02:04,440
+This is why it's a little bit different talk than I'm used too
+
+29
+00:02:04,440 --> 00:02:08,420
+I'm going to be jumping around to four different
+topics that aren't really related.
+
+30
+00:02:08,429 --> 00:02:14,900
+So I know everyone just ate lunch but hopefully
+this will be fun.
+
+31
+00:02:14,900 --> 00:02:19,659
+And I will also talk specifically about what
+I learned and how each paper influenced me.
+
+32
+00:02:19,659 --> 00:02:23,819
+OK, so let's start all the way back with college
+James.
+
+33
+00:02:23,819 --> 00:02:32,700
+In 2006, to graduate, I had to write a research
+paper, sort of like a very small thesis.
+
+34
+00:02:32,700 --> 00:02:35,099
+And it was supposed to be something in computer
+science.
+
+35
+00:02:35,099 --> 00:02:39,730
+Most people chose something purely in the
+realm of programming sort of like data structures
+
+36
+00:02:39,730 --> 00:02:45,280
+or databases or stuff like that, but I was
+really interested in graphics programming
+
+37
+00:02:45,280 --> 00:02:53,160
+and so I chose -- I chose to study techniques
+for real-time rendering of the sky
+
+38
+00:02:53,160 --> 00:02:57,340
+and now it turns out that most of my paper was about
+math instead of programming, so even though
+
+39
+00:02:57,340 --> 00:03:02,280
+it was very technical, I don't think my teacher
+even knew how to grade it.
+
+40
+00:03:02,280 --> 00:03:07,370
+Like he just gave me a B+ and it was kind
+of like he did that because it looked good,
+
+41
+00:03:07,370 --> 00:03:10,819
+but he didn't actually understand the math.
+
+42
+00:03:10,819 --> 00:03:12,570
+So I guess it worked out.
+
+43
+00:03:12,570 --> 00:03:13,560
+[laughter]
+
+44
+00:03:13,640 --> 00:03:18,580
+But, yeah, so I wouldn't be so brazen as to
+talk about my own paper at a Papers We Love conference
+
+45
+00:03:19,340 --> 00:03:23,000
+The first paper I'm going to talk about is
+the paper that it was based on which is
+
+46
+00:03:23,000 --> 00:03:26,840
+Rendering Outdoor Light Scattering In Real Time.
+
+47
+00:03:26,840 --> 00:03:31,880
+I know that the title of my paper is basically
+the same with a few words moved around.
+
+48
+00:03:31,880 --> 00:03:33,960
+I wasn't very clever back then.
+
+49
+00:03:34,020 --> 00:03:35,260
+[laughter]
+
+50
+00:03:35,360 --> 00:03:38,820
+So this paper was by Hoffman and Preetham, published in 2002.
+
+51
+00:03:39,260 --> 00:03:44,040
+This paper is a bit different than the rest of the papers I'm going to talk about because it's about computer graphics
+
+52
+00:03:44,040 --> 00:03:49,340
+It focuses on bringing realistic atmospheric rendering
+to real time simulations
+
+53
+00:03:49,340 --> 00:03:53,020
+so my challenge was to get the techniques of this paper working in a real app
+
+54
+00:03:53,020 --> 00:03:55,120
+and write my own paper about that.
+
+55
+00:03:55,140 --> 00:04:00,040
+So I implemented it for my paper and I got
+it working so these are screenshots from
+
+56
+00:04:00,040 --> 00:04:04,200
+my app that I created that I was able to implement.
+
+57
+00:04:04,200 --> 00:04:05,900
+And these are all completely real time.
+
+58
+00:04:05,909 --> 00:04:11,200
+You can walk around this world, can you adjust
+parameters of the sky, so back then in 2002,
+
+59
+00:04:11,200 --> 00:04:15,099
+which is when the paper was written, I wrote
+my app in 2006.
+
+60
+00:04:15,099 --> 00:04:18,690
+Back in 2002, the hardware was very limited.
+
+61
+00:04:18,690 --> 00:04:27,030
+This was a cool technique because this was
+just around the time when shaders were starting go big
+
+62
+00:04:27,030 --> 00:04:29,220
+to actually be in the mainstream.
+
+63
+00:04:29,220 --> 00:04:30,880
+If I have my history correct.
+
+64
+00:04:30,880 --> 00:04:34,940
+But we were finally able to start doing stuff
+like like this so this was one of the first
+
+65
+00:04:34,940 --> 00:04:38,860
+papers or one of the early papers to start
+really leveraging shaders to do this kind
+
+66
+00:04:38,860 --> 00:04:40,180
+of stuff.
+
+67
+00:04:40,180 --> 00:04:43,090
+OK, so a little background.
+
+68
+00:04:43,090 --> 00:04:53,830
+In 1871, JW Struck published a paper that
+talked about how matter is scattered by small particles.
+
+69
+00:04:53,830 --> 00:04:58,020
+This answered the question why is the sky
+blue.
+
+70
+00:04:58,020 --> 00:05:04,540
+The fundamental thing is shorter wavelengths
+are scattered more than long wavelengths.
+
+71
+00:05:04,540 --> 00:05:06,360
+So, why do we even see color in the sky, except for the sun?
+
+72
+00:05:07,080 --> 00:05:15,340
+If you look up, why don't you see black in
+the sky and the sun as a disc which that's
+
+73
+00:05:15,340 --> 00:05:19,870
+actually what happens if you're on the moon
+but down here on the earth we have the atmosphere,
+
+74
+00:05:19,870 --> 00:05:24,150
+so light is hitting the atmosphere at a fairly
+uniform direction and the atmosphere is scattering
+
+75
+00:05:24,150 --> 00:05:28,080
+the light and it scatters into your eye.
+
+76
+00:05:28,080 --> 00:05:32,600
+So the reason it's blue is because shorter
+waving lengths are scattered more than the longer wave lengths
+
+77
+00:05:32,760 --> 00:05:34,720
+violet and blue are on the shorter spectrum
+
+78
+00:05:34,720 --> 00:05:39,840
+you don't see violet for some other reason. blue is a stronger color as some other phenomenon
+
+79
+00:05:40,580 --> 00:05:48,800
+It's also the same why is is why objects
+in the distance look more blue.
+
+80
+00:05:48,810 --> 00:05:54,020
+This happens because the farther away an object
+is from you the more light is scattered into
+
+81
+00:05:54,020 --> 00:05:58,880
+your eye from the sunlight, so there's more
+atmosphere between you and the object to scatter
+
+82
+00:05:58,880 --> 00:06:03,690
+the sunlight into you and not only that there's
+actually an extinction factor where the color
+
+83
+00:06:03,690 --> 00:06:09,410
+of that object is actually scattered away.
+
+84
+00:06:09,410 --> 00:06:12,930
+So there are two things that we need to worry
+about: Rendering colors of the sky and also
+
+85
+00:06:12,930 --> 00:06:16,450
+aerial perspective, which tints objects far away
+
+86
+00:06:16,450 --> 00:06:21,250
+Luckily if your implementation models for
+how scattering works, we get both of this
+
+87
+00:06:21,250 --> 00:06:26,160
+for free and this is in contrast to earlier
+papers where they couldn't do per-pixel-shader work
+
+88
+00:06:26,160 --> 00:06:32,130
+so they couldn't implement in real time how to model this.
+
+89
+00:06:32,130 --> 00:06:41,389
+So they had to do -- ... will you we're just
+going to implement this in the shaders so
+
+90
+00:06:41,389 --> 00:06:46,040
+we can approximate how it works and we don't
+have to worry about the difference.
+
+91
+00:06:46,040 --> 00:06:50,199
+To do this we need three effects.
+
+92
+00:06:50,199 --> 00:06:54,039
+Absorption is the effect of a particle absorbing
+light rays.
+
+93
+00:06:54,040 --> 00:06:58,370
+Outscattering is the effect of light bouncing
+off a particle away from your eye, similar
+
+94
+00:06:58,370 --> 00:07:03,180
+similar to absorption, and inscattering is the effect
+of light that is not going to come towards
+
+95
+00:07:03,180 --> 00:07:06,120
+you but it bounces off a particle towards
+you.
+
+96
+00:07:06,140 --> 00:07:10,530
+So there's both light that is scattered away
+from you and towards you and this paper contains
+
+97
+00:07:10,530 --> 00:07:16,200
+the equations for calculating for these terms so they can be implemented by a program.
+
+98
+00:07:16,200 --> 00:07:17,660
+These are absorption and out-scattering
+
+99
+00:07:17,669 --> 00:07:22,380
+I don't have time to fully explain the math,
+nor am I honestly sure that I could, but I'll
+
+100
+00:07:22,380 --> 00:07:24,160
+try to summarize.
+
+101
+00:07:24,160 --> 00:07:26,420
+Absorption and outscattering can be treated
+the same way in our case.
+
+102
+00:07:26,420 --> 00:07:30,250
+We don't really care if light is absorbed
+or scattered away.
+
+103
+00:07:30,250 --> 00:07:31,720
+We just need to ignore that light.
+
+104
+00:07:31,720 --> 00:07:35,180
+What these equations are saying is you take the initial color of an object
+
+105
+00:07:35,180 --> 00:07:38,560
+and you exponentially continuate it over the distance to the viewer
+
+106
+00:07:38,580 --> 00:07:46,560
+so the farther away an object is it exponentially gets more skylight and less color of the object
+
+107
+00:07:47,520 --> 00:07:50,940
+So for each pixel we generally know the point
+in space that it's at and so we can calculate
+
+108
+00:07:50,940 --> 00:07:56,140
+the distance to the viewer and for every single
+pixel we know the distance
+
+109
+00:07:56,180 --> 00:07:58,020
+and we can run this model.
+
+110
+00:07:59,160 --> 00:08:01,580
+so in-scattering is a lot more complicated
+
+111
+00:08:01,580 --> 00:08:03,820
+but it's not as complicated as the math makes it seem
+
+112
+00:08:03,820 --> 00:08:05,520
+and I definitely couldn't explain this math
+
+113
+00:08:05,880 --> 00:08:10,580
+It's sort of hard to read this out of context because most of it is predefined variables and functions
+
+114
+00:08:10,580 --> 00:08:14,160
+But the main thing that you need to understand
+is the phase function.
+
+115
+00:08:14,169 --> 00:08:18,040
+The phase function approximates the amount
+that light is scattered by a particle.
+
+116
+00:08:18,040 --> 00:08:23,870
+It takes the angle of the incoming ray and
+returns the amount scattered at that angle.
+
+117
+00:08:23,870 --> 00:08:28,120
+In the original work he proposed this equation
+to approximate it.
+
+118
+00:08:28,140 --> 00:08:29,139
+So this is the phase function.
+
+119
+00:08:29,140 --> 00:08:33,200
+1 plus cosine squared theta.
+
+120
+00:08:33,200 --> 00:08:39,240
+if you think of a ray entering from the left, the phase function approximates how much light is scattered at each angle
+
+121
+00:08:39,240 --> 00:08:44,740
+The most is scattered forwards and backwards
+and the least is scattered at 90-degree angles.
+
+122
+00:08:44,740 --> 00:08:47,700
+To put this into perspective here's how it
+would work in a program.
+
+123
+00:08:47,700 --> 00:08:52,520
+You have the sun position and a viewer position
+and we need to calculate the color of a specific pixel
+
+124
+00:08:53,140 --> 00:08:58,100
+We generally know the position of the pixel is in the
+space so we have to calculate the angle from
+
+125
+00:08:58,100 --> 00:09:01,600
+the sun to the viewer and run it through the phase function,
+
+126
+00:09:01,600 --> 00:09:07,780
+and that gives us an approximation of how much light is scattered at that point towards the viewer
+
+127
+00:09:07,780 --> 00:09:10,940
+So this would be about in between like the
+minimum and the maximum light scattered because
+
+128
+00:09:10,940 --> 00:09:17,010
+it's about 135 degree and it's like in between
+90 and 180.
+
+129
+00:09:17,010 --> 00:09:20,410
+So there are a lot more things that you could
+factor in, particles of different size and
+
+130
+00:09:20,410 --> 00:09:21,910
+different sizes have different effects.
+
+131
+00:09:21,910 --> 00:09:26,190
+For larger particles they have a different
+phase function which is me scattering and
+
+132
+00:09:26,190 --> 00:09:27,780
+that's a different thing.
+
+133
+00:09:27,780 --> 00:09:34,760
+The distribution of the particles in the atmosphere
+may not be constant, right now we're assuming a constant atmosphere
+
+134
+00:09:34,760 --> 00:09:37,640
+these things definitely complicate things a lot more.
+
+135
+00:09:37,640 --> 00:09:42,940
+But even simple versions of these equations can produce pleasing
+results.
+
+136
+00:09:42,940 --> 00:09:48,200
+The best thing about this paper is that right around 2002 was when shaders were taking of on graphics cards
+
+137
+00:09:48,200 --> 00:09:50,620
+and this allowed developers to implement all this sort of stuff with ease
+
+138
+00:09:50,620 --> 00:09:55,300
+in previous papers, you know, they were forced to do all sorts of other hacks
+
+139
+00:09:56,780 --> 00:10:00,220
+So after presenting the math for modeling
+atmospheric scattering
+
+140
+00:10:00,220 --> 00:10:05,740
+the paper ends by providing much simpler equations that can be implemented in vertex and pixel shaders
+
+141
+00:10:05,750 --> 00:10:11,170
+These are simple because it assumes that constant
+density atmosphere and relatively flat terrain
+
+142
+00:10:11,170 --> 00:10:14,020
+which gets rid of a lot of the complicated
+math.
+
+143
+00:10:14,020 --> 00:10:18,280
+So all of the variables here are super straightforward
+to calculate.
+
+144
+00:10:18,280 --> 00:10:23,710
+there's the angle to the sun, there's two scattering coefficients, and a few other things
+
+145
+00:10:23,710 --> 00:10:27,080
+It's basically some additions, divisions and
+cosines.
+
+146
+00:10:27,080 --> 00:10:32,500
+Now, when I was implementing this, I was back
+in college I had done some decent programming
+
+147
+00:10:32,500 --> 00:10:36,440
+but nothing on this scale, really and this
+blew my mind.
+
+148
+00:10:36,440 --> 00:10:40,520
+I remember feeling super overwhelmed trying to pick through all of this
+
+149
+00:10:40,520 --> 00:10:43,080
+and even though i didn't understand much of the paper
+
+150
+00:10:43,080 --> 00:10:47,740
+the conclusion which was where the simple
+stuff was, you know, maybe they should put
+
+151
+00:10:47,740 --> 00:10:48,780
+that at the front.
+
+152
+00:10:48,780 --> 00:10:49,780
+[laughter]
+
+153
+00:10:49,780 --> 00:10:54,060
+I was like, okay, that's super-easy, why do
+they have to complicate it so much and I saw
+
+154
+00:10:54,060 --> 00:10:58,880
+this and I was like, I can just transfer this
+into a vertex shader and I get it to work.
+
+155
+00:10:58,880 --> 00:11:01,300
+and i got it working. it was amazing.
+
+156
+00:11:01,310 --> 00:11:08,480
+I could walk around in this world that I created
+and so, yeah, that was cool.
+
+157
+00:11:08,480 --> 00:11:09,480
+[laughter]
+
+158
+00:11:09,480 --> 00:11:15,940
+So what I learned is that first of all it's
+very hard to make realistic graphics, so after
+
+159
+00:11:15,940 --> 00:11:19,680
+that, after that phase where it was amazing,
+you know, then I looked at this and I was
+
+160
+00:11:19,680 --> 00:11:24,870
+like, well, that actually kind of sucks, like,
+that's not really realistic at all.
+
+161
+00:11:24,870 --> 00:11:26,920
+So it's very hard to make realistic graphics.
+
+162
+00:11:26,920 --> 00:11:34,220
+It was also the first time I experienced translating abstract ideas, in this case math, into executable code.
+
+163
+00:11:34,220 --> 00:11:37,080
+which is surprisingly difficult
+
+164
+00:11:37,260 --> 00:11:39,480
+if you're an experienced programming, you do this daily
+
+165
+00:11:39,480 --> 00:11:42,580
+but at the beginning of the process, it's a hard
+skill to learn.
+
+166
+00:11:42,680 --> 00:11:45,540
+It's not something that's intuitive where
+we learn as a child.
+
+167
+00:11:45,550 --> 00:11:48,480
+It's something that takes a lot of work to
+learn.
+
+168
+00:11:48,480 --> 00:11:52,580
+So it was interesting to go from this like
+looking at these equations and learning how
+
+169
+00:11:52,580 --> 00:11:56,230
+to filter them down into something that could
+become actual shader code.
+
+170
+00:11:56,230 --> 00:12:04,180
+And computers are amazing and we can create
+stuff from nothing, and also, don't give up
+
+171
+00:12:04,180 --> 00:12:06,180
+if you don't understand something at first.
+
+172
+00:12:06,180 --> 00:12:10,020
+Once I found a piece of the paper that I could
+finally understand, I got something working
+
+173
+00:12:10,020 --> 00:12:14,260
+and from there I could work backwards to the
+paper and understand more and more.
+
+174
+00:12:14,260 --> 00:12:16,860
+All right, so that's that paper.
+
+175
+00:12:16,860 --> 00:12:20,210
+This paper was a bit different than the other
+three papers I'm going to talk about because
+
+176
+00:12:20,210 --> 00:12:21,790
+it was heavy on math and computer graphics.
+
+177
+00:12:21,790 --> 00:12:27,570
+The rest of the papers are mostly about compilers,
+so if you don't like math, don't worry, there's
+
+178
+00:12:27,570 --> 00:12:28,920
+no more math.
+
+179
+00:12:28,920 --> 00:12:32,620
+The next paper is called an incremental approach
+to compiler construction.
+
+180
+00:12:32,620 --> 00:12:38,380
+This came out in 2006 and I think I read it
+in about 2007 about a year after my graphics project
+
+181
+00:12:40,300 --> 00:12:44,680
+and i was just starting to get interested with compilers and scheme, and more niche languages
+
+182
+00:12:44,680 --> 00:12:47,900
+but I was still very intimidated by all of it.
+
+183
+00:12:47,900 --> 00:12:51,700
+This paper was written by Ghuloum, who created Ikarus scheme,
+
+184
+00:12:51,700 --> 00:12:55,040
+the paper describes his approach to creating that scheme
+
+185
+00:12:55,040 --> 00:12:59,400
+Ikarus is interesting because it compiles straight down to native assembly.
+
+186
+00:12:59,400 --> 00:13:04,500
+so it doesn't use ... i can't remember if LLVM even existed in 2006 or 7.
+
+187
+00:13:04,500 --> 00:13:06,640
+but it just compiles to platform assembly
+
+188
+00:13:06,640 --> 00:13:12,800
+and so it does that to take advantage of the
+native platform's capabilities and also for speed
+
+189
+00:13:13,380 --> 00:13:18,260
+It was also interesting because it was self-hosted
+so the entire thing was written in itself,
+
+190
+00:13:18,260 --> 00:13:24,520
+with very little written in C. Very little
+of the run time.
+
+191
+00:13:24,520 --> 00:13:32,900
+So compile to assembly made the Ikarus compiler
+so fast because it was self-hosted.
+
+192
+00:13:32,900 --> 00:13:35,940
+so every speed improvment that it made, it could take advantage of
+
+193
+00:13:35,940 --> 00:13:39,200
+So to somebody new to compilers, this was
+very intimidating
+
+194
+00:13:39,200 --> 00:13:44,700
+but Ghuloum used an incremental approach to develop this, which made it a lot more accessible
+
+195
+00:13:44,700 --> 00:13:55,520
+and this paper outlines 24 explicit steps to reproduce a compiler with many of the same features as Ikarus
+
+196
+00:13:55,520 --> 00:14:01,100
+Each set built on the last, and search step
+is very small and incremental and approachable.
+
+197
+00:14:01,140 --> 00:14:03,840
+It sort of reminds me of this talk by Guy
+Steele called growing a language
+
+198
+00:14:03,840 --> 00:14:09,860
+He shows that when you start with very simple terms, that are the absolute minimum that you need
+
+199
+00:14:09,860 --> 00:14:12,720
+to start talking and actually doing stuff
+
+200
+00:14:12,900 --> 00:14:19,240
+you can build and create higher level abstractions
+and you can build those and continue to build
+
+201
+00:14:19,240 --> 00:14:20,240
+on those.
+
+202
+00:14:20,240 --> 00:14:25,460
+This is a super-interesting talk that if you
+haven't seen, you should watch.
+
+203
+00:14:25,460 --> 00:14:30,900
+So here's the very first step in the paper,
+write a compiler for a language that returns
+
+204
+00:14:30,900 --> 00:14:33,460
+a fixed-sized integer.
+
+205
+00:14:33,460 --> 00:14:36,590
+So our entire language is just numbers.
+
+206
+00:14:36,590 --> 00:14:41,720
+That's it and this is how the paper approaches
+it.
+
+207
+00:14:41,720 --> 00:14:45,340
+Let's write a small C function that returns
+an integer.
+
+208
+00:14:45,340 --> 00:14:49,540
+Now, we don't know how to do this yet, we
+don't know assembly code and so let's just
+
+209
+00:14:49,540 --> 00:14:57,410
+write a C function which returns an integer,
+returns 42 and let's compile it out and look
+
+210
+00:14:57,410 --> 00:15:01,160
+at the assembly and learn from the output
+and see what we need to do.
+
+211
+00:15:01,160 --> 00:15:04,540
+This is a really fun way to learn.
+
+212
+00:15:04,540 --> 00:15:08,390
+So the only part that really matters to us
+is the two lines at the bottom here.
+
+213
+00:15:08,390 --> 00:15:13,740
+Where it moves the constant 42 to the eax
+register, and then it returns.
+
+214
+00:15:13,740 --> 00:15:15,920
+So now that we have that, let's implement
+our compiler.
+
+215
+00:15:15,920 --> 00:15:16,920
+Here it is.
+
+216
+00:15:16,920 --> 00:15:17,920
+It's three lines.
+
+217
+00:15:17,920 --> 00:15:21,500
+This is a compiler to a whole language and
+it's really simple because the language is
+
+218
+00:15:21,500 --> 00:15:23,490
+literally integers.
+
+219
+00:15:23,490 --> 00:15:31,170
+And the emit function you can figure out.
+
+220
+00:15:31,170 --> 00:15:38,140
+This might seem trivial, but this is a great
+way to break down barriers and make things
+
+221
+00:15:38,140 --> 00:15:39,930
+like compilers more approachable.
+
+222
+00:15:39,930 --> 00:15:44,240
+I remember feeling instantly connected to
+this paper and super-excited that I might
+
+223
+00:15:44,240 --> 00:15:46,220
+actually be able to follow it.
+
+224
+00:15:46,220 --> 00:15:50,430
+I didn't really have to work at finding which
+part of the paper to connect.
+
+225
+00:15:50,430 --> 00:15:52,690
+It was organized in a way to help me learn.
+
+226
+00:15:52,690 --> 00:15:56,800
+Contrast this with the graphics paper I was
+like, what the heck is going on, you know,
+
+227
+00:15:56,800 --> 00:16:01,770
+two weeks into it, I finally found the end
+and I was able to understand it.
+
+228
+00:16:01,770 --> 00:16:09,080
+So note that we are initially relying on the
+host scheme.
+
+229
+00:16:09,080 --> 00:16:17,120
+Parses it into a data structure, so these
+are a bunch of lists.
+
+230
+00:16:17,120 --> 00:16:23,620
+Nested lists, that's all they are and because
+Scheme's syntax is so simple it can be represented
+
+231
+00:16:23,620 --> 00:16:28,580
+as these lists so we can use the host Scheme's
+read as the parser.
+
+232
+00:16:28,580 --> 00:16:35,050
+However, since parsing lists is pretty easy,
+the paper goes into a later step to show to
+
+233
+00:16:35,050 --> 00:16:37,480
+you to implement this remit function.
+
+234
+00:16:37,480 --> 00:16:48,630
+Next up in the paper is the ability to handle
+different constant types, you also want characters,
+
+235
+00:16:48,630 --> 00:16:53,140
+maybe a floating point, booleans, no, and
+all these other kinds of variables, well,
+
+236
+00:16:53,140 --> 00:16:54,430
+maybe you don't want no.
+
+237
+00:16:54,430 --> 00:17:03,070
+But we can convert that constant value at
+compile time to the shifted value.
+
+238
+00:17:03,070 --> 00:17:08,060
+So this is a compiler now, say that you're
+compiling a program that say integer 5.
+
+239
+00:17:08,060 --> 00:17:13,510
+The compiler is going to take this, it's going
+to convert it into an immediate representation,
+
+240
+00:17:13,510 --> 00:17:17,230
+which says this is han integer, I'm going
+to shift that value, so it shifts 5 over a
+
+241
+00:17:17,230 --> 00:17:22,940
+few bits and marks that as a type of integer
+in the lower bits and we can go on to emit
+
+242
+00:17:22,940 --> 00:17:27,640
+characters and booleans and other things like
+this.
+
+243
+00:17:27,640 --> 00:17:33,310
+So I'm going to keep walking through some
+of the earlier steps to show how quickly but
+
+244
+00:17:33,310 --> 00:17:39,360
+clearly this moves, but it's awesome.
+
+245
+00:17:39,360 --> 00:17:41,850
+So far all we have is the ability to return
+a single value.
+
+246
+00:17:41,850 --> 00:17:49,430
+The next up is to implement a basic function
+call to actual think do withing it.
+
+247
+00:17:49,430 --> 00:17:52,450
+Single argument functions provided by the
+function.
+
+248
+00:17:52,450 --> 00:17:53,670
+So this is our compiler now.
+
+249
+00:17:53,670 --> 00:18:00,720
+It turned into a recursive function, because
+now we need to recursively handle nested expressions.
+
+250
+00:18:00,720 --> 00:18:03,490
+If it's an immediate value it emits that assembly.
+
+251
+00:18:03,490 --> 00:18:08,430
+Now if it's a primitive call we get the name
+of that primitive call and here we're going
+
+252
+00:18:08,430 --> 00:18:12,920
+to implement an add one primitive call and
+we're going to compile the expression that
+
+253
+00:18:12,920 --> 00:18:17,560
+we're adding one to and that is left into
+the eax register.
+
+254
+00:18:17,560 --> 00:18:22,900
+because that's the return register  that always has the value that was previously executed
+
+255
+00:18:23,320 --> 00:18:25,540
+And then we're going to emit and addl.
+
+256
+00:18:25,540 --> 00:18:35,930
+So we're going to add 1 to whatever it is
+in the eax register so now I have a function
+
+257
+00:18:35,930 --> 00:18:38,880
+add1 that we call on integers.
+
+258
+00:18:38,880 --> 00:18:48,930
+And you can implement a bunch of other things
+like this, too.
+
+259
+00:18:48,930 --> 00:18:53,530
+Whatever other unary primitives that you need.
+
+260
+00:18:53,530 --> 00:18:56,850
+So unary primitives are easy because there's
+only one value that we need to put somewhere,
+
+261
+00:18:56,850 --> 00:18:57,850
+right?
+
+262
+00:18:57,850 --> 00:18:59,160
+What about binary primitives?
+
+263
+00:18:59,160 --> 00:19:08,100
+So here we have a plus and two limitations:
+We need to put these two expressions in intermediate
+
+264
+00:19:08,100 --> 00:19:12,150
+places that the plus operator can work with,
+right?
+
+265
+00:19:12,150 --> 00:19:16,370
+So when you start adding more arguments, we
+need to put multiple values somewhere.
+
+266
+00:19:16,370 --> 00:19:19,120
+Basically you need a stack.
+
+267
+00:19:19,120 --> 00:19:24,490
+So a stack is a continuous array of memory
+locations and we have a pointer to this continuous
+
+268
+00:19:24,490 --> 00:19:27,020
+memory in the ESP register.
+
+269
+00:19:27,020 --> 00:19:31,110
+The return point is sort of at the base of
+it and we're free to use places above it for
+
+270
+00:19:31,110 --> 00:19:34,720
+our negative values.
+
+271
+00:19:34,720 --> 00:19:41,410
+And it's based on 4, because that's our word
+size, so every value is 4 bites.
+
+272
+00:19:41,410 --> 00:19:47,570
+And the compiler traction the current index
+into the stack and so this is what our compiler
+
+273
+00:19:47,570 --> 00:19:53,470
+looks like now, now I have an extra si parameter
+which is the second x, this is an example
+
+274
+00:19:53,470 --> 00:19:56,860
+of how you could implement binary primitives.
+
+275
+00:19:56,860 --> 00:20:00,870
+Now we have pulled out the code.
+
+276
+00:20:00,870 --> 00:20:07,520
+And now we are going to implement the plus
+operator which is a binary primitive.
+
+277
+00:20:07,520 --> 00:20:18,840
+What we do is compile out the operand we move
+that value onto the stack.
+
+278
+00:20:18,840 --> 00:20:27,270
+And then we compile the second operand or
+we move the stack pointer to see how the second
+
+279
+00:20:27,270 --> 00:20:34,380
+expert it says minus ss word size, we move
+it by the word size.
+
+280
+00:20:34,380 --> 00:20:38,270
+Because we don't want to mess with the value
+that we put on the stack already.
+
+281
+00:20:38,270 --> 00:20:48,160
+And then we say addl with the value we put
+on the stack with eax and are able to compile
+
+282
+00:20:48,160 --> 00:20:49,470
+the valuables.
+
+283
+00:20:49,470 --> 00:20:54,300
+You can implement a lot of binary primitives
+this way.
+
+284
+00:20:54,300 --> 00:20:58,200
+So now we have a stack, local variables are
+pretty easy.
+
+285
+00:20:58,200 --> 00:21:01,760
+The compiler passes around an environment
+in addition to a stack index.
+
+286
+00:21:01,760 --> 00:21:08,160
+When a new variable is introduced, you compile
+the expression, you push it onto the stack
+
+287
+00:21:08,160 --> 00:21:10,990
+and you add that variable to the environment
+with a stack location.
+
+288
+00:21:10,990 --> 00:21:16,790
+And when a variable is used, we get the stack
+location from the environment, and you read
+
+289
+00:21:16,790 --> 00:21:18,100
+it from the stack.
+
+290
+00:21:18,100 --> 00:21:20,920
+And that's it.
+
+291
+00:21:20,920 --> 00:21:25,590
+So here's the code, for how you could implement
+local variables, it's getting a little long
+
+292
+00:21:25,590 --> 00:21:27,720
+for a slide so don't worry about reading all
+of it.
+
+293
+00:21:27,720 --> 00:21:32,290
+I'm not entirely sure you can even read it
+but there are three main points.
+
+294
+00:21:32,290 --> 00:21:36,890
+One is this is where if a variable is used
+it looks up the stack index from the environment
+
+295
+00:21:36,890 --> 00:21:38,260
+and it just reads the stack.
+
+296
+00:21:38,260 --> 00:21:44,380
+Here is where it compiles a value of the variable
+and it moves that variable onto the stack
+
+297
+00:21:44,380 --> 00:21:51,540
+and here's where the environment is extended
+with the new variable with the stack index
+
+298
+00:21:51,540 --> 00:21:55,100
+that it has and the stack index has moved
+itself.
+
+299
+00:21:55,100 --> 00:21:58,800
+So it pushed something onto the stack, we've
+tracked it into our environment object and
+
+300
+00:21:58,800 --> 00:22:03,080
+then it can be used later to look up that
+variable.
+
+301
+00:22:03,080 --> 00:22:05,570
+So this was the fifth step out of 24.
+
+302
+00:22:05,570 --> 00:22:08,460
+Obviously it moves super-fast but it keeps
+it simple enough to be approachable.
+
+303
+00:22:08,460 --> 00:22:10,560
+It goes on and on.
+
+304
+00:22:10,560 --> 00:22:14,730
+I'll summarize a little bit of the rest of
+the paper.
+
+305
+00:22:14,730 --> 00:22:21,000
+The next biggest missing piece is heap allocation
+and the paper describes a simple way to do
+
+306
+00:22:21,000 --> 00:22:22,000
+this.
+
+307
+00:22:22,000 --> 00:22:30,780
+You basically preallocate one large contiguous
+array and pass it into the entry point and
+
+308
+00:22:30,780 --> 00:22:37,820
+to allocate, you have whatever number of bytes
+you need to allocate.
+
+309
+00:22:37,820 --> 00:22:45,100
+You and then you are able to pass pointers
+around into that heap.
+
+310
+00:22:45,100 --> 00:22:46,100
+So that's it, right?
+
+311
+00:22:46,100 --> 00:22:54,120
+I mean obviously there's a omission here which
+is garbage collection, but the whole point
+
+312
+00:22:54,120 --> 00:22:58,160
+is that this actually gets us a heap that
+we can run.
+
+313
+00:22:58,160 --> 00:23:04,570
+It's pretty easy to come back and implement
+a much more robust allocation strategy.
+
+314
+00:23:04,570 --> 00:23:05,700
+So now we have a heap.
+
+315
+00:23:05,700 --> 00:23:09,590
+We can move on to more powerful things like
+user defined functions and closures.
+
+316
+00:23:09,590 --> 00:23:13,640
+We needed heap allocation.
+
+317
+00:23:13,640 --> 00:23:17,860
+And because it creates this run-time closure
+object that we needed to create.
+
+318
+00:23:17,860 --> 00:23:23,910
+And so you needed a heap to create this but
+now we have this, even if it memory leaks.
+
+319
+00:23:23,910 --> 00:23:26,650
+And it goes on to show you how to use macros.
+
+320
+00:23:26,650 --> 00:23:31,760
+It just uses the host scheme's macro system
+but I think this is a super-interesting technique
+
+321
+00:23:31,760 --> 00:23:36,250
+where you have this very simple language that
+compiles out to extremely fast code and simple
+
+322
+00:23:36,250 --> 00:23:41,570
+code but then you have a macro system that
+is able to leverage some other more powerful
+
+323
+00:23:41,570 --> 00:23:42,590
+Scheme's environment.
+
+324
+00:23:42,590 --> 00:23:53,660
+So you let the user extend the continue syntax
+and do all sorts of crazy things.
+
+325
+00:23:53,660 --> 00:23:58,690
+Now that we can read source code and we can
+even pars it and we have a compiler, it really
+
+326
+00:23:58,690 --> 00:24:03,110
+is building towards self-hosting, now the
+paper doesn't actually go this far but now
+
+327
+00:24:03,110 --> 00:24:05,210
+that we have all of that we can do this.
+
+328
+00:24:05,210 --> 00:24:14,060
+You can point the compiler to the compiler
+source and generate a new compiler from it.
+
+329
+00:24:14,060 --> 00:24:18,120
+If you've never done this before, I highly
+recommend T you kind of feel like you're king
+
+330
+00:24:18,120 --> 00:24:22,540
+of the world after that first self as a compiler
+but then you kind of want to shoot yourself
+
+331
+00:24:22,540 --> 00:24:27,460
+when you implement a new feature and the compiler
+can't compile it.
+
+332
+00:24:27,460 --> 00:24:29,570
+So it's a fun cycle.
+
+333
+00:24:29,570 --> 00:24:34,050
+Anyway, what I learned, having to implement
+a language from scratch without relying on
+
+334
+00:24:34,050 --> 00:24:36,170
+any of the virtual machine environment teaches
+a lot.
+
+335
+00:24:36,170 --> 00:24:41,280
+You really have to learn that you have to
+build everything from just raw bytes.
+
+336
+00:24:41,280 --> 00:24:47,510
+It really helped me understand the cost of
+closures at run time and how closures actually
+
+337
+00:24:47,510 --> 00:24:48,510
+work.
+
+338
+00:24:48,510 --> 00:24:51,730
+In general it just made me appreciate all
+of the work that virtual machines and jits
+
+339
+00:24:51,730 --> 00:24:53,600
+do.
+
+340
+00:24:53,600 --> 00:24:58,770
+It really influenced me in a big way.
+
+341
+00:24:58,770 --> 00:25:05,960
+I remember that very first thing that it does
+which is that it writes that three-line C
+
+342
+00:25:05,960 --> 00:25:12,630
+function to compile out and just learn what
+it compiles to and that way it uses that technique
+
+343
+00:25:12,630 --> 00:25:17,700
+to teach -- kind of teach -- you can teach
+yourself by just doing things.
+
+344
+00:25:17,700 --> 00:25:20,310
+So really I think about this a lot when if
+you're really stuck on something and you don't
+
+345
+00:25:20,310 --> 00:25:24,800
+even know where to get started just start
+writing something and that will start your
+
+346
+00:25:24,800 --> 00:25:29,059
+process about learning stuff and give you
+more ideas when you go along.
+
+347
+00:25:29,059 --> 00:25:32,070
+When I was younger it really helped me believe
+that I could actually do this.
+
+348
+00:25:32,070 --> 00:25:36,700
+And it's OK to ignore the complex details
+at the beginning.
+
+349
+00:25:36,700 --> 00:25:41,200
+OK, so the next paper is about compilers,
+as well, but for a much different reason.
+
+350
+00:25:41,200 --> 00:25:44,760
+It marks a time when I was intensely searching
+for a solution.
+
+351
+00:25:44,760 --> 00:25:47,050
+I think this was around 2002.
+
+352
+00:25:47,050 --> 00:25:53,450
+I enjoyed blogging a lot and I really wanted
+to write tutorials with an interactive JavaScript
+
+353
+00:25:53,450 --> 00:25:57,830
+debugger right there in the browser, so no
+extensions, just literally was able to write
+
+354
+00:25:57,830 --> 00:26:01,900
+this JavaScript debugger.
+
+355
+00:26:01,900 --> 00:26:03,040
+This is clearly a tall order.
+
+356
+00:26:03,040 --> 00:26:08,510
+I did not realize this at the time, but basically
+if you have this code, I wanted the ability
+
+357
+00:26:08,510 --> 00:26:11,770
+to somehow stop the execution right here.
+
+358
+00:26:11,770 --> 00:26:16,280
+And you know, I just didn't really know enough
+to know what I was getting into.
+
+359
+00:26:16,280 --> 00:26:19,640
+I was willing to compile this into whatever
+JavaScript I wanted as long as it could be
+
+360
+00:26:19,640 --> 00:26:22,470
+run in the browser without any extensions
+or anything.
+
+361
+00:26:22,470 --> 00:26:26,710
+I figured there was something I could compile
+it to to make this work.
+
+362
+00:26:26,710 --> 00:26:28,791
+He so here's a fun hack I try at first.
+
+363
+00:26:28,791 --> 00:26:31,410
+I'm going to start with this program.
+
+364
+00:26:31,410 --> 00:26:32,650
+Just a quick demo.
+
+365
+00:26:32,650 --> 00:26:38,860
+Oh, I'm sorry, I have to shift, fn, f1.
+
+366
+00:26:38,860 --> 00:26:39,860
+Cool.
+
+367
+00:26:39,860 --> 00:26:41,480
+So here's a fun fact.
+
+368
+00:26:41,480 --> 00:26:46,990
+So I started a server.
+
+369
+00:26:46,990 --> 00:26:51,490
+What this is is these are two iFrames and
+I've load loaded a program in the left one.
+
+370
+00:26:51,490 --> 00:26:57,110
+And I can click this run button to run the
+program.
+
+371
+00:26:57,110 --> 00:26:58,960
+And so let's see.
+
+372
+00:26:58,960 --> 00:27:00,640
+Let's run the actual program.
+
+373
+00:27:00,640 --> 00:27:05,280
+What the program does is it just outputs a
+bunch of stuff to the screen.
+
+374
+00:27:05,280 --> 00:27:06,280
+0-14 hello.
+
+375
+00:27:06,280 --> 00:27:11,010
+It just creates a div and I can run it.
+
+376
+00:27:11,010 --> 00:27:18,690
+What I was wondering if can I have this pause
+function that it can pause, let's say in a
+
+377
+00:27:18,690 --> 00:27:21,430
+6th iteration, it will pause.
+
+378
+00:27:21,430 --> 00:27:27,150
+How I implemented this pause function is I
+created a xml request to and a synchronous
+
+379
+00:27:27,150 --> 00:27:33,310
+request to a server and I wrote a server that
+never responds to that request.
+
+380
+00:27:33,310 --> 00:27:38,060
+And I can literally run this.
+
+381
+00:27:38,060 --> 00:27:45,740
+It terms out that Chrome doesn't literally
+flush the side effects.
+
+382
+00:27:45,740 --> 00:27:50,080
+Because I can't even press any of the buttons.
+
+383
+00:27:50,080 --> 00:27:53,330
+Chrome just literally is hosed.
+
+384
+00:27:53,330 --> 00:27:56,880
+I just have to run this in nightly.
+
+385
+00:27:56,880 --> 00:28:00,510
+Or Firefox Nightly to get this to work.
+
+386
+00:28:00,510 --> 00:28:03,580
+So let's see how Nightly does Firefox.
+
+387
+00:28:03,580 --> 00:28:06,830
+So I can actually see it at least.
+
+388
+00:28:06,830 --> 00:28:07,830
+The buttons are still hosed.
+
+389
+00:28:07,830 --> 00:28:08,830
+Can I refresh?
+
+390
+00:28:08,830 --> 00:28:11,370
+I can't refresh in Firefox either.
+
+391
+00:28:11,370 --> 00:28:13,690
+So how can I get this to work?
+
+392
+00:28:13,690 --> 00:28:20,830
+So I thought what if I opened a new window,
+because it can't stop me from that, right
+
+393
+00:28:20,830 --> 00:28:24,929
+and I created a different page, which has
+a continue button.
+
+394
+00:28:24,929 --> 00:28:29,190
+What this continue button is when I press
+this, it's going to hit my server and say,
+
+395
+00:28:29,190 --> 00:28:33,610
+OK, respond to that request and now when I
+hit continue, it continues.
+
+396
+00:28:33,610 --> 00:28:34,910
+[laughter and applause].
+
+397
+00:28:34,910 --> 00:28:42,160
+And actually, you know, this is kind of cool,
+I can pause in every single iteration, maybe,
+
+398
+00:28:42,160 --> 00:28:47,360
+so I can say run, yeah, yeah, that's the first
+one, continue, continue, continue, continue,
+
+399
+00:28:47,360 --> 00:28:48,920
+it's like a stepping debugger, right?
+
+400
+00:28:48,920 --> 00:28:51,140
+For some reason it always stops around 6 or
+7.
+
+401
+00:28:51,140 --> 00:28:54,830
+I have no idea why.
+
+402
+00:28:54,830 --> 00:28:59,200
+The browser is just hating me for doing this
+to it.
+
+403
+00:28:59,200 --> 00:29:05,580
+So clearly, you know, clearly that hack was
+a horrible hack, but it was fun.
+
+404
+00:29:05,580 --> 00:29:12,630
+So yeah, so my next idea, which was a little
+less stupid, was called YPS, which I call
+
+405
+00:29:12,630 --> 00:29:20,380
+yield passing style which makes no sense because
+you're not passing anything around.
+
+406
+00:29:20,380 --> 00:29:27,890
+I was thinking, generator has a function to
+pause at any time.
+
+407
+00:29:27,890 --> 00:29:33,051
+So there anyway that I can leverage but I
+wanted it to be a deep pause so what I did
+
+408
+00:29:33,051 --> 00:29:39,380
+was if you took this code, what if you injected
+yield statements in every single extension
+
+409
+00:29:39,380 --> 00:29:45,380
+and you have to run this why your own single
+machine and this quickly died.
+
+410
+00:29:45,380 --> 00:29:52,140
+He so I wanted to search for something more
+robust and what I was realizing was that I
+
+411
+00:29:52,140 --> 00:29:59,050
+was basically working on continuations.
+
+412
+00:29:59,050 --> 00:30:04,210
+Now by this point I understood those problems
+so well that instantly I knew this was what
+
+413
+00:30:04,210 --> 00:30:06,282
+I needed to do to get this to work.
+
+414
+00:30:06,282 --> 00:30:10,210
+This paper describes how to compile continuations
+in JavaScript.
+
+415
+00:30:10,210 --> 00:30:20,721
+One option is to convert the continuation
+passing style and everything but then you're
+
+416
+00:30:20,721 --> 00:30:24,730
+dealing with a whole different form of code
+that doesn't run well at all in JavaScript
+
+417
+00:30:24,730 --> 00:30:31,920
+engines and we don't want to miss out on the
+excellent jit capabilities of what I really
+
+418
+00:30:31,920 --> 00:30:34,770
+wanted was a debugger and not really first
+class continuations.
+
+419
+00:30:34,770 --> 00:30:38,240
+I didn't really care about the cost of creating
+a continuation.
+
+420
+00:30:38,240 --> 00:30:45,400
+So when you're implementing continuations
+you usually make like a tradeoff where it's
+
+421
+00:30:45,400 --> 00:30:56,060
+either you take like a perf hit.
+
+422
+00:30:56,060 --> 00:31:00,590
+Or you optimize normal code and creating a
+continuation is super-costly because it has
+
+423
+00:31:00,590 --> 00:31:04,660
+to traverse the stack and copy it and stuff
+like that.
+
+424
+00:31:04,660 --> 00:31:10,480
+So this paper shows a technique with a latter
+tradeoff.
+
+425
+00:31:10,480 --> 00:31:13,200
+But the code itself runs pretty well.
+
+426
+00:31:13,200 --> 00:31:16,230
+So the first part of this paper shows basic
+idea.
+
+427
+00:31:16,230 --> 00:31:23,630
+Summarizes existing work and -- and it shows
+two forms suspend and resume.
+
+428
+00:31:23,630 --> 00:31:27,080
+This is example.
+
+429
+00:31:27,080 --> 00:31:40,140
+Now, this is a deep suspend, so all functions
+need to be instrumented so that they can save
+
+430
+00:31:40,140 --> 00:31:42,750
+that they can save their state and be restored later.
+
+431
+00:31:42,750 --> 00:31:44,860
+So let's look at suspend.
+
+432
+00:31:44,860 --> 00:31:48,920
+It creates a special type of exception, called
+continuation exception and it keeps track
+
+433
+00:31:48,920 --> 00:31:52,520
+of the handler and it throws it.
+
+434
+00:31:52,520 --> 00:31:55,670
+So that's how it works.
+
+435
+00:31:55,670 --> 00:31:59,960
+Now, let's look at the necessary instrumentation.
+
+436
+00:31:59,960 --> 00:32:04,440
+If we have this function, we need to capture
+all of this state.
+
+437
+00:32:04,440 --> 00:32:06,200
+So here's the first pass.
+
+438
+00:32:06,200 --> 00:32:07,270
+This is only half of it.
+
+439
+00:32:07,270 --> 00:32:08,590
+This is just the suspend code.
+
+440
+00:32:08,590 --> 00:32:11,100
+It's a little verbose, but it works.
+
+441
+00:32:11,100 --> 00:32:19,360
+First we wrap everything in a try/catch, we create
+a frame object and we store all of the values
+
+442
+00:32:19,360 --> 00:32:24,570
+of the local variables to that frame object
+and push that on to the continuation and rethrow
+
+443
+00:32:24,570 --> 00:32:25,570
+it.
+
+444
+00:32:25,570 --> 00:32:30,100
+So every single function in this stack is
+going to catch this, capture its frame, recatch
+
+445
+00:32:30,100 --> 00:32:35,800
+it, throw it so we're going to have a whole
+list of frames.
+
+446
+00:32:35,800 --> 00:32:40,160
+Another thing we do is start keeping track
+at what point of code this is running, so
+
+447
+00:32:40,160 --> 00:32:47,330
+you see the index variable, which is set to
+1 and 2 right before it invokes F and G. When
+
+448
+00:32:47,330 --> 00:32:50,120
+we resume it, we need to be able to jump somewhere.
+
+449
+00:32:50,120 --> 00:32:55,370
+Now, we haven't transformed it so that we
+can jump it yet, but we're at least tracking
+
+450
+00:32:55,370 --> 00:32:56,370
+it.
+
+451
+00:32:56,370 --> 00:32:57,950
+So the next part is the part for resuming.
+
+452
+00:32:57,950 --> 00:32:59,610
+So this is the same function.
+
+453
+00:32:59,610 --> 00:33:04,299
+The main thing is the big block the a the
+top that we've added.
+
+454
+00:33:04,299 --> 00:33:09,020
+When resuming we set a global restore.do restore
+flag.
+
+455
+00:33:09,020 --> 00:33:16,710
+And it pops the flag off the stack and it
+resets the frame.
+
+456
+00:33:16,710 --> 00:33:23,500
+We've also now fully transformed the code
+into a state machine, which is this switch
+
+457
+00:33:23,500 --> 00:33:24,610
+statement.
+
+458
+00:33:24,610 --> 00:33:29,880
+This lets us judge ump to any part of the
+code that was suspended.
+
+459
+00:33:29,880 --> 00:33:35,630
+So we set that to go to and the switch statement
+will switch from go to and flip to that piece
+
+460
+00:33:35,630 --> 00:33:36,630
+of code.
+
+461
+00:33:36,630 --> 00:33:38,470
+So that's the basic idea.
+
+462
+00:33:38,470 --> 00:33:42,600
+You save your state, you can restore it and
+you divide up the code so that you can jump
+
+463
+00:33:42,600 --> 00:33:43,690
+to it.
+
+464
+00:33:43,690 --> 00:33:45,490
+So here's our original code on the left.
+
+465
+00:33:45,490 --> 00:33:49,480
+We'll fully transformed code on the right
+it's a little ridiculous, and maybe it's OK
+
+466
+00:33:49,480 --> 00:33:52,660
+if you don't care about code size and for
+me I didn't at all.
+
+467
+00:33:52,660 --> 00:34:01,950
+It was never downloaded over the internet
+or anything like that and this tradeoff is
+
+468
+00:34:01,950 --> 00:34:02,950
+intentional.
+
+469
+00:34:02,950 --> 00:34:07,620
+This large complicated code block is catered
+to play nicely with current JavaScript engines.
+
+470
+00:34:07,620 --> 00:34:12,049
+We get to reuse all of the native stack environment
+and things like that and we've only added
+
+471
+00:34:12,049 --> 00:34:18,660
+a small amount of overhead which is the switch
+statement and some temporary variables and
+
+472
+00:34:18,660 --> 00:34:19,879
+a couple other things like that.
+
+473
+00:34:19,879 --> 00:34:26,100
+So the performance hit of normal code is actually
+not too bad.
+
+474
+00:34:26,100 --> 00:34:28,320
+So there are a few tricky things that we need
+to address.
+
+475
+00:34:28,320 --> 00:34:30,590
+One problem is with closeover values.
+
+476
+00:34:30,590 --> 00:34:36,620
+Here's a function G which closes over x and
+y, we want to leverage JavaScript's native
+
+477
+00:34:36,620 --> 00:34:40,260
+scope for performance but it causes a problem.
+
+478
+00:34:40,260 --> 00:34:44,340
+When the function suspend call is invoked.
+
+479
+00:34:44,340 --> 00:34:57,450
+That function is still going to be closed
+over the old values of x and y, the old kind
+
+480
+00:34:57,450 --> 00:35:08,910
+of references to x and y, so even though we
+x to 3, after it's resumed.
+
+481
+00:35:08,910 --> 00:35:12,650
+The paper object is by boxing all nonconstant
+references to variables.
+
+482
+00:35:12,650 --> 00:35:20,140
+So even if the references are not kept correct
+across restorations, the value in the box
+
+483
+00:35:20,140 --> 00:35:22,230
+will still be seen across them.
+
+484
+00:35:22,230 --> 00:35:24,190
+All right.
+
+485
+00:35:24,190 --> 00:35:27,040
+So far we've been talking in terms of suspend
+and resume.
+
+486
+00:35:27,040 --> 00:35:32,590
+If you want full call/cc there are a few things
+we need to think about.
+
+487
+00:35:32,590 --> 00:35:35,290
+We're most of the way there but there are
+still a couple of other problems where the
+
+488
+00:35:35,290 --> 00:35:38,920
+variable references get lost, similar to what
+you just saw.
+
+489
+00:35:38,920 --> 00:35:44,390
+The paper goes on to show how we would generalize
+it into full proper call/ccb making sure you
+
+490
+00:35:44,390 --> 00:35:49,930
+always keep those references.
+
+491
+00:35:49,930 --> 00:35:51,720
+So let's talk about how to actually implement
+this, though.
+
+492
+00:35:51,720 --> 00:35:56,359
+If we need to transform code into a state
+machine, isn't that hard?
+
+493
+00:35:56,359 --> 00:36:00,760
+Take this example code, we want to break here
+but there's a for and if, how do we actually
+
+494
+00:36:00,760 --> 00:36:04,000
+be able to jump arbitrarily into that?
+
+495
+00:36:04,000 --> 00:36:08,550
+The thing is we need to invert it into a state
+machine and have control over it.
+
+496
+00:36:08,550 --> 00:36:16,770
+Luckily a machine was built right around then.
+
+497
+00:36:16,770 --> 00:36:29,330
+So I was able to take this and hack -- I forked
+it and I implemented it to like expand everything
+
+498
+00:36:29,330 --> 00:36:33,980
+so every single expression is a jump point
+in the state machine, so if we have this function
+
+499
+00:36:33,980 --> 00:36:36,090
+with a why loop.
+
+500
+00:36:36,090 --> 00:36:45,100
+You have a switch statement with next, next
+is the jump point for it to nextto, so case
+
+501
+00:36:45,100 --> 00:36:53,150
+0, if we're not stopping, we jump to 3, which
+calls the entities, wit jumps it to 7, and
+
+502
+00:36:53,150 --> 00:36:58,119
+then it jumps it back to 0.
+
+503
+00:36:58,119 --> 00:37:02,980
+So here's a quick thing of it working.
+
+504
+00:37:02,980 --> 00:37:06,650
+I was able to pull this up and the page is
+a little busted but it still works.
+
+505
+00:37:06,650 --> 00:37:13,650
+The cool thing about this is that -- this
+was my proof for -- I lost my cursor.
+
+506
+00:37:13,650 --> 00:37:19,020
+This is my proof that -- because my main concern
+was I wanted it to do sort of graphics stuff.
+
+507
+00:37:19,020 --> 00:37:21,600
+Oh, you're right, thank you.
+
+508
+00:37:21,600 --> 00:37:23,160
+That was close.
+
+509
+00:37:23,160 --> 00:37:26,840
+So my main concern was performance, because
+part of the thing that I was thinking of was
+
+510
+00:37:26,840 --> 00:37:29,330
+doing like 2D or 3D graphics tutorials.
+
+511
+00:37:29,330 --> 00:37:32,560
+Let's see if this works.
+
+512
+00:37:32,560 --> 00:37:35,410
+So the resolution is a little messed up.
+
+513
+00:37:35,410 --> 00:37:36,410
+Let's see.
+
+514
+00:37:36,410 --> 00:37:37,900
+That's better.
+
+515
+00:37:37,900 --> 00:37:42,480
+So I wanted to make sure that I could actually
+run simulations and have they will be interactive
+
+516
+00:37:42,480 --> 00:37:44,140
+at 60 frames per second.
+
+517
+00:37:44,140 --> 00:37:54,420
+I have all of this here, I can run this, and
+this is all compiling out to the continuation
+
+518
+00:37:54,420 --> 00:37:58,880
+stuff, and running it, but it's still fully
+interactive.
+
+519
+00:37:58,880 --> 00:38:03,960
+So the jit is able to just eat this and still
+make it very fast.
+
+520
+00:38:03,960 --> 00:38:07,260
+But what's super cool is I can even come down
+here and prove that this is running in my
+
+521
+00:38:07,260 --> 00:38:11,480
+my machine by setting a break point right
+here and it paused and I can step through
+
+522
+00:38:11,480 --> 00:38:14,520
+the code so this was sort of my goal.
+
+523
+00:38:14,520 --> 00:38:16,490
+This is super cool.
+
+524
+00:38:16,490 --> 00:38:17,640
+It looks like actually works.
+
+525
+00:38:17,640 --> 00:38:25,010
+In fact if I interact with this some and keep
+playing with it, you can step over each single
+
+526
+00:38:25,010 --> 00:38:31,830
+frame and see it in each frame so I have complete
+control over what's going on right now, which
+
+527
+00:38:31,830 --> 00:38:35,160
+is pretty fun.
+
+528
+00:38:35,160 --> 00:38:46,770
+All right, now, since I came this far, I thought
+that I should go ahead and explain continuations
+
+529
+00:38:46,770 --> 00:38:48,860
+as a first class value because that's super-cool.
+
+530
+00:38:48,860 --> 00:38:50,890
+I'm not going to explain this a whole lot.
+
+531
+00:38:50,890 --> 00:38:53,110
+If you know about continuations you know how
+this works.
+
+532
+00:38:53,110 --> 00:38:59,300
+I'm transporting the value 5 back into where
+the continuation is captured and the key here
+
+533
+00:38:59,300 --> 00:39:04,940
+is that when you call x when it's a continuation,
+the function will never return.
+
+534
+00:39:04,940 --> 00:39:16,900
+Delimited continuations are really the best
+and we saw Kenichi's talk about that this
+
+535
+00:39:16,900 --> 00:39:19,460
+morning.
+
+536
+00:39:19,460 --> 00:39:24,109
+What I learned is try to figure out how much
+work you're going to put into a useless side
+
+537
+00:39:24,109 --> 00:39:25,870
+project before you do it.
+
+538
+00:39:25,870 --> 00:39:26,870
+[laughter]
+
+539
+00:39:26,870 --> 00:39:43,900
+So, yeah, way too much synchronous HTML requests
+is ...: And how it influences me was like
+
+540
+00:39:43,900 --> 00:39:48,210
+spending all this time and thinking about
+continuations and how to implement them really
+
+541
+00:39:48,210 --> 00:39:53,450
+has helped me pick up more powerful ways of
+computing like algebraic effects and things
+
+542
+00:39:53,450 --> 00:39:58,380
+like that I think are super interesting.
+
+543
+00:39:58,380 --> 00:40:02,940
+Just good way to learn because it breaks down
+a lot of stuff and it's made me appreciate
+
+544
+00:40:02,940 --> 00:40:06,850
+having power over a control flow.
+
+545
+00:40:06,850 --> 00:40:14,630
+OK, so hopefully you're still paying attention,
+because kind of jumping around here.
+
+546
+00:40:14,630 --> 00:40:19,920
+Just one more paper to go and this last paper
+also helped me in a time when I was stuck.
+
+547
+00:40:19,920 --> 00:40:24,940
+More recently and last December I just got
+so so fired of mainly formatting my JavaScript
+
+548
+00:40:24,940 --> 00:40:28,070
+code and I think all of you know what happened.
+
+549
+00:40:28,070 --> 00:40:30,700
+I set out to build an automatic form attar.
+
+550
+00:40:30,700 --> 00:40:32,920
+I knew that for this to work, I need to take
+line length into account.
+
+551
+00:40:32,920 --> 00:40:41,440
+I looked into all of the existing printers
+and none of them do that.
+
+552
+00:40:41,440 --> 00:40:47,250
+They all just printed certain types of code
+on one line so there are so many styles of
+
+553
+00:40:47,250 --> 00:40:53,180
+code in JavaScript that we have to take line
+length into account to know when to break
+
+554
+00:40:53,180 --> 00:40:54,820
+expressions and things like that.
+
+555
+00:40:54,820 --> 00:41:01,120
+Interestingly enough, Go format does not do
+that and people seem to love Go format my
+
+556
+00:41:01,120 --> 00:41:16,520
+only thought is that Go doesn't lend itself
+to, but JavaScript has a crap ton of syntax
+
+557
+00:41:16,520 --> 00:41:18,690
+and you can't do that.
+
+558
+00:41:18,690 --> 00:41:21,840
+The best printer that I found was in a project
+called recast and it did try to take the width
+
+559
+00:41:21,840 --> 00:41:26,730
+expressions into account but its measurements
+were crude and it didn't really work out in
+
+560
+00:41:26,730 --> 00:41:27,730
+practice.
+
+561
+00:41:27,730 --> 00:41:33,080
+But it had a ton of code for handling things
+like comments so it was a really good start.
+
+562
+00:41:33,080 --> 00:41:37,830
+So I forked it and started searching for a
+better solution.
+
+563
+00:41:37,830 --> 00:41:42,400
+After being in my head on the wall for a while
+I saw that I needed to implement a completely
+
+564
+00:41:42,400 --> 00:41:46,660
+new system for measuring the lines and also
+a system for how to express how the lines
+
+565
+00:41:46,660 --> 00:41:55,830
+should be formatted so I did have to go into
+recast but it was still useful to base it
+
+566
+00:41:55,830 --> 00:42:01,830
+off of recast because it had a ton of other
+grunt work done like handling comments and
+
+567
+00:42:01,830 --> 00:42:05,950
+stuff like that, which is really ugly.
+
+568
+00:42:05,950 --> 00:42:13,080
+So recast, recast is the only reason why I
+was able to do it in just a few weeks.
+
+569
+00:42:13,080 --> 00:42:16,820
+After for the measurement system after poking
+around a little bit, I found this paper, a
+
+570
+00:42:16,820 --> 00:42:23,330
+prettier printer by Philip Wadler and this
+paper shows a very simple and elegant way
+
+571
+00:42:23,330 --> 00:42:25,359
+to implement it.
+
+572
+00:42:25,359 --> 00:42:31,560
+This paper uses Haskell for its examples and
+I don't really know Haskell, but because I
+
+573
+00:42:31,560 --> 00:42:35,400
+hit this problem in a real application and
+I've thought about it for a little bit, I
+
+574
+00:42:35,400 --> 00:42:37,220
+knew the problem well enough to be able to
+read it.
+
+575
+00:42:37,220 --> 00:42:43,970
+In fact once I figured out the basic terms,
+it -- it all started clicking and within a
+
+576
+00:42:43,970 --> 00:42:47,730
+few hours I really understood how the basic
+algorithm should work.
+
+577
+00:42:47,730 --> 00:42:51,410
+This is probably the best case of going from
+I have no idea how to do this to finding a
+
+578
+00:42:51,410 --> 00:42:57,230
+paper and just a few hours saying, oh, I should
+just do that and that's why at the beginning
+
+579
+00:42:57,230 --> 00:43:02,530
+of my talk I was saying I love to be able
+to read at least the gist of what a paper.
+
+580
+00:43:02,530 --> 00:43:15,740
+is trying to say so you can pull it into more
+real world code. This paper is the reason Prettier exists and is successful.
+
+581
+00:43:15,740 --> 00:43:21,810
+And so Prettier was born and this was so cool.
+
+582
+00:43:21,810 --> 00:43:25,290
+How many of you have used Prettier in here?
+
+583
+00:43:25,290 --> 00:43:26,470
+That's cool.
+
+584
+00:43:26,470 --> 00:43:28,780
+A little disappointing, yes.
+
+585
+00:43:28,780 --> 00:43:29,830
+[laughter]
+
+586
+00:43:29,830 --> 00:43:31,390
+So I will show you why it's cool.
+
+587
+00:43:31,390 --> 00:43:37,000
+Maybe most of you all don't use JavaScript,
+I don't know.
+
+588
+00:43:37,000 --> 00:43:38,520
+So let's say I have this code.
+
+589
+00:43:38,520 --> 00:43:39,520
+Does this work?
+
+590
+00:43:39,520 --> 00:43:45,480
+Yeah, let's say that I just wanted to change
+this around, you know, reprint it up.
+
+591
+00:43:45,480 --> 00:43:47,060
+AUDIENCE: Screen!
+
+592
+00:43:47,060 --> 00:43:48,640
+>> Oh, goodness.
+
+593
+00:43:48,640 --> 00:43:50,220
+Thanks, guys.
+
+594
+00:43:50,220 --> 00:43:52,320
+Let's say I have this code.
+
+595
+00:43:52,320 --> 00:43:58,131
+Let's say that I'm working around with it
+really fast and you know, I wanted to change
+
+596
+00:43:58,131 --> 00:44:00,420
+this, to just this function call.
+
+597
+00:44:00,420 --> 00:44:02,220
+You know, kind of make it over here.
+
+598
+00:44:02,220 --> 00:44:04,100
+Oh, no, that didn't work.
+
+599
+00:44:04,100 --> 00:44:05,210
+Yup, there you go.
+
+600
+00:44:05,210 --> 00:44:14,210
+And then I wanted to say it map node and into
+-- I'll just do this into an object.
+
+601
+00:44:14,210 --> 00:44:19,590
+So basically I can just type the code and
+just reformat it and it just was going to
+
+602
+00:44:19,590 --> 00:44:20,910
+reformat it however it works.
+
+603
+00:44:20,910 --> 00:44:25,830
+I don't have to care what I'm typing has actually
+changed the syntax around it.
+
+604
+00:44:25,830 --> 00:44:30,500
+So that was just a very quick demo, because
+when you start working with it, it really
+
+605
+00:44:30,500 --> 00:44:33,619
+is enlightening and helps you focus.
+
+606
+00:44:33,619 --> 00:44:37,950
+So a brief overview of the paper because I'm
+running out of time: This paper starts by
+
+607
+00:44:37,950 --> 00:44:42,040
+considering the case where each document has
+only one possible layout and it gives you
+
+608
+00:44:42,040 --> 00:44:44,220
+these operators to define the layout.
+
+609
+00:44:44,220 --> 00:44:53,080
+There's a concatenation and nil, and text
+and document.
+
+610
+00:44:53,080 --> 00:45:00,520
+So let's say you had a tree data structure,
+here's how you might implement a layout for
+
+611
+00:45:00,520 --> 00:45:04,090
+that tree data structure, you would use these
+operators to compose them into this layout
+
+612
+00:45:04,090 --> 00:45:09,871
+system so this recursively goes through the
+tree and it's concatenating the show of a
+
+613
+00:45:09,871 --> 00:45:15,010
+tree with a comma and then a line.
+
+614
+00:45:15,010 --> 00:45:21,771
+So the output of this would be something like
+this and this literally is there's only one
+
+615
+00:45:21,771 --> 00:45:24,700
+document representation so a line means a
+literal new line.
+
+616
+00:45:24,700 --> 00:45:25,900
+It's not doing anything special.
+
+617
+00:45:25,900 --> 00:45:29,190
+This is the only representation for it.
+
+618
+00:45:29,190 --> 00:45:32,480
+Now I want to consider a document with multiple
+possible layouts, we will view a document
+
+619
+00:45:32,480 --> 00:45:38,710
+as not just a single stream but a set of streams
+and this is achieved with a group operator.
+
+620
+00:45:38,710 --> 00:45:43,490
+Given a document the group operator adds one
+more representation of that document one where
+
+621
+00:45:43,490 --> 00:45:47,700
+everything is compressed onto one line, meaning
+all the new lines are stripped out or maybe
+
+622
+00:45:47,700 --> 00:45:50,080
+they're replaced with spaces.
+
+623
+00:45:50,080 --> 00:45:51,210
+So here as an example.
+
+624
+00:45:51,210 --> 00:45:57,520
+This group has the text foo, blind with a
+new line and next bar.
+
+625
+00:45:57,520 --> 00:46:07,180
+There are two representations of this, foo
+space bar or foo new line bar.
+
+626
+00:46:07,180 --> 00:46:17,920
+When
+
+627
+00:46:17,920 --> 00:46:21,369
+you start nesting groups you start getting
+into more and more representations of what
+
+628
+00:46:21,369 --> 00:46:23,080
+that code should be.
+
+629
+00:46:23,080 --> 00:46:24,730
+So group is really the key to all of this.
+
+630
+00:46:24,730 --> 00:46:30,530
+It gives the layout system boundaries for
+where things should break.
+
+631
+00:46:30,530 --> 00:46:34,050
+So now we can implement a better layout function
+that chooses the prettiest representation
+
+632
+00:46:34,050 --> 00:46:36,820
+of a document.
+
+633
+00:46:36,820 --> 00:46:40,550
+Pretty takes an additional parameter which
+is the preferred line.
+
+634
+00:46:40,550 --> 00:46:43,490
+I'm sorry, pretty takes additional.
+
+635
+00:46:43,490 --> 00:46:50,780
+Pretty will choose the collapsed representation
+if it still fits on the same line within the
+
+636
+00:46:50,780 --> 00:46:52,030
+line width that you give it.
+
+637
+00:46:52,030 --> 00:46:58,710
+Is otherwise it will recursively keep measuring
+groups.
+
+638
+00:46:58,710 --> 00:47:01,330
+So here is back our tree code the one that
+we had before.
+
+639
+00:47:01,330 --> 00:47:08,290
+Now the only thing we've added is we've wrapped
+it into a group but because it's recursively
+
+640
+00:47:08,290 --> 00:47:12,960
+going down, there are recursive groups, right,
+if you have unnested tree structure that is
+
+641
+00:47:12,960 --> 00:47:18,130
+wrapping those into groups, there are nested
+groups and this would be the output of the
+
+642
+00:47:18,130 --> 00:47:19,710
+pretty function.
+
+643
+00:47:19,710 --> 00:47:26,440
+The top level aaa node was broken up into
+multiple lines because they couldn't fit.
+
+644
+00:47:26,440 --> 00:47:31,170
+But the inner node, the children nodes were
+small enough to fit onto one line.
+
+645
+00:47:31,170 --> 00:47:34,110
+So now we're starting to see how we can measure
+something.
+
+646
+00:47:34,110 --> 00:47:39,609
+If it doesn't fit, we break it up into multiple
+lines and we recurs down it and measure the
+
+647
+00:47:39,609 --> 00:47:42,520
+groups until we're done.
+
+648
+00:47:42,520 --> 00:47:43,900
+That's basically it.
+
+649
+00:47:43,900 --> 00:47:50,500
+For formatting code we need to tailor this
+in several ways.
+
+650
+00:47:50,500 --> 00:47:54,170
+In a data structure you can pretty much get
+by with something simple, code, especially
+
+651
+00:47:54,170 --> 00:47:58,670
+something like JavaScript is super-complex
+to work with so we actually needed to introduce
+
+652
+00:47:58,670 --> 00:48:03,369
+a lot more advance operators that Prettier
+uses.
+
+653
+00:48:03,369 --> 00:48:08,180
+But now we have group, concat, indent, conditional
+group.
+
+654
+00:48:08,180 --> 00:48:10,870
+Fill, if break, line, soft line.
+
+655
+00:48:10,870 --> 00:48:20,320
+So sometimes there are what times when you
+want to break the inner group before breaking
+
+656
+00:48:20,320 --> 00:48:29,430
+the outer group and things like this and this
+allows us to give that control.
+
+657
+00:48:29,430 --> 00:48:32,400
+This is part of printing arrays.
+
+658
+00:48:32,400 --> 00:48:36,650
+There are so many things to get right with
+JavaScript code that it's a bit verbose, but
+
+659
+00:48:36,650 --> 00:48:38,430
+I still think it's a pretty readable system.
+
+660
+00:48:38,430 --> 00:48:43,589
+It's all composing these operators and the
+measurement system can take this expression
+
+661
+00:48:43,589 --> 00:48:51,780
+of this layout and choose -- yeah, choose
+the best representation of it.
+
+662
+00:48:51,780 --> 00:48:57,320
+So what I learned ... Philip Wadler is da
+bomb, first, that's the first thing.
+
+663
+00:48:57,320 --> 00:49:01,220
+Second, JavaScript has a crapton of syntax
+and there are so many different ways to combine
+
+664
+00:49:01,220 --> 00:49:02,490
+them.
+
+665
+00:49:02,490 --> 00:49:07,930
+But we weren't sure this was going to work because
+we kept running into cases where this thing
+
+666
+00:49:07,930 --> 00:49:12,600
+fit really nicely in this context but when
+you wrapped it in function call they looked
+
+667
+00:49:12,600 --> 00:49:16,770
+terrible but luckily we landed on something
+that actually works very well.
+
+668
+00:49:16,770 --> 00:49:22,300
+Three, way more people wanted this than I
+thought.
+
+669
+00:49:22,300 --> 00:49:24,540
+How it influenced me.
+
+670
+00:49:24,540 --> 00:49:30,250
+I see it structured, as long as within between
+these two statements, I just write the right
+
+671
+00:49:30,250 --> 00:49:34,310
+kind of code I don't have to care about how
+it's formatted so it's drastically improved
+
+672
+00:49:34,310 --> 00:49:38,380
+my ability to code and that's all I have to
+say.
+
+673
+00:49:38,380 --> 00:49:39,380
+Thank you.
+
+674
+00:49:39,380 --> 00:49:39,880
+[applause]

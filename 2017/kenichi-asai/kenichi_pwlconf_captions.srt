@@ -1,0 +1,2105 @@
+1
+00:00:05,520 --> 00:00:14,670
+Thank you very much, I'm Kenichi Asai, I'm
+really honored to have the opportunity to
+
+2
+00:00:14,670 --> 00:00:15,930
+give a talk here today.
+
+3
+00:00:15,930 --> 00:00:23,840
+I I'd like to thank Zeeshan and all the organizers and also like to thank all the audience coming
+
+4
+00:00:23,840 --> 00:00:25,200
+to the conference.
+
+5
+00:00:25,200 --> 00:00:36,600
+So I'm one of the rare species who uses delimited continuation constructs shift and reset in day to day programming.
+
+6
+00:00:36,600 --> 00:00:37,600
+So whoops -- no, it's not working.
+
+7
+00:00:37,600 --> 00:00:38,600
+I think it's not working OK.
+
+8
+00:00:38,600 --> 00:00:39,600
+Yeah.
+
+9
+00:00:39,620 --> 00:00:43,460
+So after I introduce what delimited continuations
+are, I would like to introduce a lot, lot
+
+10
+00:00:43,460 --> 00:00:50,470
+of examples, to share the feelings that I
+have with you about delimited continuations,
+
+11
+00:00:50,470 --> 00:00:57,950
+so I will go into the six examples in the
+increasing order of complexities, and then
+
+12
+00:00:57,950 --> 00:01:04,890
+I will finally speculate some future of the
+delimited continuations that I want to see.
+
+13
+00:01:04,890 --> 00:01:10,409
+But before I go into the main topic, I -- well,
+this is a Papers We Love conference, so I
+
+14
+00:01:10,409 --> 00:01:18,049
+would like to talk a little bit about the
+papers, and these are the early papers, early
+
+15
+00:01:18,049 --> 00:01:23,079
+representative papers on control operators,
+and the first is about control and prompt
+
+16
+00:01:23,079 --> 00:01:26,249
+and the other two are about the shift and
+reset.
+
+17
+00:01:26,249 --> 00:01:34,310
+They are similar but a little bit different
+but I won't go into the difference today,
+
+18
+00:01:34,310 --> 00:01:41,420
+and for you, the last one is the introductory
+paper that is suitable for many people, so
+
+19
+00:01:41,420 --> 00:01:49,889
+it will be a nice introduction to delimited
+continuations and but that paper is based
+
+20
+00:01:49,889 --> 00:01:55,590
+on the CPS transformation, so you need to
+know about the CPS transformation, but today
+
+21
+00:01:55,590 --> 00:02:01,999
+I won't go into the CPS transformation,
+but I will explain what delimited continuations
+
+22
+00:02:01,999 --> 00:02:11,030
+are in the direct style so in mind set that is more closely specialized in that paper
+
+23
+00:02:11,030 --> 00:02:18,870
+So what are continuations maybe I should
+say, OK, what are continuations?
+
+24
+00:02:18,870 --> 00:02:21,840
+Well, continuations are the rest of the computation.
+
+25
+00:02:21,840 --> 00:02:32,380
+So whenever you talk about the rest, it is
+the -- it is a relative concept, so you need to talk
+
+26
+00:02:32,380 --> 00:02:34,540
+about the current and the rest.
+
+27
+00:02:34,540 --> 00:02:39,670
+So I will talk -- well, I will talk about
+the current computation and I will describe
+
+28
+00:02:39,670 --> 00:02:41,210
+it inside the bracket.
+
+29
+00:02:41,210 --> 00:02:44,660
+And the rest of the computation outside the bracket.
+
+30
+00:02:44,660 --> 00:02:51,930
+So for example, let's have the arithmetic
+expression, 3 + 5 times 2 minus one, so the
+
+31
+00:02:51,930 --> 00:03:02,510
+first thing we want to do is 5 times 2 so that is the current computation and what is the rest of the computation?
+
+32
+00:03:02,510 --> 00:03:11,610
+One we get back the result of 5 x 2 then we want to do add 3 to it and minus 1 from it so that's the rest of the computation,
+
+33
+00:03:11,610 --> 00:03:18,910
+and -- that is the -- I need to switch my
+brain to English mode.
+
+34
+00:03:18,910 --> 00:03:20,080
+I came here --
+[laughter]
+
+35
+00:03:20,080 --> 00:03:25,410
+I came here from Japan last night and it's
+not completely working right now, so I -- OK.
+
+36
+00:03:25,410 --> 00:03:27,310
+Start over.
+
+37
+00:03:27,310 --> 00:03:31,400
+So the current continuation is 3 + something,
+minus 1.
+
+38
+00:03:31,400 --> 00:03:39,110
+So given a value for the whole, add 3 to it
+and subtract one from it, that is a continuation.
+
+39
+00:03:39,110 --> 00:03:46,170
+So it is like a function, so given a value
+for whole, which is X, then we want to compute
+
+40
+00:03:46,170 --> 00:03:49,840
+3 + 6-1.
+
+41
+00:03:49,840 --> 00:03:52,150
+>> OK, what are continuations?
+
+42
+00:03:52,150 --> 00:03:57,290
+Well, as computation proceeds, continuation changes, so at first we are talking about
+
+43
+00:03:57,290 --> 00:04:06,090
+the 5X2 and the current continuation + 3 and - 1. But first we get back the 5 x 2 which is 10
+
+44
+00:04:06,090 --> 00:04:09,910
+Then the next thing we want to do is the 3
++ 10.
+
+45
+00:04:09,910 --> 00:04:13,540
+So that becomes the current computation.
+
+46
+00:04:13,540 --> 00:04:18,180
+And then at that time, the current continuation is just -1.
+
+47
+00:04:18,180 --> 00:04:25,090
+And then we get back the 13, the last thing
+we want to do is 13-1 so that is the current
+
+48
+00:04:25,090 --> 00:04:28,830
+continuation, and the current continuation
+will be empty.
+
+49
+00:04:28,830 --> 00:04:32,419
+OK, here are some examples.
+
+50
+00:04:32,419 --> 00:04:37,400
+Please identify the current expressions, continuations and their types.
+
+51
+00:04:37,400 --> 00:04:38,400
+OK?
+
+52
+00:04:38,400 --> 00:04:46,199
+Well, for the first example, the first thing
+we want to do is 2X3, if we assume that the
+
+53
+00:04:46,199 --> 00:04:53,830
+computation goes from left to right, and so
+the current computation is 2X3, and then the
+
+54
+00:04:53,830 --> 00:04:59,789
+current continuation is something that does the rest of the work.
+
+55
+00:04:59,789 --> 00:05:07,779
+So the type of 2X3 is integer, so the type
+of the continuation will be given an integer
+
+56
+00:05:07,779 --> 00:05:13,229
+for the whole, we'll compute the rest of the
+computation and give back an integer.
+
+57
+00:05:13,229 --> 00:05:16,659
+So that's a type of continuation.
+
+58
+00:05:16,659 --> 00:05:25,720
+So for the second one, we want to -- we want to concatenate two strings, either hello or hi with world.
+
+59
+00:05:25,720 --> 00:05:28,719
+And this hat operator is the concatenation operator for strings.
+
+60
+00:05:28,719 --> 00:05:34,460
+So the first thing would he want to do is
+OK, we want to decide that what the predicate
+
+61
+00:05:34,460 --> 00:05:40,840
+part is, so that is 2 equals 3 and then given
+that value, we want to do the rest of the
+
+62
+00:05:40,840 --> 00:05:41,840
+computation.
+
+63
+00:05:41,840 --> 00:05:50,070
+So 2 equals 3 is a boolean, and so the continuation will receive the value for the boolean and produce
+
+64
+00:05:50,070 --> 00:05:53,310
+some string either Hello World or hi world.
+
+65
+00:05:53,310 --> 00:05:58,460
+So that string. I think this is easy.
+
+66
+00:05:58,460 --> 00:06:03,830
+Then what are delimited continuations so delimited continuations is the rest of the computation
+
+67
+00:06:03,830 --> 00:06:06,150
+up to some delimiter.
+
+68
+00:06:06,150 --> 00:06:20,419
+So in this talk, I will use the syntax 'reset'
+'fun' unit, RON, so this will delimit the context
+
+69
+00:06:20,419 --> 00:06:21,949
+up to the reset.
+
+70
+00:06:21,949 --> 00:06:31,970
+So for example, if we write like that, then
+the current computation is 5X2, but since
+
+71
+00:06:31,970 --> 00:06:40,400
+the 3 + 5X2 is surrounded by reset, so the current delimited continuation is only up to the delimiter. So we have only '3 +'.
+
+72
+00:06:40,400 --> 00:06:47,849
+And '- 1' is out of the context. So its not its not included in the delimited continuation
+
+73
+00:06:47,849 --> 00:06:52,129
+Ok, So here are some examples.
+
+74
+00:06:52,129 --> 00:06:54,780
+Identify the delimited continuations and their types.
+
+75
+00:06:54,780 --> 00:07:04,540
+OK, for the first one, well, the current computation is 2X3, so the current continuation is add 3X4,
+
+76
+00:07:04,540 --> 00:07:11,610
+but that does not include 5X, because
+it is outside the delimiter and its type is
+
+77
+00:07:11,610 --> 00:07:18,930
+given for the value for the whole which is
+the integer, and then we will get back some integer
+
+78
+00:07:18,930 --> 00:07:19,969
+as a result.
+
+79
+00:07:19,969 --> 00:07:28,499
+So for the second one, the computation is
+2 equals 3 and then the continuation is up
+
+80
+00:07:28,499 --> 00:07:35,480
+to the delimiter, so it
+is this entire "if "expression,  but it excludes adding the string "world".
+
+81
+00:07:35,480 --> 00:07:40,330
+And the type of it is, well given that boolean for the predicate value we will get back string.
+
+82
+00:07:40,330 --> 00:07:45,550
+I think this is it, OK?
+
+83
+00:07:45,550 --> 00:07:49,930
+So now we know what the delimited continuations were.
+
+84
+00:07:49,930 --> 00:07:58,119
+So now we talk about how to use it and how extract the continuation, we use the shift
+
+85
+00:07:58,119 --> 00:08:05,491
+operator and this shift operator has this
+kind of syntax and shift fun K over M and
+
+86
+00:08:05,491 --> 00:08:12,779
+when this expression is executed it does three things, it clears the current continuation
+
+87
+00:08:12,779 --> 00:08:19,749
+and then it binds that cleared continuation
+to K and it executes the body M in the empty
+
+88
+00:08:19,749 --> 00:08:25,080
+context, so for example in this example what happens is that it first clears the current
+
+89
+00:08:25,080 --> 00:08:33,130
+continuation, the current continuation in
+this example is 3 +, so the 3 + part is cleared,
+
+90
+00:08:33,130 --> 00:08:39,350
+so it goes away, and it is bind to the -- it
+is bound to the variable K, so this K gets
+
+91
+00:08:39,350 --> 00:08:41,760
+3 +.
+
+92
+00:08:41,760 --> 00:08:46,210
+And then the body of the function is executed.
+
+93
+00:08:46,210 --> 00:08:51,210
+So that's what the shift operator does.
+
+94
+00:08:51,210 --> 00:08:53,930
+So it clears, bind, execute.
+
+95
+00:08:53,930 --> 00:08:59,950
+So this is somewhat complicated but we will see a number of examples today.
+
+96
+00:08:59,950 --> 00:09:07,480
+OK, so the first one: How to discard continuations:
+We use this idiom, so shift fun K RON
+
+97
+00:09:07,480 --> 00:09:17,950
+but variable K does not occur in the body of M. So K is not used in M, so I used the underline,
+
+98
+00:09:17,950 --> 00:09:25,500
+so that it pretends that the variable is not
+used in M, so the continuation is captured,
+
+99
+00:09:25,500 --> 00:09:31,830
+but because it is not used, it is just discarded and this is the same as raising an exception.
+
+100
+00:09:31,830 --> 00:09:39,030
+So for example, in this example, we say 3
++ and then we want to do some shift and at
+
+101
+00:09:39,030 --> 00:09:50,780
+this point, shift will -- sorry, shift will
+clear the current continuation, which is 3 +
+
+102
+00:09:50,780 --> 00:09:56,150
+and then it binds it to K, and executes
+its body.
+
+103
+00:09:56,150 --> 00:09:59,940
+So it becomes like the second line.
+
+104
+00:09:59,940 --> 00:10:05,180
+And because in the second line, 2 does not
+mention K, so the current continuation is
+
+105
+00:10:05,180 --> 00:10:12,660
+just discarded, and the value reset expression becomes 2 and 2 - 1 becomes 1.
+
+106
+00:10:12,660 --> 00:10:15,460
+So that's how it goes.
+
+107
+00:10:15,460 --> 00:10:27,000
+OK, so let's replace the whole with a shift KM for some M. So how can we discard the current continuation
+
+108
+00:10:27,000 --> 00:10:34,240
+We want to hit some shift fun under arrow something into the whole.
+
+109
+00:10:34,240 --> 00:10:43,190
+So in the first first example, if we insert
+that expression into the whole, then it will
+
+110
+00:10:43,190 --> 00:10:48,500
+capture the current continuation -- sorry,
+it clears the current continuation, it binds
+
+111
+00:10:48,500 --> 00:10:54,860
+it to K, and then it will return the question
+mark as a result of the reset expression.
+
+112
+00:10:54,860 --> 00:11:03,170
+So in this case that result will be multiplied
+by 5, so we have to return some integer there.
+
+113
+00:11:03,170 --> 00:11:07,410
+So if we return 3 there, then the final answer will be 15.
+
+114
+00:11:07,410 --> 00:11:14,200
+In the second case, we'll -- oops, in the
+second case, we clear the current continuation
+
+115
+00:11:14,200 --> 00:11:24,490
+which is the "if "expression, we bind it with
+K but we don't use it and return something. And that something will be concatenated to the string "world".
+
+116
+00:11:24,490 --> 00:11:27,880
+So we have to return some strings there.
+
+117
+00:11:27,880 --> 00:11:31,980
+So if we return "chao" there, we will receive "chao" world.
+
+118
+00:11:31,980 --> 00:11:43,110
+And one point is we need the type of the context to fill in the body of the shift which appears deep in the middle
+
+119
+00:11:43,110 --> 00:11:44,750
+of some complex expression.
+
+120
+00:11:44,750 --> 00:11:54,390
+We have to think of the type of the context to type check this kind of expressions.
+
+121
+00:11:54,390 --> 00:11:55,390
+OK.
+
+122
+00:11:55,390 --> 00:11:57,280
+OK, here is some more realistic example.
+
+123
+00:11:57,280 --> 00:12:02,380
+The following function multiplies elements
+of a list: So given the list of integers,
+
+124
+00:12:02,380 --> 00:12:10,220
+we want to multiply all the elements and you can write the program in a very straightforward manner.
+
+125
+00:12:10,220 --> 00:12:17,600
+If it is an empty list, then we just return
+one, and if it's not, then we recursively
+
+126
+00:12:17,600 --> 00:12:23,840
+multiply the rest of the list and multiply
+the first element by that.
+
+127
+00:12:23,840 --> 00:12:31,220
+And but because we are multiplying the numbers, if we know that there is some 0 somewhere
+
+128
+00:12:31,220 --> 00:12:36,420
+in the list, then we know that the result
+will be 0 anyway, so the question is can we
+
+129
+00:12:36,420 --> 00:12:46,700
+insert the 0 closed there and avoid all of
+the multiplication when we found 0.
+
+130
+00:12:46,700 --> 00:12:53,930
+So we want to replace that question mark with something so that then we when we see 0, then we want to avoid all the multiplication.
+
+131
+00:12:53,930 --> 00:13:04,480
+It is tempting to replace that question mark
+with 0, so this is going one step forward,
+
+132
+00:13:04,480 --> 00:13:08,360
+because it avoids traversing the rest of the
+list once 0 is found.
+
+133
+00:13:08,360 --> 00:13:16,060
+So for example, if we say times of 1, 2, 0,
+4, then we recursively expand the whole, and
+
+134
+00:13:16,060 --> 00:13:24,090
+we reach to 0, and at this point, we see 0,
+so we just return 0, avoiding to go into the
+
+135
+00:13:24,090 --> 00:13:25,090
+rest of the list.
+
+136
+00:13:25,090 --> 00:13:30,760
+So we don't have to do multiplication, 0 times 4, but we just return 0.
+
+137
+00:13:30,760 --> 00:13:34,490
+But still we multiply 0 times 2 times 1.
+
+138
+00:13:34,490 --> 00:13:38,630
+So how can we discard that part, also?
+
+139
+00:13:38,630 --> 00:13:49,060
+And the answer is to discard the current continuation, so rather than just returning 0, we say shift
+
+140
+00:13:49,060 --> 00:14:02,290
+fun K 0, so we discard the current continuation and return 0. So let's see what happens again, so if we have times of 1, 2, 0, 4, then we recursively
+
+141
+00:14:02,290 --> 00:14:10,170
+expand our call and we finally get to the
+0, and at this point we say shift K, and so
+
+142
+00:14:10,170 --> 00:14:19,640
+the current continuation, which is 1X2, that
+is discarded -- sorry, that is cleared bound
+
+143
+00:14:19,640 --> 00:14:25,880
+to K, but that K is discarded, so that part
+of the multiplication is also discarded and
+
+144
+00:14:25,880 --> 00:14:27,550
+we return 0 back.
+
+145
+00:14:27,550 --> 00:14:30,450
+OK, so that's how it goes.
+
+146
+00:14:30,450 --> 00:14:36,730
+So using shift, you can do a kind of exception and exception handling.
+
+147
+00:14:36,730 --> 00:14:45,340
+OK, we have just discarded continuation, but we didn't make any use of that.
+
+148
+00:14:45,340 --> 00:14:49,150
+So let's use the -- let's use a continuation.
+
+149
+00:14:49,150 --> 00:14:52,160
+So the next one is how to extract continuations.
+
+150
+00:14:52,160 --> 00:15:01,440
+The idiom is shift fun K -> K and
+if we say that, it captures the current continuation
+
+151
+00:15:01,440 --> 00:15:08,920
+and returns it so because the continuation is returned, then we can use it and we can play with it.
+
+152
+00:15:08,920 --> 00:15:14,860
+So for example if, we want to observe the
+continuation, 3 + and - 1
+
+153
+00:15:14,860 --> 00:15:27,710
+then we insert shift fun K -> K into the whole and let the result be name "if," okay, and then what happens
+
+154
+00:15:27,710 --> 00:15:37,540
+is that we first clear the current continuation, so "3 +" and  "- 1" goes a way and then we bind it to K
+
+155
+00:15:37,540 --> 00:15:44,150
+and then we execute the body of the shift.
+
+156
+00:15:44,150 --> 00:15:49,840
+Well, because the body contains only K and
+K is bound to the continuation, then that
+
+157
+00:15:49,840 --> 00:16:03,570
+K becomes the value of f, so afterward if apply f to say 10 then we plug that 10 into the whole and we compute 3 + 10 - 1 which is 12.
+
+158
+00:16:03,570 --> 00:16:09,840
+So this is how we extract the continuation and use it.
+
+159
+00:16:09,840 --> 00:16:13,510
+OK, here is a somewhat more advanced example.
+
+160
+00:16:13,510 --> 00:16:15,920
+Here is an identity function on a list.
+
+161
+00:16:15,920 --> 00:16:22,830
+So it just traverses over the list, but we
+construct the same list as is.
+
+162
+00:16:22,830 --> 00:16:25,870
+So if it's empty then it's empty.
+
+163
+00:16:25,870 --> 00:16:38,060
+It will recursively traverse all the list,
+but reconstruct the first element and the original element again
+
+164
+00:16:38,060 --> 00:16:46,990
+So the question is by modifying the line A
+when we lead to the empty list, we capture
+
+165
+00:16:46,990 --> 00:16:53,850
+the current continuation at that time, and returns it and would then what does that continuation do?
+
+166
+00:16:53,850 --> 00:17:03,390
+So what we want to do is to replace the empty list with shift fun k -> k, and well, let's see what happens.
+
+167
+00:17:03,390 --> 00:17:13,300
+So we start from id of 1, 2, 3, and then we
+expand the recursive goal and when we get
+
+168
+00:17:13,300 --> 00:17:24,650
+to the empty list, we clear the current continuation, capture the integer K, and returns it
+
+169
+00:17:24,650 --> 00:17:34,300
+So what we get is the continuation which conses, 3, 2, and 1 in that order.
+
+170
+00:17:34,300 --> 00:17:38,460
+So let's name it, append 123.
+
+171
+00:17:38,460 --> 00:17:47,130
+So the append 123 is the result of calling id with the 123, and it will receive the captured
+
+172
+00:17:47,130 --> 00:17:50,720
+continuation which captures 3, 2, 1, in that order.
+
+173
+00:17:50,720 --> 00:18:04,160
+So it will append the 1, 2, 3 to a given list. So if you pass in 4, 5, 6, then we will receive
+1, 2, 3, 4, 5, 6 as a list.
+
+174
+00:18:04,160 --> 00:18:12,782
+So that append is somewhat contrived definition of a curried append function.
+
+175
+00:18:12,782 --> 00:18:23,690
+So if you want to define append function, given list 1 you just call the id list 1 and then it will traverse the list 1 and
+
+176
+00:18:23,690 --> 00:18:30,800
+return the current continuation at the empty place and that it will be dubbing.
+
+177
+00:18:30,800 --> 00:18:40,460
+That will be a function that given the second one you can append the first one onto the second list.
+
+178
+00:18:40,460 --> 00:18:44,830
+OK, so this is the how to extract continuation.
+
+179
+00:18:44,830 --> 00:18:49,100
+OK, so now we move on to somewhat more complicated one.
+
+180
+00:18:49,100 --> 00:18:53,600
+How to reorder continuations.
+
+181
+00:18:53,600 --> 00:19:05,211
+Several years ago, I had a high school student, and she was -- she has done a game programming in Racket with me.
+
+182
+00:19:05,211 --> 00:19:14,460
+And when she created that game she maintained a list of characters, a list of objects in the game.
+
+183
+00:19:14,460 --> 00:19:22,409
+And in the list she treated the first element as special, the first element is a forecast
+
+184
+00:19:22,409 --> 00:19:31,020
+object of the game, so whenever she clicked some clickable object, she wanted that object
+
+185
+00:19:31,020 --> 00:19:35,080
+to be at the beginning of the list.
+
+186
+00:19:35,080 --> 00:19:41,830
+And so you have a list of characters, and
+you click someone, and then that one goes
+
+187
+00:19:41,830 --> 00:19:43,440
+to the top of the list.
+
+188
+00:19:43,440 --> 00:19:46,990
+And this take function models that situation.
+
+189
+00:19:46,990 --> 00:19:55,921
+So given a list of numbers, and the number
+n, and that is where she clicked, and we want
+
+190
+00:19:55,921 --> 00:20:01,380
+to return the given list where the nth element is moved to the front.
+
+191
+00:20:01,380 --> 00:20:08,750
+So for example, if you have the list of 0,
+1, 2, 3, 4, and if you click the 0th element,
+
+192
+00:20:08,750 --> 00:20:14,370
+then that one will go to the first but it is exactly the same as the original list.
+
+193
+00:20:14,370 --> 00:20:21,800
+If you say 3, then 3rd element goes to the
+front and if you say 5, then that was a nonclickable
+
+194
+00:20:21,800 --> 00:20:26,700
+object, so the original list is returned as
+is.
+
+195
+00:20:26,700 --> 00:20:36,580
+At first sight seemly this function appears
+to be very easy to write, because the original
+
+196
+00:20:36,580 --> 00:20:43,710
+list is almost reconstructed as is, so the return list is almost the same as the original
+
+197
+00:20:43,710 --> 00:20:48,610
+one, except that the designated element is moved to the top.
+
+198
+00:20:48,610 --> 00:20:56,920
+So we can think of this function as something
+like an identity function that we just showed
+
+199
+00:20:56,920 --> 00:21:04,320
+you before, but some trick on it so you can move that designated element to the top of list.
+
+200
+00:21:04,320 --> 00:21:12,440
+However, a closer look at this reveals that
+the situation is not that simple.
+
+201
+00:21:12,440 --> 00:21:19,920
+First, the nth element might not exist and
+so if there is no nth element there, so if
+
+202
+00:21:19,920 --> 00:21:27,940
+there was no nth element there, then we have to do something else, so we need to distinguish
+
+203
+00:21:27,940 --> 00:21:34,190
+the two cases if the element was found or not, and when the when when the element is
+
+204
+00:21:34,190 --> 00:21:41,420
+found, we have to carry that element over, so that it you can count it afterwards.
+
+205
+00:21:41,420 --> 00:21:48,330
+So for example, in the second example, if you want to move the third element to the list, so you traverse
+
+206
+00:21:48,330 --> 00:21:55,070
+over the list to the third element, and when you see it, you keep it somewhere else, and
+
+207
+00:21:55,070 --> 00:22:03,200
+you have to cons the 2, 1, and 0 to the rest of the list and that kept element is consed on top of it.
+
+208
+00:22:03,200 --> 00:22:11,540
+So if you write the function that way it will become something like this.
+
+209
+00:22:11,540 --> 00:22:21,850
+So we declare our type that indicates if the designated element is found or not, and then we have
+
+210
+00:22:21,850 --> 00:22:29,100
+a loop function that goes over to the rest, but it returns not a list, but it returns
+
+211
+00:22:29,100 --> 00:22:35,740
+a pair of whether you found the element or not, and the rest of the list.
+
+212
+00:22:35,740 --> 00:22:43,000
+So if you encounter the empty list, well,
+we didn't -- we didn't find the nth element,
+
+213
+00:22:43,000 --> 00:22:46,600
+so we say not found on rest of the list.
+
+214
+00:22:46,600 --> 00:22:49,660
+So if -- sorry.
+
+215
+00:22:49,660 --> 00:22:59,390
+If n decreases to the 0, it means that we
+come to the nth element, so we found the element,
+
+216
+00:22:59,390 --> 00:23:05,340
+so we return the first element paired with the rest of the list.
+
+217
+00:23:05,340 --> 00:23:11,021
+And otherwise, we recursive over to the other
+-- recurs over to the rest of the list and
+
+218
+00:23:11,021 --> 00:23:20,410
+when we get back the result, we cons the first
+element to the rest of the list, keeping the
+
+219
+00:23:20,410 --> 00:23:22,480
+found element there.
+
+220
+00:23:22,480 --> 00:23:29,790
+And the take function itself will call this
+loop function, and when we return and when
+
+221
+00:23:29,790 --> 00:23:40,600
+we get back the result, if nth element is
+found, then we cons that element to the rest of the list.
+
+222
+00:23:40,600 --> 00:23:50,040
+OK, well, well, if you struggle with this
+program, then you will be able to get to this
+
+223
+00:23:50,040 --> 00:23:54,140
+solution, but my point is that this solution
+appears to be very complicated.
+
+224
+00:23:54,140 --> 00:23:59,330
+Does this complication really required?
+
+225
+00:23:59,330 --> 00:24:07,000
+And my answer is really no, there is a simpler
+solution if we have delimited continuation construct.
+
+226
+00:24:07,000 --> 00:24:12,850
+So in this example, take function, just call
+the loop function with a delimited context
+
+227
+00:24:12,850 --> 00:24:19,480
+and then loop function just traverses over
+all the list, and well, for empty list, we
+
+228
+00:24:19,480 --> 00:24:26,210
+just return empty list and if this then branch
+was not there, then in the else branch it
+
+229
+00:24:26,210 --> 00:24:29,410
+will just be recursive with the rest of the
+list but we reconstruct the first one
+
+230
+00:24:29,410 --> 00:24:39,070
+so if we didn't have that then branch,
+this loop function is the identity function, OK
+
+231
+00:24:39,070 --> 00:24:49,790
+but then if n equals 0, it means we found
+the nth element, so we do something strange
+
+232
+00:24:49,790 --> 00:24:57,470
+there and what we do is we capture the current
+continuation, and we reorder the variation.
+
+233
+00:24:57,470 --> 00:25:02,010
+So let's take the example there.
+
+234
+00:25:02,010 --> 00:25:09,700
+So we want to have the third element at the
+top, So when we encounter the third element what is the current continuation?
+
+235
+00:25:09,700 --> 00:25:19,000
+Well, current continuation contains cons 2,
+cons 1, cons 0 and at that time we capture
+
+236
+00:25:19,000 --> 00:25:25,600
+the current continuation into k and we reorder
+it so rather than consing the first first, we apply
+
+237
+00:25:25,600 --> 00:25:31,200
+the apply the continuation to the rest of the list, which is 4.
+
+238
+00:25:31,200 --> 00:25:41,220
+So if you say k of rest, then 4 is past the
+continuation and then 2, 1, 0, is consed on
+
+239
+00:25:41,220 --> 00:25:52,480
+top of 4. So we get 0, 1, 2, 4 and on top of it we cons the first
+element 3, so that is what we wanted to do.
+
+240
+00:25:52,480 --> 00:26:02,060
+So we reordered the consing of the first element
+with the application of the rest of the computation,
+
+241
+00:26:02,060 --> 00:26:09,040
+so we did the rest of the computation first
+and after completing that rest of the computation,
+
+242
+00:26:09,040 --> 00:26:15,080
+we put the 4th element at the top and this
+is exactly what we wanted to do.
+
+243
+00:26:15,080 --> 00:26:27,220
+And I would say that this one naturally expressed
+the original problem.
+
+244
+00:26:27,220 --> 00:26:34,910
+OK, you might say that this take function
+is rather artificial and you don't have this
+
+245
+00:26:34,910 --> 00:26:40,020
+kind of programs very much in practice.
+
+246
+00:26:40,020 --> 00:26:49,059
+But the same idea can be applied to A-normalization,
+and A-normalization is one of the compiler passes
+
+247
+00:26:49,059 --> 00:26:57,470
+and you name -- you give a unique name to
+all the subexpressions of the input, so for
+
+248
+00:26:57,470 --> 00:27:05,510
+example, given the A minus B minus C minus
+D, we want to assign a unique name to all
+
+249
+00:27:05,510 --> 00:27:13,140
+of the subexpressions so for that expression
+the first thing to do is b minus c, so we
+
+250
+00:27:13,140 --> 00:27:23,700
+name it e1, and after that we want to do e1
+minus d so we name it e2 and after that we want to subtract e2 from a and we name it e3.
+
+251
+00:27:23,700 --> 00:27:34,030
+and like that, we want to assign unique names
+to all the subexpressions of the input.
+
+252
+00:27:34,030 --> 00:27:48,160
+And interesting thing about this program is
+that when A-normalizer encounters b minus c, which is embedded deep in the big synax tree, you have to insert
+
+253
+00:27:48,160 --> 00:27:55,660
+the let expression for that part at the very
+beginning, so it's not -- it's not OK to insert
+
+254
+00:27:55,660 --> 00:28:02,480
+the let expression locally there, but we want
+to insert the let expression at the very beginning
+
+255
+00:28:02,480 --> 00:28:08,720
+of the expression, and this situation is exactly
+the same as what we saw in the take example.
+
+256
+00:28:08,720 --> 00:28:18,669
+So we want to reorder the traverses of the
+syntax tree and insertion of the let expression.
+
+257
+00:28:18,669 --> 00:28:26,200
+So here's how the A-normalizer is written.
+
+258
+00:28:26,200 --> 00:28:33,490
+So A normal form will cause a loop function
+in the delimited context and loop function
+
+259
+00:28:33,490 --> 00:28:36,110
+goes like that.
+
+260
+00:28:36,110 --> 00:28:42,660
+If it encounters the variable, well, it's
+just a variable, so it returns a variable. If you see the minus expression,
+
+261
+00:28:42,660 --> 00:28:52,980
+then you recurs over the e1 and e2, and if
+you ignore the red part and return the blue
+
+262
+00:28:52,980 --> 00:28:59,030
+part, then this loop function is the identity
+function, it just traverses over all the list
+
+263
+00:28:59,030 --> 00:29:02,000
+and it reconstructs the same syntax tree.
+
+264
+00:29:02,000 --> 00:29:06,590
+But instead of that you do some strange thing there.
+
+265
+00:29:06,590 --> 00:29:09,110
+Well, what will you do?
+
+266
+00:29:09,110 --> 00:29:15,690
+Well, first you want to name that minus expression, so we generate a new symbol, x,
+
+267
+00:29:15,690 --> 00:29:26,360
+and then we reorder the variation, so the
+rest of the continuation k is processed with
+
+268
+00:29:26,360 --> 00:29:33,370
+a generative variable x, and on top of that,
+and after all the rest of the computation
+
+269
+00:29:33,370 --> 00:29:38,590
+finishes, we insert the let expression at
+the top, so that is exactly the same as what
+
+270
+00:29:38,590 --> 00:29:46,050
+the other function did,
+So let's say as an example, say this loop
+
+271
+00:29:46,050 --> 00:29:58,820
+function is given as A minus B minus C minus
+D. So this is a minus function so we recurse
+over the syntax tree so we have loop a and loop b minus
+
+272
+00:29:58,820 --> 00:30:12,270
+C minus D, and that minus thing is the blue
+minus normal form normal form normal form 2 and that line is fed into G, which is the
+
+273
+00:30:12,270 --> 00:30:13,520
+red part.
+
+274
+00:30:13,520 --> 00:30:14,520
+OK?
+
+275
+00:30:14,520 --> 00:30:22,059
+Then loop a is just a variable, so it returns
+a, and loop a minus b minus c minus d, becomes
+
+276
+00:30:22,059 --> 00:30:28,960
+loop minus B minus c, minus loop d,
+At that one will be passed do the red part g,
+
+277
+00:30:28,960 --> 00:30:40,680
+and then, well again loop b minus c becomes loop of b and loop of c and then becomes both b and c,
+
+278
+00:30:40,680 --> 00:30:44,429
+So at that point, at that boxed part, we first
+
+279
+00:30:44,429 --> 00:30:50,540
+come to the point where the red g part is
+executed.
+
+280
+00:30:50,540 --> 00:30:54,860
+And at this point, interesting thing happens.
+
+281
+00:30:54,860 --> 00:30:57,330
+So we generate a new symbol.
+
+282
+00:30:57,330 --> 00:31:06,270
+So at this point, well, in this example we
+generated the new symbol e1 and then we capture
+
+283
+00:31:06,270 --> 00:31:07,700
+the current continuation.
+
+284
+00:31:07,700 --> 00:31:14,090
+Current continuation is the rest of the computation,
+so all the lines except for the boxed part
+
+285
+00:31:14,090 --> 00:31:21,679
+and that part becomes k and then we continue
+the rest of the continuation k with the newly
+
+286
+00:31:21,679 --> 00:31:30,000
+created variable x, which is e1, so that e1
+is plugged into the boxed part and we get
+
+287
+00:31:30,000 --> 00:31:39,091
+the expression after in, so g of A minus g of e1
+and so that boxed part is boxed with e1 and
+
+288
+00:31:39,091 --> 00:31:44,640
+on top of that we insert the let expression. Let e1 equal B minus C.
+
+289
+00:31:44,640 --> 00:31:49,160
+So that's how you insert the let expression
+at the very top.
+
+290
+00:31:49,160 --> 00:31:56,250
+And when the computation proceeds, the next
+thing that is done will be e minus D will
+
+291
+00:31:56,250 --> 00:32:04,400
+be passed to G, and at that point, again,
+the g is executed, so a new variable is generated,
+
+292
+00:32:04,400 --> 00:32:07,330
+and the let expression is inserted.
+
+293
+00:32:07,330 --> 00:32:15,799
+And that let expression will be inserted in
+the inner reset, so that it will appear next
+
+294
+00:32:15,799 --> 00:32:26,160
+to the let the ... let expression currently we
+have.
+
+295
+00:32:26,160 --> 00:32:27,840
+OK.
+
+296
+00:32:27,840 --> 00:32:34,280
+And this technique is used in the Peter Thiemann's
+paper, called cogen in six lines.
+
+297
+00:32:34,280 --> 00:32:44,220
+Cogen is a compiler generator and he describes a compiler generator in a very concise way consisting of only 6 lines.
+
+298
+00:32:44,220 --> 00:32:48,460
+So there are 6 lines it defines a compiler generator.
+
+299
+00:32:48,460 --> 00:32:53,450
+And three lines for variable abstraction and
+application, because that is for the lambda
+
+300
+00:32:53,450 --> 00:32:59,850
+calculus, and six lines because we have static
+and dynamic variants for each of them.
+
+301
+00:32:59,850 --> 00:33:06,360
+And in his paper, A-normalization via shift
+and reset is crucially used to serialize execution
+
+302
+00:33:06,360 --> 00:33:13,710
+of expressions this technique is also known
+as let insertion in partial evaluation community
+
+303
+00:33:13,710 --> 00:33:20,179
+OK, this is the last one.
+
+304
+00:33:20,179 --> 00:33:22,630
+So how to wrap continuations.
+
+305
+00:33:22,630 --> 00:33:29,210
+So in this case, we have this idiom, so we
+captured the current continuation, k and then
+
+306
+00:33:29,210 --> 00:33:41,330
+we apply k to some result, in this case, "hello"
+but it is wrapped in a function.
+
+307
+00:33:41,330 --> 00:33:48,049
+Well, because function is a value, so if we
+do that, the current continuation is aborted,
+
+308
+00:33:48,049 --> 00:33:59,230
+so if we -- sorry, if we execute this expression,
+we clear the current continuation, binds it
+
+309
+00:33:59,230 --> 00:34:05,460
+to k, and then we return the body, but because
+that body is just a function, so that becomes
+
+310
+00:34:05,460 --> 00:34:12,480
+the value of the surrounding reset expression,
+so we abort the current continuation, and
+
+311
+00:34:12,480 --> 00:34:19,780
+then the function we receive is argument from
+outside the current context, so we have access
+
+312
+00:34:19,780 --> 00:34:22,940
+to the outside of the context.
+
+313
+00:34:22,940 --> 00:34:28,620
+And when we receive that, we can resume that
+aborted computation afterwards, so let's see
+
+314
+00:34:28,620 --> 00:34:30,870
+the complete example.
+
+315
+00:34:30,870 --> 00:34:37,200
+So in this example, we want to concatenate
+the string hello and the string world but
+
+316
+00:34:37,200 --> 00:34:46,570
+when we construct the string hello we say something nasty there,
+at it says, well, we capture the current continuation K,
+
+317
+00:34:46,570 --> 00:34:54,669
+which is the red part and then we clear the
+current continuation, so it becomes a second
+
+318
+00:34:54,669 --> 00:35:04,849
+line, and then -- OK, and then because the
+body of the reset is now just a function,
+
+319
+00:35:04,849 --> 00:35:12,390
+so it's a value, so it becomes a value of
+this reset expression, so at this point, boxed
+
+320
+00:35:12,390 --> 00:35:19,440
+function, we receive the unit from outside
+the context, so that unit recited in the first
+
+321
+00:35:19,440 --> 00:35:26,500
+line, that unit resides outside the reset,
+but we have access to that reset from within
+
+322
+00:35:26,500 --> 00:35:34,180
+the shift expression that is embedded in deep
+in the expression.
+
+323
+00:35:34,180 --> 00:35:41,400
+So at this point, we access the unit outside
+the context, and then after receiving that
+
+324
+00:35:41,400 --> 00:35:49,480
+unit, then we resume the current computation,
+which is adding world to hello.
+
+325
+00:35:49,480 --> 00:35:54,080
+So we have abort access and resume patterns
+here.
+
+326
+00:35:54,080 --> 00:36:03,420
+And this pattern can be used to write the
+typed printf and the question is, please fill
+
+327
+00:36:03,420 --> 00:36:14,000
+in the hole so that the following program
+would type check and behaves as the printf does.
+
+328
+00:36:14,000 --> 00:36:20,599
+So consider that reset expression as a printf
+and then printf is given the string hello
+
+329
+00:36:20,599 --> 00:36:39,180
+and something exclamation mark and because
+we have something there that corresponds to %s we receive that part as an argument to the printf expression. So world is passed afterwards
+
+330
+00:36:39,180 --> 00:36:50,961
+And in the second example, rather than world we will pass in the integer 8 so we want to turn that integer 8
+into a string and we want to construct a
+
+331
+00:36:50,961 --> 00:36:56,570
+string "it's 8 o'clock" so how can we do that?
+
+332
+00:36:56,570 --> 00:37:04,431
+Well, we just fill in that hole with the shift
+expression, using shift fun k and this k will capture
+
+333
+00:37:04,431 --> 00:37:14,550
+the current continuation, then abort the current
+continuation there, because that box part is the value, so that boxed part will
+
+334
+00:37:14,550 --> 00:37:25,520
+receive the value x from outside the current
+context, so that x will receive the argument
+
+335
+00:37:25,520 --> 00:37:33,310
+world and then we resume the current computation
+with that, so we will get back the Hello World
+
+336
+00:37:33,310 --> 00:37:40,500
+there, and in the second example, the boxed
+part will receive the argument 8, so that
+
+337
+00:37:40,500 --> 00:37:46,850
+x will be the integer 8, so return that
+integer into string and resume the current
+
+338
+00:37:46,850 --> 00:37:50,990
+computation, so we'll get back 8 o'clock.
+
+339
+00:37:50,990 --> 00:38:06,880
+So %s is the first red expression and the
+%d will be the second red expression.
+
+340
+00:38:06,880 --> 00:38:13,930
+Well, I showed you the print printf using
+shift and reset.
+
+341
+00:38:13,930 --> 00:38:21,490
+But this idea was given by Olivier Danvy in 1998
+and that paper shows how printf can be written in
+
+342
+00:38:21,490 --> 00:38:31,420
+type-safe manner in a standard functional language
+without using delimited continuations or dependent types in particular.
+
+343
+00:38:31,420 --> 00:38:36,990
+And the trick is that it is written in continuation-passing
+style and uses continuation in a nontrivial
+
+344
+00:38:36,990 --> 00:38:37,990
+way.
+
+345
+00:38:37,990 --> 00:38:47,830
+And if we deeply go into that paper, you will
+come up with the idea that that is very close
+
+346
+00:38:47,830 --> 00:38:52,190
+to what I showed you today with shift and
+reset.
+
+347
+00:38:52,190 --> 00:39:00,119
+But in 1998, I think it was a great discovery
+that the standard functional language without
+
+348
+00:39:00,119 --> 00:39:09,500
+dependent types can actually support the printf
+in type safe manner and this was printf, but
+
+349
+00:39:09,500 --> 00:39:13,150
+it can be generalized to state monad.
+
+350
+00:39:13,150 --> 00:39:19,940
+So state monad will allow you to write put
+and get function and put function will restore
+
+351
+00:39:19,940 --> 00:39:26,480
+a value into a mutable store and get will
+receive a value from there, so that kind of
+
+352
+00:39:26,480 --> 00:39:31,000
+mutation can be realized without any side
+effects.
+
+353
+00:39:31,000 --> 00:39:44,609
+So for example in this example, assume that
+we have a sequential execution semicolon. So if we say put 3 then value of store will become 3
+
+354
+00:39:44,609 --> 00:39:50,300
+And after that if we say get, then that get
+will receive the value 3 and after that we
+
+355
+00:39:50,300 --> 00:39:57,060
+put 4, so the value of the store becomes 4
+and afterwards get becomes 4 and the final
+
+356
+00:39:57,060 --> 00:40:05,470
+get will be also 4, so it's 4 times 4 plus
+4 plus 3, so that is 11.
+
+357
+00:40:05,470 --> 00:40:09,020
+How can we implement these kind of things?
+
+358
+00:40:09,020 --> 00:40:18,020
+Well, the idea is that the context higher
+order and pass the mutable cell, the value
+
+359
+00:40:18,020 --> 00:40:26,640
+of the mutable cell outside of the context,
+and this is just as we did for the printf.
+
+360
+00:40:26,640 --> 00:40:32,089
+So we write something like that: So in the
+expression part, we write put and get and
+
+361
+00:40:32,089 --> 00:40:39,330
+those kind of expressions, and we pass the
+value of the cell at the argument to the context.
+
+362
+00:40:39,330 --> 00:40:44,230
+So context becomes higher order and we pass
+0 outside.
+
+363
+00:40:44,230 --> 00:40:52,840
+So -- and then we can write the put and get
+function like that kind of expression using shift.
+
+364
+00:40:52,840 --> 00:41:00,000
+So for example, if we say that within the
+context, we say get of get, you need somewhere
+
+365
+00:41:00,000 --> 00:41:01,580
+in the expression.
+
+366
+00:41:01,580 --> 00:41:08,010
+Then that get expression will execute the
+shift expression, so we clear the current
+
+367
+00:41:08,010 --> 00:41:17,040
+continuation, bind it to k, and then return
+the function from v, kvv, so it becomes a
+
+368
+00:41:17,040 --> 00:41:27,660
+second line, and then this from v, this fun
+v, the abstraction, so that becomes the value
+
+369
+00:41:27,660 --> 00:41:33,859
+of the reset, and it then it has the access
+to the 0 outside the context, so we receive
+
+370
+00:41:33,859 --> 00:41:42,470
+that 0 from outside, and then at k 00, we resume
+the suspended computation there.
+
+371
+00:41:42,470 --> 00:41:54,870
+at that point the value of get becomes 0. This is the first 0 applied to k. And the second 0 is the new value of the cell.
+
+372
+00:41:54,870 --> 00:42:02,170
+And you can write the put in a similar manner.
+
+373
+00:42:02,170 --> 00:42:10,230
+And this state monad is the kind of thing
+is actually generalized to any monads, and
+
+374
+00:42:10,230 --> 00:42:17,390
+Filinski showed that any monads can be represented
+in direct style using shift and reset.
+
+375
+00:42:17,390 --> 00:42:24,700
+And this paper is quite involved, and it is
+not very easy to read through, but the good
+
+376
+00:42:24,700 --> 00:42:29,900
+news is that this paper contains a complete
+code in Standard ML.
+
+377
+00:42:29,900 --> 00:42:37,460
+So if you can dive into the standard ML code
+then you can understand the essence of the
+
+378
+00:42:37,460 --> 00:42:42,810
+idea without reading any of the text of the
+paper.
+
+379
+00:42:42,810 --> 00:42:54,170
+OK, so I hope that I could somehow convey
+to you how I think about delimited continuations,
+
+380
+00:42:54,170 --> 00:43:00,680
+and how I program with it in a day to day
+programming.
+
+381
+00:43:00,680 --> 00:43:03,610
+It's quite simple, but it's quite expressive.
+
+382
+00:43:03,610 --> 00:43:12,680
+And here now I want to talk about the future
+of the shift and reset, and my point is that
+
+383
+00:43:12,680 --> 00:43:17,490
+the current proof assistants do not allow
+exception or shift or reset.
+
+384
+00:43:17,490 --> 00:43:25,530
+So if you write a proof of a theorem, and
+if there is an exceptional case, then you
+
+385
+00:43:25,530 --> 00:43:31,390
+have to, case analysis if that exception happens
+or not.
+
+386
+00:43:31,390 --> 00:43:36,960
+In our -- in other words, you have to write
+the proof monadic style.
+
+387
+00:43:36,960 --> 00:43:42,100
+But if we can use shift and reset in the theorem proving then
+
+388
+00:43:42,100 --> 00:43:49,580
+We don't have to write the monadic proofs,
+but we can just throw exceptions, and do
+
+389
+00:43:49,580 --> 00:43:55,260
+all that kind of expressive programming in
+theorem proof.
+
+390
+00:43:55,260 --> 00:43:58,610
+So I want to help that.
+
+391
+00:43:58,610 --> 00:44:06,599
+But the question is, theorem prover is based
+on Curry-Howard isomorphism and if you want
+
+392
+00:44:06,599 --> 00:44:12,880
+to use shift and reset to provide the curry-Howard
+isomorphism for shift and reset, well, I don't
+
+393
+00:44:12,880 --> 00:44:22,000
+know, so we have to answer that. And before that what is the type of shift expression and what is the logical meaning of that?
+
+394
+00:44:22,000 --> 00:44:31,700
+Well, Curry-Howard isomorphism says that
+if the typability of programs in functional
+
+395
+00:44:31,700 --> 00:44:39,630
+language corresponds one to one to the derivability
+of logical formula in intuitionistic logic,
+
+396
+00:44:39,630 --> 00:44:47,619
+and if you write the type system and the derivation
+system then and compare them, then you see
+
+397
+00:44:47,619 --> 00:44:50,090
+that those two are exactly the same.
+
+398
+00:44:50,090 --> 00:44:58,359
+If we ignore the blue part, the red part coincides
+one to one.
+
+399
+00:44:58,359 --> 00:45:01,280
+So that's the Curry-Howard isomorphism.
+
+400
+00:45:01,280 --> 00:45:15,450
+And the point here is that function type B -> A  is identified with the logical implication  B implies A. So that is a crucial part but then
+
+401
+00:45:15,450 --> 00:45:18,600
+what is the type of shift?
+
+402
+00:45:18,600 --> 00:45:25,970
+Whenever we talk about the type of shift,
+we have to take the type of the context into
+ account.
+
+403
+00:45:25,970 --> 00:45:36,720
+So if we have shift, then its type is affected
+by the type of its context, so for pure expression,
+
+404
+00:45:36,720 --> 00:45:43,600
+that does not have any shift expression, well,
+it can appear in any context, but if you use
+
+405
+00:45:43,600 --> 00:45:49,619
+shift, then that expression can appear only
+in certain restricted context.
+
+406
+00:45:49,619 --> 00:45:53,720
+So for example put and get function cannot appear only in the higher order context.
+
+407
+00:45:53,720 --> 00:45:58,520
+So the type of shift is affected by the type of the context.
+
+408
+00:45:58,520 --> 00:46:08,220
+And in general, a function type of shift will
+-- function type in the system where we have
+
+409
+00:46:08,220 --> 00:46:20,490
+shift and reset, it becomes like A arrow B
+added with C and D and this type corresponds
+
+410
+00:46:20,490 --> 00:46:29,490
+to the function type from A to B, but the
+type of the context changes from C to D. Well,
+
+411
+00:46:29,490 --> 00:46:32,780
+context of types can change if you use shift.
+
+412
+00:46:32,780 --> 00:46:36,280
+I didn't talk about that, but that happens.
+
+413
+00:46:36,280 --> 00:46:45,099
+And for pure expression, we say the answer
+Type C and D is always the same and polymorphic,
+
+414
+00:46:45,100 --> 00:46:54,880
+so if we can safely ignore using the polymorphic
+argument. And we can identify that with the implication A -> B
+
+415
+00:46:54,880 --> 00:47:02,340
+But for the impure case we have to deal with C and D, the type of context anyway and what does this mean logically?
+
+416
+00:47:02,340 --> 00:47:10,170
+So in logic we have implication from something
+to something and we will never think about
+
+417
+00:47:10,170 --> 00:47:11,960
+the type of context there.
+
+418
+00:47:11,960 --> 00:47:15,410
+So what does it mean?
+
+419
+00:47:15,410 --> 00:47:22,869
+And one way -- one interesting work on that
+direction is done by Griffin, and he said
+
+420
+00:47:22,869 --> 00:47:34,800
+that call/cc, call with continuation, which is a variant of shift, it has the type alpha to beta to alpha to
+
+421
+00:47:34,800 --> 00:47:40,960
+alpha and that is a classic type and so it's
+not intuitionistic.
+
+422
+00:47:40,960 --> 00:47:52,680
+And that was an interesting result but of course it does not take the answer type into account because call/cc is undelimited continuation construct
+
+423
+00:47:52,680 --> 00:47:57,810
+So it takes undelimitted contention and it
+doesn't have any answer type, and the type
+
+424
+00:47:57,810 --> 00:47:59,329
+of the context.
+
+425
+00:47:59,329 --> 00:48:04,900
+But if you think about the shift, then shift
+moves around a part of the computation,
+
+426
+00:48:04,900 --> 00:48:12,280
+and well, sorry, if we think about shift,
+then we need to think about answer types,
+
+427
+00:48:12,280 --> 00:48:15,390
+anyway, and the type of the context, anyway.
+
+428
+00:48:15,390 --> 00:48:21,220
+And if we think about what it does, well,
+shift moves around a part of the computation,
+
+429
+00:48:21,220 --> 00:48:29,030
+but logically we have a typing -- we have
+a derivation for some formula, and we cut and
+
+430
+00:48:29,030 --> 00:48:37,410
+paste the proofs to construct another proof,
+and that is what's happening in the logical world.
+
+431
+00:48:37,410 --> 00:48:48,330
+So would that be the meaning of the arrow-type
+extended with the type of the context?
+
+432
+00:48:48,330 --> 00:48:50,050
+I don't know.
+
+433
+00:48:50,050 --> 00:48:56,849
+But it seems that we need to think something
+about that if we want actually to introduce
+
+434
+00:48:56,849 --> 00:49:02,359
+shift and reset into theorem proving and my
+current conjecture is that shift is intuitionistic,
+
+435
+00:49:02,359 --> 00:49:08,490
+and it means that even if we use shift, we
+cannot construct a term having a classic type.
+
+436
+00:49:08,490 --> 00:49:19,550
+But that's -- that's not proved yet, and well
+-- well, I think that's an interesting thing to explore.
+
+437
+00:49:19,550 --> 00:49:20,550
+OK.
+
+438
+00:49:20,550 --> 00:49:25,420
+So today I talked about shift and reset and
+my point is that shift and resets are quite
+
+439
+00:49:25,420 --> 00:49:31,619
+simple, but they're very expressive and there
+is a type system for shift and reset, but
+
+440
+00:49:31,619 --> 00:49:36,640
+its relationship to logic is not known.
+
+441
+00:49:36,640 --> 00:49:41,700
+You could -- you could ask a question like
+that.
+
+442
+00:49:41,700 --> 00:49:47,859
+Well, we can always turn a program with shift
+and reset into a program without using shift
+
+443
+00:49:47,859 --> 00:49:52,320
+and reset by CPS transformation.
+
+444
+00:49:52,320 --> 00:49:56,810
+If you do a CPS transformation, then you can
+always transform the program in shift and
+
+445
+00:49:56,810 --> 00:49:59,329
+reset to the program without.
+
+446
+00:49:59,329 --> 00:50:03,750
+So then do you really need shift and reset?
+
+447
+00:50:03,750 --> 00:50:06,920
+Can we live without that?
+
+448
+00:50:06,920 --> 00:50:10,630
+And my question -- my answer is, well, definitely
+we need it.
+
+449
+00:50:10,630 --> 00:50:20,210
+Well, in -- long time ago, when the higher-order
+functions were introduced, I think the people
+
+450
+00:50:20,210 --> 00:50:22,869
+must have asked, do we need higher-order functions?
+
+451
+00:50:22,869 --> 00:50:26,260
+They're expensive, they are complicated.
+
+452
+00:50:26,260 --> 00:50:31,930
+And we can always emulate them using Clojures,
+why do we need higher-order functions but
+
+453
+00:50:31,930 --> 00:50:42,180
+today it provides us with a higher level of
+abstraction and way of thinking and going further
+
+454
+00:50:42,180 --> 00:50:53,200
+and in that same thing, I think that having
+shift and reset as a basic language construct
+
+455
+00:50:53,200 --> 00:51:01,250
+has an implication into the more sophisticated
+way of thinking in general.
+
+456
+00:51:01,250 --> 00:51:06,270
+OK, so that's my talk.
+
+457
+00:51:06,270 --> 00:51:14,400
+Well, you can use -- well, I have developed
+a system called OchaCaml, which is a shift/reset extended Caml-like
+
+458
+00:51:14,400 --> 00:51:20,240
+So you can use shift and reset there, and there are a lot of other languages that you can use shift
+and reset
+
+459
+00:51:20,240 --> 00:51:23,740
+So happy programming with shift and reset.
+
+460
+00:51:23,740 --> 00:51:24,240
+[applause]

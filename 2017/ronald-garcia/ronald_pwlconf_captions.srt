@@ -1,0 +1,2636 @@
+1
+00:00:05,580 --> 00:00:13,450
+so good afternoon, everybody, as Zeeshan said
+I'm Ron and I work on types.
+
+2
+00:00:13,450 --> 00:00:17,430
+So I'm -- I'll tell you a little bit more
+about myself in a bit but I just wanted to
+
+3
+00:00:17,430 --> 00:00:22,890
+kind of set up the stage, which is you know,
+a lot of programmers here, I write lots of
+
+4
+00:00:22,890 --> 00:00:28,480
+code, like ten lines a year or so now, so
+I have lots of insights into how this works.
+
+5
+00:00:28,480 --> 00:00:34,120
+But in my older days when I was actually writing
+more code, I came to both have a love and
+
+6
+00:00:34,120 --> 00:00:37,730
+hate relationship with types, which is why
+I think I work on types and not types at the
+
+7
+00:00:37,730 --> 00:00:38,820
+same time now.
+
+8
+00:00:38,820 --> 00:00:40,680
+Call it schizophrenia.
+
+9
+00:00:40,680 --> 00:00:46,339
+But you can look at types and typed programming
+languages in multiple different ways and I
+
+10
+00:00:46,339 --> 00:00:51,449
+just wanted to kind of highlight these two
+kind of views of the idea of having a type
+
+11
+00:00:51,449 --> 00:00:55,370
+discipline and one of them is like, you know,
+the discipline strengthens your mind and helps
+
+12
+00:00:55,370 --> 00:00:59,910
+guide you so that you can break things and
+like shoot people across the wall.
+
+13
+00:00:59,910 --> 00:01:04,640
+But on the other hand you can think of a discipline
+as like that thing that keeps you from doing
+
+14
+00:01:04,640 --> 00:01:10,080
+wrong and makes you sad, so you know, then
+you find yourself getting your hiney smacked
+
+15
+00:01:10,080 --> 00:01:11,850
+in modern art.
+
+16
+00:01:11,850 --> 00:01:16,640
+So for instance and a lot of people who are
+really into programming and especially typed
+
+17
+00:01:16,640 --> 00:01:21,470
+function programming languages like this idea
+that the types will guide your program and
+
+18
+00:01:21,470 --> 00:01:27,690
+thinking in types will help you program well
+and so this is just an example of the Idris
+
+19
+00:01:27,690 --> 00:01:33,290
+language and this type-driven development
+but I'd also note that the first where I first
+
+20
+00:01:33,290 --> 00:01:43,520
+came to appreciate type driven development
+is in the Racket language.
+
+21
+00:01:43,520 --> 00:01:48,890
+It's like, high wire walking for like people
+who don't feel like using training wheels.
+
+22
+00:01:48,890 --> 00:01:53,350
+So on the other side, you have this idea of
+type discipline and how type checkers that
+
+23
+00:01:53,350 --> 00:01:58,000
+you work with kind of sometimes they drive
+you crazy, sometimes they help you out a lot.
+
+24
+00:01:58,000 --> 00:02:01,830
+And one case here is just like, yeah, you
+know, your type checker tells you that you
+
+25
+00:02:01,830 --> 00:02:06,520
+gave it something that has type string, it
+has type string and lists lists oh, I know
+
+26
+00:02:06,520 --> 00:02:11,319
+how to fix this, let's just put brackets around
+it twice and carry on.
+
+27
+00:02:11,319 --> 00:02:16,140
+It reminds me of my old C programming days
+where you're like you ever this three-star
+
+28
+00:02:16,140 --> 00:02:21,420
+programmer and you're just like, I'll add
+more stars.
+
+29
+00:02:21,420 --> 00:02:26,330
+So the real answer is you'll swap your arguments.
+
+30
+00:02:26,330 --> 00:02:31,120
+Maybe you want to switch them the other way.
+
+31
+00:02:31,120 --> 00:02:35,510
+So that's kind of life of a person programming
+with types and as a researcher I spend a lot
+
+32
+00:02:35,510 --> 00:02:40,260
+of time kind of thinking more in the abstract
+about them so this talk is kind of to give
+
+33
+00:02:40,260 --> 00:02:46,010
+you a flavor of the theoretician's point of
+view on how types work and how that kind of
+
+34
+00:02:46,010 --> 00:02:52,040
+style of thinking can help you think about
+even types in programming.
+
+35
+00:02:52,040 --> 00:02:57,959
+And give you some insight into what kind of
+type systems researchers do or so -- so as
+
+36
+00:02:57,959 --> 00:03:02,230
+Zeeshan said I'm a professor at University
+of British Columbia and I've spent a lot of
+
+37
+00:03:02,230 --> 00:03:05,319
+time on mixing dynamic and static typing.
+
+38
+00:03:05,319 --> 00:03:09,630
+And in order to do that I'm trying to think
+about what's going on with types.
+
+39
+00:03:09,630 --> 00:03:15,130
+There are so many different views and as theoretician,
+you want some grounding and you end up spending
+
+40
+00:03:15,130 --> 00:03:20,760
+a lot of time reading and reading lots of
+papers, not necessarily visiting the town
+
+41
+00:03:20,760 --> 00:03:24,280
+of Reading, but whatever.
+
+42
+00:03:24,280 --> 00:03:30,900
+So I put together this list of papers that have definitely influenced me when reading about types.
+
+43
+00:03:30,900 --> 00:03:40,700
+I should note this is not the definitive list of papers on types. There are papers from earlier, there are definitely papers that have been written in the last 13 years that are really significant.
+
+44
+00:03:40,700 --> 00:03:44,870
+This was just a really interesting window
+into types.
+
+45
+00:03:44,870 --> 00:03:50,290
+So having spent a lot of time kind of digesting
+these papers and reading them, I guess I am
+
+46
+00:03:50,290 --> 00:03:55,780
+that kind of person who sits around with a
+beer and a paper and is like --
+
+47
+00:03:55,780 --> 00:03:56,780
+[laughter]
+
+48
+00:03:56,780 --> 00:03:59,459
+Yeah, you know, like papers, it's the weekend,
+what am I gonna do?
+
+49
+00:03:59,459 --> 00:04:00,690
+Read another paper!
+[laughter]
+
+50
+00:04:00,690 --> 00:04:04,430
+So it's kind of addictive.
+
+51
+00:04:04,430 --> 00:04:09,190
+But today I'm going to talk about one of the
+mostly I'm going to focus on one of the -- what
+
+52
+00:04:09,190 --> 00:04:13,530
+I think is one of the great papers on types
+and programming languages that just happened
+
+53
+00:04:13,530 --> 00:04:17,829
+to come out in the 1970s, and there's a number
+of other papers here that I think are also
+
+54
+00:04:17,829 --> 00:04:23,060
+really significant but you can only cover
+so much in a period of time an I decided that
+
+55
+00:04:23,060 --> 00:04:30,080
+I'd focus on mostly one and then talk about
+how it relates to some of the work in the
+
+56
+00:04:30,080 --> 00:04:31,199
+others.
+
+57
+00:04:31,199 --> 00:04:36,770
+So throughout the talk, I kind of hope that
+I'll bring a few themes that arise when you're
+
+58
+00:04:36,770 --> 00:04:40,930
+thinking about types and type systems from
+a theoretical point of view and one is this
+
+59
+00:04:40,930 --> 00:04:46,240
+idea of syntax as a, you know, we're all -- we
+all know about syntax because we spend all
+
+60
+00:04:46,240 --> 00:04:50,849
+our time arguing with one another about what's
+the right syntax for a programming language
+
+61
+00:04:50,849 --> 00:04:57,150
+but really here what I mean is this idea of
+symbols and symbol-pushing really, that basically
+
+62
+00:04:57,150 --> 00:05:07,259
+symbol-pushing is what is really what computers are really good at to a certain extent. And when McCarthy came out with Lisp he wanted a language for writing functions that operate on symbolic expressions.
+
+63
+00:05:07,259 --> 00:05:12,659
+much of what we do in computing and programming
+is really building symbolic representations
+
+64
+00:05:12,659 --> 00:05:17,330
+of ideas and then computing over them and
+much of what you do with type systems is that
+
+65
+00:05:17,330 --> 00:05:22,610
+and how it gets implemented and how you reason
+about them.
+
+66
+00:05:22,610 --> 00:05:26,650
+But you know, just because you can throw symbols
+up doesn't mean you have any idea what they
+
+67
+00:05:26,650 --> 00:05:32,259
+mean and at some time you have to think about
+semantics and semantics is just a highfalutin'
+
+68
+00:05:32,259 --> 00:05:42,250
+word for what do I meaning you know, huh? So I'll spend some time talking about whats the relationship between syntax and semantics since its a really big deal in basically
+
+69
+00:05:42,250 --> 00:05:46,400
+any kind of programming. Programming languages
+just happens to be writing programs where
+
+70
+00:05:46,400 --> 00:05:54,240
+data is programs. Which is kind of cool if you like eating your own dog food. Any program you write is it going
+to have some sort of notation and some sort
+
+71
+00:05:54,240 --> 00:05:56,809
+of interpretation.
+
+72
+00:05:56,809 --> 00:06:00,090
+And then the last is pragmatics.
+
+73
+00:06:00,090 --> 00:06:04,529
+So in the world of linguistics they talk about
+these three things and what I mean here is
+
+74
+00:06:04,529 --> 00:06:09,860
+at the end of the day you will have some goal
+that you want to achieve and you'll do what
+
+75
+00:06:09,860 --> 00:06:17,180
+you need to bridge that last gap to getting
+that job done and focus on that.
+
+76
+00:06:17,180 --> 00:06:20,919
+From a theoretician's point of view, which
+may not be the same thing from a practitioner's
+
+77
+00:06:20,919 --> 00:06:25,250
+point of view come up.
+
+78
+00:06:25,250 --> 00:06:28,939
+So on to the meat of the talk.
+
+79
+00:06:28,939 --> 00:06:35,249
+So this paper by Robin Milner, it's great.
+
+80
+00:06:35,249 --> 00:06:38,710
+It's from the '70s, I was actually alive when
+this paper was written.
+
+81
+00:06:38,710 --> 00:06:42,740
+That didn't help me understand it.
+
+82
+00:06:42,740 --> 00:06:50,289
+But Robin Milner, just a sidenote on him,
+he's a really brilliant British computer scientist.
+
+83
+00:06:50,289 --> 00:06:55,279
+He's no longer with us, unfortunately but
+he did a lot of work on theorem proving and
+
+84
+00:06:55,279 --> 00:07:05,160
+he wrote this LCF theorem prover and the
+ML programming language came out of trying to solve the problem of how do I write a theorem prover and how write techniques for writing theorem proving.
+
+85
+00:07:05,160 --> 00:07:09,210
+So it's one you do like one amazing thing
+and you do another amazing thing so you can
+
+86
+00:07:09,210 --> 00:07:13,569
+get the first amazing thing done and then
+he went on to work with concurrency and came
+
+87
+00:07:13,569 --> 00:07:19,939
+up with these calculations especially for
+the pi-calculus, for his body of work, he
+
+88
+00:07:19,939 --> 00:07:26,660
+was awarded the Turing Award, and you always
+thought it was cool this guy who blows your
+
+89
+00:07:26,660 --> 00:07:35,909
+socks off, he didn't have a Ph.D. but he was
+really passionate about his work and thought
+
+90
+00:07:35,909 --> 00:07:42,550
+-- you read his papers and you get this sense
+of intellect of really trying to think hard
+
+91
+00:07:42,550 --> 00:07:44,569
+about problems and conceptualize them.
+
+92
+00:07:44,569 --> 00:07:50,709
+So I really enjoy reading his papers and seeing
+how he thinks about things, you know.
+
+93
+00:07:50,709 --> 00:07:52,089
+Better with a beer.
+
+94
+00:07:52,089 --> 00:07:55,719
+Not too many or you won't understand.
+
+95
+00:07:55,719 --> 00:07:59,569
+So the paper, you know, in the community on
+types, this is kind of like, oh, beings this
+
+96
+00:07:59,569 --> 00:08:02,199
+is the hindly/mill letter type inference paper.
+
+97
+00:08:02,199 --> 00:08:08,400
+How many of you have programmed in Haskell
+or ML or standard ML before so there's
+
+98
+00:08:08,400 --> 00:08:11,999
+quite a few of you and you've enjoyed your
+experience of not having to spend all of your
+
+99
+00:08:11,999 --> 00:08:20,699
+time writing down type annotations and some how the type checker does things, and this paper kind of codified a lot of those ideas and has been viewed that way
+
+100
+00:08:20,699 --> 00:08:25,449
+I mostly want to talk about it from a different
+point of view, that like its place in the
+
+101
+00:08:25,449 --> 00:08:31,520
+world of type systems, which is that in many
+ways, this paper really brought together what
+
+102
+00:08:31,520 --> 00:08:36,620
+I call a conceptual blueprint for analyzing
+types and type systems for how theorists think
+
+103
+00:08:36,620 --> 00:08:40,960
+about types, and I'm hoping that I can kind
+of convey some of those ideas through like
+
+104
+00:08:40,960 --> 00:08:46,390
+a walk through some of the details of this
+paper.
+
+105
+00:08:46,390 --> 00:08:47,390
+So let's just dive in.
+
+106
+00:08:47,390 --> 00:08:50,050
+[laughter]
+
+107
+00:08:50,050 --> 00:08:57,440
+Now, so ... unlike the last talk there's probably
+going to be a lot more math than code in this
+
+108
+00:08:57,440 --> 00:08:59,200
+one.
+
+109
+00:08:59,200 --> 00:09:03,030
+There's a lot of symbols, you but know, bear
+with me we'll kind of walk through it and
+
+110
+00:09:03,030 --> 00:09:08,130
+you'll see that like your intuitions as a
+programmer really help you understand a lot
+
+111
+00:09:08,130 --> 00:09:13,650
+of this stuff and the -- the math starts to
+get you at the conners, so as long as you
+
+112
+00:09:13,650 --> 00:09:16,150
+don't need to prove any theorems, you can
+be like, yeah, I can kind of figure out if
+
+113
+00:09:16,150 --> 00:09:17,970
+what's going on if I put my programmer hat
+on.
+
+114
+00:09:17,970 --> 00:09:25,620
+Yeah, it's just Haskell code, it just happens to be undecide-able, whatever. So, as I'd alluded
+
+115
+00:09:25,620 --> 00:09:31,270
+to we start with the syntax which is in the top box. [laughter]
+
+116
+00:09:31,270 --> 00:09:36,310
+It's just data type, its just data. You have trees, programming
+language theorists don't worry about parsing
+
+117
+00:09:36,310 --> 00:09:41,250
+or how many spaces, we just skip the whole
+Pretty-Printing be like. We just skip the whole pretty printing part.
+
+118
+00:09:41,250 --> 00:09:45,760
+Like, let somebody else do it like the previous
+speaker and give me an abstract syntax tree
+
+119
+00:09:45,760 --> 00:09:47,720
+and I'll operate on that.
+
+120
+00:09:47,720 --> 00:09:57,640
+So this is just a data representation in Racket of that symbology up there. So as you can see that one is a lot smaller
+than that one which is why I think PLP people
+
+121
+00:09:57,640 --> 00:09:58,640
+like to write this.
+
+122
+00:09:58,640 --> 00:10:10,220
+Because you can translate that into Haskell
+or into Ocaml. Or write a class hierarchy in Java and that's your syntax. And its meaningless just as syntax.
+
+123
+00:10:10,220 --> 00:10:16,700
+So this concludes the coding part of the talk.
+
+124
+00:10:16,700 --> 00:10:23,660
+So going back, down below we have this is
+the semantics, so this is really the definition
+
+125
+00:10:23,660 --> 00:10:27,580
+of what these programs that you can write
+in that language up above mean.
+
+126
+00:10:27,580 --> 00:10:31,940
+Like if you give me one of these abstract
+data types, what can I do with it?
+
+127
+00:10:31,940 --> 00:10:35,490
+Like what's the result that this program is
+going to produce.
+
+128
+00:10:35,490 --> 00:10:41,260
+And it's basically an interpreter, like
+you could almost take this notation and say,
+
+129
+00:10:41,260 --> 00:10:47,280
+yeah, it looks a lot like the Haskell programming
+language and if you look in the bottom left
+
+130
+00:10:47,280 --> 00:10:52,320
+corner, the cursive e is just like, yeah,
+that's the name of my eval function and I
+
+131
+00:10:52,320 --> 00:10:58,080
+just happen to have unicode, so I'm not going
+to bother writing eval. So its like Math-Cal E
+
+132
+00:10:58,080 --> 00:11:03,230
+And the fancy brackets, which are called Scott brackets, after Turing award winner Dana Scott
+
+133
+00:11:03,230 --> 00:11:11,910
+Its basically just a notation for heres how we do pattern matching on our data structures. And each of the equations up there is like
+pattern matching your data structure apart
+
+134
+00:11:11,910 --> 00:11:16,440
+into all of the pieces that make up your data
+and the last thing is called an environment
+
+135
+00:11:16,440 --> 00:11:22,340
+and that's essentially just a look-up table
+and it's a mapping from variables to values.
+
+136
+00:11:22,340 --> 00:11:27,400
+So the idea is you have a type signature at
+the bottom, but it's like a math-type signature
+
+137
+00:11:27,400 --> 00:11:31,540
+and it says if you give me an expression in
+my language what what I will do is return
+
+138
+00:11:31,540 --> 00:11:36,170
+you a function and what the function says
+is, tell me what environment I'm in.
+
+139
+00:11:36,170 --> 00:11:37,691
+Like, what's the world around me like?
+
+140
+00:11:37,691 --> 00:11:42,810
+What's the value of X, what's the value of
+y, and I will give you an answer and the answer
+
+141
+00:11:42,810 --> 00:11:47,230
+happens to be like, some stuff in math world
+so you can think about this as basically an
+
+142
+00:11:47,230 --> 00:11:51,860
+interpreter from the EXP language to math.
+
+143
+00:11:51,860 --> 00:11:56,240
+And this ends up being a theme throughout
+and it is kind of interesting that given any
+
+144
+00:11:56,240 --> 00:12:01,550
+arbitrary piece of code you get back like
+a meaning and it will be like tell me what
+
+145
+00:12:01,550 --> 00:12:08,840
+the world is like and this will give you an
+answer and this theme will arise again later.
+
+146
+00:12:08,840 --> 00:12:13,850
+So interestingly enough, at the core of this ML language, it's a dynamic language.
+
+147
+00:12:13,850 --> 00:12:21,500
+It has all of these checks in its definition
+and like if you look at the second line, what
+
+148
+00:12:21,500 --> 00:12:26,550
+it's basically saying that the first thing
+it says is, well, v1 is basically what happens
+
+149
+00:12:26,550 --> 00:12:30,600
+when I evaluate the argument position of a
+function application.
+
+150
+00:12:30,600 --> 00:12:35,530
+That's a function application, and then if
+it's a function, then keep going, if not,
+
+151
+00:12:35,530 --> 00:12:37,010
+then go down to the next line.
+
+152
+00:12:37,010 --> 00:12:38,010
+Wrong!
+
+153
+00:12:38,010 --> 00:12:39,010
+Like you have a type error.
+
+154
+00:12:39,010 --> 00:12:40,420
+Like a Python-style error.
+
+155
+00:12:40,420 --> 00:12:45,360
+But if it's OK, then double-check running
+the second thing and then if that threw a
+
+156
+00:12:45,360 --> 00:12:52,440
+type exception, then throw a type exception,
+otherwise take the first argument as a function
+
+157
+00:12:52,440 --> 00:12:56,170
+and then pass it the result of the second
+argument.
+
+158
+00:12:56,170 --> 00:12:58,350
+So if you've ever written an interpreter,
+by chance.
+
+159
+00:12:58,350 --> 00:13:02,740
+Actually I'm curious, can you raise your hand
+if you've written an interpreter before.
+
+160
+00:13:02,740 --> 00:13:05,020
+So there's a few of you who have.
+
+161
+00:13:05,020 --> 00:13:12,350
+The rest of you probably actually but you don't
+know it. Most programs are really interpreters. But the basic thing is walk the tree
+
+162
+00:13:12,350 --> 00:13:21,030
+and interpret it and we happen to implement EXP functions using math functions here.  And if you are ever to implement an interpreter you'll find that's a really
+
+163
+00:13:21,030 --> 00:13:31,480
+cool trick that
+you can do, too. Oh I'm going to implement my Python functions using Haskell functions or vice versa if you're sick. [laughter] Just kidding you can perfectly well do that
+
+164
+00:13:31,480 --> 00:13:38,370
+Especially like interestingly enough, there's
+an interesting implementation of jit compilers using Python called Py-Py. So you can implement lots of languages like that.
+
+165
+00:13:38,370 --> 00:13:44,930
+Another thing I'll note is basically
+
+166
+00:13:44,930 --> 00:13:49,750
+Every program runs, like as long as you don't
+have free variables floating around, you better
+
+167
+00:13:49,750 --> 00:13:56,180
+have some meaning for your variables and that's
+what the environment is for here. So its basically all closed programs run and
+
+168
+00:13:56,180 --> 00:14:00,240
+You don't get wrong if you try to look up
+a variable.
+
+169
+00:14:00,240 --> 00:14:05,750
+Like you better have the -- you always have
+some meaning for it.
+
+170
+00:14:05,750 --> 00:14:11,560
+So that's kind of the kind of core of this
+dynamic language and now, kind of the goal
+
+171
+00:14:11,560 --> 00:14:14,820
+is how do we make those red circles go away?
+
+172
+00:14:14,820 --> 00:14:19,100
+In Milner's paper he talks about, yeah, you
+know, you run into they silly problems where
+
+173
+00:14:19,100 --> 00:14:23,970
+you decide to call -- try and apply a number
+as if it was a function and give it an argument and bad things happen
+
+174
+00:14:23,970 --> 00:14:28,360
+And wouldn't it be nice if that kind of error
+just went away?
+
+175
+00:14:28,360 --> 00:14:32,120
+Yeah, that's what type systems are for.
+
+176
+00:14:32,120 --> 00:14:35,780
+People had been doing this for long before
+this paper came along, but he said, how do
+
+177
+00:14:35,780 --> 00:14:46,910
+we take an analytic approach to thinking about and proving once and for all that our type checker does good
+
+178
+00:14:46,910 --> 00:14:51,100
+things and keeps us from having certain kinds
+of errors happen, specifically the ones that
+
+179
+00:14:51,100 --> 00:14:53,180
+are listed as wrong here.
+
+180
+00:14:53,180 --> 00:15:01,610
+There's nothing on this slide that says divide by zero produces wrong. You just say 'it produces divide by zero' and that's just not wrong.
+
+181
+00:15:01,610 --> 00:15:06,410
+So when I say that well typed programs don't
+go wrong, you're like, yeah, but they divide
+
+182
+00:15:06,410 --> 00:15:07,410
+by 0.
+
+183
+00:15:07,410 --> 00:15:08,410
+[laughter]
+
+184
+00:15:08,410 --> 00:15:11,960
+Or like, you know, don't worry about that.
+
+185
+00:15:11,960 --> 00:15:18,490
+So let me start talking about types and I've
+got this language, and interestingly enough,
+
+186
+00:15:18,490 --> 00:15:25,990
+there's like a bunch of prose up here and there's and it's basically like the syntax of type is as follows, it its basically just another definition
+
+187
+00:15:25,990 --> 00:15:27,610
+of a syntax for types.
+
+188
+00:15:27,610 --> 00:15:35,960
+And I list it as two things here, and it really
+is again a data type, and but he separates
+
+189
+00:15:35,960 --> 00:15:39,940
+his world of types into two different kinds
+of types.
+
+190
+00:15:39,940 --> 00:15:43,650
+And this is really for reasons of the kind
+of language that he's trying to define here,
+
+191
+00:15:43,650 --> 00:15:45,320
+the way that ML's type system works.
+
+192
+00:15:45,320 --> 00:15:51,060
+So he has monotypes, which are basically types
+that you'd see in any language, you've got
+
+193
+00:15:51,060 --> 00:15:55,490
+integers, functions from integers to booleans,
+functions from integers to integers to integers,
+
+194
+00:15:55,490 --> 00:15:57,020
+etc.
+
+195
+00:15:57,020 --> 00:16:00,990
+And he also adds this idea of polytypes. He adds type variables.
+
+196
+00:16:00,990 --> 00:16:13,610
+You're like, OK, so just stir in some type variables and keep adding arrows and now I've got these new things and give them a name called polytypes. And those are the types and so in this case he uses Greek letters, because
+
+197
+00:16:13,610 --> 00:16:18,260
+PWL people can't help but using Greek letters as a result of studying too much type theory.
+
+198
+00:16:18,260 --> 00:16:32,210
+We know all of them we know the difference between cassi and chi, which is kind of disturbing. And now you types like have alpha to alpha and alpha to beta to alpha. Which is not the same thing as int to int
+
+199
+00:16:32,210 --> 00:16:34,220
+and alpha to int to alpha.
+
+200
+00:16:34,220 --> 00:16:37,470
+It's like, OK, we can go home?
+
+201
+00:16:37,470 --> 00:16:39,480
+No, we can't.
+
+202
+00:16:39,480 --> 00:16:44,620
+Because all I have done is written down more syntax. This is just a datatype. So what do these things mean to us?
+
+203
+00:16:48,660 --> 00:16:57,680
+If somebody came from Mars and says what is this alpha, arrow alpha arrow beta.  Well if someone came from Mars we discuss other things than interpreted types but
+
+204
+00:16:57,680 --> 00:17:01,450
+Assuming that they were into programming, you're wondering, what do these things mean,
+
+205
+00:17:01,450 --> 00:17:04,309
+what does INT mean what do these types tell us.
+
+206
+00:17:04,309 --> 00:17:08,789
+So what Milner does is give semantics to his types.
+
+207
+00:17:08,789 --> 00:17:12,749
+He says there are meaningful things in the
+world and it's up to us to decide what they
+
+208
+00:17:12,749 --> 00:17:17,730
+mean and be able to say something about that.
+
+209
+00:17:17,730 --> 00:17:21,519
+So he starts by in a place that to me seemed weird.
+
+210
+00:17:21,519 --> 00:17:26,819
+He's like, OK, so our programming language, you know, you throw in expressions and values
+
+211
+00:17:26,819 --> 00:17:33,240
+pop out and let's give -- first let's give
+meaning to the values that pop out of running
+
+212
+00:17:33,240 --> 00:17:38,820
+your program and sort of like, yeah, but when I grew up, I always typed my programs, not
+
+213
+00:17:38,820 --> 00:17:41,450
+the results of them, so what's that about?
+
+214
+00:17:41,450 --> 00:17:44,960
+And it's like, well, this is a starting point,
+because if you think about it, the values
+
+215
+00:17:44,960 --> 00:17:48,919
+that come out of your program are in a certain
+sense the meaning of the programs, so you
+
+216
+00:17:48,919 --> 00:17:52,110
+want to kind of understand what the types
+have to do with the meaning of your programs
+
+217
+00:17:52,110 --> 00:17:55,720
+and then worry about the syntax of your programs later and we'll get there.
+
+218
+00:17:55,720 --> 00:18:03,860
+So he starts by giving a definition of the
+semantics of his mono types, the ints and the int arrow int, and once you
+
+219
+00:18:03,860 --> 00:18:08,399
+start looking at it you're like, yeah, this
+is sort of intuitive, but there's some stuff
+
+220
+00:18:08,399 --> 00:18:09,779
+that's a little weird.
+
+221
+00:18:09,779 --> 00:18:15,559
+So one thing that happens is that I had mentioned that math works a little funny and there's
+
+222
+00:18:15,559 --> 00:18:18,860
+a value in your language which is basically
+infinite computation.
+
+223
+00:18:18,860 --> 00:18:23,230
+It's like, yeah, you can have infinite computation in your hands, pass it your friends, you know,
+
+224
+00:18:23,230 --> 00:18:28,090
+share it and it's like, OK, that's a little
+funny, but this is math.
+
+225
+00:18:28,090 --> 00:18:36,049
+Math doesn't care about nondecidability. So any non terminating computation has basically every type
+
+226
+00:18:36,049 --> 00:18:41,119
+So like yeah, if I have a value and it's not
+terminating, I can say it's an integer, I
+
+227
+00:18:41,119 --> 00:18:46,650
+can say it has type bool, like why is that
+OK?
+
+228
+00:18:46,650 --> 00:18:52,269
+In a certain sense it's OK, because that ship
+has sailed, it's not coming back.
+
+229
+00:18:52,269 --> 00:18:59,629
+It's like you can give me my infinite computation and add 5 to it and it's not going to go wrong.
+
+230
+00:18:59,629 --> 00:19:00,889
+[laughter]
+
+231
+00:19:00,889 --> 00:19:03,549
+It's just gonna go.
+
+232
+00:19:03,549 --> 00:19:08,429
+So it's essentially a design decision in that
+I've decided that the meaning of my types
+
+233
+00:19:08,429 --> 00:19:15,789
+is yeah, some programs don't terminate but I'm going to be OK with that. I'm going to say that its ok that something doesn't terminate and has type int.
+
+234
+00:19:15,789 --> 00:19:17,419
+Same with functions.
+
+235
+00:19:17,419 --> 00:19:23,280
+Now, your basic -- your basic constants in
+your language, he uses the symbol BI and he's
+
+236
+00:19:23,280 --> 00:19:30,730
+really referring to things like 42 or false
+and he's like, saying yeah, so a value has
+
+237
+00:19:30,730 --> 00:19:44,159
+a Type INT if it's an integer and a value
+has type bool if it's either  true or false: So this is kind of mathematizing thing that feel pretty obvious.
+
+238
+00:19:44,159 --> 00:19:47,700
+Now when he gets to functions I think it's interesting. Aside from the non-terminating functions
+
+239
+00:19:47,700 --> 00:19:54,500
+He says something like basically a value
+is a function if it's a mathematical function.
+
+240
+00:19:54,500 --> 00:20:00,179
+That's what the VEF thing is like. Yeah, make sure its a function. If its not then it doesn't have a function type.
+
+241
+00:20:00,179 --> 00:20:10,470
+And if it's a function, then make sure that if you give me any value that has the domain type, where the domain is if it is int
+
+242
+00:20:10,470 --> 00:20:16,210
+it's a number, if it's bool, it's boolean,
+but it could also be a function type, right?
+
+243
+00:20:16,210 --> 00:20:23,610
+It could be a function from INT, to INT. Which is also defined in this definition. Its all like this recursive never ending weave
+
+244
+00:20:23,610 --> 00:20:30,610
+Except that it ends because types shrink. And the definition of the type on the left in this definition is bigger than the types on the right
+
+245
+00:20:30,610 --> 00:20:31,990
+So you work your way down.
+
+246
+00:20:31,990 --> 00:20:38,529
+So it's basically saying as long as this function takes something, and then produces a value,
+
+247
+00:20:38,529 --> 00:20:45,590
+if it produces a value, then that value behaves like the second thing, this ADA, then the
+
+248
+00:20:45,590 --> 00:20:48,460
+function has that type.
+
+249
+00:20:48,460 --> 00:21:05,130
+So this is kind of mathematizing a behavioral property of a program. So to me this is very much like what people call duck typing. "Yeah if it walks like an int -> int and it talks like an int -> int, then it has typing of -> int.
+
+250
+00:21:05,130 --> 00:21:12,559
+So now I've given meaning what it means in my language in terms of the semantics of values.
+
+251
+00:21:12,559 --> 00:21:16,279
+What it means to have a type.
+
+252
+00:21:16,279 --> 00:21:20,399
+And then yeah, every nonboolean computation has a type.
+
+253
+00:21:20,399 --> 00:21:23,700
+Interestingly wrong doesn't have a type and
+that ends up being important.
+
+254
+00:21:23,700 --> 00:21:27,259
+Wrong has a value in the language.
+
+255
+00:21:27,259 --> 00:21:32,490
+So then all that was talking about was the
+monotypes, right? Ok, int -> int, we're cool. Int, we're good.
+
+256
+00:21:32,490 --> 00:21:38,379
+But what about this like alpha arrow alpha
+or alpha arrow beta arrow alpha?
+
+257
+00:21:38,379 --> 00:21:41,169
+No problem.
+
+258
+00:21:41,169 --> 00:21:43,179
+OK, what's going on here?
+
+259
+00:21:43,179 --> 00:21:44,650
+This is like a bunch of notation.
+
+260
+00:21:44,650 --> 00:21:53,780
+So in English what this is basically saying
+is so sigma is one of these polytypes. It could be like all monotypes are also polytypes
+
+261
+00:21:53,780 --> 00:22:00,110
+But it might have variables in it and then
+this sort of less than symbol is saying, is
+
+262
+00:22:00,110 --> 00:22:09,610
+mu which is like a monotype is like an instance of sigma, and so it's basically saying V has
+
+263
+00:22:09,610 --> 00:22:15,739
+this like polytype if every concrete type
+that looks like this type with type variables
+
+264
+00:22:15,739 --> 00:22:19,149
+in this is also a type of V.
+
+265
+00:22:19,149 --> 00:22:23,730
+So to give you like a concrete example that
+might make it easier, which helps with me,
+
+266
+00:22:23,730 --> 00:22:34,269
+you could say, OK, what does it mean to have v have type alpha arrow alpha. If I have a value, it has type alpha -> alpha only if it has type int -> int  and bool -> bool
+
+267
+00:22:34,269 --> 00:22:43,350
+And int -> int -> int ... etc.  So any give
+me any type, and as long as this thing can
+
+268
+00:22:43,350 --> 00:22:49,340
+behave according to this behavioral specification of blah arrow blah, then v has that type,
+
+269
+00:22:49,340 --> 00:22:53,260
+but it has to satisfy all of them.
+
+270
+00:22:53,260 --> 00:22:54,260
+Make sense?
+
+271
+00:22:54,260 --> 00:22:56,940
+So this is basically going to be a function
+that takes something and returns the same
+
+272
+00:22:56,940 --> 00:22:58,029
+kind of thing.
+
+273
+00:22:58,029 --> 00:23:01,509
+Something that behaves like it, as far as
+we know.
+
+274
+00:23:01,509 --> 00:23:06,210
+So in a sense what we've done is built up
+this tower of meaning for our types, and this
+
+275
+00:23:06,210 --> 00:23:13,159
+is part of why this monotypes, polytypes is
+separated. The monotypes are just like I know what int is, I know what int -> int is
+
+276
+00:23:13,159 --> 00:23:17,649
+The polytypes are now that I know what monotypes mean this allows me to talk about lots of
+
+277
+00:23:17,649 --> 00:23:21,480
+types at the same time. And say this one this has lots of types
+
+278
+00:23:21,480 --> 00:23:26,210
+And in fact there's an infinite number of
+them.
+
+279
+00:23:26,210 --> 00:23:30,480
+OK, so all this time I've been talking about
+how do we type value.
+
+280
+00:23:30,480 --> 00:23:31,809
+These things that pop out of our program.
+
+281
+00:23:31,809 --> 00:23:39,340
+And so it's like, yes, my values for running
+a program are meaningful, and I can describe
+
+282
+00:23:39,340 --> 00:23:44,190
+their behavior, how they can be operated on.
+
+283
+00:23:44,190 --> 00:23:48,040
+Both in terms of monotypes and polytypes,
+so now it's like yeah, well, but I want to
+
+284
+00:23:48,040 --> 00:23:49,659
+talk about my programs.
+
+285
+00:23:49,659 --> 00:23:53,480
+By the time I get my value the ship has sailed.
+
+286
+00:23:53,480 --> 00:23:57,739
+Like, please tell me about my programs before I even run them and get values.
+
+287
+00:23:57,739 --> 00:24:01,649
+So you know, how do we give types to expressions?
+
+288
+00:24:01,649 --> 00:24:12,519
+Well, yeah, Milner does this, but in a sense
+his main goal in this paper is to try and
+
+289
+00:24:12,519 --> 00:24:17,019
+focus on his main theorem which is like, whenever my type checker says that things are checked,
+
+290
+00:24:17,019 --> 00:24:22,891
+things don't go wrong and he sort of glosses over this, yeah, expressions have types, we
+
+291
+00:24:22,891 --> 00:24:28,080
+can kind of give types to expressions so in
+this talk I'm forced to do a little bit of
+
+292
+00:24:28,080 --> 00:24:33,529
+violence to his paper and butcher it and put
+it back together the kind of hidden story
+
+293
+00:24:33,529 --> 00:24:35,590
+of what the types of expressions are.
+
+294
+00:24:35,590 --> 00:24:39,140
+It's there, but he didn't tell the story there. But he didn't tell the story that way.
+
+295
+00:24:39,140 --> 00:24:43,789
+And it's quite reasonable because really this is the first paper as far as I know that does
+
+296
+00:24:43,789 --> 00:24:49,169
+anything close to this, that does this tight
+connection between programs, gives meaning
+
+297
+00:24:49,169 --> 00:24:54,029
+between what types and programs have to behave. And then talks about what you type checker has to do with any of that
+
+298
+00:24:54,029 --> 00:24:57,359
+We haven't even talked about type checking
+yet, right?
+
+299
+00:24:57,359 --> 00:24:59,769
+Hey, we haven't talked about how do you type an expression.
+
+300
+00:24:59,769 --> 00:25:06,669
+So here I start stealing bits of Milner's
+paper and kind of putting them together to
+
+301
+00:25:06,669 --> 00:25:07,669
+describe.
+
+302
+00:25:07,669 --> 00:25:13,049
+So he first starts with this idea of like
+we need to be able to -- we want to be able
+
+303
+00:25:13,049 --> 00:25:18,159
+to talk about what the type of an expression is, not necessarily an entire program, but
+
+304
+00:25:18,159 --> 00:25:23,350
+like a piece of code, a chunk of code, and
+that chunk of code may have variables in it
+
+305
+00:25:23,350 --> 00:25:27,129
+that aren't bound, they're like free variables,
+so you need to kind of account for that.
+
+306
+00:25:27,129 --> 00:25:31,320
+How do I even talk about a piece of code that free variables in it?
+
+307
+00:25:31,320 --> 00:25:40,279
+So we start by saying we can build a list of what variables show up in that piece of code. He calls this a prefix.
+
+308
+00:25:40,279 --> 00:25:46,299
+So then what he says is, if I have
+a piece of code and it has free variables
+
+309
+00:25:46,299 --> 00:25:52,909
+in it, then I probably want to say something
+about what's -- what do I know about my piece
+
+310
+00:25:52,909 --> 00:25:58,159
+of code, assuming some things about what those variables are going to be bound to?
+
+311
+00:25:58,159 --> 00:26:02,399
+And so all you do is say, well, I'll just
+assign a specification to each of those variables.
+
+312
+00:26:02,399 --> 00:26:08,650
+I'll give it a type so he creates these things
+called type environments.
+
+313
+00:26:08,650 --> 00:26:14,950
+Now, as a side note I'll note that if you
+look in kind of modern papers or books like
+
+314
+00:26:14,950 --> 00:26:31,980
+Benjamin Pierce's: Types in Programming Languages. They don't use this P overbar.
+ Milner was treading somewhat new ground, but he also hadn't interacted too much logicians yet. He found logician religion later. In most modern notation, they'll use this capital gamma for this thing
+
+315
+00:26:31,980 --> 00:26:38,460
+that instead of mapping variables to values, it maps variables to types, so descriptions
+
+316
+00:26:38,460 --> 00:26:42,730
+of behavior of values.
+
+317
+00:26:42,730 --> 00:26:48,840
+So then he describes this idea that you can
+say, what does it mean for a value environment?
+
+318
+00:26:48,840 --> 00:26:53,860
+Remember that our semantics for our language has these environments, these ada's and so
+
+319
+00:26:53,860 --> 00:27:01,820
+what does it mean for one of these ada's, a value environments, to satisfy or respect a type environment?
+
+320
+00:27:01,820 --> 00:27:06,169
+And so a type environment says a variable
+has a type.
+
+321
+00:27:06,169 --> 00:27:10,749
+A value environment says that a variable maps to a value and all you want to do is make
+
+322
+00:27:10,749 --> 00:27:13,000
+sure that the two mesh together.
+
+323
+00:27:13,000 --> 00:27:17,720
+That whenever all the variables over here
+say that they have these types, that the values
+
+324
+00:27:17,720 --> 00:27:27,590
+the environment points to have values that
+satisfy those specifications.
+
+325
+00:27:27,590 --> 00:27:35,920
+so from those pieces, this idea that I can
+say that a value environment satisfies a type
+
+326
+00:27:35,920 --> 00:27:41,779
+environment and I can already talk about the idea that a value satisfies a type, then I
+
+327
+00:27:41,779 --> 00:27:49,049
+can now say, what does it mean for an expression, and so I put a D here, D is the same thing
+
+328
+00:27:49,049 --> 00:27:53,730
+as E, but Milner just happened to say, yeah,
+we use D and E interchangeably and when I
+
+329
+00:27:53,730 --> 00:27:59,690
+cut and paste out of his paper and I was like, why is there a D there and not an E and you
+
+330
+00:27:59,690 --> 00:28:09,919
+dig back in his paper he's like, Ds are Es
+and he's making me sad in the future. So I get to pass on the sadness. But not that Ds are Es.
+
+331
+00:28:09,919 --> 00:28:18,179
+So he's basically saying that given a type
+environment and a specification for variables
+
+332
+00:28:18,179 --> 00:28:27,119
+an expression D, so code, a piece of possibly open code, has a type, if and only if, for
+
+333
+00:28:27,119 --> 00:28:35,519
+every possible value environment, that maps variables to types that -- to values that
+
+334
+00:28:35,519 --> 00:28:43,119
+satisfy the types that P bar says, then if
+I evaluate, that's the e, that expression
+
+335
+00:28:43,119 --> 00:28:51,580
+using such an environment, I better get back a value that satisfies the tao,
+
+336
+00:28:51,580 --> 00:28:58,590
+So that's the semantics of expressions and
+I'll kind of wax poetic about that again,
+
+337
+00:28:58,590 --> 00:29:03,159
+because this is really kind of the heart of
+his semantics for types for expressions and
+
+338
+00:29:03,159 --> 00:29:07,029
+this is really what does it mean for an expression
+to have a type and it's basically if every
+
+339
+00:29:07,029 --> 00:29:14,289
+possible value environment that meets the
+input spec P bar, yields an output value v,
+
+340
+00:29:14,289 --> 00:29:20,159
+that meets the output spec tao, then and
+only then can you say that under value the type environment
+
+341
+00:29:20,159 --> 00:29:34,539
+P the expression D satisfies the type Tau. This input specification that this expression has an output specification. So it's all written in terms of the meaning
+of your programs, like using this e thing.
+
+342
+00:29:34,539 --> 00:29:37,400
+Make sense?
+
+343
+00:29:37,400 --> 00:29:40,820
+So this is kind of a sort of semantic model
+of your types.
+
+344
+00:29:40,820 --> 00:29:45,169
+You're talking about types as meaning behavior and not like, you know, my type checker gave
+
+345
+00:29:45,169 --> 00:29:52,830
+me an error about string list list, and it's
+more like, these are behaviors.
+
+346
+00:29:52,830 --> 00:29:57,210
+So OK, great, now we have a definition of
+what it means to be well typed, so all I have
+
+347
+00:29:57,210 --> 00:30:00,039
+to do is if you give me an expression and
+you give me a type environment, I just have
+
+348
+00:30:00,039 --> 00:30:09,519
+to look up all infinite value environments,
+Find how many of them satisfy my type environment and then run my program and see if the value that pops
+
+349
+00:30:09,519 --> 00:30:14,419
+out satisfies an infinite number of behaviors that matches my spec.
+
+350
+00:30:14,419 --> 00:30:18,029
+Piece of cake!
+
+351
+00:30:18,029 --> 00:30:22,970
+And I show that you know this is in a sense
+like it's really a static analog to this idea
+
+352
+00:30:22,970 --> 00:30:27,929
+of running your program, that usually you
+take one environment, you run your program,
+
+353
+00:30:27,929 --> 00:30:31,879
+you get a value, but now what we're saying
+is like for a class of environments that all
+
+354
+00:30:31,879 --> 00:30:37,700
+satisfy a particular spec, running my program produces a set of values that satisfy this
+
+355
+00:30:37,700 --> 00:30:38,700
+spec.
+
+356
+00:30:38,700 --> 00:30:43,950
+So it's kind of a global statement about lots
+of inputs and outputs and it's so so undecidable.
+
+357
+00:30:43,950 --> 00:30:44,950
+[laughter]
+
+358
+00:30:44,950 --> 00:30:51,139
+Like, no, no, you can't just grab all environments and check in the general case.
+
+359
+00:30:51,139 --> 00:30:53,679
+So it's like, well, OK, so what do we do?
+
+360
+00:30:53,679 --> 00:30:57,119
+Like I've got this great definition of what
+it means to have something that's got a type
+
+361
+00:30:57,119 --> 00:31:01,399
+but I actually want to do some type checking or be able to say somehow that things are
+
+362
+00:31:01,399 --> 00:31:02,690
+going to be OK.
+
+363
+00:31:02,690 --> 00:31:06,239
+So that's what we've got going now but it's
+going to be in a couple of steps.
+
+364
+00:31:06,239 --> 00:31:12,960
+So just to recap what we did is we gave a
+syntax and semantics of a language and then
+
+365
+00:31:12,960 --> 00:31:17,160
+we gave a syntax and semantics of types first on values and
+
+366
+00:31:17,160 --> 00:31:22,840
+Then on the code that you write. The resulting values and now we have types
+for code and so the question is how do I even
+
+367
+00:31:22,840 --> 00:31:25,029
+check that a program has types?
+
+368
+00:31:25,029 --> 00:31:27,259
+And of course I can't do it in general.
+
+369
+00:31:27,259 --> 00:31:31,809
+I need to approximate somehow.
+
+370
+00:31:31,809 --> 00:31:36,659
+So we go to this thing that's called a syntactic type system.
+
+371
+00:31:36,659 --> 00:31:39,960
+And now, you know, when we talk about type systems, you're often like the type system
+
+372
+00:31:39,960 --> 00:31:45,499
+is the thing that my type checker didn't complain about whenever I give it a program.
+
+373
+00:31:45,499 --> 00:31:49,240
+That's kind of like a loose thing, but we
+can be a bit more rigorous about what's called
+
+374
+00:31:49,240 --> 00:31:53,830
+a syntactic type system and I'm emphasizing this idea of syntactic because we're now going
+
+375
+00:31:53,830 --> 00:31:59,470
+to engage in symbol-pushing, that thing that computers are really good at.
+
+376
+00:31:59,470 --> 00:32:07,999
+On the left is Milner's definition of this
+idea, what does it mean for a type environment  P bar to syntactically
+
+377
+00:32:07,999 --> 00:32:15,429
+say that an expression E has a type Sigma  -- and it's like mumble, mumble,
+mumble, that's why it's small.
+
+378
+00:32:15,429 --> 00:32:22,029
+So that was an early definition of it, but
+later on, as he as Milner found out more about
+
+379
+00:32:22,029 --> 00:32:29,899
+how logicians think about proofs and building proof systems, he adopted that notation and
+
+380
+00:32:29,899 --> 00:32:35,350
+others had, as well, and so this is still
+kind of small, but it's a bit more structured.
+
+381
+00:32:35,350 --> 00:32:39,470
+There's like a bunch of things with horizontal bars and names to the left of them, stuff
+
+382
+00:32:39,470 --> 00:32:41,609
+on top, and stuff on the bottom.
+
+383
+00:32:41,609 --> 00:32:48,580
+So I'll note right now that basically for
+all practical purposes, the thing that you're
+
+384
+00:32:48,580 --> 00:32:53,309
+looking at on the right is a description of
+a data type.
+
+385
+00:32:53,309 --> 00:32:58,269
+It's like a recursive abstract syntax tree
+kind of thing, but it happens to be somewhat
+
+386
+00:32:58,269 --> 00:33:02,379
+context-sensitive so you can't just hook any
+two things together with premises.
+
+387
+00:33:02,379 --> 00:33:04,330
+There's going to be some conditions.
+
+388
+00:33:04,330 --> 00:33:10,599
+So typically if I implement this in Racket,
+I need to add a bunch of like contracts so
+
+389
+00:33:10,599 --> 00:33:15,659
+every time I try and add something together and then I do a run-time check or I die and don't build a tree because
+
+390
+00:33:15,659 --> 00:33:16,900
+then the tree would be bad.
+
+391
+00:33:16,900 --> 00:33:34,009
+If you have language with a really sophisticated type system like Idris or calk, then you can actually code in the type checker those rules, so you can basically build proofs as objects, these context sensitive things. This is sort of the secret sauce behind Curry-Howard
+
+392
+00:33:34,009 --> 00:33:37,979
+based theorem provers.
+
+393
+00:33:37,979 --> 00:33:47,049
+So let me give you a brief comparison between these two types systems: The
+semantic type system and the syntactic one.
+
+394
+00:33:47,049 --> 00:33:50,659
+Right now I'm going to kind of focus on functions.
+
+395
+00:33:50,659 --> 00:33:56,240
+The two rules at the bottom are describing
+kind of how the syntactic type system interacts
+
+396
+00:33:56,240 --> 00:34:05,350
+with functions whereas this one statement  at the top talks about the behavior of functions in terms of running
+
+397
+00:34:05,350 --> 00:34:08,369
+programs and observing behavior.
+
+398
+00:34:08,369 --> 00:34:13,400
+So the one on the bottom what it says and
+it's a little small, but it basically says,
+
+399
+00:34:13,400 --> 00:34:20,240
+if I had a piece of code, and I was assuming an environment where some particular variable
+
+400
+00:34:20,240 --> 00:34:27,790
+had a type, and then that meant that the body, the piece of code, produced this output behavior,
+
+401
+00:34:27,790 --> 00:34:32,880
+then I could just wrap a lambda around it
+and that function would have that function
+
+402
+00:34:32,880 --> 00:34:34,360
+type.
+
+403
+00:34:34,360 --> 00:34:39,560
+Now, that's -- I'm speaking intuitively in
+terms of how we think about typing and if
+
+404
+00:34:39,560 --> 00:34:45,641
+you thought about it you'd say like, yeah,
+of course if the body of my function, given
+
+405
+00:34:45,641 --> 00:34:49,600
+this particular type for a variable, was going to behave a certain way, then putting a lambda
+
+406
+00:34:49,600 --> 00:34:52,930
+x said it should have a behavior about that
+function.
+
+407
+00:34:52,930 --> 00:34:57,140
+Now, that is our intuition about the step
+of reason and we've encoded it in a bunch
+
+408
+00:34:57,140 --> 00:35:00,140
+of syntax, so that's like a syntactic proof.
+
+409
+00:35:00,140 --> 00:35:09,360
+But while I sure hope I'm right. I really hope my language is sane and acts this way.  I'm on the hook to prove it's true.
+
+410
+00:35:09,360 --> 00:35:26,120
+Similarly, on the other wise, what it says is if I have a function of type like tao prime -> tao, and I have an expression who's type is tao prime -> tao, so it should intuitively produce a function and another expression of type tao prime
+
+411
+00:35:26,120 --> 00:35:30,030
+if I apply the first one to the second one,
+I should get the output result.
+
+412
+00:35:30,030 --> 00:35:34,170
+So you're like, yeah, intuitively that should
+be true.
+
+413
+00:35:34,170 --> 00:35:37,220
+So again, I'm on the hook to prove that.
+
+414
+00:35:37,220 --> 00:35:43,180
+Now, interestingly, in both cases you can
+think about these rules with respect to the
+
+415
+00:35:43,180 --> 00:35:45,100
+syntax of your code.
+
+416
+00:35:45,100 --> 00:35:49,910
+Like the things on the top are smaller code
+than the things on the bottom, right?
+
+417
+00:35:49,910 --> 00:35:51,580
+On the left you have some expression.
+
+418
+00:35:51,580 --> 00:35:54,810
+On the bottom you have a function with that as the body.
+
+419
+00:35:54,810 --> 00:35:59,170
+On the right you have two expressions and
+on the bottom you have a function application
+
+420
+00:35:59,170 --> 00:36:01,339
+of the two hooked together.
+
+421
+00:36:01,339 --> 00:36:08,460
+So what this is describing is a way to reason about the behavior of my code by thinking
+
+422
+00:36:08,460 --> 00:36:11,850
+about the behavior of small pieces and what happens when I hook them together.
+
+423
+00:36:11,850 --> 00:36:19,560
+So I can think about what it -- how my code
+behaves syntactically and in pieces and so
+
+424
+00:36:19,560 --> 00:36:25,090
+modularly, one piece at a time, and then compositionally by hooking them together.
+
+425
+00:36:25,090 --> 00:36:29,900
+And that's really one of the secret sauces
+of type systems in general is the syntactic
+
+426
+00:36:29,900 --> 00:36:35,150
+idea of reasoning about how my program runs by thinking abstractly by the behavior of
+
+427
+00:36:35,150 --> 00:36:39,310
+each piece. This is kind of the heart of type driven development.
+
+428
+00:36:39,310 --> 00:36:46,130
+And it ends up being attached to the meaning in terms of behavior.
+
+429
+00:36:46,130 --> 00:36:50,620
+so now we have to like, we have some due diligence to fill out, which is how do we relate this
+
+430
+00:36:50,620 --> 00:36:55,100
+thing down here, description for building
+these proof trees, kind of like in geometry
+
+431
+00:36:55,100 --> 00:37:00,500
+where you have lists of proof steps and you
+say by whatever rule and we have to relate
+
+432
+00:37:00,500 --> 00:37:03,240
+that to the semantics.
+
+433
+00:37:03,240 --> 00:37:09,130
+So we do that with a proof that's called a
+semantic soundness and basically here is Milner's
+
+434
+00:37:09,130 --> 00:37:14,500
+proof of the syntactic soundness that connects type assignments, our trees of proof rules,
+
+435
+00:37:14,500 --> 00:37:22,380
+to actual behavior, and I'm rewriting it in
+slightly -- almost more modern notation and
+
+436
+00:37:22,380 --> 00:37:28,450
+it's basically saying, if I have a data structure who's like, that is a proof of blah, blah,
+
+437
+00:37:28,450 --> 00:37:32,460
+blah, that's what the single, that's the thing
+with the single turnstile after the p on the
+
+438
+00:37:32,460 --> 00:37:36,520
+left is, then something meaningful is true
+in the world and you can see that both of
+
+439
+00:37:36,520 --> 00:37:45,360
+these look exactly the same. I defined the one on the left because Milner didn't bother doing it, but this is essentially what that theorem is saying just slightly factored differently
+
+440
+00:37:45,360 --> 00:37:52,620
+If I write down a proof, it's actually true
+about the behavior of my code.
+
+441
+00:37:52,620 --> 00:37:56,260
+And it really does say, like every proof of
+type assignment says something meaningful
+
+442
+00:37:56,260 --> 00:38:05,610
+about my code and it relates syntax to semantics: Now conveniently as a corollary we achieve Milner's big goal
+
+443
+00:38:05,610 --> 00:38:19,590
+Which is like "By the way, wrong has no type so every well typed program go wrong". This was his goal. Well typed programs don't go wrong. And he could prove that by having coming up with this  behavior specification.
+
+444
+00:38:19,590 --> 00:38:28,490
+Now it's useful to note that this was already true about the semantic systems, just that he didn't bother bringing it out until he had already connected the syntax to the semantic.
+
+445
+00:38:28,490 --> 00:38:34,400
+And he's like now I know that if I can build
+one of these proofs, then I know that my code
+
+446
+00:38:34,400 --> 00:38:37,030
+won't go wrong.
+
+447
+00:38:37,030 --> 00:38:41,060
+So all I've done is describe a sort of data
+structure, right?
+
+448
+00:38:41,060 --> 00:38:45,150
+It's like, oh, I described the data structure
+and like if you build me a data structure
+
+449
+00:38:45,150 --> 00:38:48,650
+that when I look about it says something about my code, then something is true about my code
+
+450
+00:38:48,650 --> 00:38:56,240
+And the questions is "How do I build a data structure that says something about my code?"
+
+451
+00:38:56,240 --> 00:38:59,080
+That's what type checking is.
+
+452
+00:38:59,080 --> 00:39:05,710
+So Milner's language has this type inference thing, which really every language has to
+
+453
+00:39:05,710 --> 00:39:06,710
+some extent.
+
+454
+00:39:06,710 --> 00:39:11,130
+You have a program, you have -- I didn't give
+you a -- like when I program I don't program
+
+455
+00:39:11,130 --> 00:39:15,620
+by writing proofs of typing trees, what I
+do is give you a bit of code and then what
+
+456
+00:39:15,620 --> 00:39:19,600
+your type checker does is try to find a tree
+that corresponds to your code and it just
+
+457
+00:39:19,600 --> 00:39:26,240
+happens to be particularly sophisticated in Milner's case and so he develops this algorithm called algorithm
+
+458
+00:39:26,240 --> 00:39:32,010
+W. There's algorithm W. You can see it in much detail as you need, which is it takes a bunch of lines, it's describing
+
+459
+00:39:32,010 --> 00:39:38,060
+a bunch of computational steps and what you need to know is like, is it any good?
+
+460
+00:39:38,060 --> 00:39:43,250
+OK, you gave me an algorithm, takes a program, and then it makes a claim, yeah, this program
+
+461
+00:39:43,250 --> 00:39:50,010
+has a type, there's a type or no it has an
+error, I can't type it.
+
+462
+00:39:50,010 --> 00:39:55,980
+So this is where another proof comes into
+play and this is what he calls syntactic soundness
+
+463
+00:39:55,980 --> 00:40:02,000
+and this connects the result of type checking to this definition of type assignment, these
+
+464
+00:40:02,000 --> 00:40:03,000
+trees.
+
+465
+00:40:03,000 --> 00:40:08,650
+Now, in turn type assignment is connected
+through semantic soundness to behavior.
+
+466
+00:40:08,650 --> 00:40:09,650
+So it's a two-step thing.
+
+467
+00:40:09,650 --> 00:40:15,100
+I have a program who's job is to take programs and generate typing trees and then I have a theorem
+
+468
+00:40:15,100 --> 00:40:19,810
+that says they mean something.
+
+469
+00:40:19,810 --> 00:40:31,450
+So what this says is that if Algorithm W returns a type assignment, says that this program has a type, then I, the person who writes the theorem,
+
+470
+00:40:31,450 --> 00:40:34,400
+could build a corresponding proof in this
+case.
+
+471
+00:40:34,400 --> 00:40:39,160
+And what you do is you basically discover
+that, yeah, what the algorithm is doing is
+
+472
+00:40:39,160 --> 00:40:42,850
+it's stack trace is building the tree and
+then it's throwing it away because you don't
+
+473
+00:40:42,850 --> 00:40:46,590
+actually care about the tree, you just care
+that the program has a type.
+
+474
+00:40:46,590 --> 00:40:54,710
+You care that it has a type, which then means it doesn't go wrong.
+
+475
+00:40:54,710 --> 00:40:58,890
+So let me kind of bring everything together
+about what's kind of going on in this mathematical
+
+476
+00:40:58,890 --> 00:41:01,010
+model.
+
+477
+00:41:01,010 --> 00:41:04,750
+At the top level as a programmer you're thinking about, I have a type checker for my language
+
+478
+00:41:04,750 --> 00:41:06,180
+and it performs computation.
+
+479
+00:41:06,180 --> 00:41:08,820
+I give it a program and it gives me a thumbs up or a thumbs down.
+
+480
+00:41:08,820 --> 00:41:13,330
+Thumbs up is a type and a thumbs down is you need to add more list brackets around your S
+
+481
+00:41:13,330 --> 00:41:21,560
+That in turn is connected to this idea
+of what is a syntactic proof of a types
+
+482
+00:41:21,560 --> 00:41:27,670
+element and it's really a proof that a program has a type following the syntax of your program
+
+483
+00:41:27,670 --> 00:41:32,000
+and the nice thing about that is it really
+allows you to think locally about the behavior
+
+484
+00:41:32,000 --> 00:41:33,000
+of your program.
+
+485
+00:41:33,000 --> 00:41:36,440
+You don't have to take the whole program and say, given a whole program, what can I find
+
+486
+00:41:36,440 --> 00:41:37,440
+out about it?
+
+487
+00:41:37,440 --> 00:41:41,671
+It's like by looking at pieces, modules, libraries and then look hooking them together, I can
+
+488
+00:41:41,671 --> 00:41:47,640
+understand something about them as a program. And I split it up across and organization and provide interfaces.
+
+489
+00:41:47,640 --> 00:41:53,390
+And then the last bit is -- well, Milner came
+up with a meaning for his types.
+
+490
+00:41:53,390 --> 00:41:55,400
+What does it mean for an expression to have a type?
+
+491
+00:41:55,400 --> 00:42:03,980
+Like, yeah, if it has Type INT, it better
+diverge or produce a number, or throw an exception or leak my passwords
+
+492
+00:42:03,980 --> 00:42:06,610
+or --
+[laughter]
+
+493
+00:42:06,610 --> 00:42:13,150
+Given any programming language it's up to
+you to decide what the guarantees are that your types give you.
+
+494
+00:42:13,150 --> 00:42:17,780
+To some extent they seem to pop up very similarly again and again, but at the end of the day
+
+495
+00:42:17,780 --> 00:42:22,170
+you ultimately have to decide what the definition is and whether or not you can build a full thing
+
+496
+00:42:22,170 --> 00:42:27,300
+that can stand on top of that definition.
+
+497
+00:42:27,300 --> 00:42:35,900
+So in many pieces of work on type systems, the part at the top where you have this type
+
+498
+00:42:35,900 --> 00:42:38,270
+checker and this type assignment is viewed as kind of obvious.
+
+499
+00:42:38,270 --> 00:42:42,840
+It's like, if you're not doing crazy type
+inference, then you look at your proof rules
+
+500
+00:42:42,840 --> 00:42:45,860
+and you say, do recursion the other way.
+
+501
+00:42:45,860 --> 00:42:50,420
+Like, I can see what my program looks like,
+I know which rule I'm going to use, I need
+
+502
+00:42:50,420 --> 00:42:51,950
+to search for something that's smaller for the other pieces.
+
+503
+00:42:51,950 --> 00:43:01,770
+Milner's is more complicated because you didn't tell him what types were so he has to do something much more sophisticated. Which is why he needs to talk about the algorithm and talk about the proof
+
+504
+00:43:01,770 --> 00:43:08,840
+In many cases you're like turn your head upside-down, type checker.
+
+505
+00:43:08,840 --> 00:43:12,490
+The other thing is that as I mentioned at
+the end of the day, what Milner really wanted
+
+506
+00:43:12,490 --> 00:43:16,240
+was he wasn't trying to give a semantics of
+types.
+
+507
+00:43:16,240 --> 00:43:21,520
+That wasn't the main goal of the paper and
+it's not really what he talks about in the
+
+508
+00:43:21,520 --> 00:43:22,520
+abstract of the paper.
+
+509
+00:43:22,520 --> 00:43:34,360
+What he talks about is I prove a theorem that says that well typed programs don't go wrong. He doesn't say that I prove a theorem that says that well typed programs behave according to what my types say, because that really wasn't his main focus
+
+510
+00:43:34,360 --> 00:43:37,570
+But it's a useful thing to know and to think
+about and just happens to not be what he was
+
+511
+00:43:37,570 --> 00:43:43,500
+doing and much work on type systems really doesn't worry about the semantics of types,
+
+512
+00:43:43,500 --> 00:43:47,750
+it just worries about I need some way of proving that if my type checker says something, then
+
+513
+00:43:47,750 --> 00:43:53,660
+well-typed programs won't go wrong, and so later work that I'll talk about just very
+
+514
+00:43:53,660 --> 00:43:57,970
+briefly kind of comes up with a way of doing that, like skipping that step of oh, don't
+
+515
+00:43:57,970 --> 00:44:04,540
+bother giving me your types, your informal
+understanding will do, and we will go from there, and you can prove
+
+516
+00:44:04,540 --> 00:44:10,320
+that your type system guarantees this sort of non-wrongness soundness.
+
+517
+00:44:10,320 --> 00:44:19,360
+So, yeah this is a particular mental model
+for thinking about types as somebody who's
+
+518
+00:44:19,360 --> 00:44:26,690
+being very analytic and precise while analyzing semantics of a programming language. And much of the work on type systems that theorists
+
+519
+00:44:26,690 --> 00:44:35,920
+do builds on top of this work and some pieces collapses depending on the needs of the researcher.
+
+520
+00:44:35,920 --> 00:44:39,040
+So at the end of the day, you know, I ask
+like, you know, what are types?
+
+521
+00:44:39,040 --> 00:44:40,080
+What are these things?
+
+522
+00:44:40,080 --> 00:44:44,980
+Well, as I mentioned earlier, it's like programming languages, they have this syntax, you know,
+
+523
+00:44:44,980 --> 00:44:48,900
+you have to write something down, they have semantics, they give meaning to them in terms of the
+
+524
+00:44:48,900 --> 00:44:54,110
+evaluator and there are some pragmatics, at the end of the day I want to run closed programs
+
+525
+00:44:54,110 --> 00:44:58,410
+with maybe like library functions.
+
+526
+00:44:58,410 --> 00:45:01,770
+Interestingly enough, types have syntax, you get these arrows, there are these things called
+
+527
+00:45:01,770 --> 00:45:07,830
+INT and bool, there are semantics which say what do these types have to do with the behavior of my programs
+
+528
+00:45:07,830 --> 00:45:15,520
+And there are some pragmatics which is like better be true that they go wrong, no, it
+
+529
+00:45:15,520 --> 00:45:18,860
+better be true that they don't go wrong.
+
+530
+00:45:18,860 --> 00:45:24,900
+So really a type system is a language, so
+in particular it's a language specifically
+
+531
+00:45:24,900 --> 00:45:36,320
+geared for talking about properties of programs and program fragments. So when we talk about static checking or dynamic checking or static typing or dynamic typing
+
+532
+00:45:36,320 --> 00:45:41,340
+At the end of the day, we're talking about
+a language that is ultimately separate from
+
+533
+00:45:41,340 --> 00:45:43,150
+the language that it's talking about.
+
+534
+00:45:43,150 --> 00:45:44,550
+It's a different language.
+
+535
+00:45:44,550 --> 00:45:50,040
+And but the mechanisms by which we check or enforce types is what introduces sort of static
+
+536
+00:45:50,040 --> 00:45:53,630
+checking and dynamic checking and this is
+kind of the thing that it's taken me way too
+
+537
+00:45:53,630 --> 00:45:57,480
+long to figure out.
+
+538
+00:45:57,480 --> 00:46:02,370
+So I'm running out of time so I wanted to
+give you a brief whirlwind tour to set context
+
+539
+00:46:02,370 --> 00:46:10,070
+for the other papers I brought up and I why I think they are important in this context. So I wanna kinda focus mostly on the ones I think are the most important
+
+540
+00:46:10,070 --> 00:46:16,280
+The single most important next paper in my view came out like 20 years later, almost.
+
+541
+00:46:16,280 --> 00:46:20,950
+So things take time and this one is called
+"A syntactic approach to type soundness".
+
+542
+00:46:20,950 --> 00:46:23,280
+The syntactic is really important.
+
+543
+00:46:23,280 --> 00:46:29,990
+So Milner came up with this conceptual blueprint for analyzing types, and people went off and started
+
+544
+00:46:29,990 --> 00:46:33,590
+trying to use this technique and a few people managed to be successful.
+
+545
+00:46:33,590 --> 00:46:38,750
+And there were a few soundness proofs like I described, but not a lot.
+
+546
+00:46:38,750 --> 00:46:41,770
+Then in the '90s, kabam!
+
+547
+00:46:41,770 --> 00:46:53,810
+This paper
+
+548
+00:46:53,810 --> 00:46:55,080
+came along. And it really provides like, a practical blueprint for analyzing types, especially with respect to proving that well typed programs don't go wrong.  As described to me by a friend of mine, Neil Christian Murphy at Cambridge
+
+549
+00:46:55,080 --> 00:46:58,910
+Basically before this paper was written, like
+basically no one ever proved type soundness
+
+550
+00:46:58,910 --> 00:46:59,910
+of anything.
+
+551
+00:46:59,910 --> 00:47:04,780
+After this paper was written, it was like
+"soundness soundness soundness soundness soundness". A bunch of people were able to do this
+
+552
+00:47:04,780 --> 00:47:09,980
+for various languages, low level C like languages, high level
+functional languages.
+
+553
+00:47:09,980 --> 00:47:13,430
+This really came up with a nice practical
+technique for doing it.
+
+554
+00:47:13,430 --> 00:47:17,440
+And almost everyone uses these techniques these days.
+
+555
+00:47:17,440 --> 00:47:20,860
+If you've ever heard of progress and preservation.
+
+556
+00:47:20,860 --> 00:47:25,520
+Most of that was in this paper and a follow-on paper from Bob Mellor from Carnegie Mellon
+
+557
+00:47:25,520 --> 00:47:26,950
+the same year.
+
+558
+00:47:26,950 --> 00:47:34,060
+Now from another point of view, there were also these two papers which were about a decade apart but are really close
+
+559
+00:47:34,060 --> 00:47:36,620
+in flavor to one another.
+
+560
+00:47:36,620 --> 00:47:42,710
+So the way I was describing the behavior of
+type of values, you could be like, oh, I think
+
+561
+00:47:42,710 --> 00:47:47,810
+of the type being as a set of values that
+have this particular behavior.
+
+562
+00:47:47,810 --> 00:47:53,460
+So Jim Morris who wrote this one paper, he's like, no, don't do that and he's very clear
+
+563
+00:47:53,460 --> 00:47:58,440
+about it in his title and he's like, types
+are not sets. What he's arguing is
+
+564
+00:47:58,440 --> 00:48:07,230
+And  its a beautifully written conceptual argument, it's not that it's a matter of
+fact, but it's really useful to think about
+
+565
+00:48:07,230 --> 00:48:13,790
+types as like comparing multiple programs
+against one another with respect to behavioral
+
+566
+00:48:13,790 --> 00:48:17,990
+specifications and this becomes really important when you start talking about things like abstract
+
+567
+00:48:17,990 --> 00:48:22,700
+data types and information hiding and the
+only way to prove for sure that your particular
+
+568
+00:48:22,700 --> 00:48:28,290
+type system supports information-hiding is
+it to use this different relational description
+
+569
+00:48:28,290 --> 00:48:32,730
+where types relate to one another.
+
+570
+00:48:32,730 --> 00:48:39,110
+And Reynolds came along and actually showed how to do this in math.
+
+571
+00:48:39,110 --> 00:48:41,990
+So then the last one that I wanted to mention and there's plenty more.
+
+572
+00:48:41,990 --> 00:48:47,070
+This is actually a Ph.D. thesis so it's not
+short but I should mention that I really like
+
+573
+00:48:47,070 --> 00:48:51,730
+reading Ph.D. theses, because they tend to
+be written by someone who's just discovered
+
+574
+00:48:51,730 --> 00:48:55,930
+how things work and is sort of close to you
+-- well, she's not, she's way smarter than
+
+575
+00:48:55,930 --> 00:48:56,930
+me.
+
+576
+00:48:56,930 --> 00:49:06,040
+But is able to say things in a clear fashion
+over a lot more space with more details and
+
+577
+00:49:06,040 --> 00:49:10,530
+it basically talks about here's a practical
+way to do the things that John Reynolds who's
+
+578
+00:49:10,530 --> 00:49:16,880
+like, oooooh, could do that the rest of us
+couldn't, and use some techniques that are
+
+579
+00:49:16,880 --> 00:49:27,610
+very reminiscent of Wright and Filisin did. And this comes many years later. So that's the end of my talk, and I just want to put up basically one of the
+
+580
+00:49:27,610 --> 00:49:35,590
+the main takeaways that I wanted you to get from this talk. Which is really that, the way to think about types is they're a
+language in their own and that we then use
+
+581
+00:49:35,590 --> 00:49:39,920
+that language to think about the behavior
+of our programs and figure out how to enforce
+
+582
+00:49:39,920 --> 00:49:40,920
+and check them.
+
+583
+00:49:40,920 --> 00:49:42,290
+So thanks a lot.
+
+584
+00:49:42,290 --> 00:49:42,790
+[applause]

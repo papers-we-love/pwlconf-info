@@ -1,0 +1,1926 @@
+1
+00:00:05,529 --> 00:00:08,040
+Hi I'm so excited to be here.
+
+2
+00:00:08,040 --> 00:00:13,480
+I've never been to Strangeloop or a Papers
+We Love and I'm a super paper nerd so this
+
+3
+00:00:13,480 --> 00:00:16,820
+is right down my alley.
+
+4
+00:00:16,820 --> 00:00:18,890
+Just a little bit about me.
+
+5
+00:00:18,890 --> 00:00:23,940
+I do tweet a lot about space, Zeeshan, thank
+you for calling me out on that.
+
+6
+00:00:23,940 --> 00:00:27,140
+I'm pretty obsessed with space.
+
+7
+00:00:27,140 --> 00:00:28,930
+Spaaaace!
+
+8
+00:00:28,930 --> 00:00:39,449
+I'm a hardware hacker, reverse engineer, systems administrator of my flavors of Unix-based and specialized
+
+9
+00:00:39,449 --> 00:00:47,019
+in storage clusters yadda, yadda, I'm an old
+lady in programming terms so that means I've
+
+10
+00:00:47,019 --> 00:00:50,809
+worn a lot of hats workwise.
+
+11
+00:00:50,809 --> 00:00:58,720
+For the last two and a half years I've started
+my own company, using Kickstarter, so I want
+
+12
+00:00:58,720 --> 00:01:02,940
+to thank all the backers, I've met some of
+you here today so I always love meeting backers,
+
+13
+00:01:02,940 --> 00:01:03,940
+thank you.
+
+14
+00:01:03,940 --> 00:01:06,460
+If you haven't received your stuff yet, I'm
+sorry.
+
+15
+00:01:06,460 --> 00:01:07,520
+[laughter]
+
+16
+00:01:07,520 --> 00:01:13,460
+I'm 36% of the way shipped, that's official
+numbers.
+
+17
+00:01:13,460 --> 00:01:20,930
+And I knit my 300th scarf, well, my machine
+knit my 300th scarf last week and yeah, I'm
+
+18
+00:01:20,930 --> 00:01:28,320
+in the backer number of 70s to 80s, in the
+one-scarf backer tier, so if that's you, your
+
+19
+00:01:28,320 --> 00:01:30,869
+scarf is coming soon.
+
+20
+00:01:30,869 --> 00:01:40,470
+As a small aside about papers, my grandfather,
+my French grandfather, my name is Fabienne
+
+21
+00:01:40,470 --> 00:01:45,369
+Serri�re, which is unpronounceable so I
+go by FBZ.
+
+22
+00:01:45,369 --> 00:01:57,270
+He was an audio engineer amongst other things,
+and one of my Uncles found out about a project
+
+23
+00:01:57,270 --> 00:02:04,670
+I was doing in the early 2000s when my uncle
+was still around, and he said, oh, your grandfather
+
+24
+00:02:04,670 --> 00:02:09,091
+did a project like that and I said, oh, that's
+interesting and he said, no, with the exact
+
+25
+00:02:09,091 --> 00:02:16,530
+same technology and I said that can't be possible,
+I'm working on negative impedence on subwoofers
+
+26
+00:02:16,530 --> 00:02:23,890
+and he said, no, from the 1930s, and I said
+I used the same paper, and it really freaked
+
+27
+00:02:23,890 --> 00:02:32,459
+me out and I think we're genetically programmed
+to like certain scientific papers and I just
+
+28
+00:02:32,459 --> 00:02:35,230
+thought I would put that out there.
+
+29
+00:02:35,230 --> 00:02:41,250
+I don't know if that was true, because my
+uncle had passed and my grandfather obviously
+
+30
+00:02:41,250 --> 00:02:49,650
+passed a while ago, so yeah, scientific papers
+that are genetically in my DNA that I should
+
+31
+00:02:49,650 --> 00:02:55,040
+like is a very strange thing for me to think
+about, so.
+
+32
+00:02:55,040 --> 00:03:03,450
+This talk should probably be called my illogical
+obsession with ... But it's a little long
+
+33
+00:03:03,450 --> 00:03:09,340
+so I called it knittable seashells.
+
+34
+00:03:09,340 --> 00:03:20,150
+A friend of mine nerd sniped me into this
+term called algorithmic beauty of sea Shells.
+
+35
+00:03:20,150 --> 00:03:23,440
+How many of you have actually opened this
+book.
+
+36
+00:03:23,440 --> 00:03:25,739
+Oh, my goodness.
+
+37
+00:03:25,739 --> 00:03:30,310
+It's slightly out of print.
+
+38
+00:03:30,310 --> 00:03:35,410
+Thank you online booksellers of weirdness.
+
+39
+00:03:35,410 --> 00:03:44,870
+It was published in 1995and the reason my
+friend suggested it to me was because seven
+
+40
+00:03:44,870 --> 00:03:51,870
+years ago, in 2010, I had hacked a KH930 knitting
+machine to work with modern computers and
+
+41
+00:03:51,870 --> 00:04:01,750
+I was trying to knit outputs that were a one-off,
+so generative art that looked good in pixelized
+
+42
+00:04:01,750 --> 00:04:02,880
+environments.
+
+43
+00:04:02,880 --> 00:04:05,540
+We'll get back to this in a bit.
+
+44
+00:04:05,540 --> 00:04:09,829
+But this is one of the ones that I knit on
+that early machine.
+
+45
+00:04:09,829 --> 00:04:14,530
+This is a wide wrap, so it's kind of like
+these dimensions.
+
+46
+00:04:14,530 --> 00:04:16,110
+This is a product placement.
+
+47
+00:04:16,110 --> 00:04:17,110
+[laughter]
+
+48
+00:04:17,110 --> 00:04:18,340
+It's not this exact one.
+
+49
+00:04:18,340 --> 00:04:22,940
+These are the ones I currently make.
+
+50
+00:04:22,940 --> 00:04:28,690
+So I'm super into generative knit wear, specifically.
+
+51
+00:04:28,690 --> 00:04:35,449
+And I tried generating some stuff from the
+book but I'm going to come back to this and
+
+52
+00:04:35,449 --> 00:04:44,660
+it turns out there's lots of pairs on generating
+sea shell patterns, earlier than the book
+
+53
+00:04:44,660 --> 00:04:49,669
+was a paper published in 1992 by one of the
+same authors, Hans mine Hart and could he
+
+54
+00:04:49,669 --> 00:04:59,330
+written by Deborah Fowler and I'm going to
+butcher this supposedly Polish name?
+
+55
+00:04:59,330 --> 00:05:02,000
+I'm sorry.
+
+56
+00:05:02,000 --> 00:05:07,850
+They wrote a paper as part of SIGGRAPH, so
+thank you for sponsoring today.
+
+57
+00:05:07,850 --> 00:05:13,610
+That's not a product placement, that just
+happened to be part of the papers.
+
+58
+00:05:13,610 --> 00:05:18,990
+And in it, this is before the book came out.
+
+59
+00:05:18,990 --> 00:05:26,340
+There's an actual seashell on the left of
+the images so they not only generate the forms
+
+60
+00:05:26,340 --> 00:05:30,110
+but they generate the patterns that are on
+the seashell which is what I'm particularly
+
+61
+00:05:30,110 --> 00:05:32,960
+interested in.
+
+62
+00:05:32,960 --> 00:05:42,180
+One of the papers that they reference in that
+paper is pretty old, specifically from 1969,
+
+63
+00:05:42,180 --> 00:05:46,330
+and I was a little weirded out to see that
+it was a computer simulations of a molluskian
+
+64
+00:05:46,330 --> 00:05:56,600
+pigmentation pattern so I kind of got to researching,
+so a friend of mine who is a professor which
+
+65
+00:05:56,600 --> 00:06:05,940
+I am not in academia, managed to get me the
+paper and pretty much every seashell generative
+
+66
+00:06:05,940 --> 00:06:13,830
+seashell or generative animal pattern paper
+or book that I found referenced this paper
+
+67
+00:06:13,830 --> 00:06:15,460
+so I thought it must be pretty important.
+
+68
+00:06:15,460 --> 00:06:20,340
+It's really early, let's see what this is
+all about.
+
+69
+00:06:20,340 --> 00:06:24,759
+So it was written in 196968 and published
+in 1969.
+
+70
+00:06:24,759 --> 00:06:33,190
+The main author is C H. wadding ton and he
+was a developmental biologist, a geneticist,
+
+71
+00:06:33,190 --> 00:06:42,430
+and kind of, I think, coined the term of epigenetics,
+which is really cool, that's really early.
+
+72
+00:06:42,430 --> 00:06:44,860
+And this is probably not what you looked at
+the time.
+
+73
+00:06:44,860 --> 00:06:47,660
+This is him a bit younger.
+
+74
+00:06:47,660 --> 00:06:54,760
+He was at the University of Edinburgh, and
+then so I read the paper and I thought, OK,
+
+75
+00:06:54,760 --> 00:07:00,139
+this is interesting, but then I found a blogpost
+from some librarians at the University of
+
+76
+00:07:00,139 --> 00:07:06,639
+Edinburgh that had an intriguing image that
+was not in the original paper and to me it
+
+77
+00:07:06,639 --> 00:07:14,360
+looked like it was plotted, and I was really
+intrigued by that.
+
+78
+00:07:14,360 --> 00:07:20,789
+And what I found out is that there's an entire
+archive at the University of Edinburgh just
+
+79
+00:07:20,789 --> 00:07:28,660
+for the notes for this paper in the '60s,
+so I acquired those notes, and I'm going to
+
+80
+00:07:28,660 --> 00:07:32,430
+share some really cool stuff from them with
+you today.
+
+81
+00:07:32,430 --> 00:07:41,539
+Furs of all, there's a letter in it, which
+seems pretty -- very early, so it's in the
+
+82
+00:07:41,539 --> 00:07:50,870
+23rd of February, 1968, and it's from Dr.
+field in the parentheses, department of computer
+
+83
+00:07:50,870 --> 00:07:58,440
+science, we want to look official, I'm very
+excited that you're coming, we have now improved
+
+84
+00:07:58,440 --> 00:08:02,789
+the computer scanner so it is possible to
+generate the sort of aspects you are interested
+
+85
+00:08:02,789 --> 00:08:04,120
+in more easily.
+
+86
+00:08:04,120 --> 00:08:10,420
+This involves both using an Elliot 4120 and
+a PDP7 computer in tandem.
+
+87
+00:08:10,420 --> 00:08:14,990
+The problem now, which I think is still a
+very modern problem, is to find enough time
+
+88
+00:08:14,990 --> 00:08:18,460
+to program either or both problems.
+
+89
+00:08:18,460 --> 00:08:19,500
+[laughter]
+
+90
+00:08:19,500 --> 00:08:25,360
+It's possible that you might find a suitably
+inclined student for the summer vacation.
+
+91
+00:08:25,360 --> 00:08:27,770
+[laughter]
+
+92
+00:08:27,770 --> 00:08:30,300
+How times have not changed at all.
+
+93
+00:08:30,300 --> 00:08:33,040
+So within this, there was another letter.
+
+94
+00:08:33,040 --> 00:08:40,141
+This is all in archival notes that I retrieved
+from the University of Edinburgh and they're
+
+95
+00:08:40,141 --> 00:08:44,771
+a creative commons license, so if any of you
+would like this archive of notes later, let
+
+96
+00:08:44,771 --> 00:08:48,790
+me know and I'm happy to share it with you,
+because I already paid the fee.
+
+97
+00:08:48,790 --> 00:08:58,480
+So in here is a letter presumably from Waddington,
+one of the authors on the paper, saying I
+
+98
+00:08:58,480 --> 00:09:03,790
+don't know how to lay my hands on such a person
+myself, a student programmer, but I have a
+
+99
+00:09:03,790 --> 00:09:09,611
+little money from which I could pay someone,
+but if you could find someone, there are some
+
+100
+00:09:09,611 --> 00:09:15,660
+funds available to pay them for two or three
+months during the summer in 1968, and then
+
+101
+00:09:15,660 --> 00:09:22,260
+inside there is a letter informing Mr. Russell
+Cowe which is annoyingly close to Russell
+
+102
+00:09:22,260 --> 00:09:24,690
+Crowe, so it's very hard to Google him.
+
+103
+00:09:24,690 --> 00:09:40,050
+I'm very happy to appoint you the assistant
+from the 17th of June to the 31st of August
+
+104
+00:09:40,050 --> 00:09:44,500
+1978 you will be paid a rate of �10 per
+week.
+
+105
+00:09:44,500 --> 00:09:50,890
+That's a little low for the time.
+
+106
+00:09:50,890 --> 00:09:57,000
+So we're talking student wages, your precise
+duties will be described to you by Professor
+
+107
+00:09:57,000 --> 00:09:58,000
+Waddington.
+
+108
+00:09:58,000 --> 00:10:02,750
+I hope you are prepared to accept this appointment.
+
+109
+00:10:02,750 --> 00:10:07,950
+So it turns out that Russell Cowe is still
+alive, so he's the coauthor on the paper and
+
+110
+00:10:07,950 --> 00:10:13,520
+he now has a DVD archival company that he
+started in 2001 and he's on the BBC a lot
+
+111
+00:10:13,520 --> 00:10:18,440
+and he seems like a generally awesome person,
+so that's pretty exciting.
+
+112
+00:10:18,440 --> 00:10:24,850
+In the paper, so this is in the paper, not
+in the archival stuff that I retrieved, it
+
+113
+00:10:24,850 --> 00:10:30,750
+talks a little bit about their setup and when
+they say an ICL4130, that's the same thing
+
+114
+00:10:30,750 --> 00:10:32,160
+as an Elliot.
+
+115
+00:10:32,160 --> 00:10:37,870
+So ICL was the parent company of that stuff.
+
+116
+00:10:37,870 --> 00:10:46,330
+Let me find where I was in my notes.
+
+117
+00:10:46,330 --> 00:10:51,200
+The Elliot -- oh, I'm not there yet.
+
+118
+00:10:51,200 --> 00:10:57,970
+So the code was written in Fortran, which
+they talk about in the paper, as well.
+
+119
+00:10:57,970 --> 00:11:03,690
+And I was hoping I would find Fortran snippets
+in this archival treasure trove.
+
+120
+00:11:03,690 --> 00:11:06,890
+Unfortunately I did not, so I'm sorry.
+
+121
+00:11:06,890 --> 00:11:14,690
+I did find some other stuff, so I found a
+description from Russ Cowe who describes technically
+
+122
+00:11:14,690 --> 00:11:25,030
+how he programmed the program, and interestingly
+he also talks about the intricacies of being
+
+123
+00:11:25,030 --> 00:11:33,700
+able to load the PCP7 which was just used
+for the display, so PDP7 in connection with
+
+124
+00:11:33,700 --> 00:11:41,100
+the deck display and some of the stuff was
+interactive and some was not.
+
+125
+00:11:41,100 --> 00:11:46,780
+So it's kind of cool that he goes through
+and describes what all of the initiation variables
+
+126
+00:11:46,780 --> 00:11:52,000
+are and it turns out these are all similar
+to the algorithmic beauty of seashells that
+
+127
+00:11:52,000 --> 00:11:59,380
+came out and so this is all really, really
+early stuff.
+
+128
+00:11:59,380 --> 00:12:09,640
+On stopping the program, the message end of
+program is typed on the PDF teletype and inside
+
+129
+00:12:09,640 --> 00:12:16,400
+the archival notes are these little snippets
+which are ripped-off pages from a drum feed
+
+130
+00:12:16,400 --> 00:12:22,810
+which I assuming were hooked up to the PDP7
+and these are the setup variables for the
+
+131
+00:12:22,810 --> 00:12:30,690
+various runs of the seashell pattern generation
+that they were doing.
+
+132
+00:12:30,690 --> 00:12:41,500
+And they're also noted by hand in pencil on
+the back of images of the deck 340CRT that
+
+133
+00:12:41,500 --> 00:12:42,850
+they used.
+
+134
+00:12:42,850 --> 00:12:48,480
+So this is a picture of the CRT and I think
+-- this isn't in the paper at all, so this
+
+135
+00:12:48,480 --> 00:12:54,550
+-- this is like a pretest one and I'm guessing
+it's not done being generated and those were
+
+136
+00:12:54,550 --> 00:12:56,810
+there are those gaps in it.
+
+137
+00:12:56,810 --> 00:12:59,320
+I'm guessing.
+
+138
+00:12:59,320 --> 00:13:03,950
+Just to give you a little bit of context,
+an Elliot 4130, which was introduced in 1965,
+
+139
+00:13:03,950 --> 00:13:15,420
+the paper was written in 1968, the foreground
+of that is an Elliot 4130, is all those machines
+
+140
+00:13:15,420 --> 00:13:16,420
+there.
+
+141
+00:13:16,420 --> 00:13:18,700
+That is a lot of machine.
+
+142
+00:13:18,700 --> 00:13:22,740
+There were less than 200 built.
+
+143
+00:13:22,740 --> 00:13:28,330
+They were not a super-famous manufacturer,
+they were a British manufacturer, and then
+
+144
+00:13:28,330 --> 00:13:32,980
+they had a PDP7 just hooked up to their display.
+
+145
+00:13:32,980 --> 00:13:39,711
+This PDP7 is actually up and running in Seattle,
+so if you want to get online on a PDP7 you
+
+146
+00:13:39,711 --> 00:13:42,080
+just have to go to the living computer museum
+in Seattle.
+
+147
+00:13:42,080 --> 00:13:44,170
+I am not affiliated with them.
+
+148
+00:13:44,170 --> 00:13:46,210
+They're just awesome.
+
+149
+00:13:46,210 --> 00:13:48,000
+[laughter]
+
+150
+00:13:48,000 --> 00:13:56,760
+What's cool is that this DEC340 that they
+had, which you can see is that circular-looking
+
+151
+00:13:56,760 --> 00:14:07,120
+display, which we heard about peripherally
+in the last talk, was also programmed, so
+
+152
+00:14:07,120 --> 00:14:13,180
+it had its own, yeah, programming parameters,
+just for the display, as well, so if you think
+
+153
+00:14:13,180 --> 00:14:19,450
+working today is difficult, just imagine going
+back and getting paid �10 a week to generally
+
+154
+00:14:19,450 --> 00:14:23,020
+code everything from scratch, just completely
+everything.
+
+155
+00:14:23,020 --> 00:14:24,020
+The whole world.
+
+156
+00:14:24,020 --> 00:14:29,060
+So this is just to put it in context, Ken
+Thompson and Dennis Richie wrote the first
+
+157
+00:14:29,060 --> 00:14:47,750
+Unix kernel on a PDP7 but in 1969 and this was before that and definitely before Unix was spread around everything was programmed in Fortran pretty much in this toolchain that they were using
+
+158
+00:14:47,750 --> 00:14:55,120
+What's cool is that Russell Cowe, the programmer-student
+was also notes in his notes.
+
+159
+00:14:55,130 --> 00:14:56,550
+This is not in the final paper.
+
+160
+00:14:56,550 --> 00:15:01,350
+He says, "it was important to find a reliable
+random number generator."
+
+161
+00:15:01,350 --> 00:15:03,840
+How the times have still not changed.
+
+162
+00:15:03,840 --> 00:15:05,230
+[laughter]
+
+163
+00:15:05,230 --> 00:15:11,990
+The one used was adapted from an algorithm
+in communications with the ICM.
+
+164
+00:15:11,990 --> 00:15:16,750
+A test was carried out to find the frequency
+with which each integer from 1 to 100 was
+
+165
+00:15:16,750 --> 00:15:19,750
+generated and the results considered satisfactory.
+
+166
+00:15:19,750 --> 00:15:26,660
+So we still have the same problems this many
+years later.
+
+167
+00:15:26,660 --> 00:15:31,050
+I like this little note later where he says,
+the resultant displace may be plotted on the
+
+168
+00:15:31,050 --> 00:15:35,630
+Calcomp, but in view of the time required,
+photography is more efficient and I thought,
+
+169
+00:15:35,630 --> 00:15:37,770
+what the hell is the Calcomp?
+
+170
+00:15:37,770 --> 00:15:41,990
+Well, this is the Calcomp.
+
+171
+00:15:41,990 --> 00:15:44,000
+What they probably had was a Calcomp 565.
+
+172
+00:15:44,000 --> 00:15:49,980
+It's a pen plotter.
+
+173
+00:15:49,980 --> 00:15:52,670
+It was also programmed in Fortran.
+
+174
+00:15:52,670 --> 00:16:02,680
+I have a little video to show you.
+
+175
+00:16:02,680 --> 00:16:10,670
+So this is an enthusiast on YouTube who I
+do not know, who has set up a Calcomp 565.
+
+176
+00:16:10,670 --> 00:16:24,670
+I'm going to jump forward a little bit.
+
+177
+00:16:24,670 --> 00:16:34,250
+So yes, I could see how it would be quite
+slow to perhaps output your seashell-generated
+
+178
+00:16:34,250 --> 00:16:35,450
+designs.
+
+179
+00:16:35,450 --> 00:16:42,690
+Come on, draw the curve!
+[laughter]
+
+180
+00:16:42,690 --> 00:16:46,860
+I'm jumping forward here.
+
+181
+00:16:46,860 --> 00:16:50,220
+Yay.
+
+182
+00:16:50,220 --> 00:17:02,500
+So in five minutes, it can plot a sine wave,
+which is pretty cool.
+
+183
+00:17:02,500 --> 00:17:05,230
+[laughter]
+
+184
+00:17:05,230 --> 00:17:06,890
+So that's kind of neat.
+
+185
+00:17:06,890 --> 00:17:12,930
+You don't have to take pictures of slides
+with URLs, because I'll give you a link dump
+
+186
+00:17:12,930 --> 00:17:14,770
+at the very end that has all of them in it.
+
+187
+00:17:14,770 --> 00:17:19,520
+I should have told you that at the beginning,
+sorry if you're wasting your time.
+
+188
+00:17:19,520 --> 00:17:27,690
+But what's cool is that the Calcomp was also
+programmed and has a pretty cool reference
+
+189
+00:17:27,690 --> 00:17:33,480
+documentation, just for programming the Calcomp
+so I can imagine this poor student, Russell
+
+190
+00:17:33,480 --> 00:17:38,200
+Cowe going, oh, my goodness, what have I gotten
+myself into for three months to help this
+
+191
+00:17:38,200 --> 00:17:40,000
+biology professor.
+
+192
+00:17:40,000 --> 00:17:42,720
+But it seems pretty neat.
+
+193
+00:17:42,720 --> 00:17:48,560
+But what's cool is there are various little
+notes that are separated on different little
+
+194
+00:17:48,560 --> 00:17:50,180
+pages here.
+
+195
+00:17:50,180 --> 00:17:59,930
+I like this No. 2 bullet point: 25 or 50 arcs,
+he describes basically what he's written into
+
+196
+00:17:59,930 --> 00:18:09,380
+his code so even though there isn't any of
+the Fortran that survived, you know he definitely
+
+197
+00:18:09,380 --> 00:18:14,680
+describes exactly what's going on and it's
+very, very similar to what's in algorithmic
+
+198
+00:18:14,680 --> 00:18:16,030
+beauty of seashells later.
+
+199
+00:18:16,030 --> 00:18:23,690
+What I also found interesting is that in the
+scanned archival notes, they have similar
+
+200
+00:18:23,690 --> 00:18:27,480
+outputs, but they're not the ones that were
+used in the final paper.
+
+201
+00:18:27,480 --> 00:18:32,940
+None of the ones in the final paper are in
+the notes that I procured.
+
+202
+00:18:32,940 --> 00:18:36,920
+So they must have done quite a few outputs.
+
+203
+00:18:36,920 --> 00:18:44,150
+Here on the left you see the paper, and on
+the right you see a plotted, on the Calcomp,
+
+204
+00:18:44,150 --> 00:18:51,780
+probably took an hour, generated seashell
+design that is drawn out with that funky little
+
+205
+00:18:51,780 --> 00:18:55,750
+plotter, reh-reh!
+
+206
+00:18:55,750 --> 00:19:01,670
+And next year you see one where they changed
+the angles, so these are also different.
+
+207
+00:19:01,670 --> 00:19:08,300
+So I don't know, the original ones have gone
+the way of the dinosaur and they're no longer
+
+208
+00:19:08,300 --> 00:19:14,690
+with us.
+
+209
+00:19:14,690 --> 00:19:19,200
+I'm going to jump a little bit sideways here,
+so I kind of -- I went down this huge rabbit
+
+210
+00:19:19,200 --> 00:19:25,820
+hole with this paper and I was super excited
+about it, but what the heck does it have to
+
+211
+00:19:25,820 --> 00:19:27,500
+do with knitting you're probably wondering.
+
+212
+00:19:27,500 --> 00:19:30,460
+But it has nothing to do with knitting.
+
+213
+00:19:30,460 --> 00:19:34,270
+First I'm going to kind of tell you what a
+knitting machine is.
+
+214
+00:19:34,270 --> 00:19:40,140
+It's a series of -- knitting itself is a series
+of loops that are created from nothing from
+
+215
+00:19:40,140 --> 00:19:46,810
+a raw thread, so a raw yarn, so one single
+thread creates that first row of loops and
+
+216
+00:19:46,810 --> 00:19:51,240
+then the following row gets connected into
+that and then the following row gets connected
+
+217
+00:19:51,240 --> 00:19:57,240
+into the previous row, so the way a knitting
+machine does this is that it has a series
+
+218
+00:19:57,240 --> 00:20:02,610
+of these needles, usually hundreds ever them,
+that grab the loop and pull it through the
+
+219
+00:20:02,610 --> 00:20:06,090
+last loop so you can imagine all lined up.
+
+220
+00:20:06,090 --> 00:20:13,090
+So my machine that I have currently has 699
+needles on the front bed in a 50-inch span
+
+221
+00:20:13,090 --> 00:20:18,750
+and they all do this same action.
+
+222
+00:20:18,750 --> 00:20:23,040
+Because we don't have time for it today and
+I know that people like to hear about the
+
+223
+00:20:23,040 --> 00:20:29,520
+history of carding and Jacquard looms that
+are not knitting machines, I gave a talk about
+
+224
+00:20:29,520 --> 00:20:35,370
+that and you can watch that later.
+
+225
+00:20:35,370 --> 00:20:45,760
+So back to this book, this beautiful book,
+it's -- I've been obsessed with it for a while,
+
+226
+00:20:45,760 --> 00:20:51,830
+so when Zeeshan said I could talk about it,
+I said yeah, let's do it.
+
+227
+00:20:51,830 --> 00:20:57,730
+The way that it works is that -- how many
+of you took partial differential equations?
+
+228
+00:20:57,730 --> 00:20:58,840
+Heh.
+
+229
+00:20:58,840 --> 00:21:00,910
+How many of you hated partial differential
+equations?
+
+230
+00:21:00,910 --> 00:21:01,910
+Me too.
+
+231
+00:21:01,910 --> 00:21:02,910
+I really hated it.
+
+232
+00:21:02,910 --> 00:21:07,140
+I have a math degree and I think I'm just
+allergic to partial differential equations,
+
+233
+00:21:07,140 --> 00:21:12,770
+it turns out these seashells are done with
+partial differential equations.
+
+234
+00:21:12,770 --> 00:21:18,270
+I'm going to spare I I'm not going to put
+any equations up on the slides today, because
+
+235
+00:21:18,270 --> 00:21:32,510
+that's how nice of a mathematician I am and
+it works through what I called a how the pigments
+
+236
+00:21:32,510 --> 00:21:37,940
+are laid down by enzymes along the leading
+edge of the seashell and those are affected
+
+237
+00:21:37,940 --> 00:21:42,660
+by water, they're affected by temperature,
+they're affected by the natural phenomenon
+
+238
+00:21:42,660 --> 00:21:50,840
+that are around as to whether or not a pixel
+or a piece of the seashell gets pigmented
+
+239
+00:21:50,840 --> 00:21:52,000
+or not.
+
+240
+00:21:52,000 --> 00:21:58,830
+And so in the book, they describe this beautifully
+so you're welcome to go get your own copy,
+
+241
+00:21:58,830 --> 00:22:01,120
+because it's a wonderful book.
+
+242
+00:22:01,120 --> 00:22:05,310
+The book also comes with software.
+
+243
+00:22:05,310 --> 00:22:09,050
+This particular revision of the book comes
+with a floppy disc.
+
+244
+00:22:09,050 --> 00:22:10,370
+[laughter]
+
+245
+00:22:10,370 --> 00:22:15,040
+Some later revisions come with a CD ROM and
+I had a version like that, but I lent it out
+
+246
+00:22:15,040 --> 00:22:16,790
+and I currently don't have it.
+
+247
+00:22:16,790 --> 00:22:23,870
+Luckily I copied all the software off the
+CD ROM, so I'm ahead of the curve.
+
+248
+00:22:23,870 --> 00:22:30,900
+The CD ROM contains basic code in the language
+Basic, and
+
+249
+00:22:30,900 --> 00:22:32,530
+[laughter]
+
+250
+00:22:32,530 --> 00:22:38,730
+Unfortunately it doesn't compile in any modern
+or vintage basic compiler that I could find
+
+251
+00:22:38,730 --> 00:22:40,600
+[laughter]
+
+252
+00:22:40,600 --> 00:22:49,370
+And this was in October of 2012, when I was
+primarily so obsessed that I was willing to
+
+253
+00:22:49,370 --> 00:22:54,560
+deal with crying over other people's software.
+
+254
+00:22:54,560 --> 00:23:02,020
+So this is a good five years ago, and all
+I was able to use was the built-in executable
+
+255
+00:23:02,020 --> 00:23:09,510
+that was the already chunked binary, and so
+that runs a program that looks a lot like
+
+256
+00:23:09,510 --> 00:23:20,631
+this, it has the generative imagery that trickles
+down the screen, and then it has the set-up
+
+257
+00:23:20,631 --> 00:23:27,490
+variables, you can kind of turn them on or
+off so in this image I can so you what the
+
+258
+00:23:27,490 --> 00:23:33,361
+initiation variables are, so these are the
+various -- the various parameters you can
+
+259
+00:23:33,361 --> 00:23:38,580
+change for this particular seashell design
+and what's cool about this book is that -- I
+
+260
+00:23:38,580 --> 00:23:45,270
+don't know how many, but over 50 scientifically
+named seashells are modeled so it's not just
+
+261
+00:23:45,270 --> 00:23:53,500
+this particular one, which is Cymbiols vespertilio,
+or the bat volute, which I had never heard
+
+262
+00:23:53,500 --> 00:24:00,380
+of before.
+
+263
+00:24:00,380 --> 00:24:07,921
+So I had to essentially screenshot this static
+image and mux it into something that I could
+
+264
+00:24:07,921 --> 00:24:13,750
+use into my at the time hacked consumer knitting
+machine.
+
+265
+00:24:13,750 --> 00:24:20,330
+So this is the first one I knit from stuff
+I generated from the book back in 2012, so
+
+266
+00:24:20,330 --> 00:24:24,200
+it's a two-color piece of knitting.
+
+267
+00:24:24,200 --> 00:24:30,040
+You can't see this, but the back of this has
+stripes, because my hacked consumer knitting
+
+268
+00:24:30,040 --> 00:24:34,260
+machine had a smart bed and a dumb bed so
+one that's microcontroller controlled where
+
+269
+00:24:34,260 --> 00:24:38,370
+I upgraded the hardware and made it talk to
+a modern computer and a fully mechanical double
+
+270
+00:24:38,370 --> 00:24:44,880
+bed that had a set of levers that you could
+set to checkerboard or stripe and that's about
+
+271
+00:24:44,880 --> 00:24:45,880
+it.
+
+272
+00:24:45,880 --> 00:24:51,910
+So the back, you can't affect the back whereas
+with an industrial machine you can have opposite
+
+273
+00:24:51,910 --> 00:24:54,160
+colors from the back from the front.
+
+274
+00:24:54,160 --> 00:24:59,230
+It's just not possible on a packed consumer
+knitting machine.
+
+275
+00:24:59,230 --> 00:25:01,260
+So I was pretty proud of this.
+
+276
+00:25:01,260 --> 00:25:09,360
+This took me seven hours by hand because the
+machine is a hand crank, so it's hacked but
+
+277
+00:25:09,360 --> 00:25:10,360
+it's not motorized.
+
+278
+00:25:10,360 --> 00:25:11,360
+[laughter]
+
+279
+00:25:11,360 --> 00:25:17,550
+And the last row, so it want bind off, it
+can't do the last row so I knit some waste
+
+280
+00:25:17,550 --> 00:25:23,320
+yarn on the end and you hand-stitch finish
+the end with what is called a sewn tubular
+
+281
+00:25:23,320 --> 00:25:24,320
+bind off.
+
+282
+00:25:24,320 --> 00:25:26,830
+Any knitters in the house?
+
+283
+00:25:26,830 --> 00:25:36,700
+It's really if I hadly especially at the stitch
+density and I made a second one, this is the
+
+284
+00:25:36,700 --> 00:25:43,360
+second one modeled by a friend of mine and
+I was really excited about it.
+
+285
+00:25:43,360 --> 00:25:49,350
+I was ecstatic but it, but I couldn't sell
+these as a product or make them for anyone,
+
+286
+00:25:49,350 --> 00:25:54,770
+because they were so time-consuming, so the
+machine I had hacked was from 1981, it expected
+
+287
+00:25:54,770 --> 00:26:00,400
+a floppy drive and it had a maximum pixel
+memory space of 200X66 pixels, the needle
+
+288
+00:26:00,400 --> 00:26:08,370
+bed is 200 long so that image got sliced into
+7 chunks of 66 pixels or less to be able to
+
+289
+00:26:08,370 --> 00:26:13,500
+fit into the memory size and then I had to
+knit them backwards and make sure to load
+
+290
+00:26:13,500 --> 00:26:17,200
+in the images in the right order.
+
+291
+00:26:17,200 --> 00:26:23,570
+So part of that was being able to hack the
+button matrix on the machine itself and adding
+
+292
+00:26:23,570 --> 00:26:29,740
+basically an Arduino that could control the
+-- press the buttons for me to make sure that
+
+293
+00:26:29,740 --> 00:26:36,520
+I loaded things in the right order and this
+all came about because of a project that I
+
+294
+00:26:36,520 --> 00:26:47,420
+did with Travis good Speed and aren in Amsterdam
+called multi-threaded banjo dinosaur knitting
+
+295
+00:26:47,420 --> 00:26:56,250
+to the extreme which is very Googlable.
+
+296
+00:26:56,250 --> 00:27:01,010
+But if you want to go down this road, so say
+you get inspired today and you want your own
+
+297
+00:27:01,010 --> 00:27:05,770
+hacked consumer machine, I don't recommend
+going the way I did, because now there are
+
+298
+00:27:05,770 --> 00:27:12,550
+many open source projects that target '80s
+consumer knitting machines and the one you
+
+299
+00:27:12,550 --> 00:27:29,160
+should get are evil math science labs A and
+a lot and the model you should get is the
+
+300
+00:27:29,160 --> 00:27:30,400
+KH910.
+
+301
+00:27:30,400 --> 00:27:34,140
+Don't change the needles until you change
+the sponge bar and if you don't know what
+
+302
+00:27:34,140 --> 00:27:38,870
+that is, that's fine, you can ask me later.
+
+303
+00:27:38,870 --> 00:27:48,420
+So I was super-excited with this, even though
+it was super-cloogey and I couldn't even determine
+
+304
+00:27:48,420 --> 00:27:55,429
+how wide the generation was, it was a fixed
+pixel width that was baked into that baked
+
+305
+00:27:55,429 --> 00:28:03,150
+in Basic and I was still super-stoked with
+this, because I had outputs, and this was
+
+306
+00:28:03,150 --> 00:28:08,870
+my dream to be able to have generative outputs,
+so these are three different generations,
+
+307
+00:28:08,870 --> 00:28:14,950
+even with the same starting row, so the same
+initial starting row but different conditions,
+
+308
+00:28:14,950 --> 00:28:22,360
+and a pseudorandom generator baked in means
+that you get a different output every time
+
+309
+00:28:22,360 --> 00:28:26,320
+and you don't get repetition in length so
+you could make these as long as you wanted
+
+310
+00:28:26,320 --> 00:28:33,850
+as long as you had endless yarn, you could
+just knit forever and it would never repeat
+
+311
+00:28:33,850 --> 00:28:37,940
+and they're' all different but they look similar
+and it made me very happy.
+
+312
+00:28:37,940 --> 00:28:45,400
+What else did I want to say about this?
+
+313
+00:28:45,400 --> 00:28:47,059
+That's it.
+
+314
+00:28:47,059 --> 00:28:50,340
+So that's what I wanted to say about that.
+
+315
+00:28:50,340 --> 00:28:58,840
+Fast forward to two and a half years ago,
+I got one of these.
+
+316
+00:28:58,840 --> 00:29:03,880
+So I want to specifically thank all of my
+Kickstarter backers who stuck with me in the
+
+317
+00:29:03,880 --> 00:29:06,970
+long haul, because two and a half years is
+a really long time.
+
+318
+00:29:06,970 --> 00:29:11,090
+In Kickstarter years it's not a long time,
+but it seems like an eternity to me so thank
+
+319
+00:29:11,090 --> 00:29:24,210
+you for cheering me along in this folly of
+a pursuit to make one-off generated knitwear.
+
+320
+00:29:24,210 --> 00:29:32,010
+In 2016 I received this, this is in Seattle
+which is where I live and will be living because
+
+321
+00:29:32,010 --> 00:29:37,800
+I now have a 2800-pound industrial knitting
+machine.
+
+322
+00:29:37,800 --> 00:29:40,690
+[laughter]
+
+323
+00:29:40,690 --> 00:29:48,860
+This is a CMS530 HP7.2 gauge industrial knitting
+machine.
+
+324
+00:29:48,860 --> 00:29:56,420
+It is a 2009 model so it's a used machine
+from Stohl, a German company.
+
+325
+00:29:56,420 --> 00:30:03,340
+There are two companies Stohl and Shima Seiki  that have about 90% of the flat industrial knitting market so it was either this one or the other one
+
+326
+00:30:03,400 --> 00:30:05,040
+I chose correctly
+
+327
+00:30:05,040 --> 00:30:13,480
+I bought it sight unseen and I trained for two months in the south of Germany.
+
+328
+00:30:13,480 --> 00:30:17,700
+It's in German, because the English class
+was full.
+
+329
+00:30:17,700 --> 00:30:24,700
+I was quite motivated. Its been quite the journey.
+
+330
+00:30:24,710 --> 00:30:29,590
+This is what it looks like knitting and sounds
+like.
+
+331
+00:30:29,590 --> 00:30:31,400
+Little snippet.
+
+332
+00:30:31,400 --> 00:30:39,420
+That of course is a rule 110 scarf, so this
+has nothing to do with seashells.
+
+333
+00:30:39,420 --> 00:30:43,610
+How many of you know why rule 110 is important?
+
+334
+00:30:43,610 --> 00:30:45,450
+Some people.
+
+335
+00:30:45,450 --> 00:30:50,960
+It's the only rule of the elementary cellular
+automata, which is this group of one dimensional cellular automata
+
+336
+00:30:50,960 --> 00:30:54,950
+That has been proven to be Turing complete
+
+337
+00:30:54,950 --> 00:31:04,260
+And that was the other paper I was going to
+talk about today. Matt Cook's paper on Turing completeness of Rule 110 you should read it
+
+338
+00:31:04,260 --> 00:31:11,800
+It's 40 pages of awesomeness and what's cool
+is that he proved that these forms that move
+
+339
+00:31:11,810 --> 00:31:16,210
+across the background when they cross then
+you have enough building blocks to build a
+
+340
+00:31:16,210 --> 00:31:21,540
+universal computer. The image itself is complex enough to compute.
+
+341
+00:31:21,540 --> 00:31:26,500
+So you could have a Turing complete scarf or
+wrap.
+
+342
+00:31:26,500 --> 00:31:30,150
+Because why not?
+
+343
+00:31:31,370 --> 00:31:40,370
+Back to the algorithmic beauty of seashells,
+the book that we were talking about, the I
+
+344
+00:31:40,370 --> 00:31:47,170
+generated -- I was super into this particular
+pattern from Clithon, oualaniense, I can't
+
+345
+00:31:47,170 --> 00:31:50,160
+pronounce Latin names.
+
+346
+00:31:50,160 --> 00:32:00,420
+Which is a seashell. So if you can see the pattern on the seashell it looks like sharks teeth but its the pattern on the shell
+
+347
+00:32:00,420 --> 00:32:05,309
+It's hard to explain to people without having
+the actual seashell in front of them, so these
+
+348
+00:32:05,309 --> 00:32:14,460
+are some of the generations I did with the
+built-in baked-in code. These are from Oct 2012
+
+349
+00:32:14,460 --> 00:32:22,910
+I wasn't able to knit these because there
+are three-color images and not 2 color images like the other ones now that I have
+
+350
+00:32:22,910 --> 00:32:35,860
+a three-system industrial knitting machine,
+I can knit that.
+
+351
+00:32:35,860 --> 00:32:38,480
+That is how my office sounds every day.
+
+352
+00:32:38,480 --> 00:32:39,660
+[laughter]
+
+353
+00:32:39,660 --> 00:32:42,350
+Much louder, so I usually have headphones
+in.
+
+354
+00:32:42,350 --> 00:32:46,140
+If you come visit me, knock loudly on the
+door or wave your arms so that I know that
+
+355
+00:32:46,140 --> 00:32:49,860
+you're there.
+
+356
+00:32:49,860 --> 00:32:52,860
+I now cohab itate with a 3,000-pound industrial
+machine.
+
+357
+00:32:52,860 --> 00:32:54,190
+I'm a factory of one.
+
+358
+00:32:54,190 --> 00:33:03,040
+It's just me and the machine, but I'm able
+to produce these seashell, generative seashell
+
+359
+00:33:03,040 --> 00:33:05,160
+knit wear.
+
+360
+00:33:05,260 --> 00:33:07,140
+These are blankets.
+
+361
+00:33:07,260 --> 00:33:08,180
+These are two different outputs.
+
+362
+00:33:08,240 --> 00:33:09,120
+Three different outputs.
+
+363
+00:33:09,340 --> 00:33:18,560
+The back when you have to choose, when you have two colors knitting
+
+364
+00:33:19,500 --> 00:33:20,580
+Who's hand knitters here?
+
+365
+00:33:20,580 --> 00:33:24,700
+OK, who knows what double knitting is?
+
+366
+00:33:24,700 --> 00:33:28,160
+Double knitting is when you have the opposite
+colors on the back from the front and you
+
+367
+00:33:28,160 --> 00:33:34,160
+have apparently knit stitches to both sides
+so you have a non-curling fabric.
+
+368
+00:33:34,160 --> 00:33:36,070
+Knitting machines do that really well.
+
+369
+00:33:36,070 --> 00:33:40,020
+It's kind of a fiddly, time-consuming thing
+that you follow a chart by hand, it's not
+
+370
+00:33:40,020 --> 00:33:47,200
+my favorite hand knitting, I like doing Estonian
+lace and weird things like that but in machine
+
+371
+00:33:47,200 --> 00:33:55,040
+knitting it turns out to be very easy
+so you have this reversible non-curling fabric smooth on both
+
+372
+00:33:55,180 --> 00:34:02,480
+sides, it almost comes out of the machine
+like that, it comes out with some waste yarns
+
+373
+00:34:02,480 --> 00:34:08,620
+and some threads I have to sew in but its fully reversible when you have 2 colors and that's a property of knitting.
+
+374
+00:34:08,620 --> 00:34:12,659
+When you have you move up to three colors
+you have to decide what to do on the back
+
+375
+00:34:12,659 --> 00:34:14,290
+and so this is one of the in-fills.
+
+376
+00:34:14,290 --> 00:34:17,359
+You can't really tell because it's not super
+up close.
+
+377
+00:34:17,359 --> 00:34:27,040
+But its a sort of checkerboard infill of the two colors
+so when you have green on the front side,
+
+378
+00:34:27,040 --> 00:34:31,830
+on the back you have a checker board of
+black and white.
+
+379
+00:34:31,830 --> 00:34:36,260
+This is important because I have a three-system
+machine, which means it can do three operations
+
+380
+00:34:36,260 --> 00:34:37,260
+in one pass.
+
+381
+00:34:37,260 --> 00:34:41,960
+I bet you never thought that knitting machines
+were this computationally interesting.
+
+382
+00:34:41,960 --> 00:34:47,730
+It can do three operations in one pass, so
+when you move to four, five, or six colors,
+
+383
+00:34:47,730 --> 00:34:50,810
+those take the same amount of time as each
+other, but they take double the amount of
+
+384
+00:34:50,810 --> 00:34:53,130
+time as one, two, or three colors.
+
+385
+00:34:53,130 --> 00:34:58,670
+When you're talking about double edged Jacquard,
+which is what double knitting is called in
+
+386
+00:34:58,670 --> 00:35:03,240
+machine-knitting parlance.
+
+387
+00:35:03,240 --> 00:35:09,160
+If you can see there are some problems with
+the resolution.
+
+388
+00:35:09,160 --> 00:35:12,230
+If you get up close here, how up close do
+I get?
+
+389
+00:35:12,230 --> 00:35:21,960
+Very up close, you can see here that there's
+parts where it looks like it's overly pixelated
+
+390
+00:35:21,960 --> 00:35:26,330
+where you know, a square of four knit stitches
+is one pixel and then there are some spots
+
+391
+00:35:26,330 --> 00:35:35,370
+where it's one pixel to one knit stitch, so
+this is a problem where I couldn't get the
+
+392
+00:35:35,370 --> 00:35:41,240
+exact data out of the algorithmic beauty of
+seashells, because I'm screenshotting images
+
+393
+00:35:41,240 --> 00:35:47,480
+that are in a fixed width that is not
+pixel-matching to what I'm doing on the knitting
+
+394
+00:35:47,480 --> 00:35:48,480
+machine.
+
+395
+00:35:48,480 --> 00:35:49,700
+So that's the crux of my problem.
+
+396
+00:35:49,700 --> 00:35:56,060
+It took me a little while to get around to
+it, but now you understand my problem.
+
+397
+00:35:56,060 --> 00:35:57,820
+It turns out I'm not alone.
+
+398
+00:35:57,820 --> 00:36:04,830
+I'm not the only one obsessed with seashell
+generation in 2017.
+
+399
+00:36:04,830 --> 00:36:06,020
+I feel much better about it.
+
+400
+00:36:06,020 --> 00:36:07,540
+Because I was really worried.
+
+401
+00:36:07,540 --> 00:36:12,170
+But it might be a condition that I should
+have checked out.
+
+402
+00:36:12,170 --> 00:36:24,310
+Francesco de Comite has published a few papers
+on this, because he is interested in 3D printing
+
+403
+00:36:24,310 --> 00:36:28,630
+seashells that are generated with the patterns
+on them.
+
+404
+00:36:28,630 --> 00:36:35,830
+So those are 3D printed with the patterns
+generated, and the 3D shape is also generated
+
+405
+00:36:35,830 --> 00:36:40,590
+and it's all 3D print on the 3D printer which
+is pretty amazing.
+
+406
+00:36:40,590 --> 00:36:47,700
+What's cool about it is he mentions programming
+a sea Shell is not complicated.
+
+407
+00:36:47,700 --> 00:36:53,300
+It requires only some 300 lines of Python
+program and I was like what?
+
+408
+00:36:53,300 --> 00:36:57,400
+What about this baked-in Basic code.
+
+409
+00:36:57,400 --> 00:37:05,990
+It turns out that Francesco has shared some
+of his code with me and that is what I'm going
+
+410
+00:37:05,990 --> 00:37:07,840
+to be working with in the future.
+
+411
+00:37:07,840 --> 00:37:15,900
+So these are all of the links from the talk
+from today and you can take a picture of this slide
+
+412
+00:37:15,900 --> 00:37:18,440
+code because this is not linked but all of
+the other links from this talk are linked
+
+413
+00:37:18,440 --> 00:37:21,860
+including some of the things that I liked
+to ...
+
+414
+00:37:22,200 --> 00:37:26,040
+And this is where you can contact me, which
+is pretty much everywhere, and these are snapshots,
+
+415
+00:37:26,200 --> 00:37:30,300
+Thank you so much!
