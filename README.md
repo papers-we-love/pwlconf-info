@@ -1,19 +1,18 @@
-# PWLConf 2017
+# PWLConf 2018
 
-<img src="assets/pwlconf-2017@2x.png" title="PWLConf 2017 logo" align="right" width="300px" height="300px" />
+<img src="assets/pwl_conf_2018_logo_b.svg" title="PWLConf 2018 logo" align="right" width="300px" height="300px" />
 
 
-The second annual PWLConf took place on September 28, 2017 in St. Louis, MO, co-located with [Strange Loop](https://thestrangeloop.com). Each talk was recorded and captioned. We've assembled all of the available materials here as an archive. Each speaker has an entry in the repo which contains the abstract for their talk, the video, and slide decks if available.
+The third annual PWLConf took place on September 26, 2017 in St. Louis, MO, co-located with [Strange Loop](https://thestrangeloop.com). Each talk was recorded and captioned. We've assembled all of the available materials here as an archive. Each speaker has an entry in the repo which contains the abstract for their talk, the video, and slide decks if available.
 
-### 2017 Speakers / Talks
+### 2018 Speakers / Talks
 
-- [**Kenichi Asai** / Delimited Continuations for Everyone](https://github.com/papers-we-love/pwlconf-info/tree/master/2017/kenichi-asai)
-- [**Elaine Chew** / Decoding the Sensuality in Music](https://github.com/papers-we-love/pwlconf-info/tree/master/2017/elaine-chew)
-- [**James Long** / My History with Papers](https://github.com/papers-we-love/pwlconf-info/tree/master/2017/james-long)
-- [**Ronald Garcia** / What type of thing is a type?](https://github.com/papers-we-love/pwlconf-info/tree/master/2017/ronald-garcia)
-- [**Chas Emerick** / Programming data for display, the PDF Story](https://github.com/papers-we-love/pwlconf-info/tree/master/2017/chas-emerick)
-- [**Fabienne Serrière** / Knittable Seashells](https://github.com/papers-we-love/pwlconf-info/tree/master/2017/fabienne-serrière)
-- [**Heather Miller** / What happened to distributed programming languages?](https://github.com/papers-we-love/pwlconf-info/tree/master/2017/heather-miller)
+- [**Roopsha Samanta** / Computer-aided Concurrent Programming](https://github.com/papers-we-love/pwlconf-info/tree/master/2018/roopsha-samanta)
+- [**Frank Pfenning** / A Rehabilitation of Message-Passing Concurrency](https://github.com/papers-we-love/pwlconf-info/tree/master/2018/frank-pfenning)
+- [**Ari Schlesinger** / Including Equity in Tech Work](https://github.com/papers-we-love/pwlconf-info/tree/master/2018/ari-schlesinger)
+- [**Casey Canfield** / The Future of the Grid: Policy, Technology, and Market Change](https://github.com/papers-we-love/pwlconf-info/tree/master/2018/casey-canfield)
+- [**Heidy Khlaaf** / Standards We Love](https://github.com/papers-we-love/pwlconf-info/tree/master/2018/heidy-khlaad)
+- [**Dan Piponi** / Stable Fluids](https://github.com/papers-we-love/pwlconf-info/tree/master/2018/dan-piponi)
 
 ### Papers We Love
 
