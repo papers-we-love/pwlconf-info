@@ -1,4 +1,4 @@
-# PWLConf 2018
+# [PWLConf 2018](https://pwlconf.org)
 
 The third annual PWLConf took place on September 26, 2018 in St. Louis, MO, co-located with [Strange Loop](https://thestrangeloop.com). Each talk was recorded and captioned. We've assembled all of the available materials here as an archive. Each speaker has an entry in the repo which contains the abstract for their talk, the video, and slide decks if available.
 
